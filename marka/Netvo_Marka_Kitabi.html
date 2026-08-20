@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Netvo — Marka Kitabı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A0A0A;--paper:#FAF9F7;--muted:#6b6b6b;--line:#E6E5E1;--kept:#0A7A43;--keptbr:#34C27A;--est:#B4841E;--ded:#B42318;
+ --serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box}body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 32px}
+.sec{padding:56px 0;border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+h1{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.0;margin:0}
+h3{font-family:var(--serif);font-weight:600;font-size:26px;letter-spacing:-.01em;margin:0 0 10px}
+p{margin:0 0 12px;max-width:660px}.mut{color:var(--muted)}.sm{font-size:14px}.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.coin{display:inline-block;vertical-align:middle}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{border:1px solid var(--line);border-radius:12px;padding:22px;background:#fff}
+.panel{border:1px solid var(--line);border-radius:12px;padding:28px;background:#fff;display:flex;align-items:center;justify-content:center;min-height:130px}
+.panel.dark{background:var(--ink)}
+.word{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1}
+.lock{display:flex;align-items:center;gap:14px}
+/* cover */
+.cover{padding:72px 0 40px}
+.cover .lock{gap:20px}.cover .word{font-size:64px}
+.tag{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);letter-spacing:-.01em;margin:26px 0 6px;max-width:720px}
+.cat{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+/* explorations */
+.expl{display:flex;align-items:center;gap:14px;flex-direction:column;text-align:center}
+.pick{border:1px solid var(--ink);border-radius:12px}
+.tagpill{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted);margin-top:8px}
+.tagpill.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* swatches */
+.sw{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sw .chip{height:92px}.sw .meta{padding:11px 13px}.sw .meta b{display:block;font-size:14px}.sw .hex{font-family:var(--mono);color:var(--muted);font-size:12px}
+.ratio{display:flex;height:14px;border-radius:7px;overflow:hidden;margin-top:8px}
+/* type */
+.spec{font-family:var(--serif);font-size:44px;letter-spacing:-.01em;line-height:1;margin:6px 0}
+/* do/dont */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.do,.dont{border-radius:12px;padding:18px;font-size:14px}
+.do{background:#EAF6EF;border:1px solid #bfe3cd}.dont{background:#FBECEA;border:1px solid #eecac3}
+.do h4,.dont h4{margin:0 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.do ul,.dont ul{margin:0;padding-left:18px}li{margin:4px 0}
+/* slogan */
+.slo{font-family:var(--serif);font-size:22px;letter-spacing:-.01em;padding:14px 0;border-bottom:1px solid var(--line)}
+.slo:last-child{border-bottom:0}
+/* mockups */
+.appicon{width:104px;height:104px;border-radius:24px;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.avatar{width:84px;height:84px;border-radius:999px;overflow:hidden;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.tab{border:1px solid var(--line);border-radius:10px 10px 0 0;overflow:hidden;max-width:360px}
+.tab .bar{background:#EFEEEA;display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:12px;color:#333}
+.tab .body{background:#fff;height:52px}
+.card2{width:100%;max-width:340px;aspect-ratio:1.75/1;border-radius:12px;background:var(--ink);color:#fff;padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+.card2 .nm{font-weight:600}.card2 .rl{color:rgba(255,255,255,.6);font-size:13px}
+.sign{background:linear-gradient(180deg,#141414,#0A0A0A);border-radius:12px;padding:40px;display:flex;align-items:center;justify-content:center}
+.sig{font-size:13px;color:var(--muted)}.sig b{color:var(--ink)}
+@media(max-width:720px){.grid2,.grid3,.grid4,.dd{grid-template-columns:1fr}.cover .word{font-size:46px}}
+</style></head><body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="coin" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="24" fill="#0A0A0A"/>
+    <circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.24" stroke-width="5"/>
+    <circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/>
+  </symbol>
+  <symbol id="coinRev" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="24" fill="#FAF9F7"/>
+    <circle cx="24" cy="24" r="14.5" fill="none" stroke="#0A0A0A" stroke-opacity="0.18" stroke-width="5"/>
+    <circle cx="24" cy="24" r="14.5" fill="none" stroke="#0A7A43" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/>
+  </symbol>
+  <symbol id="coinMono" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="24" fill="#0A0A0A"/>
+    <circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.28" stroke-width="5"/>
+    <circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/>
+  </symbol>
+</svg>
+
+<div class="wrap">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="lock"><svg class="coin" width="76" height="76"><use href="#coin"/></svg><span class="word">netvo</span></div>
+  <div class="tag">Satıldı. Sana ne kaldı?</div>
+  <div class="cat">Marketplace Profit Intelligence · Marka Kitabı v1</div>
+</div>
+
+<!-- FİKİR -->
+<section class="sec">
+  <p class="eyebrow">01 — Marka Fikri</p>
+  <h1 style="font-size:clamp(28px,4vw,40px);max-width:820px">Sattığını herkes görür. <span style="color:var(--muted)">Kalanı biz gösteririz.</span></h1>
+  <p style="margin-top:20px">Netvo, e-ticaretin dürüst para katmanıdır. İlan edilen komisyonu değil; vergi, kargo ve tüm kesintilerden sonra bir satıştan cebine gerçekten ne kaldığını, <b>kaynağı ve tarihiyle</b> gösterir. Kimsenin tarafında değiliz — sadece senin rakamının.</p>
+</section>
+
+<!-- LOGO KEŞİFLERİ -->
+<section class="sec">
+  <p class="eyebrow">02 — Logo · Keşifler</p>
+  <p class="mut">Üç yön denedik. Hepsi markanın tek fikrini taşır: <b>bütünün içinde sana kalan pay.</b> Seçilen yön en ikonik, en ölçeklenebilir ve en anlamlı olan.</p>
+  <div class="grid3" style="margin-top:18px">
+    <div class="panel"><div class="expl">
+      <svg width="60" height="60" viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#0A0A0A"/><rect x="11" y="17" width="26" height="5.5" rx="2.75" fill="#FAF9F7" opacity="0.5"/><rect x="11" y="25.5" width="15" height="5.5" rx="2.75" fill="#34C27A"/></svg>
+      <span class="tagpill">Yön A · Gap barları</span>
+    </div></div>
+    <div class="panel"><div class="expl">
+      <svg width="60" height="60" viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#0A0A0A"/><path d="M17 32 V19 a4 4 0 0 1 8 0 V27" fill="none" stroke="#FAF9F7" stroke-width="4.4" stroke-linecap="round"/><rect x="27.5" y="27.5" width="5" height="5" rx="1.6" fill="#34C27A"/></svg>
+      <span class="tagpill">Yön B · "n" + kesinti noktası</span>
+    </div></div>
+    <div class="panel pick"><div class="expl">
+      <svg class="coin" width="60" height="60"><use href="#coin"/></svg>
+      <span class="tagpill on">Yön C · Kept Coin ✓ seçildi</span>
+    </div></div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Neden "Kept Coin"</h3>
+    <p class="sm">Daire = madeni para = <b>değer, güven, para</b> (fintech dilinin evrensel işareti). Soluk halka = satışın tümü. Yeşil yay = <b>senin payın</b> — "sana ne kaldı"nın birebir görsel karşılığı. 16px favicon'da bile okunur, tek renge indirgenebilir, kelime olmadan da markayı taşır. Bir sembol bundan fazlasını yapamaz: anlamlı, ikonik, sahiplenilebilir.</p>
+  </div>
+</section>
+
+<!-- İNŞA -->
+<section class="sec">
+  <p class="eyebrow">03 — İnşa & Oran</p>
+  <div class="grid2">
+    <div class="panel" style="min-height:200px">
+      <svg width="180" height="180" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="24" fill="#0A0A0A"/>
+        <circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.24" stroke-width="5"/>
+        <circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/>
+        <circle cx="24" cy="24" r="14.5" fill="none" stroke="#66E0A0" stroke-width="0.3" stroke-dasharray="1 2" opacity="0.6"/>
+        <line x1="24" y1="2" x2="24" y2="46" stroke="#66E0A0" stroke-width="0.3" opacity="0.5"/>
+        <line x1="2" y1="24" x2="46" y2="24" stroke="#66E0A0" stroke-width="0.3" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+      <h3>Geometri</h3>
+      <p class="sm mut">Dış daire çapı <b class="mono">1×</b>. İç halka çapı <b class="mono">0.60×</b>, kalınlık <b class="mono">0.10×</b>. Yeşil yay <b class="mono">115°</b> (bütünün ~%32'si) ve alta ortalanır (33° döndürme). Yay uçları yuvarlak. Bu oranlar sabittir — logo yeniden çizilmez, ölçeklenir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VARYASYONLAR -->
+<section class="sec">
+  <p class="eyebrow">04 — Kilit & Varyasyonlar</p>
+  <div class="grid2">
+    <div class="panel"><div class="lock"><svg class="coin" width="44" height="44"><use href="#coin"/></svg><span class="word" style="font-size:34px">netvo</span></div></div>
+    <div class="panel dark"><div class="lock"><svg class="coin" width="44" height="44"><use href="#coinMono"/></svg><span class="word" style="font-size:34px;color:#fff">netvo</span></div></div>
+  </div>
+  <div class="grid4" style="margin-top:14px">
+    <div class="panel"><svg class="coin" width="52" height="52"><use href="#coin"/></svg></div>
+    <div class="panel dark"><svg class="coin" width="52" height="52"><use href="#coinMono"/></svg></div>
+    <div class="panel"><svg class="coin" width="52" height="52"><use href="#coinRev"/></svg></div>
+    <div class="panel"><div style="text-align:center"><div class="word" style="font-size:30px">netvo</div><div class="mono sm mut" style="margin-top:4px">yalnız kelime</div></div></div>
+  </div>
+  <div class="dd" style="margin-top:16px">
+    <div class="do"><h4>Yap</h4><ul><li>Mark + küçük harf serif "netvo" kilidini koru</li><li>Tek renge indir (siyah ya da beyaz)</li><li>Yeşili yalnız yayda kullan</li></ul></div>
+    <div class="dont"><h4>Yapma</h4><ul><li>Büyük harf, farklı font, italik</li><li>Yayı döndürme, oranı bozma, gölge/degrade</li><li>Kalabalık zemine markasız koyma</li></ul></div>
+  </div>
+</section>
+
+<!-- RENK -->
+<section class="sec">
+  <p class="eyebrow">05 — Renk Hikayesi</p>
+  <div class="grid3">
+    <div class="sw"><div class="chip" style="background:#0A0A0A"></div><div class="meta"><b>Ink</b><span class="hex">#0A0A0A</span><div class="sm mut">Ana · metin, mark, buton</div></div></div>
+    <div class="sw"><div class="chip" style="background:#FAF9F7;border-bottom:1px solid var(--line)"></div><div class="meta"><b>Paper</b><span class="hex">#FAF9F7</span><div class="sm mut">Zemin</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0A7A43"></div><div class="meta"><b>Kept Green</b><span class="hex">#0A7A43</span><div class="sm mut">İmza · "sana kalan"</div></div></div>
+  </div>
+  <div class="grid3" style="margin-top:14px">
+    <div class="sw"><div class="chip" style="background:#6b6b6b;height:64px"></div><div class="meta"><b>Muted</b> <span class="hex">#6B6B6B</span></div></div>
+    <div class="sw"><div class="chip" style="background:#B4841E;height:64px"></div><div class="meta"><b>Estimate Amber</b> <span class="hex">#B4841E</span></div></div>
+    <div class="sw"><div class="chip" style="background:#B42318;height:64px"></div><div class="meta"><b>Deduction Red</b> <span class="hex">#B42318</span></div></div>
+  </div>
+  <p class="sm mut" style="margin-top:14px">Denge (yaklaşık): Ink+Paper %85, Kept Green %10 (yalnız olumlu vurgu), işlevsel amber/kırmızı %5. Yeşil ödüldür — her yere serpilmez.</p>
+  <div class="ratio"><span style="flex:60;background:#0A0A0A"></span><span style="flex:25;background:#FAF9F7;border:1px solid var(--line)"></span><span style="flex:10;background:#0A7A43"></span><span style="flex:5;background:#B4841E"></span></div>
+</section>
+
+<!-- TİPOGRAFİ -->
+<section class="sec">
+  <p class="eyebrow">06 — Tipografi</p>
+  <div class="grid3">
+    <div class="card"><div class="mono sm mut">Display</div><div class="spec">Fraunces</div><div class="sm mut">Serif · 500/600 · manşet, kelime markası</div></div>
+    <div class="card"><div class="mono sm mut">Metin</div><div class="spec" style="font-family:var(--sans);font-weight:600">Inter</div><div class="sm mut">Sans · gövde, arayüz</div></div>
+    <div class="card"><div class="mono sm mut">Sayı</div><div class="spec mono" style="font-size:34px">%18,5</div><div class="sm mut">JetBrains Mono · oran, para, tablo</div></div>
+  </div>
+  <p class="sm mut" style="margin-top:14px">Sayılar her zaman mono ve hizalı. Rakamın sabit durması = güvenin görsel karşılığı.</p>
+</section>
+
+<!-- SLOGAN SİSTEMİ -->
+<section class="sec">
+  <p class="eyebrow">07 — Sözlü Kimlik & Slogan Sistemi</p>
+  <div class="grid2">
+    <div>
+      <div class="mono sm mut">Ana slogan</div>
+      <div class="slo" style="font-size:30px">Satıldı. Sana ne kaldı?</div>
+      <div class="mono sm mut" style="margin-top:16px">Kategori tanımı</div>
+      <div class="slo">Marketplace Profit Intelligence</div>
+      <div class="mono sm mut" style="margin-top:16px">Manifesto (tek cümle)</div>
+      <div class="slo">İlan edilen orana değil, cebine kalana bak.</div>
+    </div>
+    <div>
+      <div class="mono sm mut">Kampanya satırları</div>
+      <div class="slo">Komisyon oranı, satışın maliyeti değildir.</div>
+      <div class="slo">Her oranın bir kaynağı, bir tarihi var.</div>
+      <div class="slo">Sattığını herkes görür. Kalanı biz gösteririz.</div>
+      <div class="slo">Tahminse "tahmin" deriz.</div>
+    </div>
+  </div>
+  <p class="sm mut" style="margin-top:14px">Ton: sakin, kesin, kaynaklı. Kısa cümle. Övünme yok, "lider/en iyi" yok. Sayıyı söyle, kaynağı göster.</p>
+</section>
+
+<!-- UYGULAMALAR -->
+<section class="sec">
+  <p class="eyebrow">08 — Uygulamalar</p>
+  <div class="grid3">
+    <div class="card" style="text-align:center"><div class="mono sm mut" style="margin-bottom:14px">App ikonu</div><div style="display:flex;justify-content:center"><div class="appicon"><svg class="coin" width="66" height="66"><use href="#coinMono"/></svg></div></div></div>
+    <div class="card" style="text-align:center"><div class="mono sm mut" style="margin-bottom:14px">Sosyal avatar</div><div style="display:flex;justify-content:center"><div class="avatar"><svg class="coin" width="60" height="60"><use href="#coinMono"/></svg></div></div></div>
+    <div class="card"><div class="mono sm mut" style="margin-bottom:14px">Tarayıcı sekmesi</div>
+      <div class="tab"><div class="bar"><svg width="15" height="15"><use href="#coin"/></svg> Netvo — Sana ne kaldı?</div><div class="body"></div></div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card"><div class="mono sm mut" style="margin-bottom:14px">Kartvizit</div>
+      <div class="card2">
+        <div class="lock"><svg class="coin" width="30" height="30"><use href="#coinMono"/></svg><span class="word" style="color:#fff;font-size:24px">netvo</span></div>
+        <div><div class="nm">Fırat Aydın</div><div class="rl">Kurucu · founder</div><div class="rl" style="margin-top:6px;font-family:var(--serif);color:rgba(255,255,255,.85)">Satıldı. Sana ne kaldı?</div></div>
+      </div>
+    </div>
+    <div class="card"><div class="mono sm mut" style="margin-bottom:14px">E-posta imzası</div>
+      <div class="sig" style="padding:6px 0">
+        <div class="lock" style="gap:10px"><svg class="coin" width="34" height="34"><use href="#coin"/></svg>
+          <div><b>Fırat Aydın</b> · Netvo<br><span class="mut">Marketplace Profit Intelligence · netvo.co</span></div>
+        </div>
+      </div>
+      <div class="mono sm mut" style="margin-top:18px">Tabela / stand</div>
+      <div class="sign" style="margin-top:8px"><div class="lock"><svg class="coin" width="30" height="30"><use href="#coinMono"/></svg><span class="word" style="color:#fff;font-size:26px">netvo</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="sec" style="padding:28px 0;color:var(--muted);font-size:13px">© 2026 Netvo · Marketplace Profit Intelligence · Marka Kitabı v1</div>
+
+</div>
+</body></html>

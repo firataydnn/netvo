@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Netvo — hızlı kâr hesabı</title>
+<style>
+:root{--ink:#0A0A0A;--muted:#6b6b6b;--line:#E3E3DF;--green:#0A7A43;--r:8px}
+*{box-sizing:border-box}body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);font-size:14px}
+.w{border:1px solid var(--line);border-radius:var(--r);padding:16px;max-width:360px}
+.t{font-weight:700;font-size:15px;margin:0 0 2px}.s{color:var(--muted);font-size:12px;margin:0 0 12px}
+label{display:block;font-size:12px;color:var(--muted);margin:8px 0 3px}
+select,input{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:inherit}
+.row{display:flex;gap:8px}.row>div{flex:1}
+.out{margin-top:12px;padding:12px;border:1px solid var(--ink);border-radius:6px}
+.net{font-size:24px;font-weight:800;color:var(--green);line-height:1}
+.net.neg{color:#B42318}.lab{font-size:12px;color:var(--muted);margin-top:3px}
+.cta{display:block;text-align:center;margin-top:10px;background:var(--ink);color:#fff;text-decoration:none;padding:10px;border-radius:6px;font-weight:600;font-size:13px}
+.pb{text-align:center;margin-top:8px;font-size:11px;color:var(--muted)}.pb a{color:var(--muted)}
+</style></head><body>
+<div class="w">
+  <p class="t">Bu satıştan sana ne kalır?</p>
+  <p class="s">Komisyon + KDV sonrası net — kaynaklı veriyle.</p>
+  <label for="mk">Pazaryeri</label><select id="mk"></select>
+  <div class="row">
+    <div><label for="p">Satış fiyatı</label><input id="p" type="number" min="0" value="349"></div>
+    <div><label for="c">Ürün maliyeti</label><input id="c" type="number" min="0" value="140"></div>
+  </div>
+  <div class="out">
+    <div id="net" class="net">—</div>
+    <div id="lab" class="lab"></div>
+  </div>
+  <a class="cta" id="cta" href="https://netvo.co/" target="_blank" rel="noopener">Kargo, reklam, iadeyle tam hesapla →</a>
+  <div class="pb">Veri: <a href="https://netvo.co/" target="_blank" rel="noopener"><b>Netvo</b></a> · kaynaklı & tarihli</div>
+</div>
+<script>
+var BASE="https://netvo.co";
+var DATA=[];
+function fmt(n,cur){try{return cur+n.toLocaleString('tr-TR',{maximumFractionDigits:2});}catch(e){return cur+n.toFixed(2);}}
+function calc(){
+  var m=DATA.find(function(x){return x.k===document.getElementById('mk').value;}); if(!m)return;
+  var S=+document.getElementById('p').value||0, M=+document.getElementById('c').value||0;
+  var ov=(m.vat||0)/100, Snet=ov>0?S/(1+ov):S, Mnet=ov>0?M/(1+ov):M;
+  var com=(m.base==='net'?Snet:S)*(m.rate/100);
+  var net=ov>0?(Snet-Mnet-com):(S-M-com);
+  var base=ov>0?Snet:S, marj=base>0?net/base*100:0;
+  var e=document.getElementById('net'); e.textContent=fmt(Math.round(net*100)/100,m.cur); e.className='net'+(net<0?' neg':'');
+  document.getElementById('lab').textContent='Sana kalan (yıl sonu vergisi hariç) · %'+marj.toFixed(1)+' marj · ~%'+m.rate+' komisyon';
+  document.getElementById('cta').href=BASE+'/uygula/#/pazaryeri/'+m.k;
+  postHeight();
+}
+function postHeight(){try{parent.postMessage({netvoHeight:document.body.scrollHeight},'*');}catch(e){}}
+function init(list){
+  DATA=list; var sel=document.getElementById('mk');
+  list.forEach(function(x){var o=document.createElement('option');o.value=x.k;o.textContent=x.n;sel.appendChild(o);});
+  sel.value=list[0].k; sel.onchange=calc;
+  document.getElementById('p').oninput=calc; document.getElementById('c').oninput=calc;
+  calc();
+}
+fetch(BASE+'/widget/data.json').then(function(r){return r.json();}).then(init).catch(function(){
+  // yerel/çevrimdışı fallback: birkaç örnek
+  init([{k:'trendyol',n:'Trendyol',rate:19,vat:20,cur:'₺',base:'gross'},{k:'amazonus',n:'Amazon US',rate:15,vat:0,cur:'$',base:'gross'},{k:'etsy',n:'Etsy',rate:6.5,vat:0,cur:'$',base:'gross'}]);
+});
+window.addEventListener('load',postHeight);
+</script></body></html>

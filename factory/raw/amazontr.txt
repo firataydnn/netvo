@@ -1,0 +1,74 @@
+Satış komisyonları
+Amazon Türkiye, satılan ürün başına bir satış komisyonu alır. Satış komisyonları, kategoriye bağlı olarak %6 ile %20 arasında değişmekte olup KDV'ye tabidir.
+Kategori Bazında Satış Komisyonları
+Satıcı, satılan her ürün üzerinden bir satış komisyonu öder. Tüm ürünler için Amazon Türkiye, toplam satış fiyatı üzerinden yüzde olarak hesaplanan komisyonu düşer. Toplam satış fiyatı, ürün fiyatı ve kargo ücretleri dahil olmak üzere, alıcı tarafından ödenen toplam tutardır.
+Satış Komisyonları
+Kategori
+Satış komisyonu (+ KDV)
+Satışa Uygun Kategoriler
+Fotoğraf Makinesi
+%9
+Ev Eğlence Sistemleri
+%11,5
+Cep Telefonu
+%8
+Giyim
+%15,5
+Bilgisayar
+%7
+Elektronik
+%9,5
+Elektronik Aksesuarlar
+%11
+Kişisel Bakım Cihazları
+%13,6
+Yapı Market
+%12,7
+Mutfak Eşyaları ve Dekorasyon
+%15
+Bahçe
+%14
+Mobilya
+%14,5
+Mutfak (Küçük Ev Aletleri)
+%11
+Beyaz Eşyalar
+%7
+Oyuncaklar ve Oyunlar
+%13
+Kitaplar
+%10,2
+Bebek Ürünleri (Giyim hariç)
+%11,5
+Ofis Ürünleri
+%13
+Spor
+%10
+Ayakkabılar, Kol Çantaları ve Ayakkabı Aksesuarları
+%17
+Kol Saatleri
+%15,5
+Bavullar ve Seyahat Aksesuarları
+%16
+Kişisel Bakım ve Kozmetik
+Toplam satış fiyatı 500 TL veya daha düşük olan ürünler için %9, Toplam satış fiyatı 500 TL üzerinde olan ürünler için %14
+Sağlık ve Kişisel Bakım
+%13,5
+Gıda Ürünleri
+Toplam satış fiyatı 500 TL veya daha düşük olan ürünler için %9, Toplam satış fiyatı 500 TL üzerinde olan ürünler için %13
+Video Oyunu Konsolları
+%8,5
+Video Oyunları
+%10
+Otomotiv ve Motosiklet
+%12,5
+Evcil Hayvan Ürünleri
+%13,5
+Takı
+%20 (Toplam satış fiyatı 900 TL veya daha düşükse) %6 (Toplam satış fiyatı 900 TL'den yüksekse)
+Diğer
+%10
+Satış komisyonu tam olarak hangi tutar üzerinden hesaplanır?
+Satış komisyonu, Amazon'un belirlediği kategori bazlı oranlar ve güncel ücretlendirme politikaları üzerinden hesaplanır. Bu hesaplamada, ürünün toplam satış fiyatı esas alınır. Dolayısıyla komisyona esas tutar, ürün bedeli, KDV ve kargo ücreti dahil olmak üzere alıcıdan tahsil edilen tüm bedeldir.
+Aylık üyelik bedeli
+Amazon Türkiye satıcı hesabı aylık sabit üyelik bedeli 99 TL + KDV'dir.

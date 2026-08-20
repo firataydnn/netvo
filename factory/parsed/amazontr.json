@@ -1,0 +1,923 @@
+{
+ "kaynakDosya": "factory/raw/amazontr.txt",
+ "cekildi": "2026-07-17",
+ "kaynakTipi": "metin",
+ "hamSatirSayisi": 34,
+ "tekilSatirSayisi": 34,
+ "hamSatirlar": [
+  {
+   "kat": "Fotoğraf Makinesi",
+   "oran": 9
+  },
+  {
+   "kat": "Ev Eğlence Sistemleri",
+   "oran": 11.5
+  },
+  {
+   "kat": "Cep Telefonu",
+   "oran": 8
+  },
+  {
+   "kat": "Giyim",
+   "oran": 15.5
+  },
+  {
+   "kat": "Bilgisayar",
+   "oran": 7
+  },
+  {
+   "kat": "Elektronik",
+   "oran": 9.5
+  },
+  {
+   "kat": "Elektronik Aksesuarlar",
+   "oran": 11
+  },
+  {
+   "kat": "Kişisel Bakım Cihazları",
+   "oran": 13.6
+  },
+  {
+   "kat": "Yapı Market",
+   "oran": 12.7
+  },
+  {
+   "kat": "Mutfak Eşyaları ve Dekorasyon",
+   "oran": 15
+  },
+  {
+   "kat": "Bahçe",
+   "oran": 14
+  },
+  {
+   "kat": "Mobilya",
+   "oran": 14.5
+  },
+  {
+   "kat": "Mutfak (Küçük Ev Aletleri)",
+   "oran": 11
+  },
+  {
+   "kat": "Beyaz Eşyalar",
+   "oran": 7
+  },
+  {
+   "kat": "Oyuncaklar ve Oyunlar",
+   "oran": 13
+  },
+  {
+   "kat": "Kitaplar",
+   "oran": 10.2
+  },
+  {
+   "kat": "Bebek Ürünleri (Giyim hariç)",
+   "oran": 11.5
+  },
+  {
+   "kat": "Ofis Ürünleri",
+   "oran": 13
+  },
+  {
+   "kat": "Spor",
+   "oran": 10
+  },
+  {
+   "kat": "Ayakkabılar, Kol Çantaları ve Ayakkabı Aksesuarları",
+   "oran": 17
+  },
+  {
+   "kat": "Kol Saatleri",
+   "oran": 15.5
+  },
+  {
+   "kat": "Bavullar ve Seyahat Aksesuarları",
+   "oran": 16
+  },
+  {
+   "kat": "Sağlık ve Kişisel Bakım",
+   "oran": 13.5
+  },
+  {
+   "kat": "Video Oyunu Konsolları",
+   "oran": 8.5
+  },
+  {
+   "kat": "Video Oyunları",
+   "oran": 10
+  },
+  {
+   "kat": "Otomotiv ve Motosiklet",
+   "oran": 12.5
+  },
+  {
+   "kat": "Evcil Hayvan Ürünleri",
+   "oran": 13.5
+  },
+  {
+   "kat": "Diğer",
+   "oran": 10
+  },
+  {
+   "kat": "Kişisel Bakım ve Kozmetik",
+   "oran": 9,
+   "kademeli": true
+  },
+  {
+   "kat": "Kişisel Bakım ve Kozmetik",
+   "oran": 14,
+   "kademeli": true
+  },
+  {
+   "kat": "Gıda Ürünleri",
+   "oran": 9,
+   "kademeli": true
+  },
+  {
+   "kat": "Gıda Ürünleri",
+   "oran": 13,
+   "kademeli": true
+  },
+  {
+   "kat": "Takı",
+   "oran": 20,
+   "kademeli": true
+  },
+  {
+   "kat": "Takı",
+   "oran": 6,
+   "kademeli": true
+  }
+ ],
+ "belgeMetni": "Satış komisyonları\nAmazon Türkiye, satılan ürün başına bir satış komisyonu alır. Satış komisyonları, kategoriye bağlı olarak %6 ile %20 arasında değişmekte olup KDV'ye tabidir.\nKategori Bazında Satış Komisyonları\nSatıcı, satılan her ürün üzerinden bir satış komisyonu öder. Tüm ürünler için Amazon Türkiye, toplam satış fiyatı üzerinden yüzde olarak hesaplanan komisyonu düşer. Toplam satış fiyatı, ürün fiyatı ve kargo ücretleri dahil olmak üzere, alıcı tarafından ödenen toplam tutardır.\nSatış Komisyonları\nKategori\nSatış komisyonu (+ KDV)\nSatışa Uygun Kategoriler\nFotoğraf Makinesi\n%9\nEv Eğlence Sistemleri\n%11,5\nCep Telefonu\n%8\nGiyim\n%15,5\nBilgisayar\n%7\nElektronik\n%9,5\nElektronik Aksesuarlar\n%11\nKişisel Bakım Cihazları\n%13,6\nYapı Market\n%12,7\nMutfak Eşyaları ve Dekorasyon\n%15\nBahçe\n%14\nMobilya\n%14,5\nMutfak (Küçük Ev Aletleri)\n%11\nBeyaz Eşyalar\n%7\nOyuncaklar ve Oyunlar\n%13\nKitaplar\n%10,2\nBebek Ürünleri (Giyim hariç)\n%11,5\nOfis Ürünleri\n%13\nSpor\n%10\nAyakkabılar, Kol Çantaları ve Ayakkabı Aksesuarları\n%17\nKol Saatleri\n%15,5\nBavullar ve Seyahat Aksesuarları\n%16\nKişisel Bakım ve Kozmetik\nToplam satış fiyatı 500 TL veya daha düşük olan ürünler için %9, Toplam satış fiyatı 500 TL üzerinde olan ürünler için %14\nSağlık ve Kişisel Bakım\n%13,5\nGıda Ürünleri\nToplam satış fiyatı 500 TL veya daha düşük olan ürünler için %9, Toplam satış fiyatı 500 TL üzerinde olan ürünler için %13\nVideo Oyunu Konsolları\n%8,5\nVideo Oyunları\n%10\nOtomotiv ve Motosiklet\n%12,5\nEvcil Hayvan Ürünleri\n%13,5\nTakı\n%20 (Toplam satış fiyatı 900 TL veya daha düşükse) %6 (Toplam satış fiyatı 900 TL'den yüksekse)\nDiğer\n%10\nSatış komisyonu tam olarak hangi tutar üzerinden hesaplanır?\nSatış komisyonu, Amazon'un belirlediği kategori bazlı oranlar ve güncel ücretlendirme politikaları üzerinden hesaplanır. Bu hesaplamada, ürünün toplam satış fiyatı esas alınır. Dolayısıyla komisyona esas tutar, ürün bedeli, KDV ve kargo ücreti dahil olmak üzere alıcıdan tahsil edilen tüm bedeldir.\nAylık üyelik bedeli\nAmazon Türkiye satıcı hesabı aylık sabit üyelik bedeli 99 TL + KDV'dir.\n",
+ "kdvKurali": "excl",
+ "kdvGuven": "dusuk",
+ "kdvKanitlar": [
+  {
+   "kural": "excl",
+   "dil": "tr",
+   "eslesen": "+ KDV",
+   "alinti": "ödenen toplam tutardır. Satış Komisyonları Kategori Satış komisyonu (+ KDV) Satışa Uygun Kategoriler Fotoğraf Makinesi %9 Ev Eğlence Sistem"
+  }
+ ],
+ "kdvNot": "Tek eşleşme — doğrula",
+ "kaynakKats": {
+  "Fotoğraf Makinesi": {
+   "medyan": 9,
+   "min": 9,
+   "max": 9,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Fotoğraf Makinesi",
+     "oran": 9
+    }
+   ]
+  },
+  "Ev Eğlence Sistemleri": {
+   "medyan": 11.5,
+   "min": 11.5,
+   "max": 11.5,
+   "n": 1,
+   "normKova": "ev",
+   "ornekSatirlar": [
+    {
+     "kat": "Ev Eğlence Sistemleri",
+     "oran": 11.5
+    }
+   ]
+  },
+  "Cep Telefonu": {
+   "medyan": 8,
+   "min": 8,
+   "max": 8,
+   "n": 1,
+   "normKova": "elektronik",
+   "ornekSatirlar": [
+    {
+     "kat": "Cep Telefonu",
+     "oran": 8
+    }
+   ]
+  },
+  "Giyim": {
+   "medyan": 15.5,
+   "min": 15.5,
+   "max": 15.5,
+   "n": 1,
+   "normKova": "moda",
+   "ornekSatirlar": [
+    {
+     "kat": "Giyim",
+     "oran": 15.5
+    }
+   ]
+  },
+  "Bilgisayar": {
+   "medyan": 7,
+   "min": 7,
+   "max": 7,
+   "n": 1,
+   "normKova": "elektronik",
+   "ornekSatirlar": [
+    {
+     "kat": "Bilgisayar",
+     "oran": 7
+    }
+   ]
+  },
+  "Elektronik": {
+   "medyan": 9.5,
+   "min": 9.5,
+   "max": 9.5,
+   "n": 1,
+   "normKova": "elektronik",
+   "ornekSatirlar": [
+    {
+     "kat": "Elektronik",
+     "oran": 9.5
+    }
+   ]
+  },
+  "Elektronik Aksesuarlar": {
+   "medyan": 11,
+   "min": 11,
+   "max": 11,
+   "n": 1,
+   "normKova": "elektronik",
+   "ornekSatirlar": [
+    {
+     "kat": "Elektronik Aksesuarlar",
+     "oran": 11
+    }
+   ]
+  },
+  "Kişisel Bakım Cihazları": {
+   "medyan": 13.6,
+   "min": 13.6,
+   "max": 13.6,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Kişisel Bakım Cihazları",
+     "oran": 13.6
+    }
+   ]
+  },
+  "Yapı Market": {
+   "medyan": 12.7,
+   "min": 12.7,
+   "max": 12.7,
+   "n": 1,
+   "normKova": "ev",
+   "ornekSatirlar": [
+    {
+     "kat": "Yapı Market",
+     "oran": 12.7
+    }
+   ]
+  },
+  "Mutfak Eşyaları ve Dekorasyon": {
+   "medyan": 15,
+   "min": 15,
+   "max": 15,
+   "n": 1,
+   "normKova": "ev",
+   "ornekSatirlar": [
+    {
+     "kat": "Mutfak Eşyaları ve Dekorasyon",
+     "oran": 15
+    }
+   ]
+  },
+  "Bahçe": {
+   "medyan": 14,
+   "min": 14,
+   "max": 14,
+   "n": 1,
+   "normKova": "ev",
+   "ornekSatirlar": [
+    {
+     "kat": "Bahçe",
+     "oran": 14
+    }
+   ]
+  },
+  "Mobilya": {
+   "medyan": 14.5,
+   "min": 14.5,
+   "max": 14.5,
+   "n": 1,
+   "normKova": "ev",
+   "ornekSatirlar": [
+    {
+     "kat": "Mobilya",
+     "oran": 14.5
+    }
+   ]
+  },
+  "Mutfak (Küçük Ev Aletleri)": {
+   "medyan": 11,
+   "min": 11,
+   "max": 11,
+   "n": 1,
+   "normKova": "ev",
+   "ornekSatirlar": [
+    {
+     "kat": "Mutfak (Küçük Ev Aletleri)",
+     "oran": 11
+    }
+   ]
+  },
+  "Beyaz Eşyalar": {
+   "medyan": 7,
+   "min": 7,
+   "max": 7,
+   "n": 1,
+   "normKova": "ev",
+   "ornekSatirlar": [
+    {
+     "kat": "Beyaz Eşyalar",
+     "oran": 7
+    }
+   ]
+  },
+  "Oyuncaklar ve Oyunlar": {
+   "medyan": 13,
+   "min": 13,
+   "max": 13,
+   "n": 1,
+   "normKova": "kitap",
+   "ornekSatirlar": [
+    {
+     "kat": "Oyuncaklar ve Oyunlar",
+     "oran": 13
+    }
+   ]
+  },
+  "Kitaplar": {
+   "medyan": 10.2,
+   "min": 10.2,
+   "max": 10.2,
+   "n": 1,
+   "normKova": "kitap",
+   "ornekSatirlar": [
+    {
+     "kat": "Kitaplar",
+     "oran": 10.2
+    }
+   ]
+  },
+  "Bebek Ürünleri (Giyim hariç)": {
+   "medyan": 11.5,
+   "min": 11.5,
+   "max": 11.5,
+   "n": 1,
+   "normKova": "moda",
+   "ornekSatirlar": [
+    {
+     "kat": "Bebek Ürünleri (Giyim hariç)",
+     "oran": 11.5
+    }
+   ]
+  },
+  "Ofis Ürünleri": {
+   "medyan": 13,
+   "min": 13,
+   "max": 13,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Ofis Ürünleri",
+     "oran": 13
+    }
+   ]
+  },
+  "Spor": {
+   "medyan": 10,
+   "min": 10,
+   "max": 10,
+   "n": 1,
+   "normKova": "spor",
+   "ornekSatirlar": [
+    {
+     "kat": "Spor",
+     "oran": 10
+    }
+   ]
+  },
+  "Ayakkabılar, Kol Çantaları ve Ayakkabı Aksesuarları": {
+   "medyan": 17,
+   "min": 17,
+   "max": 17,
+   "n": 1,
+   "normKova": "ayakkabi",
+   "ornekSatirlar": [
+    {
+     "kat": "Ayakkabılar, Kol Çantaları ve Ayakkabı Aksesuarları",
+     "oran": 17
+    }
+   ]
+  },
+  "Kol Saatleri": {
+   "medyan": 15.5,
+   "min": 15.5,
+   "max": 15.5,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Kol Saatleri",
+     "oran": 15.5
+    }
+   ]
+  },
+  "Bavullar ve Seyahat Aksesuarları": {
+   "medyan": 16,
+   "min": 16,
+   "max": 16,
+   "n": 1,
+   "normKova": "taki",
+   "ornekSatirlar": [
+    {
+     "kat": "Bavullar ve Seyahat Aksesuarları",
+     "oran": 16
+    }
+   ]
+  },
+  "Sağlık ve Kişisel Bakım": {
+   "medyan": 13.5,
+   "min": 13.5,
+   "max": 13.5,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Sağlık ve Kişisel Bakım",
+     "oran": 13.5
+    }
+   ]
+  },
+  "Video Oyunu Konsolları": {
+   "medyan": 8.5,
+   "min": 8.5,
+   "max": 8.5,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Video Oyunu Konsolları",
+     "oran": 8.5
+    }
+   ]
+  },
+  "Video Oyunları": {
+   "medyan": 10,
+   "min": 10,
+   "max": 10,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Video Oyunları",
+     "oran": 10
+    }
+   ]
+  },
+  "Otomotiv ve Motosiklet": {
+   "medyan": 12.5,
+   "min": 12.5,
+   "max": 12.5,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Otomotiv ve Motosiklet",
+     "oran": 12.5
+    }
+   ]
+  },
+  "Evcil Hayvan Ürünleri": {
+   "medyan": 13.5,
+   "min": 13.5,
+   "max": 13.5,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Evcil Hayvan Ürünleri",
+     "oran": 13.5
+    }
+   ]
+  },
+  "Diğer": {
+   "medyan": 10,
+   "min": 10,
+   "max": 10,
+   "n": 1,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Diğer",
+     "oran": 10
+    }
+   ]
+  },
+  "Kişisel Bakım ve Kozmetik": {
+   "medyan": 11.5,
+   "min": 9,
+   "max": 14,
+   "n": 2,
+   "normKova": "kozmetik",
+   "ornekSatirlar": [
+    {
+     "kat": "Kişisel Bakım ve Kozmetik",
+     "oran": 9,
+     "kademeli": true
+    },
+    {
+     "kat": "Kişisel Bakım ve Kozmetik",
+     "oran": 14,
+     "kademeli": true
+    }
+   ]
+  },
+  "Gıda Ürünleri": {
+   "medyan": 11,
+   "min": 9,
+   "max": 13,
+   "n": 2,
+   "normKova": null,
+   "ornekSatirlar": [
+    {
+     "kat": "Gıda Ürünleri",
+     "oran": 9,
+     "kademeli": true
+    },
+    {
+     "kat": "Gıda Ürünleri",
+     "oran": 13,
+     "kademeli": true
+    }
+   ]
+  },
+  "Takı": {
+   "medyan": 13,
+   "min": 6,
+   "max": 20,
+   "n": 2,
+   "normKova": "taki",
+   "ornekSatirlar": [
+    {
+     "kat": "Takı",
+     "oran": 20,
+     "kademeli": true
+    },
+    {
+     "kat": "Takı",
+     "oran": 6,
+     "kademeli": true
+    }
+   ]
+  }
+ },
+ "normKapsama": {
+  "moda": {
+   "ad": "Moda & Giyim",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Giyim",
+     "medyan": 15.5,
+     "n": 1
+    },
+    {
+     "kat": "Bebek Ürünleri (Giyim hariç)",
+     "medyan": 11.5,
+     "n": 1
+    }
+   ]
+  },
+  "ayakkabi": {
+   "ad": "Ayakkabı & Çanta",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Ayakkabılar, Kol Çantaları ve Ayakkabı Aksesuarları",
+     "medyan": 17,
+     "n": 1
+    }
+   ]
+  },
+  "kozmetik": {
+   "ad": "Kozmetik & Kişisel Bakım",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Kişisel Bakım ve Kozmetik",
+     "medyan": 11.5,
+     "n": 2
+    }
+   ]
+  },
+  "elektronik": {
+   "ad": "Elektronik & Teknoloji",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Cep Telefonu",
+     "medyan": 8,
+     "n": 1
+    },
+    {
+     "kat": "Bilgisayar",
+     "medyan": 7,
+     "n": 1
+    },
+    {
+     "kat": "Elektronik",
+     "medyan": 9.5,
+     "n": 1
+    },
+    {
+     "kat": "Elektronik Aksesuarlar",
+     "medyan": 11,
+     "n": 1
+    }
+   ]
+  },
+  "ev": {
+   "ad": "Ev & Yaşam",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Ev Eğlence Sistemleri",
+     "medyan": 11.5,
+     "n": 1
+    },
+    {
+     "kat": "Yapı Market",
+     "medyan": 12.7,
+     "n": 1
+    },
+    {
+     "kat": "Mutfak Eşyaları ve Dekorasyon",
+     "medyan": 15,
+     "n": 1
+    },
+    {
+     "kat": "Bahçe",
+     "medyan": 14,
+     "n": 1
+    },
+    {
+     "kat": "Mobilya",
+     "medyan": 14.5,
+     "n": 1
+    },
+    {
+     "kat": "Mutfak (Küçük Ev Aletleri)",
+     "medyan": 11,
+     "n": 1
+    },
+    {
+     "kat": "Beyaz Eşyalar",
+     "medyan": 7,
+     "n": 1
+    }
+   ]
+  },
+  "spor": {
+   "ad": "Spor & Outdoor",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Spor",
+     "medyan": 10,
+     "n": 1
+    }
+   ]
+  },
+  "taki": {
+   "ad": "Takı, Saat & Aksesuar",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Elektronik Aksesuarlar",
+     "medyan": 11,
+     "n": 1
+    },
+    {
+     "kat": "Ayakkabılar, Kol Çantaları ve Ayakkabı Aksesuarları",
+     "medyan": 17,
+     "n": 1
+    },
+    {
+     "kat": "Bavullar ve Seyahat Aksesuarları",
+     "medyan": 16,
+     "n": 1
+    },
+    {
+     "kat": "Takı",
+     "medyan": 13,
+     "n": 2
+    }
+   ]
+  },
+  "kitap": {
+   "ad": "Kitap, Hobi & Müzik",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Oyuncaklar ve Oyunlar",
+     "medyan": 13,
+     "n": 1
+    },
+    {
+     "kat": "Kitaplar",
+     "medyan": 10.2,
+     "n": 1
+    }
+   ]
+  },
+  "bebek": {
+   "ad": "Anne & Bebek",
+   "esleşenKaynakKat": [
+    {
+     "kat": "Bebek Ürünleri (Giyim hariç)",
+     "medyan": 11.5,
+     "n": 1
+    }
+   ]
+  },
+  "genel": {
+   "ad": "Genel / Diğer",
+   "esleşenKaynakKat": []
+  }
+ },
+ "kovalar": {
+  "ev": {
+   "medyan": 12.7,
+   "min": 7,
+   "max": 15,
+   "n": 7,
+   "kaynakSatirlar": [
+    {
+     "kat": "Ev Eğlence Sistemleri",
+     "oran": 11.5
+    },
+    {
+     "kat": "Yapı Market",
+     "oran": 12.7
+    },
+    {
+     "kat": "Mutfak Eşyaları ve Dekorasyon",
+     "oran": 15
+    },
+    {
+     "kat": "Bahçe",
+     "oran": 14
+    },
+    {
+     "kat": "Mobilya",
+     "oran": 14.5
+    },
+    {
+     "kat": "Mutfak (Küçük Ev Aletleri)",
+     "oran": 11
+    },
+    {
+     "kat": "Beyaz Eşyalar",
+     "oran": 7
+    }
+   ]
+  },
+  "elektronik": {
+   "medyan": 8.75,
+   "min": 7,
+   "max": 11,
+   "n": 4,
+   "kaynakSatirlar": [
+    {
+     "kat": "Cep Telefonu",
+     "oran": 8
+    },
+    {
+     "kat": "Bilgisayar",
+     "oran": 7
+    },
+    {
+     "kat": "Elektronik",
+     "oran": 9.5
+    },
+    {
+     "kat": "Elektronik Aksesuarlar",
+     "oran": 11
+    }
+   ]
+  },
+  "moda": {
+   "medyan": 13.5,
+   "min": 11.5,
+   "max": 15.5,
+   "n": 2,
+   "kaynakSatirlar": [
+    {
+     "kat": "Giyim",
+     "oran": 15.5
+    },
+    {
+     "kat": "Bebek Ürünleri (Giyim hariç)",
+     "oran": 11.5
+    }
+   ]
+  },
+  "kitap": {
+   "medyan": 11.6,
+   "min": 10.2,
+   "max": 13,
+   "n": 2,
+   "kaynakSatirlar": [
+    {
+     "kat": "Oyuncaklar ve Oyunlar",
+     "oran": 13
+    },
+    {
+     "kat": "Kitaplar",
+     "oran": 10.2
+    }
+   ]
+  },
+  "spor": {
+   "medyan": 10,
+   "min": 10,
+   "max": 10,
+   "n": 1,
+   "kaynakSatirlar": [
+    {
+     "kat": "Spor",
+     "oran": 10
+    }
+   ]
+  },
+  "ayakkabi": {
+   "medyan": 17,
+   "min": 17,
+   "max": 17,
+   "n": 1,
+   "kaynakSatirlar": [
+    {
+     "kat": "Ayakkabılar, Kol Çantaları ve Ayakkabı Aksesuarları",
+     "oran": 17
+    }
+   ]
+  },
+  "taki": {
+   "medyan": 16,
+   "min": 6,
+   "max": 20,
+   "n": 3,
+   "kaynakSatirlar": [
+    {
+     "kat": "Bavullar ve Seyahat Aksesuarları",
+     "oran": 16
+    },
+    {
+     "kat": "Takı",
+     "oran": 20,
+     "kademeli": true
+    },
+    {
+     "kat": "Takı",
+     "oran": 6,
+     "kademeli": true
+    }
+   ]
+  },
+  "kozmetik": {
+   "medyan": 11.5,
+   "min": 9,
+   "max": 14,
+   "n": 2,
+   "kaynakSatirlar": [
+    {
+     "kat": "Kişisel Bakım ve Kozmetik",
+     "oran": 9,
+     "kademeli": true
+    },
+    {
+     "kat": "Kişisel Bakım ve Kozmetik",
+     "oran": 14,
+     "kademeli": true
+    }
+   ]
+  }
+ },
+ "esleşmeyen": [
+  "Fotoğraf Makinesi",
+  "Kişisel Bakım Cihazları",
+  "Ofis Ürünleri",
+  "Kol Saatleri",
+  "Sağlık ve Kişisel Bakım",
+  "Video Oyunu Konsolları",
+  "Video Oyunları",
+  "Otomotiv ve Motosiklet",
+  "Evcil Hayvan Ürünleri",
+  "Diğer",
+  "Gıda Ürünleri"
+ ]
+}

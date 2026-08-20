@@ -1,0 +1,6 @@
+<svg width="96" height="96" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Netvo">
+  <!-- Kept Coin: madeni para (değer) + yeşil yay = sana kalan pay -->
+  <circle cx="24" cy="24" r="24" fill="#0A0A0A"/>
+  <circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.24" stroke-width="5"/>
+  <circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/>
+</svg>

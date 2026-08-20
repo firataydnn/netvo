@@ -1,0 +1,184 @@
+{
+  "_aciklama": "4 araştırma ekibinin döndürdüğü bulgular. Her kayıt bir pazaryerinin RESMİ kaynaktan doğrulanmış durumu. Oran YOKSA null — uydurulmaz. Bu dosya factory/uygula.mjs ile siteye işlenir.",
+  "_kdvKurali": "incl = oran KDV dahil (ücret=fiyat×oran) | excl = oran KDV hariç (ücret=fiyat×oran×(1+KDV)) | null = belgeden okunamadı",
+
+  "pttavm": {
+    "resmiUrl": "https://www.pttavm.com/satici-ol", "kdvKurali": "incl",
+    "kdvKaniti": "KDV dahildir. KATEGORİ ALT KATEGORİ KOMİSYON (resmi komisyon PDF başlığı)",
+    "verified": null, "verifiedNot": "Tek resmi kaynak 2022 tarihli mailing PDF'i — bayat kabul edilmeli",
+    "cats": [["Cep Telefonu",5],["Ziynet & Külçe Altın",5],["Dizüstü & Masaüstü Bilgisayar",6],["Bilgisayar Bileşenleri",8],["Giyilebilir Teknoloji",10],["Beyaz Eşya",10],["Televizyon & Ses Sistemleri",10],["Petshop",11],["Saat",12],["Kitap",12],["Ankastre & Fırın",12],["Bilgisayar Aksesuar",12],["Cep Telefonu Aksesuar",15],["Gözlük, Gümüş, Mücevher & Takı",15],["Bebek Bezi & Giyim",15],["Fotoğraf & Kamera",15],["Süpermarket",15]],
+    "aciklama": "PttAVM, PTT A.Ş.'nin işlettiği devlet destekli pazaryeri. En büyük farkı PTT'nin Türkiye'nin en geniş dağıtım ağına ve kamu güven algısına yaslanması; TMO ve Türkşeker gibi kamu kurumlarının resmi satış kanalı olması. Kadın Girişimci statüsüne düşük komisyon ve indirimli kargo veriyor. Yalnızca Türkiye.",
+    "not": "Komisyon oranları PttAVM'nin resmi PDF'inden, KDV DAHİLDİR. UYARI: tek resmi kaynak 2022 tarihli bir mailing belgesi; oranlar değişmiş olabilir, kendi satıcı panelinden doğrula. Kadın Girişimci programında oranlar daha düşük."
+  },
+
+  "fnac": {
+    "resmiUrl": "https://www.fnac.com/Help/cgv-fnac-marketplace", "kdvKurali": "excl",
+    "kdvKaniti": "FNAC DIRECT percevra ... une commission ... frais de port inclus et TVA en sus (kargo dahil, KDV üstüne)",
+    "verified": "2026-07-18",
+    "cats": [["Dizüstü & Tablet",10],["TV & Projeksiyon",10],["Beyaz Eşya",10],["Fotoğraf Makinesi & Lens",10],["Küçük Ev Aleti",10],["Akıllı Telefon",10],["Ses & DJ Ekipmanı",10],["Teknik Ürün (varsayılan)",10],["Aksesuar (gaming, konsol, müzik)",16],["Oyun, Oyuncak, Sağlık",16]],
+    "aciklama": "Fnac Marketplace, Fnac-Darty grubunun üçüncü taraf satıcı platformu. Kültür ürünleri (kitap, müzik, oyun) ile teknoloji ve beyaz eşyada güçlü; kendi perakendesiyle iç içe olduğu için trafik ve marka güveni yüksek, kategori girişi seçici. Fransa, Belçika, İspanya, Portekiz ve İsviçre.",
+    "not": "Oran KDV HARİÇ, kargo dahil tutar üzerinden. Oranlar 'yeni olmayan' ürün oranıdır (yeni ürün daha düşük: dizüstü %7, akıllı telefon %8). Aylık abonelik 49,99€. REP/IDU (geri dönüşüm kaydı) vermeyen satıcıya +%1 komisyon."
+  },
+
+  "cdon": {
+    "resmiUrl": "https://support.cdon.com/hc/en-us/articles/26874595700116", "kdvKurali": "excl",
+    "kdvKaniti": "The commission (excl. VAT), calculated from gross product sales price (incl. VAT)",
+    "verified": "2026-07-18",
+    "cats": [["Elektronik & Giyim & Sağlık",12],["Bebek & Ev & Bahçe & Ofis",12],["Mobilya & Oyuncak & Evcil Hayvan",10],["Kamera & Gıda & Medya & Yazılım",8],["Saat & Küçük Ev Aleti & Kahve Makinesi",6.4],["Bilgisayar Bileşen & Yazıcı & Ses",5.6],["Cep Telefonu & TV & Bilgisayar & Konsol & Kamera",4]],
+    "aciklama": "CDON, İskandinavya'nın (İsveç, Norveç, Danimarka, Finlandiya) en büyük pazaryerlerinden biri. Kendini 'kürasyonlu, premium' konumlandırıyor — her satıcıyı almıyor, AB içinde depo ve e-ticaret geçmişi arıyor. En güçlü olduğu ülke İsveç.",
+    "not": "Oran KDV HARİÇ ama matrah KDV DAHİL brüt fiyat — bu ikisi ayrı. Google taksonomisi bazlı, 4 marketin (SE/NO/FI/DK) tümüne uygulanır. Aylık abonelik 449 SEK (~39€), satılan adet başına sabit hizmet bedeli (SE 20 SEK). Özel anlaşma standart oranı geçersiz kılar."
+  },
+
+  "tradera": {
+    "resmiUrl": "https://www.tradera.com/support/se/posts/vad-kostar-det-att-saelja-foeretag", "kdvKurali": "excl",
+    "kdvKaniti": "Alla företagspriser är exklusive moms (tüm şirket fiyatları KDV hariç)",
+    "verified": "2026-07-18",
+    "cats": [["Tüm kategoriler (şirket)",8]],
+    "fixedRate": 8,
+    "aciklama": "Tradera, İsveç'in en büyük ikinci el / açık artırma pazaryeri; hem bireysel hem şirket satıcı kullanır. Antika, koleksiyon, kitap, plak, giyim ve elektronikte güçlü. Komisyonu kategoriye göre değil sabit yüzde + tavan mantığıyla işletir. Neredeyse tamamen İsveç.",
+    "not": "KRİTİK: komisyon tavanı var. Şirket %8 (max 160 SEK), bireysel %10 (max 200 SEK). 10.000 SEK'lik satışta efektif komisyon %2'ye düşer — tavan mutlaka uygulanmalı. Satılmazsa komisyon yok. Kategori farkı sadece satılmayan ilan ücretinde."
+  },
+
+  "yahoojapan": {
+    "resmiUrl": "https://business-ec.yahoo.co.jp/shopping/cost/", "kdvKurali": "excl",
+    "kdvKaniti": "アフィリエイトは税抜価格に対しての金額 (affiliate KDV hariç fiyat üzerinden); store point/affiliate excl, kampanya fonu incl",
+    "verified": "2026-07-18",
+    "cats": [["Zorunlu yükler toplamı (~%6 efektif)",6]],
+    "fixedRate": 6,
+    "aciklama": "Yahoo! Japan Shopping, Japonya'nın üç büyük mall'undan biri (Rakuten ve Amazon JP ile); LY Corporation'a ait, PayPay ekosistemine bağlı. Sabit ücreti sıfır olması giriş bariyerini düşürür — maliyet puan/affiliate yükünden gelir. Yalnızca Japonya.",
+    "not": "Kategori komisyonu YOK — kurulum/aylık/royalti hepsi ücretsiz. Maliyet zorunlu yüklerden: %1 mağaza puanı + %1,5 kampanya fonu + %2-4 affiliate + affiliate'in %30'u + ödeme komisyonu. Efektif ~%6. Japonya'da tüzel kişilik + Japon banka hesabı pratikte gerekli."
+  },
+
+  "qoo10": {
+    "resmiUrl": "https://qsm.qoo10.sg", "kdvKurali": "excl",
+    "kdvKaniti": "Qoo10 is obligated to charge and collect GST. Hence invoices for the service fees including GST will be issued (oran GST hariç, faturada eklenir)",
+    "verified": null, "verifiedNot": "Resmi oran tablosu 2011 tarihli duyurudan — fiyat bantları değişmiş olabilir",
+    "cats": [["Standart satıcı (S$200 altı)",12],["Standart satıcı (S$200-500)",10],["Standart satıcı (S$500 üzeri)",8]],
+    "aciklama": "Qoo10, Singapur merkezli pan-Asya pazaryeri (SG/MY/JP/HK'de aktif), deal ve kupon ağırlıklı. Sınır ötesi satıcıya en açık Asya pazaryerlerinden — bu listedeki Türk satıcı için en erişilebilir seçeneklerden biri, yerel tüzel kişilik zorunlu değil.",
+    "not": "Oran GST HARİÇ, faturada eklenir. Oran satıcı seviyesine göre düşer: iyi/güçlü satıcı %5'e kadar iner. UYARI: resmi tablo 2011 tarihli, fiyat bantları güncellenmişse QSM panelinden doğrula. Depozito yok. Wish'in yeni sahibi (2024)."
+  },
+
+  "galaxus": {
+    "resmiUrl": "https://www.galaxus.ch", "kdvKurali": "excl",
+    "kdvKaniti": "Sämtliche Beträge sind Nettowerte, eine etwa geschuldete Umsatzsteuer fällt zusätzlich an (net değerler, KDV üstüne)",
+    "verified": "2026-07-18",
+    "cats": [["Giyim & Bebek",13],["Kozmetik & Süpermarket",11],["Bilgisayar",10],["Elektronik",11],["Yapı & Bahçe",11],["Beyaz Eşya",10],["Mobilya",12],["Ev Eşyası",12],["Cep Telefonu",12],["Ofis & Gaming",10],["Spor & Oyuncak",12]],
+    "aciklama": "Galaxus, İsviçre'nin en büyük online perakendecisi (Migros grubu). Elektronikten süpermarkete her şeyi satar; kardeş markası Digitec IT/elektroniğe odaklı. Farkı bağımsız yazı işleriyle çalışan bir dergi ve aktif topluluk. İsviçre'de lider; Almanya, Avusturya, İtalya, Fransa'da da faaliyette.",
+    "not": "Oran KDV HARİÇ. Oranlar Almanya oranıdır — İsviçre için biraz farklı. Grup içinde %1,5-20 uçurumu var; üst kategori ortalaması yaklaşıktır, kesin oran Produkttyp seviyesinde. Taban/kurulum ücreti yok."
+  },
+
+  "aboutyou": {
+    "resmiUrl": "https://en.aboutyou.nl/h/ay-marketplace/q-24702034226716", "kdvKurali": "excl",
+    "kdvKaniti": "commission fees are calculated as a variable percentage of the gross Retail Price ... net value subject to applicable VAT",
+    "verified": null, "verifiedNot": "Resmi sayfa sadece %4-24 aralığını veriyor, kategori kırılımı giriş arkasında",
+    "cats": null,
+    "aciklama": "ABOUT YOU, Hamburg merkezli moda ve lifestyle e-ticaret platformu. Giyim, ayakkabı, aksesuar, spor satar; hedef kitlesi genç ve mobil-öncelikli. Farkı influencer/içerik odaklı deneyim ve kendi teknolojisini SCAYLE adıyla ayrı satması. 26 Avrupa pazarında, en güçlü Almanya.",
+    "not": "Resmi sayfa komisyonu %4-24 arası diyor, kesin oran kategori × fiyat aralığı matrisine bağlı — tek tablo yayınlanmıyor. Oran KDV HARİÇ, matrah brüt perakende fiyatı. AB içinde tüzel kişilik zorunlu. Blog rakamları (%15-25) resmi %4-24 ile çelişiyor, kullanılmadı."
+  },
+
+  "tmallglobal": {
+    "resmiUrl": "https://rule.tmall.hk", "kdvKurali": "excl",
+    "kdvKaniti": "Technical Service Fees ... are exclusive of any taxes, duties or other governmental levies",
+    "verified": null, "verifiedNot": "Sözleşme oranları ayrı ücret standardında, kategori kırılımı giriş arkasında",
+    "cats": null,
+    "aciklama": "Tmall Global (tmall.hk), Alibaba'nın yabancı markalara açık kanalı — Taobao/Tmall'ın yurt içi versiyonu Çin tüzel kişiliği isterken, yabancı (Türk) satıcının gerçek kapısı burası. Çinli tüketiciye sınır ötesi satış. Marka otantiklik vurgusu yüksek.",
+    "not": "Oran KDV/vergi HARİÇ. KRİTİK: USD 25.000 depozito şartı, ve sahtecilik durumunda işlem tutarının %400'ü ceza doğrudan depozitodan kesilir. Kategori oranları 'Tmall Global Ücret Standartları'nda, giriş gerekli. Türk satıcı için erişilebilir ama ağır finansal taahhüt."
+  },
+
+  "alibaba1688": {
+    "resmiUrl": "https://cxt.1688.com/register-pro-b.html", "kdvKurali": null,
+    "kdvKaniti": "Komisyon değil abonelik modeli — vergi ifadesi görülmedi",
+    "verified": "2026-07-18",
+    "cats": null,
+    "aciklama": "1688.com, Alibaba'nın Çin iç pazarına yönelik B2B toptan platformu — fabrika/tedarikçiyi Çinli alıcıyla buluşturur. Türk satıcı için satış kanalı değil, esasen bir TEDARİK KAYNAĞIDIR. Site tamamen Çince ve Çin içi ödeme/lojistiğe bağlı.",
+    "not": "Komisyon yok, yıllık abonelik modeli (誠信通 ~6.688 CNY/yıl). Satıcı olmak için Çin'de kayıtlı işletme şart — Türk satıcıya satış kanalı olarak KAPALI. Esas kullanımı ürün tedariki."
+  },
+
+  "meesho": {
+    "resmiUrl": "https://supplier.meesho.com/pricing", "kdvKurali": null,
+    "kdvKaniti": "Meesho charges 0% Commission rate across all categories; kargoda %18 GST",
+    "verified": "2026-07-18",
+    "cats": [["Tüm kategoriler",0]],
+    "fixedRate": 0,
+    "aciklama": "Meesho, Hindistan'ın en büyük düşük-fiyat / value odaklı sosyal ticaret pazaryeri. Küçük şehir tüketicisine hitap eder, GSTIN'siz satıcı bile izinli kategorilerde satabilir. Farkı tüm kategorilerde gerçekten %0 komisyon — geliri kargo ve reklamdan gelir.",
+    "not": "%0 komisyon RESMİ olarak doğrulandı, tüm kategoriler, kayıt/tahsilat/ceza ücreti de yok. Tek maliyet kargoda %18 GST + opsiyonel reklam. Pratikte Hindistan GSTIN + Hindistan banka hesabı gerekir — saf Türk satıcı doğrudan kabul edilmez."
+  },
+
+  "konga": {
+    "resmiUrl": "https://shq.konga.com/site/commissions", "kdvKurali": null,
+    "kdvKaniti": "commission fee is a percentage of the selling value (VAT ifadesi yok)",
+    "verified": "2026-07-18",
+    "cats": [["Cep Telefonu",5.8],["Bilgisayar & Aksesuar",7],["Elektronik",9],["Büyük Beyaz Eşya",8],["Kitap & Medya",10.5],["Ev & Mutfak",10.5],["Erkek & Kadın Moda",18],["Genel Moda",20],["Saat",17],["Bebek, Çocuk & Oyuncak",14.2],["Güzellik & Kişisel Bakım",16],["Cep Telefonu Aksesuar",18.8],["İçecek & Market",10.5]],
+    "aciklama": "Konga, Nijerya'nın en büyük yerel pazaryerlerinden biri. Elektronik, moda, ev, bakkaliye ve hizmet satar. Komisyon hem kategoriye hem satıcının üyelik sınıfına göre değişir. Nijerya odaklı.",
+    "not": "Oranlar 'Special' (ücretsiz plan) sınıfına göredir — en yüksek oranlar. Ücretli planlarda (Classic Plus/Classic) neredeyse yarıya iner (ör. genel moda %20 → %12). İptal/iadede komisyon alınmaz. VAT durumu resmi sayfada belirtilmemiş."
+  },
+
+  "ripley": {
+    "resmiUrl": "https://ripley.zendesk.com/hc/es-419/articles/8592465972759", "kdvKurali": "incl",
+    "kdvKaniti": "Tarifas incluyen IVA (tarifeler IVA dahil)",
+    "verified": "2026-07-18",
+    "cats": null,
+    "aciklama": "Ripley, Şili merkezli büyük mağazanın pazaryeri; moda, elektronik, ev, güzellik. Şili ve Peru'da güçlü, Mirakl altyapısı kullanır. Şili'de RUT ve SII fatura entegrasyonu zorunlu.",
+    "not": "Ücretler IVA DAHİL, komisyon KDV dahil brüt fiyat üzerinden. Kategori oranları web sayfasında değil indirilebilir Excel'de. Sabit ücret: ≤5.000 CLP/birim için 990 CLP operasyonel maliyet. Yabancı satıcıya kapalı (yerel RUT şart)."
+  },
+
+  "wish": {
+    "resmiUrl": "https://merchant.wish.com/tax/policy", "kdvKurali": "excl",
+    "kdvKaniti": "Please ensure that your product prices and shipping prices do not include the VAT amount",
+    "verified": "2026-07-18",
+    "cats": [["Giyim (AB dışı)",15],["Elektronik (AB dışı)",13],["Diğer (AB dışı)",14]],
+    "aciklama": "Wish, ucuz çoğunlukla Çin kaynaklı ürünler satan mobil-öncelikli sınır-ötesi pazaryeri; ABD ve Avrupa'da güçlüydü. 2024'te Qoo10'a satıldı. Farkı keşif-tabanlı feed — arama değil kaydırma ile alışveriş.",
+    "not": "Oran KDV HARİÇ, kargo da komisyona tabi + $0,30/ürün. Oranlar satıcı seviyesine göre değişir (Platinum en düşük, Bronze en yüksek); AB satıcıları daha yüksek. KRİTİK: Wish artık DAVETİYE USULÜ, serbest satıcı almıyor."
+  },
+
+  "tokopedia": {
+    "resmiUrl": "https://www.tokopedia.com/help/article/biaya-layanan-seller-regular-dan-power-shop", "kdvKurali": "incl",
+    "kdvKaniti": "Biaya Layanan = Harga produk X persentase → termasuk pajak (vergi dahil)",
+    "verified": "2026-07-18",
+    "cats": [["Elektronik",10],["Moda",10],["FMCG",10],["Yaşam Tarzı",10],["Diğer",10]],
+    "aciklama": "Tokopedia, Endonezya'nın en büyük yerli pazaryeri. 2023-24'te TikTok çoğunluğunu aldı, alışveriş akışı TikTok altyapısına taşındı ama ücret sayfası hâlâ Tokopedia alan adında. Endonezya'da baskın.",
+    "not": "Oran KDV DAHİL. %10 üst sınır, bazı alt kategoriler %20 indirimle efektif %8. Komisyon (fiyat − satıcı indirimi) üzerinden. Pratikte Endonezya KTP + yerel banka gerekir, yabancı kayıt zor."
+  },
+
+  "pgmall": {
+    "resmiUrl": "https://cdn.pgmall.my/document/newT&C/Sellers%20Terms%20of%20Service.pdf", "kdvKurali": "excl",
+    "kdvKaniti": "Transaction Fee ... shall be exclusive of any sales tax, service tax (SST komisyon üstüne eklenir)",
+    "verified": "2026-07-18",
+    "cats": [["Sağlık & Güzellik",5],["Çocuk & Bebek",5],["Kadın & Erkek Moda",5],["Elektronik & Aksesuar",5],["Ev Aletleri & Mutfak",5],["Kitap, Spor, Market, Otomotiv, Takı",5],["E-Bilet, Voucher, Seyahat, Konaklama",10]],
+    "aciklama": "PG Mall, Malezya'nın yerli e-ticaret pazaryeri (Public Gold grubu iştiraki), 'Shop-Share-Earn' cashback/referans katmanı içerir. Genç girişimci ve yerel satıcıları hedefler, Shopee/Lazada'ya alternatif. Malezya'da güçlü.",
+    "not": "Oran KDV HARİÇ, SST üstüne eklenir. Tüm fiziksel ürünler %5, dijital/voucher/seyahat %10. Yabancı satıcı kabul ediyor (pasaport + banka ekstresi). Ödeme haftalık."
+  },
+
+  "bonanza": {
+    "resmiUrl": "https://support.bonanza.com/hc/en-us/articles/360000605292", "kdvKurali": null,
+    "kdvKaniti": "FOV is the amount buyer paid plus shipping exceeding $10 (vergi ifadesi yok)",
+    "verified": "2026-07-18",
+    "cats": [["Tüm kategoriler (temel)",11]],
+    "fixedRate": 11,
+    "aciklama": "Bonanza, ABD merkezli eBay/Etsy alternatifi genel pazaryeri; koleksiyon, moda, ev, el yapımı. Booth mantığıyla çalışır, farkı düşük taban komisyon + satıcının reklam seviyesini seçebilmesi. ABD'de niş ölçek.",
+    "not": "DÜZELTME: yaygın '%3,5 komisyon' iddiası YANLIŞ/eski — resmi taban minimum %11 ($0,25 + %11). $4.000 üstüne +%1,5. Reklam seçilirse %11-30. $14,99 kurulum ücreti. Min ücret $0,50."
+  },
+
+  "newegg": {
+    "resmiUrl": "https://www.newegg.com/sellers/", "kdvKurali": "excl",
+    "kdvKaniti": "Newegg is the seller of record ... will calculate, display and charge customer sales tax (komisyon tabanı vergi hariç ürün fiyatı)",
+    "verified": null, "verifiedNot": "İki resmi tablo çelişiyor — Seller Academy vs newegg.com/sellers farklı oranlar veriyor",
+    "cats": [["Elektronik & Kamera & Cep Telefonu & Konsol",8],["Bilgisayar Donanımı",10],["Diğer kategoriler",12]],
+    "aciklama": "Newegg, ABD merkezli PC bileşenleri ve teknoloji odaklı pazaryeri; tech ve gamer kitlesinde güçlü. Amazon'dan farkı dar ve derin teknoloji odağı. ABD ana pazar, Newegg Global ile yabancı satıcı kabul eder.",
+    "not": "Oran KDV/satış vergisi HARİÇ. UYARI: iki resmi tablo çelişiyor, oranlar Seller Academy 'Standard Commission Fee' sürümünden. '%6 komisyon' pazarlaması tuzak — ilk 90 gün rebate ile, kalıcı değil. Ek ücretler var (satılmayan ilan, rezerv bakiye)."
+  },
+
+  "_kapananlar": {
+    "mydeal": "MyDeal 30 Eylül 2025'te kapandı, teklifleri BIG W Market'e taşındı",
+    "catch": "Catch 30 Nisan 2025'te kapandı (Wesfarmers zararlar nedeniyle kapattı)",
+    "bukalapak": "Bukalapak fiziksel pazaryerini Ocak 2025'te kapattı, sadece dijital ürün kaldı",
+    "linio": "Linio Falabella'ya entegre edildi, Meksika operasyonu Nisan 2024'te kapandı"
+  },
+
+  "_modelFarkli": {
+    "wayfair": "Wayfair komisyon almaz — wholesale/dropship modeli. Satıcı toptan fiyat verir, Wayfair perakende fiyatı dinamik belirler",
+    "marktplaats": "Marktplaats classifieds — satıştan komisyon yok, CPC (tıklama başına) modeli",
+    "jiji": "Jiji classifieds — komisyon yok, Boost/TOP premium paketlerinden gelir",
+    "veepee": "Veepee komisyonu event bazında sözleşmeyle belirler, kamuya açık oran yok"
+  }
+}
