@@ -1,0 +1,32 @@
+# NETVO — haftalık veri tazeliği izleme
+# Her Pazartesi tazelik raporunu üretir ve commit eder. Böylece hendek
+# (doğrulanmış taze veri) sürekli ölçülür; hangi oranın bayatladığı görünür.
+#
+# Not: Bu iş oranı DEĞİŞTİRMEZ — sadece TESPİT + ÖNCELİK. Gerçek doğrulama +
+# arşivleme insanda (provenance bütünlüğü).
+
+name: Haftalık Veri Tazeliği
+on:
+  schedule:
+    - cron: "0 7 * * 1"       # her Pazartesi 07:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  tazelik:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Tazelik raporu üret
+        run: node factory/tazelik.mjs
+      - name: Commit
+        run: |
+          git config user.name "netvo-bot"
+          git config user.email "bot@netvo"
+          git add factory/tazelik_raporu.json || true
+          git diff --cached --quiet || git commit -m "veri: haftalık tazelik raporu"
+          git push || echo "değişiklik yok"

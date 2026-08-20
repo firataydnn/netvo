@@ -1,0 +1,39 @@
+# NETVO — günlük içerik motoru (haber)
+# Her sabah 06:00 UTC'de e-ticaret haberlerini tarar, satıcının parasını
+# etkileyenleri marka tonunda yazıp icerik/haberler.json'a ekler, commit eder.
+# Deploy (Cloudflare Pages) push'ta otomatik yeniden yayınlar.
+#
+# Gerekli secret: ANTHROPIC_API_KEY (Settings → Secrets → Actions).
+# Anahtar yoksa script şablon-fallback ile yine çalışır (LLM'siz).
+
+name: Günlük Haber
+on:
+  schedule:
+    - cron: "0 6 * * *"      # her gün 06:00 UTC
+  workflow_dispatch: {}       # elle de tetiklenebilir
+
+permissions:
+  contents: write
+
+jobs:
+  haber:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Haberleri üret
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node icerik/haber_uret.mjs
+      - name: Yayına kopyala (site kökü /data/)
+        run: |
+          mkdir -p seo/site/data
+          cp icerik/haberler.json seo/site/data/haberler.json 2>/dev/null || echo "yeni haber yok"
+      - name: Commit
+        run: |
+          git config user.name "netvo-bot"
+          git config user.email "bot@netvo"
+          git add icerik/haberler.json seo/site/data/haberler.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "içerik: günlük haber güncellemesi"
+          git push || echo "değişiklik yok"
