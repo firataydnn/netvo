@@ -25,7 +25,6 @@ const API_KEY = process.env.ANTHROPIC_API_KEY || "";
 const MODEL = "claude-haiku-4-5-20251001";
 
 const SOURCES = [
-  "https://www.ecommercebytes.com/rss.xml",
   "https://www.retaildive.com/feeds/news/",
   "https://techcrunch.com/tag/e-commerce/feed/",
   "https://www.digitalcommerce360.com/feed/",

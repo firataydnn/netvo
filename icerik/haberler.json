@@ -1,1 +1,197 @@
-[]
+[
+ {
+  "c": "pazar",
+  "dt": "21 Ağu 2026",
+  "tag": "ABD",
+  "src": "https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Walmart nihayet Apple Pay ve Google Pay'i kabul ediyor",
+    "d": "ABD'nin en büyük perakendecisi yıl sonuna kadar mağazalarında mobil cüzdan ödemelerini açıyor.",
+    "body": "Walmart, bu yılın sonuna kadar ABD mağazalarında Apple Pay ve Google Pay ile ödeme kabul etmeye başlayacak. Perakende devi yıllardır kendi Walmart Pay çözümünü öne çıkararak bu iki yaygın cüzdana kapalı kalmıştı. Mobil temassız ödemenin standart hâline geldiği bir dönemde bu adım, kasadaki sürtünmeyi azaltıp müşteri beklentisini karşılamayı hedefliyor.\n\nKaynak: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "en": {
+    "t": "Walmart will finally accept Apple Pay and Google Pay",
+    "d": "The largest U.S. retailer opens its stores to mobile-wallet payments by year-end.",
+    "body": "Walmart will start accepting Apple Pay and Google Pay in its U.S. stores by the end of this year. The retail giant had long held out, pushing its own Walmart Pay instead of the two ubiquitous wallets. With mobile contactless payment now standard, the move aims to cut checkout friction and meet shopper expectations.\n\nSource: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "de": {
+    "t": "Walmart akzeptiert endlich Apple Pay und Google Pay",
+    "d": "Der größte US-Händler öffnet seine Filialen bis Jahresende für Mobile-Wallet-Zahlungen.",
+    "body": "Walmart wird bis Ende dieses Jahres in seinen US-Filialen Apple Pay und Google Pay akzeptieren. Der Handelsriese hatte sich lange gesperrt und stattdessen sein eigenes Walmart Pay forciert. Da kontaktloses mobiles Bezahlen inzwischen Standard ist, soll der Schritt Reibung an der Kasse verringern und Kundenerwartungen erfüllen.\n\nQuelle: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "fr": {
+    "t": "Walmart va enfin accepter Apple Pay et Google Pay",
+    "d": "Le premier détaillant américain ouvre ses magasins aux paiements par portefeuille mobile d'ici la fin de l'année.",
+    "body": "Walmart commencera à accepter Apple Pay et Google Pay dans ses magasins américains d'ici la fin de l'année. Le géant de la distribution avait longtemps résisté en imposant son propre Walmart Pay plutôt que ces deux portefeuilles très répandus. Alors que le paiement mobile sans contact est devenu la norme, cette décision vise à réduire les frictions en caisse et à répondre aux attentes des clients.\n\nSource : https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "es": {
+    "t": "Walmart por fin aceptará Apple Pay y Google Pay",
+    "d": "El mayor minorista de EE. UU. abre sus tiendas a los pagos con billetera móvil antes de fin de año.",
+    "body": "Walmart empezará a aceptar Apple Pay y Google Pay en sus tiendas de EE. UU. antes de que termine el año. El gigante del comercio se había resistido durante años, impulsando su propio Walmart Pay en lugar de estas dos billeteras tan extendidas. Con el pago móvil sin contacto ya convertido en estándar, la medida busca reducir la fricción en la caja y responder a las expectativas de los clientes.\n\nFuente: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "it": {
+    "t": "Walmart accetterà finalmente Apple Pay e Google Pay",
+    "d": "Il più grande rivenditore degli Stati Uniti apre i suoi negozi ai pagamenti con wallet mobile entro fine anno.",
+    "body": "Walmart inizierà ad accettare Apple Pay e Google Pay nei suoi negozi statunitensi entro la fine dell'anno. Il colosso del retail aveva a lungo resistito, spingendo il proprio Walmart Pay invece dei due wallet ormai diffusissimi. Ora che il pagamento mobile contactless è lo standard, la mossa punta a ridurre gli attriti alla cassa e a soddisfare le aspettative dei clienti.\n\nFonte: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "21 Ağu 2026",
+  "tag": "ABD",
+  "src": "https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon dron teslimatını 5 yeni şehre taşıyor",
+    "d": "Prime Air; Chicago, Cleveland, Atlanta, Syracuse ve Boise'de devreye giriyor.",
+    "body": "Amazon, Prime Air dron teslimat hizmetini beş yeni ABD metropolüne genişletiyor: Chicago, Syracuse, Cleveland, Atlanta ve Boise. Şirket, yıl içinde daha fazla bölgenin ekleneceğini duyurdu. Hızlı teslimatın rekabetin merkezinde olduğu bir dönemde dron ağı, son kilometre lojistiğini ölçeklerken maliyet ve hız dengesini yeniden çiziyor.\n\nKaynak: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "en": {
+    "t": "Amazon expands drone delivery to five more U.S. metros",
+    "d": "Prime Air heads to Chicago, Cleveland, Atlanta, Syracuse and Boise.",
+    "body": "Amazon is expanding its Prime Air drone delivery to five more U.S. metro areas: Chicago, Syracuse, Cleveland, Atlanta and Boise. The company said more communities will follow later in the year. With fast delivery central to competition, the drone network reshapes the balance of cost and speed as last-mile logistics scale up.\n\nSource: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "de": {
+    "t": "Amazon weitet Drohnenlieferung auf fünf weitere US-Metropolen aus",
+    "d": "Prime Air kommt nach Chicago, Cleveland, Atlanta, Syracuse und Boise.",
+    "body": "Amazon weitet seine Prime-Air-Drohnenlieferung auf fünf weitere US-Ballungsräume aus: Chicago, Syracuse, Cleveland, Atlanta und Boise. Weitere Orte sollen im Laufe des Jahres folgen, so das Unternehmen. Da schnelle Lieferung im Wettbewerb entscheidend ist, verschiebt das Drohnennetz das Verhältnis von Kosten und Tempo, während die Logistik auf der letzten Meile skaliert.\n\nQuelle: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "fr": {
+    "t": "Amazon étend la livraison par drone à cinq nouvelles métropoles américaines",
+    "d": "Prime Air arrive à Chicago, Cleveland, Atlanta, Syracuse et Boise.",
+    "body": "Amazon étend sa livraison par drone Prime Air à cinq nouvelles zones métropolitaines américaines : Chicago, Syracuse, Cleveland, Atlanta et Boise. L'entreprise indique que d'autres localités suivront plus tard dans l'année. Alors que la rapidité de livraison est au cœur de la concurrence, le réseau de drones redessine l'équilibre entre coût et vitesse à mesure que la logistique du dernier kilomètre monte en puissance.\n\nSource : https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "es": {
+    "t": "Amazon amplía la entrega con drones a cinco metrópolis más de EE. UU.",
+    "d": "Prime Air llega a Chicago, Cleveland, Atlanta, Syracuse y Boise.",
+    "body": "Amazon está ampliando su entrega con drones Prime Air a cinco áreas metropolitanas más de EE. UU.: Chicago, Syracuse, Cleveland, Atlanta y Boise. La compañía señaló que más comunidades se sumarán a lo largo del año. Con la entrega rápida en el centro de la competencia, la red de drones redibuja el equilibrio entre coste y velocidad a medida que escala la logística de última milla.\n\nFuente: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "it": {
+    "t": "Amazon estende la consegna con droni ad altre cinque metropoli USA",
+    "d": "Prime Air arriva a Chicago, Cleveland, Atlanta, Syracuse e Boise.",
+    "body": "Amazon sta estendendo la consegna con droni Prime Air ad altre cinque aree metropolitane statunitensi: Chicago, Syracuse, Cleveland, Atlanta e Boise. L'azienda ha dichiarato che altre località seguiranno nel corso dell'anno. Con la consegna rapida al centro della competizione, la rete di droni ridisegna l'equilibrio tra costo e velocità mentre la logistica dell'ultimo miglio cresce di scala.\n\nFonte: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "20 Ağu 2026",
+  "tag": "İngiltere",
+  "src": "https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Yankee Candle İngiltere'de TikTok Shop'a açıldı",
+    "d": "Ev kokusu markası, sosyal ticaret platformunda doğrudan satışa geçti.",
+    "body": "Yankee Candle, İngiltere'de resmî olarak TikTok Shop'ta satışa başladı; müşteriler artık ürünleri doğrudan platform içinden keşfedip satın alabiliyor. Hamle, markanın dijital perakende stratejisinde önemli bir adım ve hızla büyüyen sosyal ticaret kanalına yönelişini gösteriyor. TikTok Shop, keşif ile satın almayı tek akışta birleştirerek markalara yeni bir doğrudan-tüketici kanalı sunuyor.\n\nKaynak: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "en": {
+    "t": "Yankee Candle launches on TikTok Shop in the UK",
+    "d": "The home-fragrance brand moves to direct selling on the social-commerce platform.",
+    "body": "Yankee Candle has officially launched on TikTok Shop in the UK, letting customers discover and buy its products directly within the platform. The move is a notable step in the brand's digital retail strategy and its shift toward the fast-growing social-commerce channel. TikTok Shop merges discovery and purchase in a single flow, giving brands a new direct-to-consumer route.\n\nSource: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "de": {
+    "t": "Yankee Candle startet im TikTok Shop in Großbritannien",
+    "d": "Die Duftmarke geht auf der Social-Commerce-Plattform zum Direktverkauf über.",
+    "body": "Yankee Candle ist offiziell im TikTok Shop in Großbritannien gestartet und lässt Kundinnen und Kunden Produkte direkt auf der Plattform entdecken und kaufen. Der Schritt ist ein wichtiger Teil der digitalen Handelsstrategie der Marke und zeigt ihre Hinwendung zum schnell wachsenden Social-Commerce-Kanal. TikTok Shop verbindet Entdeckung und Kauf in einem Fluss und eröffnet Marken einen neuen Direktvertriebsweg.\n\nQuelle: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "fr": {
+    "t": "Yankee Candle se lance sur TikTok Shop au Royaume-Uni",
+    "d": "La marque de parfums d'intérieur passe à la vente directe sur la plateforme de social commerce.",
+    "body": "Yankee Candle s'est officiellement lancée sur TikTok Shop au Royaume-Uni, permettant aux clients de découvrir et d'acheter ses produits directement sur la plateforme. Cette décision marque une étape importante de la stratégie de vente numérique de la marque et son virage vers le social commerce en forte croissance. TikTok Shop réunit découverte et achat dans un même parcours, offrant aux marques un nouveau canal direct au consommateur.\n\nSource : https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "es": {
+    "t": "Yankee Candle se lanza en TikTok Shop en el Reino Unido",
+    "d": "La marca de fragancias para el hogar pasa a la venta directa en la plataforma de social commerce.",
+    "body": "Yankee Candle se ha lanzado oficialmente en TikTok Shop en el Reino Unido, permitiendo a los clientes descubrir y comprar sus productos directamente en la plataforma. La medida es un paso relevante en la estrategia de venta digital de la marca y en su giro hacia el social commerce, de rápido crecimiento. TikTok Shop une descubrimiento y compra en un mismo flujo, ofreciendo a las marcas un nuevo canal directo al consumidor.\n\nFuente: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "it": {
+    "t": "Yankee Candle debutta su TikTok Shop nel Regno Unito",
+    "d": "Il marchio di fragranze per la casa passa alla vendita diretta sulla piattaforma di social commerce.",
+    "body": "Yankee Candle ha ufficialmente debuttato su TikTok Shop nel Regno Unito, permettendo ai clienti di scoprire e acquistare i suoi prodotti direttamente sulla piattaforma. La mossa è un passo importante nella strategia di vendita digitale del marchio e nel suo spostamento verso il social commerce in rapida crescita. TikTok Shop unisce scoperta e acquisto in un unico flusso, offrendo ai brand un nuovo canale diretto al consumatore.\n\nFonte: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   }
+  }
+ },
+ {
+  "c": "global",
+  "dt": "20 Ağu 2026",
+  "tag": "Global",
+  "src": "https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Yeni sıralama: Yapay zekâ en çok hangi perakendecilere yarıyor?",
+    "d": "AI Commerce Rankings, çevrimiçi mağazaların yapay zekâ kanallarındaki görünürlüğünü ölçüyor.",
+    "body": "Digital Commerce 360 ve ReFiBuy'ın temmuzda başlattığı AI Commerce Rankings, yapay zekâdan en çok fayda sağlayan çevrimiçi perakendecileri ortaya koyuyor. Sıralama yalnızca markaların yapay zekâ kanallarında ne kadar görünür olduğuna değil, bu kanallarda ne kadar iyi performans gösterdiğine de bakıyor. Yapay zekânın alışveriş keşfini yeniden şekillendirdiği bir dönemde bu tür ölçümler, markaların yeni görünürlük savaşını anlamasına yardımcı oluyor.\n\nKaynak: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "en": {
+    "t": "New ranking tracks which retailers AI is helping the most",
+    "d": "The AI Commerce Rankings measure online stores' visibility across AI channels.",
+    "body": "The AI Commerce Rankings, launched in July by Digital Commerce 360 and ReFiBuy, reveal which online retailers are getting the most help from artificial intelligence. The ranking looks not only at how visible brands are in AI channels but also at how well they perform there. As AI reshapes product discovery, such measures help brands understand the new contest for visibility.\n\nSource: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "de": {
+    "t": "Neues Ranking zeigt, welchen Händlern KI am meisten hilft",
+    "d": "Die AI Commerce Rankings messen die Sichtbarkeit von Onlineshops in KI-Kanälen.",
+    "body": "Die im Juli von Digital Commerce 360 und ReFiBuy gestarteten AI Commerce Rankings zeigen, welche Onlinehändler am meisten von künstlicher Intelligenz profitieren. Das Ranking betrachtet nicht nur, wie sichtbar Marken in KI-Kanälen sind, sondern auch, wie gut sie dort abschneiden. Da KI die Produktsuche verändert, helfen solche Kennzahlen Marken, den neuen Wettbewerb um Sichtbarkeit zu verstehen.\n\nQuelle: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "fr": {
+    "t": "Un nouveau classement mesure les détaillants les plus aidés par l'IA",
+    "d": "Les AI Commerce Rankings évaluent la visibilité des boutiques en ligne dans les canaux d'IA.",
+    "body": "Lancés en juillet par Digital Commerce 360 et ReFiBuy, les AI Commerce Rankings révèlent quels détaillants en ligne profitent le plus de l'intelligence artificielle. Le classement examine non seulement la visibilité des marques dans les canaux d'IA, mais aussi leur performance sur ces canaux. Alors que l'IA transforme la découverte de produits, ces mesures aident les marques à comprendre la nouvelle bataille de la visibilité.\n\nSource : https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "es": {
+    "t": "Un nuevo ranking mide a qué minoristas ayuda más la IA",
+    "d": "Los AI Commerce Rankings evalúan la visibilidad de las tiendas online en los canales de IA.",
+    "body": "Los AI Commerce Rankings, lanzados en julio por Digital Commerce 360 y ReFiBuy, revelan qué minoristas online obtienen más ayuda de la inteligencia artificial. El ranking no solo analiza la visibilidad de las marcas en los canales de IA, sino también su desempeño en ellos. A medida que la IA transforma el descubrimiento de productos, estas métricas ayudan a las marcas a entender la nueva batalla por la visibilidad.\n\nFuente: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "it": {
+    "t": "Una nuova classifica misura quali rivenditori l'IA aiuta di più",
+    "d": "Gli AI Commerce Rankings valutano la visibilità dei negozi online nei canali di IA.",
+    "body": "Gli AI Commerce Rankings, lanciati a luglio da Digital Commerce 360 e ReFiBuy, rivelano quali rivenditori online ottengono più aiuto dall'intelligenza artificiale. La classifica considera non solo quanto i brand siano visibili nei canali di IA, ma anche quanto vi performino bene. Mentre l'IA trasforma la scoperta dei prodotti, queste misure aiutano i brand a capire la nuova sfida per la visibilità.\n\nFonte: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "26 May 2026",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon'a rakip lojistik girişimi Stord 250 milyon dolar topladı",
+    "d": "E-ticaret fulfillment ağı Stord, 3 milyar dolar değerleme ile yatırım aldı.",
+    "body": "E-ticaret markaları için depo ağı ve stok yönetim yazılımı sunan Stord, 3 milyar dolarlık değerleme üzerinden 250 milyon dolar yatırım aldı. Şirket kendini 'Amazon karşıtı' olarak konumlandırıyor; markalara rekabet edecek teslimat hızını sunarken müşteri ilişkisinin markada kalmasını vaat ediyor. Yatırım, bağımsız fulfillment altyapısına olan talebin büyüdüğünü gösteriyor.\n\nKaynak: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "en": {
+    "t": "Amazon fulfillment rival Stord raises $250M at $3B valuation",
+    "d": "The e-commerce fulfillment network lands fresh funding as demand for independent logistics grows.",
+    "body": "Stord, which offers a network of warehouses and inventory-management software for e-commerce brands, has raised $250 million at a $3 billion valuation. The company positions itself as a sort of 'anti-Amazon,' giving brands the speed to compete while letting them keep ownership of the customer relationship. The round signals growing demand for independent fulfillment infrastructure.\n\nSource: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "de": {
+    "t": "Amazon-Rivale Stord sammelt 250 Mio. $ bei 3-Mrd.-Bewertung ein",
+    "d": "Das E-Commerce-Fulfillment-Netzwerk erhält frisches Kapital, da die Nachfrage nach unabhängiger Logistik wächst.",
+    "body": "Stord, das ein Netzwerk aus Lagern und Software zur Bestandsverwaltung für E-Commerce-Marken bietet, hat 250 Millionen Dollar bei einer Bewertung von 3 Milliarden Dollar eingesammelt. Das Unternehmen versteht sich als eine Art 'Anti-Amazon': Es gibt Marken das Tempo zum Wettbewerb, während sie die Kundenbeziehung behalten. Die Runde zeigt die wachsende Nachfrage nach unabhängiger Fulfillment-Infrastruktur.\n\nQuelle: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "fr": {
+    "t": "Stord, rival d'Amazon dans la logistique, lève 250 M$ à 3 Md$ de valorisation",
+    "d": "Le réseau de fulfillment e-commerce obtient de nouveaux fonds alors que la demande de logistique indépendante augmente.",
+    "body": "Stord, qui propose un réseau d'entrepôts et un logiciel de gestion des stocks pour les marques e-commerce, a levé 250 millions de dollars pour une valorisation de 3 milliards. L'entreprise se présente comme une sorte d'« anti-Amazon » : elle offre aux marques la rapidité nécessaire pour rivaliser tout en leur laissant la maîtrise de la relation client. Le tour de table témoigne d'une demande croissante d'infrastructures de fulfillment indépendantes.\n\nSource : https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "es": {
+    "t": "Stord, rival de Amazon en logística, capta 250 M$ con una valoración de 3.000 M$",
+    "d": "La red de fulfillment para e-commerce logra financiación mientras crece la demanda de logística independiente.",
+    "body": "Stord, que ofrece una red de almacenes y software de gestión de inventario para marcas de e-commerce, ha captado 250 millones de dólares con una valoración de 3.000 millones. La compañía se posiciona como una especie de 'anti-Amazon': da a las marcas la velocidad para competir mientras conservan la relación con el cliente. La ronda evidencia la creciente demanda de infraestructura de fulfillment independiente.\n\nFuente: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "it": {
+    "t": "Stord, rivale di Amazon nella logistica, raccoglie 250 mln $ a una valutazione di 3 mld",
+    "d": "La rete di fulfillment per l'e-commerce ottiene nuovi fondi mentre cresce la domanda di logistica indipendente.",
+    "body": "Stord, che offre una rete di magazzini e software di gestione dell'inventario per i brand e-commerce, ha raccolto 250 milioni di dollari a una valutazione di 3 miliardi. L'azienda si posiziona come una sorta di 'anti-Amazon': dà ai brand la velocità per competere lasciando loro la proprietà della relazione con il cliente. Il round segnala la crescente domanda di infrastrutture di fulfillment indipendenti.\n\nFonte: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   }
+  }
+ }
+]
