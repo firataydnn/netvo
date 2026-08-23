@@ -234,6 +234,45 @@
   }
  },
  {
+  "c": "reklam",
+  "dt": "20 Ağu 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/",
+  "i18n": {
+   "tr": {
+    "t": "Michaels, 3D ve artırılmış gerçeklikli çerçeve tasarımcısını açtı",
+    "d": "Perakendeci, alışverişte 3D/AR teknolojisini kullanarak müşteriye ürünü önden gösteriyor.",
+    "body": "Hobi ve el sanatları perakendecisi Michaels, 3D ve artırılmış gerçeklik teknolojisiyle çalışan bir dijital çerçeve oluşturucu başlattı. Araç, müşterilerin çerçeveyi satın almadan önce sanal olarak tasarlayıp önizlemesine olanak tanıyor. Hamle, deneyimsel e-ticaretin ve AR'ın perakendede yaygınlaşan rolünü örnekliyor.\n\nKaynak: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "en": {
+    "t": "Michaels launches a 3D, augmented-reality frame builder",
+    "d": "The retailer uses 3D/AR in shopping to let customers preview a product before buying.",
+    "body": "Michaels, the arts-and-crafts retailer, has launched a digital frame builder powered by 3D and augmented-reality technology. The tool lets shoppers design and preview a frame virtually before they buy. The move illustrates the growing role of experiential commerce and AR in retail.\n\nSource: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "de": {
+    "t": "Michaels startet einen 3D-Rahmenbauer mit Augmented Reality",
+    "d": "Der Händler nutzt 3D/AR im Einkauf, damit Kunden ein Produkt vor dem Kauf vorschauen.",
+    "body": "Michaels, der Bastel- und Kunsthandwerks-Händler, hat einen digitalen Rahmenbauer auf Basis von 3D- und Augmented-Reality-Technologie gestartet. Das Werkzeug lässt Kunden einen Rahmen virtuell gestalten und vorab ansehen, bevor sie kaufen. Der Schritt zeigt die wachsende Rolle von Experiential Commerce und AR im Handel.\n\nQuelle: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "fr": {
+    "t": "Michaels lance un configurateur de cadres en 3D et réalité augmentée",
+    "d": "Le détaillant utilise la 3D/RA dans l'achat pour prévisualiser un produit avant l'achat.",
+    "body": "Michaels, l'enseigne de loisirs créatifs, a lancé un configurateur de cadres numérique reposant sur la 3D et la réalité augmentée. L'outil permet aux clients de concevoir et de prévisualiser un cadre virtuellement avant l'achat. Cette initiative illustre le rôle croissant du commerce expérientiel et de la RA dans le retail.\n\nSource : https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "es": {
+    "t": "Michaels lanza un configurador de marcos en 3D y realidad aumentada",
+    "d": "El minorista usa 3D/RA en la compra para previsualizar un producto antes de comprarlo.",
+    "body": "Michaels, la cadena de manualidades, ha lanzado un configurador de marcos digital basado en 3D y realidad aumentada. La herramienta permite a los clientes diseñar y previsualizar un marco de forma virtual antes de comprar. El movimiento ilustra el creciente papel del comercio experiencial y la RA en el retail.\n\nFuente: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "it": {
+    "t": "Michaels lancia un configuratore di cornici in 3D e realtà aumentata",
+    "d": "Il rivenditore usa 3D/AR nell'acquisto per l'anteprima di un prodotto prima di comprarlo.",
+    "body": "Michaels, il rivenditore di hobbistica e artigianato, ha lanciato un configuratore di cornici digitale basato su 3D e realtà aumentata. Lo strumento permette ai clienti di progettare e visualizzare in anteprima una cornice in modo virtuale prima dell'acquisto. La mossa illustra il ruolo crescente del commercio esperienziale e dell'AR nel retail.\n\nFonte: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   }
+  }
+ },
+ {
   "c": "pazar",
   "dt": "19 Ağu 2026",
   "tag": "ABD",
@@ -269,6 +308,45 @@
     "t": "Glass porta funzioni IA nel suo marketplace per gli acquisti pubblici",
     "d": "L'azienda rilancia il marketplace G-Commerce per gli enti pubblici con novità basate sull'IA.",
     "body": "Glass, azienda tecnologica specializzata negli acquisti pubblici, ha reso pubbliche diverse funzioni di IA per G-Commerce, il suo marketplace. L'azienda presenta la mossa come una reintroduzione di G-Commerce per gli enti pubblici che lo utilizzano. Lo sviluppo evidenzia il ruolo crescente dell'IA nell'e-commerce B2G (business-to-government).\n\nFonte: https://www.digitalcommerce360.com/2026/08/19/glass-ai-upgrades-government-procurement-marketplace/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "10 Haz 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/",
+  "i18n": {
+   "tr": {
+    "t": "Wing dron teslimatı Walmart'la 7 yeni şehre yayılıyor",
+    "d": "Alphabet'in dron şirketi Wing, Walmart ortaklığıyla ABD'de kapsamını genişletiyor.",
+    "body": "Alphabet'in dron teslimat şirketi Wing, Walmart ile ortaklığını yedi yeni ABD şehrine taşıyor. Genişleme, dron teslimatın artık bir yenilik denemesi olmaktan çıkıp ölçeklenen bir hizmete dönüştüğünü gösteriyor. Amazon Prime Air ile birlikte hava teslimatı, son kilometre lojistiğinde rekabeti kızıştırıyor.\n\nKaynak: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "en": {
+    "t": "Wing drone delivery expands to 7 more cities with Walmart",
+    "d": "Alphabet's drone company scales its U.S. footprint through its Walmart partnership.",
+    "body": "Wing, Alphabet's drone delivery company, is expanding its Walmart partnership into seven more U.S. cities. The rollout signals that drone delivery is moving from novelty pilot to a scaling service. Alongside Amazon Prime Air, aerial delivery is intensifying competition in last-mile logistics.\n\nSource: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "de": {
+    "t": "Wing-Drohnenlieferung wächst mit Walmart auf 7 weitere Städte",
+    "d": "Alphabets Drohnenfirma skaliert ihre US-Präsenz über die Walmart-Partnerschaft.",
+    "body": "Wing, das Drohnenlieferunternehmen von Alphabet, weitet seine Walmart-Partnerschaft auf sieben weitere US-Städte aus. Der Rollout zeigt, dass Drohnenlieferung vom Pilotversuch zum skalierenden Dienst wird. Neben Amazon Prime Air verschärft die Luftzustellung den Wettbewerb in der Last-Mile-Logistik.\n\nQuelle: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "fr": {
+    "t": "La livraison par drone Wing s'étend à 7 villes avec Walmart",
+    "d": "La société de drones d'Alphabet développe sa présence américaine via son partenariat Walmart.",
+    "body": "Wing, la société de livraison par drone d'Alphabet, étend son partenariat avec Walmart à sept nouvelles villes américaines. Ce déploiement montre que la livraison par drone passe du pilote-nouveauté à un service qui monte en charge. Aux côtés d'Amazon Prime Air, la livraison aérienne intensifie la concurrence sur le dernier kilomètre.\n\nSource : https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "es": {
+    "t": "La entrega con drones Wing se amplía a 7 ciudades con Walmart",
+    "d": "La empresa de drones de Alphabet escala su presencia en EE. UU. mediante su alianza con Walmart.",
+    "body": "Wing, la empresa de entrega con drones de Alphabet, amplía su alianza con Walmart a siete ciudades más de EE. UU. El despliegue indica que la entrega con drones pasa de piloto-novedad a un servicio que escala. Junto a Amazon Prime Air, la entrega aérea intensifica la competencia en la última milla.\n\nFuente: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "it": {
+    "t": "La consegna con droni Wing si estende a 7 città con Walmart",
+    "d": "L'azienda di droni di Alphabet scala la sua presenza negli USA tramite la partnership con Walmart.",
+    "body": "Wing, l'azienda di consegne con droni di Alphabet, estende la partnership con Walmart ad altre sette città statunitensi. Il rollout indica che la consegna con droni passa da pilota-novità a servizio che scala. Accanto ad Amazon Prime Air, la consegna aerea intensifica la concorrenza sull'ultimo miglio.\n\nFonte: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
    }
   }
  },

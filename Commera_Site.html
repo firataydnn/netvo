@@ -6,7 +6,7 @@
 <title>Netvo — Pazaryeri komisyon ve kâr hesaplama · 136 pazaryeri</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='24' fill='%230A0A0A'/%3E%3Ccircle cx='24' cy='24' r='14.5' fill='none' stroke='%23FAF9F7' stroke-opacity='0.24' stroke-width='5'/%3E%3Ccircle cx='24' cy='24' r='14.5' fill='none' stroke='%2334C27A' stroke-width='5' stroke-linecap='round' stroke-dasharray='29 62.1' transform='rotate(33 24 24)'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#0A0A0A">
-<meta name="description" content="Trendyol, Amazon, Etsy, eBay, Noon, Allegro, Shopee, Mercado Libre ve 136 pazaryeri için komisyon, ülke vergisi, gümrük ve gerçek net kâr. 37 ülke rehberi. Ne kaldığını bil.">
+<meta name="description" content="Trendyol, Amazon, Etsy, eBay, Noon, Allegro, Shopee, Mercado Libre ve 136 pazaryeri için komisyon, ülke vergisi, gümrük ve operasyonel kâr. 37 ülke rehberi. Ne kaldığını bil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -523,7 +523,7 @@
   .hero h1{font-optical-sizing:auto}
   /* Küçük telefon: iki-kolon form alanları tek kolon (349px'de sıkışmasın) */
   @media(max-width:480px){ .hc-two,.two,.vin{grid-template-columns:1fr} }
-  /* Haber-kanalı hissi veren "SON DAKİKA" ticker'ı kaldırıldı (otorite markası). */
+  /* Haber-kanalı hissi veren breaking-news ticker'ı kaldırıldı (otorite markası). */
   .mag-ticker{display:none}
   /* Fark cümlesi — ilk 5 saniyede "bu neden farklı" sorusuna cevap */
   .hc-prov{margin-top:10px}
@@ -598,7 +598,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
       <a onclick="go('tools')" data-i18n="nav_tools">Pazaryerleri</a>
       <a onclick="go('compare')" data-i18n="nav_compare">Karşılaştır</a>
       <a onclick="go('radar')">Ücret Radarı</a>
-      <a onclick="go('magazine')" data-i18n="nav_mag">Haberler</a>
+      <a onclick="go('magazine')" data-i18n="nav_mag">Intelligence</a>
       <a class="mob-only" onclick="go('countries')">Ülkeler</a>
       <a class="mob-only" onclick="go('sozluk')">Sözlük</a>
       <a class="mob-only" onclick="go('calc')">Hesapla</a>
@@ -623,7 +623,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
         <a onclick="go('calc')" class="btn lg" data-i18n="hero_b1">Kârını hesapla</a>
         <a onclick="go('compare')" class="btn lg ghost" data-i18n="hero_b2">Pazaryerlerini karşılaştır</a>
       </div>
-      <div class="stats"><div><b id="stMk">136</b><span>Pazaryeri</span></div><div><b>37</b><span>Ülke</span></div><div><b id="stOfficial">—</b><span>Doğrulanmış oran</span></div></div>
+      <div class="stats"><div><b id="stMk">136</b><span>Pazaryeri</span></div><div><b>37</b><span>Ülke</span></div><div><b id="stOfficial">99</b><span>Doğrulanmış oran</span></div></div>
      </div>
      <!-- IDEO + Northline: "hesaplamayan hesaplayıcı broşürdür." Aha anı burada. -->
      <div class="hcalc">
@@ -640,8 +640,17 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     </div>
   </div></div>
   <section class="blk" style="padding-top:30px"><div class="container">
+    <div class="sec-title">Komisyon oranı, satışın maliyeti değildir.</div>
+    <div class="gap" style="max-width:780px;margin-top:4px">
+      <div class="announced"><div class="k">Açıklanan komisyon</div><div class="v">%15</div></div>
+      <div class="gapdelta">+9 puan<span class="gapdelta-sub">ek kesinti</span></div>
+      <div class="real"><div class="k">Toplam pazaryeri kesintisi</div><div class="v">%24</div><div class="n">vergi · hizmet bedeli · işlem ücretleri</div></div>
+    </div>
+    <p class="sm muted" style="margin-top:14px;max-width:660px">349 TL'lik bir satışta ilan edilen komisyon %15 olabilir. Vergi, hizmet bedeli ve diğer pazaryeri kesintileri eklendiğinde toplam pazaryeri kesintisi %24'e çıkar. Kargo ayrı bir operasyon maliyetidir. Netvo tam bu farkı gösterir.</p>
+  </div></section>
+  <section class="blk" style="padding-top:0"><div class="container">
     <div class="picker">
-      <div class="sec-title" style="margin-bottom:2px">Nereye satmalısın? 4 soru, sana uygun 3 pazaryeri.</div>
+      <div class="sec-title" style="margin-bottom:2px">Peki nerede daha çok kalır? 4 soru, sana uygun 3 pazaryeri.</div>
       <div class="sec-sub" style="margin-bottom:0">E-ticarete başlamanın en hızlı yolu: nerede, neyi, nasıl. Kayıt yok — gerçek komisyon verisiyle.</div>
       <div class="pk-grid">
         <div class="pk-f"><label for="pkRegion">Nereye satmak istiyorsun?</label><select id="pkRegion" class="inp"></select></div>
@@ -652,15 +661,6 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
       <button class="btn lg" onclick="pickerRun()">Bana uygun pazaryerlerini göster →</button>
       <div id="pkOut"></div>
     </div>
-  </div></section>
-  <section class="blk" style="padding-top:0"><div class="container">
-    <div class="sec-title">Komisyon oranı, satışın maliyeti değildir.</div>
-    <div class="gap" style="max-width:780px;margin-top:4px">
-      <div class="announced"><div class="k">Açıklanan komisyon</div><div class="v">%15</div></div>
-      <div class="gapdelta">+9 puan<span class="gapdelta-sub">gizli</span></div>
-      <div class="real"><div class="k">Toplam pazaryeri kesintisi</div><div class="v">%24</div><div class="n">vergi · hizmet bedeli · işlem ücretleri</div></div>
-    </div>
-    <p class="sm muted" style="margin-top:14px;max-width:660px">349 TL'lik bir satışta ilan edilen komisyon %15 olabilir. Vergi, hizmet bedeli ve diğer pazaryeri kesintileri eklendiğinde toplam pazaryeri kesintisi %24'e çıkar. Kargo ayrı bir operasyon maliyetidir. Netvo tam bu farkı gösterir.</p>
   </div></section>
   <section class="blk" style="padding-top:0"><div class="container">
     <div class="sec-title">En çok kullanılan pazaryerleri</div>
@@ -675,8 +675,8 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   </div></section>
   <section class="blk" style="padding-top:0"><div class="container">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div><div class="sec-title" style="margin-bottom:2px" data-i18n="mag_title">Haberler</div><div class="sec-sub" style="margin-bottom:0" data-i18n="mag_sub">E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.</div></div>
-      <a onclick="go('magazine')" class="btn ghost">Tüm haberler →</a>
+      <div><div class="sec-title" style="margin-bottom:2px" data-i18n="mag_title">Netvo Intelligence</div><div class="sec-sub" style="margin-bottom:0" data-i18n="mag_sub">E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.</div></div>
+      <a onclick="go('magazine')" class="btn ghost" data-i18n="mag_all">Tüm haberler →</a>
     </div>
     <div class="grid3" id="magHomeTeaser"></div>
   </div></section>
@@ -882,7 +882,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 
 <div class="page" id="watch"><section class="blk"><div class="container">
   <div class="sec-title">Takip ettiğin ücretler</div>
-  <div class="sec-sub">Takibe aldığın pazaryeri + kategori kombinasyonları. Oran değişince burada görürsün — geri gelme sebebin bu.</div>
+  <div class="sec-sub">Takibe aldığın pazaryeri ve kategori ücretlerini burada gör. Değişiklik olduğunda Netvo seni bilgilendirir.</div>
   <div class="infobanner" style="max-width:760px;margin-top:6px"><span>ⓘ</span><div>Bu liste <b>şu an bu tarayıcıda</b> tutulur. Bilgisayar veya tarayıcı değişince gitmesin diye <b>dışa aktar</b> — dosyayı istediğin cihazda geri yükle. Kalıcı, e-posta uyaracaklı takip yakında Pro'da.</div></div>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
     <button class="btn ghost sm" onclick="exportWatch()">⭳ Listeyi dışa aktar (JSON)</button>
@@ -895,14 +895,15 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   <div id="magTopAd"></div>
   <div class="mag-head">
     <div><div class="sec-title" style="margin-bottom:2px">Netvo Intelligence</div><div class="sec-sub" style="margin-bottom:0">Pazaryeri ücretleri, regülasyonlar ve satıcı ekonomisindeki değişiklikler — operasyonel kâra etkileriyle birlikte.</div></div>
-    <div class="mag-ticker"><span class="lbl">SON DAKİKA</span><span class="tk" id="magTicker"></span></div>
+    <!-- breaking-news ticker kaldırıldı: Netvo bir intelligence ürünü, haber-kanalı taklidi değil. -->
+    <span id="magTicker" hidden></span>
   </div>
   <div class="mag-hero"><div id="magLead"></div><div class="mag-secondary" id="magSecondary"></div></div>
   <div class="mag-body">
     <div id="magMain"></div>
     <aside>
       <div class="side-card"><h4>🔥 En Çok Okunanlar</h4><ol id="magPop"></ol></div>
-      <div class="side-card news"><h4>Haftalık Bülten</h4><p>E-ticaret ücret değişiklikleri ve regülasyon haberlerini haftada bir e-postanda al.</p><input id="nlMail" placeholder="E-posta adresin"><button class="btn wide" onclick="subscribe()">Abone ol</button></div>
+      <div class="side-card news"><h4>Günlük Bülten</h4><p>E-ticaret dünyasından günün haberleri her sabah e-postanda. Kayıt bir saniye.</p><input id="nlMail" placeholder="E-posta adresin"><button class="btn wide" onclick="subscribe()">Abone ol</button></div>
       <div class="side-card"><h4>Kategoriler</h4><div id="magCats"></div></div>
       <div class="side-card" style="background:var(--blue-l);border-color:#cfe0f2"><h4>Aracı dene</h4><p class="sm muted" style="margin-bottom:10px">Haberdeki değişiklik kârını nasıl etkiler? 136 pazaryerinde hesapla.</p><button class="btn wide" onclick="go('calc')">Komisyon Hesapla →</button></div>
     </aside>
@@ -2060,7 +2061,7 @@ function gapBlock(a,b,delta){
  const bar = pb>0 ? `<div class="gapbar"><i class="shown" style="width:${shown}%"></i><i class="hidden" style="width:${100-shown}%"></i></div>` : "";
  return `<div class="gap">
    <div class="announced"><div class="k">${a.k}</div><div class="v">${a.v}</div>${a.n?`<div class="n">${a.n}</div>`:""}</div>
-   ${d?`<div class="gapdelta">${d}<span class="gapdelta-sub">gizli</span></div>`:""}
+   ${d?`<div class="gapdelta">${d}<span class="gapdelta-sub">ek kesinti</span></div>`:""}
    <div class="real"><div class="k">${b.k}</div><div class="v">${b.v}</div>${b.n?`<div class="n">${b.n}</div>`:""}</div>
  </div>${bar}`;
 }
@@ -2974,32 +2975,32 @@ function go(p){
 
 // ============ DİL (i18n) — landing/nav çekirdeği; derin çeviri veri-katmanıyla gelecek ============
 const I18N={
- tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"Haberler",mag_title:"Haberler",mag_sub:"E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",
+ tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"Intelligence",mag_title:"Netvo Intelligence",mag_all:"Tüm haberler →",mag_sub:"E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",
   hero_tag:"136 pazaryeri · 37 ülke · vergi ve gümrük dahil",hero_h1:"Satıldı. Sana ne kaldı?",
   hero_p:"Açıklanan komisyon oranı değil — vergi, kargo ve tüm kesintilerden sonra bir satıştan cebine gerçekten ne kaldığını gösteririz. Her oranın kaynağı ve tarihi belli.",
   hc_hint:"↓ Örnek değerlerle dolu — kendi rakamlarını gir, sonuç anında değişir",
   hero_b1:"Kârını hesapla",hero_b2:"Pazaryerlerini karşılaştır"},
- en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"News",mag_title:"News",mag_sub:"The latest from the world of e-commerce: marketplaces, payments, logistics, regulation and more.",nav_calcBtn:"Calculate",nav_try:"Calculate profit",
+ en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"Intelligence",mag_title:"Netvo Intelligence",mag_all:"All news →",mag_sub:"The latest from the world of e-commerce: marketplaces, payments, logistics, regulation and more.",nav_calcBtn:"Calculate",nav_try:"Calculate profit",
   hero_tag:"136 marketplaces · 37 countries · tax and customs included",hero_h1:"Sold. What did you keep?",
   hero_p:"Not the advertised rate — after tax, shipping and every fee, we show what actually reaches your pocket from a sale. Every rate shows its source and date.",
   hc_hint:"↓ Filled with example values — enter your own, the result updates instantly",
   hero_b1:"Calculate profit",hero_b2:"Compare marketplaces"},
- de:{nav_tools:"Marktplätze",nav_calc:"Rechner",nav_compare:"Vergleichen",nav_mag:"Nachrichten",mag_title:"Nachrichten",mag_sub:"Aktuelles aus der E-Commerce-Welt: Marktplätze, Zahlungen, Logistik, Regulierung und mehr.",nav_calcBtn:"Berechnen",nav_try:"Gewinn berechnen",
+ de:{nav_tools:"Marktplätze",nav_calc:"Rechner",nav_compare:"Vergleichen",nav_mag:"Intelligence",mag_title:"Netvo Intelligence",mag_all:"Alle Nachrichten →",mag_sub:"Aktuelles aus der E-Commerce-Welt: Marktplätze, Zahlungen, Logistik, Regulierung und mehr.",nav_calcBtn:"Berechnen",nav_try:"Gewinn berechnen",
   hero_tag:"136 Marktplätze · 37 Länder · inkl. Steuer und Zoll",hero_h1:"Verkauft. Was bleibt dir?",
   hero_p:"Nicht der angegebene Satz — nach Steuer, Versand und allen Gebühren zeigen wir, was von einem Verkauf wirklich bei dir ankommt. Jeder Satz zeigt Quelle und Datum.",
   hc_hint:"↓ Mit Beispielwerten gefüllt — gib deine eigenen ein, das Ergebnis aktualisiert sich sofort",
   hero_b1:"Gewinn berechnen",hero_b2:"Marktplätze vergleichen"},
- fr:{nav_tools:"Places de marché",nav_calc:"Calculateur",nav_compare:"Comparer",nav_mag:"Actualités",mag_title:"Actualités",mag_sub:"L'actualité du monde de l'e-commerce : places de marché, paiements, logistique, réglementation et plus encore.",nav_calcBtn:"Calculer",nav_try:"Calculer le profit",
+ fr:{nav_tools:"Places de marché",nav_calc:"Calculateur",nav_compare:"Comparer",nav_mag:"Intelligence",mag_title:"Netvo Intelligence",mag_all:"Toute l'actualité →",mag_sub:"L'actualité du monde de l'e-commerce : places de marché, paiements, logistique, réglementation et plus encore.",nav_calcBtn:"Calculer",nav_try:"Calculer le profit",
   hero_tag:"136 places de marché · 37 pays · taxes et douane incluses",hero_h1:"Vendu. Que vous reste-t-il ?",
   hero_p:"Pas le taux affiché — après la taxe, la livraison et tous les frais, nous montrons ce qui arrive vraiment dans votre poche sur une vente. Chaque taux affiche sa source et sa date.",
   hc_hint:"↓ Rempli d'exemples — saisissez les vôtres, le résultat se met à jour instantanément",
   hero_b1:"Calculer le profit",hero_b2:"Comparer les places de marché"},
- es:{nav_tools:"Marketplaces",nav_calc:"Calculadora",nav_compare:"Comparar",nav_mag:"Noticias",mag_title:"Noticias",mag_sub:"Lo último del mundo del e-commerce: marketplaces, pagos, logística, regulación y más.",nav_calcBtn:"Calcular",nav_try:"Calcular beneficio",
+ es:{nav_tools:"Marketplaces",nav_calc:"Calculadora",nav_compare:"Comparar",nav_mag:"Intelligence",mag_title:"Netvo Intelligence",mag_all:"Todas las noticias →",mag_sub:"Lo último del mundo del e-commerce: marketplaces, pagos, logística, regulación y más.",nav_calcBtn:"Calcular",nav_try:"Calcular beneficio",
   hero_tag:"136 marketplaces · 37 países · impuestos y aduana incluidos",hero_h1:"Vendido. ¿Qué te queda?",
   hero_p:"No la tasa anunciada — tras impuestos, envío y todas las tarifas, mostramos lo que realmente te queda de una venta. Cada tasa muestra su fuente y fecha.",
   hc_hint:"↓ Con valores de ejemplo — introduce los tuyos, el resultado se actualiza al instante",
   hero_b1:"Calcular beneficio",hero_b2:"Comparar marketplaces"},
- it:{nav_tools:"Marketplace",nav_calc:"Calcolatore",nav_compare:"Confronta",nav_mag:"Notizie",mag_title:"Notizie",mag_sub:"Le ultime dal mondo dell'e-commerce: marketplace, pagamenti, logistica, normative e altro.",nav_calcBtn:"Calcola",nav_try:"Calcola il profitto",
+ it:{nav_tools:"Marketplace",nav_calc:"Calcolatore",nav_compare:"Confronta",nav_mag:"Intelligence",mag_title:"Netvo Intelligence",mag_all:"Tutte le notizie →",mag_sub:"Le ultime dal mondo dell'e-commerce: marketplace, pagamenti, logistica, normative e altro.",nav_calcBtn:"Calcola",nav_try:"Calcola il profitto",
   hero_tag:"136 marketplace · 37 paesi · tasse e dogana incluse",hero_h1:"Venduto. Cosa ti resta?",
   hero_p:"Non il tasso indicato — dopo tasse, spedizione e tutti i costi, mostriamo cosa ti resta davvero da una vendita. Ogni tasso mostra fonte e data.",
   hc_hint:"↓ Compilato con valori d'esempio — inserisci i tuoi, il risultato si aggiorna subito",
