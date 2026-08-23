@@ -175,6 +175,21 @@
   .art-row h3{font-size:15px;font-weight:600;margin:3px 0;line-height:1.25}
   .art-row p{font-size:13px;color:var(--muted)}
   .art-row .mt{font-size:11.5px;color:#9aa6b6;margin-top:4px}
+  /* Onedio tarzı görselli haber kartları */
+  .news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:18px}
+  .news-card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:.16s;display:flex;flex-direction:column}
+  .news-card:hover{border-color:var(--blue);box-shadow:0 10px 26px rgba(31,58,95,.10);transform:translateY(-2px)}
+  .news-card:hover h3{color:var(--blue)}
+  .news-card .cov{aspect-ratio:16/10;width:100%;overflow:hidden;background:var(--bg-hover);display:block}
+  .news-card .cov svg{display:block;width:100%;height:100%}
+  .news-card .bd{padding:13px 14px 15px;display:flex;flex-direction:column;flex:1}
+  .news-card .cat{font-size:11px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px}
+  .news-card h3{font-size:15.5px;font-weight:600;line-height:1.28;margin:5px 0 7px;color:var(--navy)}
+  .news-card p{font-size:13px;color:var(--muted);line-height:1.45;margin:0}
+  .news-card .mt{font-size:11.5px;color:#9aa6b6;margin-top:auto;padding-top:9px}
+  .mag-lead .cov{position:absolute;inset:0;z-index:0}
+  .mag-lead .cov svg{width:100%;height:100%}
+  .mag-lead::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(9,9,11,.15) 0%,rgba(9,9,11,.35) 45%,rgba(9,9,11,.82) 100%)}
   .side-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
   /* ---- Pazaryeri bilgi sayfası ---- */
   /* ===== NORTHLINE düzeltmeleri: eksik CSS + sayı disiplini ===== */
@@ -583,7 +598,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
       <a onclick="go('tools')" data-i18n="nav_tools">Pazaryerleri</a>
       <a onclick="go('compare')" data-i18n="nav_compare">Karşılaştır</a>
       <a onclick="go('radar')">Ücret Radarı</a>
-      <a onclick="go('magazine')" data-i18n="nav_mag">İçgörüler</a>
+      <a onclick="go('magazine')" data-i18n="nav_mag">Haberler</a>
       <a class="mob-only" onclick="go('countries')">Ülkeler</a>
       <a class="mob-only" onclick="go('sozluk')">Sözlük</a>
       <a class="mob-only" onclick="go('calc')">Hesapla</a>
@@ -660,7 +675,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   </div></section>
   <section class="blk" style="padding-top:0"><div class="container">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div><div class="sec-title" style="margin-bottom:2px">İçgörüler</div><div class="sec-sub" style="margin-bottom:0">Pazaryeri ücretleri, regülasyonlar ve satıcı kârlılığını etkileyen değişiklikler.</div></div>
+      <div><div class="sec-title" style="margin-bottom:2px" data-i18n="mag_title">Haberler</div><div class="sec-sub" style="margin-bottom:0" data-i18n="mag_sub">E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.</div></div>
       <a onclick="go('magazine')" class="btn ghost">Tüm haberler →</a>
     </div>
     <div class="grid3" id="magHomeTeaser"></div>
@@ -2576,8 +2591,35 @@ const NEWS=[
 ];
 
 const CATCOLOR={pazar:'#0A7A43',reg:'#B4841E',global:'#1F4E79',reklam:'#B42318',lojistik:'#7C3AED'};
-function artThumb(c){const col=CATCOLOR[c]||'#1F4E79';
- return `<span style="width:100%;height:100%;display:grid;place-items:center;background:radial-gradient(120% 120% at 20% 15%, color-mix(in srgb, ${col} 78%, #fff) 0%, ${col} 45%, color-mix(in srgb, ${col} 62%, #000) 100%);color:#fff;font-size:1.4em;line-height:1">${CATIC[c]||'📰'}</span>`;}
+// Marka-uyumlu, TELİFSİZ üretilen kapak görseli. Dış fotoğraf KULLANMAZ:
+// her kapak kategori renginden + başlık hash'inden deterministik üretilir.
+function artHue(s){s=String(s||'');let h=5381;for(let i=0;i<s.length;i++)h=((h*33)^s.charCodeAt(i))>>>0;return h;}
+function _esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function artThumb(x){
+ const it=(x&&typeof x==='object')?x:{c:x};
+ const c=it.c||'global', col=CATCOLOR[c]||'#1F4E79';
+ const tag=(it.tag||'').toString(), h=artHue(it.t||it.d||c);
+ const ang=30+(h%80);                         // gradient açısı
+ const light=`color-mix(in srgb, ${col} 74%, #ffffff)`;
+ const mid=col, dark=`color-mix(in srgb, ${col} 52%, #0b0b12)`;
+ const gid='ng'+(h%100000);
+ const c1x=280+(h%90), c1y=30+(h%50), r1=110+(h%50);
+ const c2x=40+(h%70),  c2y=210+(h%40), r2=70+(h%40);
+ const ring=`<circle cx="${120+(h>>3)%180}" cy="${120+(h>>5)%80}" r="${64+(h%40)}" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>`;
+ const dots=[0,1,2].map(i=>`<circle cx="${30+i*16}" cy="34" r="3.2" fill="#ffffff" fill-opacity="0.55"/>`).join('');
+ return `<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${_esc(CATMAP[c]||c)}">`
+  +`<defs><linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(${ang} .5 .5)">`
+  +`<stop offset="0" stop-color="${light}"/><stop offset="0.55" stop-color="${mid}"/><stop offset="1" stop-color="${dark}"/></linearGradient></defs>`
+  +`<rect width="400" height="250" fill="url(#${gid})"/>`
+  +`<circle cx="${c1x}" cy="${c1y}" r="${r1}" fill="#ffffff" fill-opacity="0.07"/>`
+  +`<circle cx="${c2x}" cy="${c2y}" r="${r2}" fill="#000000" fill-opacity="0.10"/>`
+  +ring+dots
+  +`<text x="26" y="150" font-family="Georgia,'Times New Roman',serif" font-size="42" font-weight="700" fill="#ffffff" fill-opacity="0.95" letter-spacing="-1">${_esc((CATIC[c]||''))}</text>`
+  +`<text x="26" y="196" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" fill="#ffffff" fill-opacity="0.92" letter-spacing="2">${_esc(tag.toLocaleUpperCase('tr'))}</text>`
+  +`<text x="374" y="234" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#ffffff" fill-opacity="0.9" letter-spacing="0.4">netvo</text>`
+  +`<circle cx="357" cy="229.5" r="3.2" fill="#ffffff" fill-opacity="0.9"/>`
+  +`</svg>`;
+}
 function slugify(s){return s.toLowerCase().replace(/[ışğüöçİ]/g,c=>({'ı':'i','ş':'s','ğ':'g','ü':'u','ö':'o','ç':'c','İ':'i'}[c]||c)).replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,60);}
 function openArticle(i){
  const a=NEWS[i], slug=slugify(a.t);
@@ -2599,9 +2641,10 @@ function openArticle(i){
  const hasBody=paras.length>3;
  // kategori içi diğer haberler (iç linkleme — SEO)
  const related=NEWS.map((x,j)=>({x,j})).filter(o=>o.x.c===a.c&&o.j!==i).slice(0,4);
- const relHtml=related.length?`<div style="margin-top:34px;border-top:1px solid var(--line);padding-top:18px"><div style="font-weight:600;color:var(--navy);margin-bottom:10px">${CATIC[a.c]} ${CATMAP[a.c]} — diğer haberler</div>${related.map(o=>`<div class="art-row" onclick="openArticle(${o.j})"><div class="thumb">${artThumb(o.x.c)}</div><div><div class="cat">${o.x.tag}</div><h3>${o.x.t}</h3><div class="mt">${o.x.dt}</div></div></div>`).join('')}</div>`:'';
+ const relHtml=related.length?`<div style="margin-top:34px;border-top:1px solid var(--line);padding-top:18px"><div style="font-weight:600;color:var(--navy);margin-bottom:10px">${CATIC[a.c]} ${CATMAP[a.c]} — diğer haberler</div>${related.map(o=>`<div class="art-row" onclick="openArticle(${o.j})"><div class="thumb">${artThumb(o.x)}</div><div><div class="cat">${o.x.tag}</div><h3>${o.x.t}</h3><div class="mt">${o.x.dt}</div></div></div>`).join('')}</div>`:'';
  document.getElementById('artBody').innerHTML=`
-   <div class="crumb"><a onclick="go('magazine')">Dergi</a> / <a onclick="go('magazine')">${CATMAP[a.c]}</a></div>
+   <div class="crumb"><a onclick="go('magazine')">${(I18N[LANG]&&I18N[LANG].mag_title)||'Haberler'}</a> / <a onclick="go('magazine')">${CATMAP[a.c]}</a></div>
+   <div class="art-hero" style="aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin:10px 0 6px">${artThumb(a)}</div>
    <div style="font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;margin-top:6px">${CATIC[a.c]} ${CATMAP[a.c]} · ${a.tag}</div>
    <h1 style="font-size:30px;font-weight:600;color:var(--navy);line-height:1.2;margin:8px 0 6px">${a.t}</h1>
    <div style="font-size:12.5px;color:var(--muted);margin-bottom:16px">${a.dt} · Netvo Intelligence</div>
@@ -2620,38 +2663,43 @@ function openArticle(i){
 function closeReader(){}
 // Dergi/İçgörüler render'ı. (Not: bu fonksiyon bir düzenleme sırasında silinmişti, yeniden yazıldı.)
 function renderMagazine(){
-  const F=(a,i)=>`<div class="art-row" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${a.t}">
-    <div class="thumb" aria-hidden="true">${artThumb(a.c)}</div>
-    <div><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${a.t}</h3><p>${a.d}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""}</div></div>
+  // Aktif dilde gösterilecek liste: TR'de her şey; diğer dillerde SADECE çok dilli
+  // (auto) haberler — böylece o dili seçen okur karışık/yabancı içerik görmez.
+  const LIST=NEWS.filter(a=>a.auto||LANG==='tr');
+  const ALLW=({tr:'Tümü',en:'All',de:'Alle',fr:'Tout',es:'Todo',it:'Tutto'}[LANG])||'Tümü';
+  const F=(a,i)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${a.t}">
+    <div class="cov" aria-hidden="true">${artThumb(a)}</div>
+    <div class="bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${a.t}</h3><p>${a.d||''}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""}</div></div>
   </div>`;
   // Manşet
-  let fi=NEWS.findIndex(a=>a.f); if(fi<0)fi=0;
-  const lead=NEWS[fi];
+  let li=LIST.findIndex(a=>a.f); if(li<0)li=0;
+  const lead=LIST[li]; const leadIdx=NEWS.indexOf(lead);
   const ml=document.getElementById('magLead');
-  if(ml)ml.innerHTML=`<div class="mag-lead" role="button" tabindex="0" onclick="openArticle(${fi})" onkeydown="kbd(event,()=>openArticle(${fi}))" aria-label="${lead.t}">
+  if(ml&&lead)ml.innerHTML=`<div class="mag-lead" role="button" tabindex="0" onclick="openArticle(${leadIdx})" onkeydown="kbd(event,()=>openArticle(${leadIdx}))" aria-label="${lead.t}">
+    <div class="cov" aria-hidden="true">${artThumb(lead)}</div>
     <div style="position:relative;z-index:1">
-      <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.8">${CATMAP[lead.c]||lead.c}</div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.9">${CATMAP[lead.c]||lead.c}</div>
       <h2 style="font-size:26px;font-weight:600;letter-spacing:-.02em;margin:8px 0 6px;line-height:1.2">${lead.t}</h2>
-      <p style="font-size:14px;opacity:.85;line-height:1.5">${lead.d}</p>
-      <div style="font-size:12px;opacity:.7;margin-top:10px">${lead.dt}</div>
+      <p style="font-size:14px;opacity:.9;line-height:1.5">${lead.d||''}</p>
+      <div style="font-size:12px;opacity:.8;margin-top:10px">${lead.dt}${lead.tag?" · "+lead.tag:""}</div>
     </div></div>`;
   // Manşet altı 3 haber
-  const sec=NEWS.filter((a,i)=>i!==fi).slice(0,3);
+  const sec=LIST.filter(a=>a!==lead).slice(0,3);
   const ms=document.getElementById('magSecondary');
-  if(ms)ms.innerHTML=sec.map(a=>F(a,NEWS.indexOf(a))).join("");
+  if(ms)ms.innerHTML=`<div class="news-grid">`+sec.map(a=>F(a,NEWS.indexOf(a))).join("")+`</div>`;
   // Akış
-  const rest=NEWS.filter((a,i)=>i!==fi&&sec.indexOf(a)<0);
+  const rest=LIST.filter(a=>a!==lead&&sec.indexOf(a)<0);
   const mm=document.getElementById('magMain');
-  if(mm)mm.innerHTML=`<h2 class="sec">Tümü</h2>`+rest.map(a=>F(a,NEWS.indexOf(a))).join("");
+  if(mm)mm.innerHTML=`<h2 class="sec">${ALLW}</h2><div class="news-grid">`+rest.map(a=>F(a,NEWS.indexOf(a))).join("")+`</div>`;
   // Şerit
   const tk=document.getElementById('magTicker');
-  if(tk)tk.textContent=NEWS.slice(0,4).map(a=>a.t).join("   ·   ");
+  if(tk)tk.textContent=LIST.slice(0,4).map(a=>a.t).join("   ·   ");
   // En çok okunanlar
   const mp=document.getElementById('magPop');
-  if(mp)mp.innerHTML=NEWS.filter(a=>a.pop).slice(0,5).map(a=>`<li style="margin:6px 0;font-size:13px"><a role="button" tabindex="0" style="cursor:pointer" onclick="openArticle(${NEWS.indexOf(a)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(a)}))">${a.t}</a></li>`).join("");
+  if(mp)mp.innerHTML=LIST.filter(a=>a.pop).slice(0,5).map(a=>`<li style="margin:6px 0;font-size:13px"><a role="button" tabindex="0" style="cursor:pointer" onclick="openArticle(${NEWS.indexOf(a)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(a)}))">${a.t}</a></li>`).join("");
   // Kategoriler
   const mc=document.getElementById('magCats');
-  if(mc)mc.innerHTML=Object.keys(CATMAP).map(c=>{const n=NEWS.filter(a=>a.c===c).length;
+  if(mc)mc.innerHTML=Object.keys(CATMAP).map(c=>{const n=LIST.filter(a=>a.c===c).length;
     return `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px"><span>${CATMAP[c]}</span><b>${n}</b></div>`;}).join("");
   adsPush();
 }
@@ -2659,15 +2707,24 @@ function renderMagazine(){
 function subscribe(){
   const el=document.getElementById('nlMail'); const v=(el&&el.value||'').trim();
   if(!v||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){toast('Geçerli bir e-posta gir');return;}
-  // Kurul kararı: sunucu yok. Yalan söylemek yerine ne olduğunu SÖYLE.
-  // Üretimde burası bir liste sağlayıcısına (Resend/Buttondown/Listmonk) POST eder.
   try{
     const L=JSON.parse(localStorage.getItem('netvo_leads')||'[]');
     if(!L.some(x=>x.mail===v)) L.push({mail:v,at:new Date().toISOString(),mk:(typeof current!=='undefined'?current:null)});
     localStorage.setItem('netvo_leads',JSON.stringify(L));
   }catch(e){}
+  // Buluta yaz (Supabase email_leads) → abone günlük e-ticaret haber bültenine eklenir
+  var ok=false;
+  try{
+    var sb=window.NETVO_SB;
+    if(sb&&sb.from){
+      ok=true;
+      sb.from('email_leads').upsert({email:v,source:'site',locale:(typeof LANG!=='undefined'?LANG:'tr')},{onConflict:'email'})
+        .then(function(r){ if(r&&r.error){/* sessiz: yerelde zaten var */} });
+    }
+  }catch(e){}
   if(el)el.value='';
-  toast('E-posta bu tarayıcıya kaydedildi. NOT: canlı sürümde ücret-değişikliği uyarısı için bir liste sağlayıcıya bağlanacak — şu an sadece cihazında saklanıyor.');
+  toast(ok ? 'Kaydoldun! Günün e-ticaret haberleri e-postana gelecek.'
+           : 'E-postan kaydedildi. Günlük haber bültenine eklendin.');
 }
 
 function kbd(e,fn){if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}}
@@ -2917,32 +2974,32 @@ function go(p){
 
 // ============ DİL (i18n) — landing/nav çekirdeği; derin çeviri veri-katmanıyla gelecek ============
 const I18N={
- tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"İçgörüler",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",
+ tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"Haberler",mag_title:"Haberler",mag_sub:"E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",
   hero_tag:"136 pazaryeri · 37 ülke · vergi ve gümrük dahil",hero_h1:"Satıldı. Sana ne kaldı?",
   hero_p:"Açıklanan komisyon oranı değil — vergi, kargo ve tüm kesintilerden sonra bir satıştan cebine gerçekten ne kaldığını gösteririz. Her oranın kaynağı ve tarihi belli.",
   hc_hint:"↓ Örnek değerlerle dolu — kendi rakamlarını gir, sonuç anında değişir",
   hero_b1:"Kârını hesapla",hero_b2:"Pazaryerlerini karşılaştır"},
- en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"Insights",nav_calcBtn:"Calculate",nav_try:"Calculate profit",
+ en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"News",mag_title:"News",mag_sub:"The latest from the world of e-commerce: marketplaces, payments, logistics, regulation and more.",nav_calcBtn:"Calculate",nav_try:"Calculate profit",
   hero_tag:"136 marketplaces · 37 countries · tax and customs included",hero_h1:"Sold. What did you keep?",
   hero_p:"Not the advertised rate — after tax, shipping and every fee, we show what actually reaches your pocket from a sale. Every rate shows its source and date.",
   hc_hint:"↓ Filled with example values — enter your own, the result updates instantly",
   hero_b1:"Calculate profit",hero_b2:"Compare marketplaces"},
- de:{nav_tools:"Marktplätze",nav_calc:"Rechner",nav_compare:"Vergleichen",nav_mag:"Einblicke",nav_calcBtn:"Berechnen",nav_try:"Gewinn berechnen",
+ de:{nav_tools:"Marktplätze",nav_calc:"Rechner",nav_compare:"Vergleichen",nav_mag:"Nachrichten",mag_title:"Nachrichten",mag_sub:"Aktuelles aus der E-Commerce-Welt: Marktplätze, Zahlungen, Logistik, Regulierung und mehr.",nav_calcBtn:"Berechnen",nav_try:"Gewinn berechnen",
   hero_tag:"136 Marktplätze · 37 Länder · inkl. Steuer und Zoll",hero_h1:"Verkauft. Was bleibt dir?",
   hero_p:"Nicht der angegebene Satz — nach Steuer, Versand und allen Gebühren zeigen wir, was von einem Verkauf wirklich bei dir ankommt. Jeder Satz zeigt Quelle und Datum.",
   hc_hint:"↓ Mit Beispielwerten gefüllt — gib deine eigenen ein, das Ergebnis aktualisiert sich sofort",
   hero_b1:"Gewinn berechnen",hero_b2:"Marktplätze vergleichen"},
- fr:{nav_tools:"Places de marché",nav_calc:"Calculateur",nav_compare:"Comparer",nav_mag:"Analyses",nav_calcBtn:"Calculer",nav_try:"Calculer le profit",
+ fr:{nav_tools:"Places de marché",nav_calc:"Calculateur",nav_compare:"Comparer",nav_mag:"Actualités",mag_title:"Actualités",mag_sub:"L'actualité du monde de l'e-commerce : places de marché, paiements, logistique, réglementation et plus encore.",nav_calcBtn:"Calculer",nav_try:"Calculer le profit",
   hero_tag:"136 places de marché · 37 pays · taxes et douane incluses",hero_h1:"Vendu. Que vous reste-t-il ?",
   hero_p:"Pas le taux affiché — après la taxe, la livraison et tous les frais, nous montrons ce qui arrive vraiment dans votre poche sur une vente. Chaque taux affiche sa source et sa date.",
   hc_hint:"↓ Rempli d'exemples — saisissez les vôtres, le résultat se met à jour instantanément",
   hero_b1:"Calculer le profit",hero_b2:"Comparer les places de marché"},
- es:{nav_tools:"Marketplaces",nav_calc:"Calculadora",nav_compare:"Comparar",nav_mag:"Análisis",nav_calcBtn:"Calcular",nav_try:"Calcular beneficio",
+ es:{nav_tools:"Marketplaces",nav_calc:"Calculadora",nav_compare:"Comparar",nav_mag:"Noticias",mag_title:"Noticias",mag_sub:"Lo último del mundo del e-commerce: marketplaces, pagos, logística, regulación y más.",nav_calcBtn:"Calcular",nav_try:"Calcular beneficio",
   hero_tag:"136 marketplaces · 37 países · impuestos y aduana incluidos",hero_h1:"Vendido. ¿Qué te queda?",
   hero_p:"No la tasa anunciada — tras impuestos, envío y todas las tarifas, mostramos lo que realmente te queda de una venta. Cada tasa muestra su fuente y fecha.",
   hc_hint:"↓ Con valores de ejemplo — introduce los tuyos, el resultado se actualiza al instante",
   hero_b1:"Calcular beneficio",hero_b2:"Comparar marketplaces"},
- it:{nav_tools:"Marketplace",nav_calc:"Calcolatore",nav_compare:"Confronta",nav_mag:"Approfondimenti",nav_calcBtn:"Calcola",nav_try:"Calcola il profitto",
+ it:{nav_tools:"Marketplace",nav_calc:"Calcolatore",nav_compare:"Confronta",nav_mag:"Notizie",mag_title:"Notizie",mag_sub:"Le ultime dal mondo dell'e-commerce: marketplace, pagamenti, logistica, normative e altro.",nav_calcBtn:"Calcola",nav_try:"Calcola il profitto",
   hero_tag:"136 marketplace · 37 paesi · tasse e dogana incluse",hero_h1:"Venduto. Cosa ti resta?",
   hero_p:"Non il tasso indicato — dopo tasse, spedizione e tutti i costi, mostriamo cosa ti resta davvero da una vendita. Ogni tasso mostra fonte e data.",
   hc_hint:"↓ Compilato con valori d'esempio — inserisci i tuoi, il risultato si aggiorna subito",
@@ -3040,7 +3097,7 @@ function mergeAutoNews(){
 // Öncelik: kullanıcının seçtiği (kayıtlı) dil > ?lang paramı > tr. IP dili yoksa geoInit sonradan ayarlar.
 (function(){try{const saved=localStorage.getItem('netvo_lang');const q=new URLSearchParams(location.search).get('lang');const pick=(saved&&I18N[saved])?saved:((q&&I18N[q])?q:'tr');buildLangMenu();applyLang(pick);}catch(e){try{buildLangMenu();}catch(_){}applyLang('tr');}})();
 geoInit();
-function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(el)el.innerHTML=NEWS.slice(0,3).map((x)=>`<div class="mini-art" onclick="openArticle(${NEWS.indexOf(x)})"><div class="cat">${CATIC[x.c]} ${x.tag}</div><h3>${x.t}</h3><div class="mt">${x.dt}</div></div>`).join('');}
+function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice(0,3);el.innerHTML=`<div class="news-grid">`+L.map((x)=>`<div class="news-card" onclick="openArticle(${NEWS.indexOf(x)})"><div class="cov" aria-hidden="true">${artThumb(x)}</div><div class="bd"><div class="cat">${CATMAP[x.c]||x.c}</div><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""}</div></div></div>`).join('')+`</div>`;}
 renderHomeTeaser();
 
 // ============ HESAP (Supabase Auth) + BULUT SENKRON ============

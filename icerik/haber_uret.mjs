@@ -17,9 +17,9 @@ import fs from "fs";
 const KOK = new URL("./", import.meta.url).pathname;
 const OUT = KOK + "haberler.json";
 const DRY = process.argv.includes("--dry");
-const MAX_PUBLISH   = 3;   // günde en fazla yayınlanan haber
-const MAX_LLM_CALLS = 8;   // maliyet tavanı
-const KEEP = 80;
+const MAX_PUBLISH   = 8;   // günde en fazla yayınlanan haber (güncelliğe ağırlık)
+const MAX_LLM_CALLS = 18;  // maliyet tavanı (Haiku ile ayda birkaç dolar)
+const KEEP = 150;
 const LANGS = ["tr","en","de","fr","es","it"];
 const API_KEY = process.env.ANTHROPIC_API_KEY || "";
 const MODEL = "claude-haiku-4-5-20251001";
@@ -68,6 +68,8 @@ ADIM 1 — ALAKA: Bu, E-TİCARET / online perakende / pazaryeri / dijital ticare
 Şunlar "relevant=false": tıbbi/ilaç/sanayi haberleri, e-ticaretle ilgisiz kurumsal finans/borsa, genel siyaset, magazin, e-ticaretle bağı olmayan perakende.
 
 ADIM 2 — Sadece relevant=true ise: İYİ bir haber metni yaz (düz, bilgilendirici gazetecilik; "satıcının marjı" gibi zorlama kalıplar KULLANMA) ve ALTI DİLE çevir (tr,en,de,fr,es,it). Her dil için: t (başlık, <=90 karakter, net), d (tek cümle spot/özet), body (3-4 cümle: ne oldu, kim/nerede, neden önemli). Kaynak linkini body'ye KOYMA.
+
+TELİF KURALLARI (ZORUNLU): (1) Başlığı KENDİ cümlenle yeniden yaz — kaynağın başlığını birebir kopyalama. (2) Metni tamamen KENDİ sözlerinle yaz; kaynaktan cümle, cümle parçası veya paragraf ALINTILAMA/KOPYALAMA. (3) Yalnızca OLGULARI aktar (kim, ne, nerede, ne zaman, rakamlar) — olgular telife tabi değildir, ifade biçimi tabidir. (4) Kaynağın görsellerini/fotoğraflarını KULLANMA; site kendi kapak görselini üretir. (5) Emin değilsen daha kısa ve genel yaz.
 
 SADECE şu JSON'u döndür (başka metin yok):
 {"relevant":true|false,"reason":"...","category":"pazar|reg|global|reklam|lojistik","region":"Türkiye|ABD|AB|Global|SEA|Çin S.Ötesi|Rusya|Körfez|LatAm|Hindistan|...","i18n":{"tr":{"t":"","d":"","body":""},"en":{...},"de":{...},"fr":{...},"es":{...},"it":{...}}}

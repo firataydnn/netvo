@@ -26,6 +26,14 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node icerik/haber_uret.mjs
+      - name: Günlük bülteni gönder (Resend)
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node icerik/mail_gonder.mjs || echo "bülten atlandı (anahtar yok veya hata)"
       - name: Yayına kopyala (site kökü /data/)
         run: |
           mkdir -p seo/site/data
