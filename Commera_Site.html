@@ -2950,7 +2950,7 @@ const I18N={
 };
 let LANG='tr';
 const LANG_ORDER=['tr','en','de','fr','es','it'];
-function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null){if(/</.test(v))e.innerHTML=v;else e.textContent=v;}});const lb=document.getElementById('langBtn');if(lb)lb.textContent=l.toUpperCase()+' ▾';document.documentElement.lang=l;try{markLangActive();}catch(e){}}
+function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null){if(/</.test(v))e.innerHTML=v;else e.textContent=v;}});const lb=document.getElementById('langBtn');if(lb)lb.textContent=l.toUpperCase()+' ▾';document.documentElement.lang=l;try{markLangActive();}catch(e){}try{if(typeof AUTO_RAW!=='undefined'&&AUTO_RAW.length&&typeof mergeAutoNews==='function')mergeAutoNews();}catch(e){}}
 // ---- Dil seçici (tıklayınca açılır menü; başka dile otomatik geçmez) ----
 const LANG_NAMES={tr:'Türkçe',en:'English',de:'Deutsch',fr:'Français',es:'Español',it:'Italiano'};
 function buildLangMenu(){const m=document.getElementById('langMenu');if(!m)return;
@@ -3007,25 +3007,41 @@ initCompare();
 try{updateWatchLink();}catch(e){}
 updateSaveCount();
 renderMagazine();
-// İçerik motoru: /data/haberler.json varsa taze haberleri başa ekle, dergiyi tazele.
-// Dosya yoksa (yerel/henüz üretilmedi) mevcut haberler kalır — güvenli, additif.
+// İçerik motoru: /data/haberler.json → çok dilli (i18n) auto haberleri AKTİF DİLDE göster.
+// Dil değişince yeniden birleştirilir. HTML enjeksiyonuna karşı strip'lenir. Additif + güvenli.
+var AUTO_RAW=[];
+function _stripN(s){return String(s||'').replace(/<[^>]*>/g,'').slice(0,2200);}
+function _okCatN(c){return ['reg','pazar','global','reklam','lojistik'].includes(c)?c:'global';}
+function pickAuto(item){
+  var L=(typeof LANG!=='undefined'&&LANG)?LANG:'tr';
+  var x=item.i18n?(item.i18n[L]||item.i18n.tr||item.i18n.en):item; // i18n yoksa düz eski şema
+  if(!x||!x.t)return null;
+  return {c:_okCatN(item.c),tag:_stripN(item.tag),dt:_stripN(item.dt),src:item.src,auto:true,pop:false,
+    t:_stripN(x.t),d:_stripN(x.d),body:_stripN(x.body)};
+}
+function mergeAutoNews(){
+  for(var i=NEWS.length-1;i>=0;i--){ if(NEWS[i]&&NEWS[i].auto) NEWS.splice(i,1); } // eski auto'ları çıkar
+  var seen={}; NEWS.forEach(function(n){seen[String(n.t||'').toLowerCase()]=1;});
+  var add=[];
+  AUTO_RAW.forEach(function(item){ var f=pickAuto(item); if(f&&!seen[f.t.toLowerCase()]){seen[f.t.toLowerCase()]=1;add.push(f);} });
+  if(add.length) NEWS.unshift.apply(NEWS,add);
+  try{renderMagazine();}catch(e){}
+  try{renderHomeTeaser();}catch(e){}
+}
 (function(){ try{
-  fetch('/data/haberler.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(list=>{
+  fetch('/data/haberler.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(list){
     if(!Array.isArray(list)||!list.length)return;
-    const seen=new Set(NEWS.map(x=>(x.t||'').toLowerCase()));
-    const strip=s=>String(s||'').replace(/<[^>]*>/g,'').slice(0,1200); // HTML enjeksiyonuna karşı
-    const okCat=c=>['reg','pazar','global'].includes(c)?c:'global';
-    const fresh=list.filter(x=>x&&x.t&&!seen.has(String(x.t).toLowerCase()))
-      .map(x=>({c:okCat(x.c),t:strip(x.t),d:strip(x.d),dt:strip(x.dt),tag:strip(x.tag),body:strip(x.body),pop:false,auto:true}));
-    if(fresh.length){ NEWS.unshift(...fresh); try{renderMagazine();}catch(e){} }
-  }).catch(()=>{});
+    AUTO_RAW=list.filter(function(x){return x&&(x.i18n||x.t);});
+    mergeAutoNews();
+  }).catch(function(){});
 }catch(e){} })();
 // Başlangıç dili: SEO sayfasından gelen ?lang paramı (I18N'de varsa) → yoksa tr.
 // SEO sayfaları desteklenmeyen diller için ?lang=en gönderir (Türkçe yerine İngilizce iniş).
 // Öncelik: kullanıcının seçtiği (kayıtlı) dil > ?lang paramı > tr. IP dili yoksa geoInit sonradan ayarlar.
 (function(){try{const saved=localStorage.getItem('netvo_lang');const q=new URLSearchParams(location.search).get('lang');const pick=(saved&&I18N[saved])?saved:((q&&I18N[q])?q:'tr');buildLangMenu();applyLang(pick);}catch(e){try{buildLangMenu();}catch(_){}applyLang('tr');}})();
 geoInit();
-(function(){const el=document.getElementById('magHomeTeaser');if(el)el.innerHTML=NEWS.slice(0,3).map((x,i)=>`<div class="mini-art" onclick="openArticle(${i})"><div class="cat">${CATIC[x.c]} ${x.tag}</div><h3>${x.t}</h3><div class="mt">${x.dt}</div></div>`).join('');})();
+function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(el)el.innerHTML=NEWS.slice(0,3).map((x)=>`<div class="mini-art" onclick="openArticle(${NEWS.indexOf(x)})"><div class="cat">${CATIC[x.c]} ${x.tag}</div><h3>${x.t}</h3><div class="mt">${x.dt}</div></div>`).join('');}
+renderHomeTeaser();
 
 // ============ HESAP (Supabase Auth) + BULUT SENKRON ============
 var NETVO_SB=(typeof window!=='undefined'&&window.NETVO_SB)?window.NETVO_SB:null; // head'de kurulan istemci
