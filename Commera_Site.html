@@ -190,6 +190,13 @@
   .mag-lead .cov{position:absolute;inset:0;z-index:0}
   .mag-lead .cov svg{width:100%;height:100%}
   .mag-lead::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(9,9,11,.15) 0%,rgba(9,9,11,.35) 45%,rgba(9,9,11,.82) 100%)}
+  /* Öğren hub kartları */
+  .learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .learn-card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;transition:.15s;text-decoration:none}
+  .learn-card:hover{border-color:var(--blue);box-shadow:0 8px 22px rgba(31,58,95,.08);transform:translateY(-2px)}
+  .learn-card .lc-ic{font-size:24px;line-height:1}
+  .learn-card h3{font-size:16px;font-weight:600;color:var(--navy);margin:9px 0 4px}
+  .learn-card p{font-size:13px;color:var(--muted);margin:0;line-height:1.45}
   .side-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
   /* ---- Pazaryeri bilgi sayfası ---- */
   /* ===== NORTHLINE düzeltmeleri: eksik CSS + sayı disiplini ===== */
@@ -595,13 +602,10 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   <nav class="nav" aria-label="Ana menü">
     <div class="logo" onclick="go('home')" style="display:flex;align-items:center;gap:8px"><svg width="22" height="22" viewBox="0 0 48 48" style="flex:none"><circle cx="24" cy="24" r="24" fill="#0A0A0A"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.24" stroke-width="5"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/></svg>netvo</div>
     <div class="links">
-      <a onclick="go('tools')" data-i18n="nav_tools">Pazaryerleri</a>
+      <a onclick="go('calc')" data-i18n="nav_calcBtn">Hesapla</a>
       <a onclick="go('compare')" data-i18n="nav_compare">Karşılaştır</a>
-      <a onclick="go('radar')">Ücret Radarı</a>
+      <a onclick="go('learn')" data-i18n="nav_learn">Öğren</a>
       <a onclick="go('magazine')" data-i18n="nav_mag">Gündem</a>
-      <a class="mob-only" onclick="go('countries')">Ülkeler</a>
-      <a class="mob-only" onclick="go('sozluk')">Sözlük</a>
-      <a class="mob-only" onclick="go('calc')">Hesapla</a>
       <a class="mob-only" onclick="go('watch')">Takibim</a>
       <a class="mob-only" onclick="netvoAuthOpen()" id="authBtnMob">Giriş / Kayıt</a>
     </div>
@@ -649,6 +653,12 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <p class="sm muted" style="margin-top:14px;max-width:660px">349 TL'lik bir satışta ilan edilen komisyon %15 olabilir. Vergi, hizmet bedeli ve diğer pazaryeri kesintileri eklendiğinde toplam pazaryeri kesintisi %24'e çıkar. Kargo ayrı bir operasyon maliyetidir. Netvo tam bu farkı gösterir.</p>
   </div></section>
   <section class="blk" style="padding-top:0"><div class="container">
+    <div class="sec-title">Aynı ürün. Başka pazaryeri. Başka sonuç.</div>
+    <div class="sec-sub">349&#8201;TL'lik bir moda ürününü (142&#8201;TL maliyet) üç pazaryerinde sattığında sana kalan — komisyon, vergi ve kargo sonrası.</div>
+    <div id="homeCompare" style="max-width:640px;margin-top:14px"></div>
+    <div style="margin-top:14px"><a onclick="go('compare')" class="btn">Tüm pazaryerlerini karşılaştır →</a></div>
+  </div></section>
+  <section class="blk" style="padding-top:0"><div class="container">
     <div class="picker">
       <div class="sec-title" style="margin-bottom:2px">Peki nerede daha çok kalır? 4 soru, sana uygun 3 pazaryeri.</div>
       <div class="sec-sub" style="margin-bottom:0">E-ticarete başlamanın en hızlı yolu: nerede, neyi, nasıl. Kayıt yok — gerçek komisyon verisiyle.</div>
@@ -685,6 +695,22 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <div class="ctastrip"><div><h3>Ücret değiştiğinde ilk sen gör.</h3><p>Pazaryeri ve kategoriyi takibe al. Komisyon değişikliklerini tarih ve kaynağıyla izle.</p></div><a onclick="go('watch')" class="btn lg">Ücreti takip et</a></div>
   </div></section>
 </div>
+
+<!-- ÖĞREN HUB -->
+<div class="page" id="learn"><section class="blk"><div class="container">
+  <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / Öğren</div>
+  <div class="sec-title">Öğren</div>
+  <div class="sec-sub">E-ticareti doğru yapmak için ihtiyacın olan her şey: pazaryerleri, ülkeler, ücretler ve terimler — kaynağıyla.</div>
+  <div class="learn-grid" style="margin-top:20px">
+    <a class="learn-card" onclick="go('tools')"><div class="lc-ic">🏬</div><h3>Pazaryerleri</h3><p>136 pazaryeri: komisyon, koşullar ve gerçek maliyetler — kaynağıyla.</p></a>
+    <a class="learn-card" onclick="go('countries')"><div class="lc-ic">🌍</div><h3>Ülkeler</h3><p>37 ülke: KDV/GST, gümrük ve pazar koşulları.</p></a>
+    <a class="learn-card" onclick="go('radar')"><div class="lc-ic">📡</div><h3>Ücret Radarı</h3><p>Pazaryeri ücret ve kural değişiklikleri — tarih ve kaynakla.</p></a>
+    <a class="learn-card" onclick="go('sozluk')"><div class="lc-ic">📖</div><h3>Sözlük</h3><p>Komisyon, take rate, buy box… e-ticaret terimleri sade dille.</p></a>
+    <a class="learn-card" onclick="go('compare')"><div class="lc-ic">⚖️</div><h3>Karşılaştır</h3><p>Aynı ürün farklı pazaryerinde ne kadar kalır? Yan yana gör.</p></a>
+    <a class="learn-card" onclick="go('magazine')"><div class="lc-ic">📰</div><h3>Gündem</h3><p>E-ticaret dünyasından güncel gelişmeler ve analizler.</p></a>
+  </div>
+  <div class="sec-sub" style="margin-top:22px;font-size:13px">Yakında: Başlangıç rehberleri · Vergi · Kargo &amp; lojistik · Reklam · Ürün ve fiyatlama.</div>
+</div></section></div>
 
 <!-- TOOLS -->
 <div class="page" id="tools"><section class="blk"><div class="container">
@@ -3020,32 +3046,32 @@ function go(p){
 
 // ============ DİL (i18n) — landing/nav çekirdeği; derin çeviri veri-katmanıyla gelecek ============
 const I18N={
- tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"Gündem",mag_title:"Gündem",mag_all:"Tüm haberler →",mag_sub:"E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",
+ tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"Gündem",mag_title:"Gündem",mag_all:"Tüm haberler →",mag_sub:"E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.",nav_learn:"Öğren",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",
   hero_tag:"136 pazaryeri · 37 ülke · vergi ve gümrük dahil",hero_h1:"Satıldı. Sana ne kaldı?",
   hero_p:"Pazaryerinin söylediği komisyon başka, satış sonunda sana kalan başka. Vergi, kargo ve tüm kesintilerden sonra bir satıştan cebine gerçekten ne kaldığını gösteririz.",
   hc_hint:"↓ Örnek değerlerle dolu — kendi rakamlarını gir, sonuç anında değişir",
   hero_b1:"Kârını hesapla",hero_b2:"Pazaryerlerini karşılaştır"},
- en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"News",mag_title:"News",mag_all:"All news →",mag_sub:"The latest from the world of e-commerce: marketplaces, payments, logistics, regulation and more.",nav_calcBtn:"Calculate",nav_try:"Calculate profit",
+ en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"News",mag_title:"News",mag_all:"All news →",mag_sub:"The latest from the world of e-commerce: marketplaces, payments, logistics, regulation and more.",nav_learn:"Learn",nav_calcBtn:"Calculate",nav_try:"Calculate profit",
   hero_tag:"136 marketplaces · 37 countries · tax and customs included",hero_h1:"Sold. What did you keep?",
   hero_p:"Not the advertised rate — after tax, shipping and every fee, we show what actually reaches your pocket from a sale. Every rate shows its source and date.",
   hc_hint:"↓ Filled with example values — enter your own, the result updates instantly",
   hero_b1:"Calculate profit",hero_b2:"Compare marketplaces"},
- de:{nav_tools:"Marktplätze",nav_calc:"Rechner",nav_compare:"Vergleichen",nav_mag:"Nachrichten",mag_title:"Nachrichten",mag_all:"Alle Nachrichten →",mag_sub:"Aktuelles aus der E-Commerce-Welt: Marktplätze, Zahlungen, Logistik, Regulierung und mehr.",nav_calcBtn:"Berechnen",nav_try:"Gewinn berechnen",
+ de:{nav_tools:"Marktplätze",nav_calc:"Rechner",nav_compare:"Vergleichen",nav_mag:"Nachrichten",mag_title:"Nachrichten",mag_all:"Alle Nachrichten →",mag_sub:"Aktuelles aus der E-Commerce-Welt: Marktplätze, Zahlungen, Logistik, Regulierung und mehr.",nav_learn:"Lernen",nav_calcBtn:"Berechnen",nav_try:"Gewinn berechnen",
   hero_tag:"136 Marktplätze · 37 Länder · inkl. Steuer und Zoll",hero_h1:"Verkauft. Was bleibt dir?",
   hero_p:"Nicht der angegebene Satz — nach Steuer, Versand und allen Gebühren zeigen wir, was von einem Verkauf wirklich bei dir ankommt. Jeder Satz zeigt Quelle und Datum.",
   hc_hint:"↓ Mit Beispielwerten gefüllt — gib deine eigenen ein, das Ergebnis aktualisiert sich sofort",
   hero_b1:"Gewinn berechnen",hero_b2:"Marktplätze vergleichen"},
- fr:{nav_tools:"Places de marché",nav_calc:"Calculateur",nav_compare:"Comparer",nav_mag:"Actualités",mag_title:"Actualités",mag_all:"Toute l'actualité →",mag_sub:"L'actualité du monde de l'e-commerce : places de marché, paiements, logistique, réglementation et plus encore.",nav_calcBtn:"Calculer",nav_try:"Calculer le profit",
+ fr:{nav_tools:"Places de marché",nav_calc:"Calculateur",nav_compare:"Comparer",nav_mag:"Actualités",mag_title:"Actualités",mag_all:"Toute l'actualité →",mag_sub:"L'actualité du monde de l'e-commerce : places de marché, paiements, logistique, réglementation et plus encore.",nav_learn:"Apprendre",nav_calcBtn:"Calculer",nav_try:"Calculer le profit",
   hero_tag:"136 places de marché · 37 pays · taxes et douane incluses",hero_h1:"Vendu. Que vous reste-t-il ?",
   hero_p:"Pas le taux affiché — après la taxe, la livraison et tous les frais, nous montrons ce qui arrive vraiment dans votre poche sur une vente. Chaque taux affiche sa source et sa date.",
   hc_hint:"↓ Rempli d'exemples — saisissez les vôtres, le résultat se met à jour instantanément",
   hero_b1:"Calculer le profit",hero_b2:"Comparer les places de marché"},
- es:{nav_tools:"Marketplaces",nav_calc:"Calculadora",nav_compare:"Comparar",nav_mag:"Noticias",mag_title:"Noticias",mag_all:"Todas las noticias →",mag_sub:"Lo último del mundo del e-commerce: marketplaces, pagos, logística, regulación y más.",nav_calcBtn:"Calcular",nav_try:"Calcular beneficio",
+ es:{nav_tools:"Marketplaces",nav_calc:"Calculadora",nav_compare:"Comparar",nav_mag:"Noticias",mag_title:"Noticias",mag_all:"Todas las noticias →",mag_sub:"Lo último del mundo del e-commerce: marketplaces, pagos, logística, regulación y más.",nav_learn:"Aprender",nav_calcBtn:"Calcular",nav_try:"Calcular beneficio",
   hero_tag:"136 marketplaces · 37 países · impuestos y aduana incluidos",hero_h1:"Vendido. ¿Qué te queda?",
   hero_p:"No la tasa anunciada — tras impuestos, envío y todas las tarifas, mostramos lo que realmente te queda de una venta. Cada tasa muestra su fuente y fecha.",
   hc_hint:"↓ Con valores de ejemplo — introduce los tuyos, el resultado se actualiza al instante",
   hero_b1:"Calcular beneficio",hero_b2:"Comparar marketplaces"},
- it:{nav_tools:"Marketplace",nav_calc:"Calcolatore",nav_compare:"Confronta",nav_mag:"Notizie",mag_title:"Notizie",mag_all:"Tutte le notizie →",mag_sub:"Le ultime dal mondo dell'e-commerce: marketplace, pagamenti, logistica, normative e altro.",nav_calcBtn:"Calcola",nav_try:"Calcola il profitto",
+ it:{nav_tools:"Marketplace",nav_calc:"Calcolatore",nav_compare:"Confronta",nav_mag:"Notizie",mag_title:"Notizie",mag_all:"Tutte le notizie →",mag_sub:"Le ultime dal mondo dell'e-commerce: marketplace, pagamenti, logistica, normative e altro.",nav_learn:"Impara",nav_calcBtn:"Calcola",nav_try:"Calcola il profitto",
   hero_tag:"136 marketplace · 37 paesi · tasse e dogana incluse",hero_h1:"Venduto. Cosa ti resta?",
   hero_p:"Non il tasso indicato — dopo tasse, spedizione e tutti i costi, mostriamo cosa ti resta davvero da una vendita. Ogni tasso mostra fonte e data.",
   hc_hint:"↓ Compilato con valori d'esempio — inserisci i tuoi, il risultato si aggiorna subito",
@@ -3108,6 +3134,7 @@ function geoInit(){
 try{ohLoad();}catch(e){}
 selectMk('trendyol');
 initCompare();
+try{renderHomeCompare();}catch(e){}
 try{updateWatchLink();}catch(e){}
 updateSaveCount();
 renderMagazine();
@@ -3144,6 +3171,27 @@ function mergeAutoNews(){
 // Öncelik: kullanıcının seçtiği (kayıtlı) dil > ?lang paramı > tr. IP dili yoksa geoInit sonradan ayarlar.
 (function(){try{const saved=localStorage.getItem('netvo_lang');const q=new URLSearchParams(location.search).get('lang');const pick=(saved&&I18N[saved])?saved:((q&&I18N[q])?q:'tr');buildLangMenu();applyLang(pick);}catch(e){try{buildLangMenu();}catch(_){}applyLang('tr');}})();
 geoInit();
+function renderHomeCompare(){
+  var host=document.getElementById('homeCompare'); if(!host||typeof netFor!=='function'||typeof MK==='undefined')return;
+  var S=349, M=142, cat='moda', keys=['trendyol','hepsiburada','amazontr'];
+  var rows=keys.map(function(k){
+    var m=MK[k]; if(!m)return null; var co=CO[m.co];
+    var pc=(typeof pickCat==='function')?pickCat(m,cat):{rate:(m.cats&&m.cats[0]&&m.cats[0][1])||10};
+    var rate=pc.rate/100, kargoG=co.desi?55:+(S*0.08).toFixed(2), vat=(co.vat>0?co.vat:0)/100;
+    var r=netFor(m,co,S,M,rate,kargoG,0,0,vat,!!co.stopaj,co.vat>0,false,vat,0,0);
+    return {name:mkShort(m.n),fl:co.fl,net:r.net,marj:r.marj,cur:co.cur,loc:co.loc,dec0:co.dec0};
+  }).filter(Boolean).sort(function(a,b){return b.net-a.net;});
+  if(!rows.length){host.innerHTML='';return;}
+  var max=Math.max.apply(null,rows.map(function(x){return Math.abs(x.net);}).concat([1]));
+  var f=function(x){return x.cur+x.net.toLocaleString(x.loc,{minimumFractionDigits:x.dec0?0:2,maximumFractionDigits:x.dec0?0:2});};
+  host.innerHTML=rows.map(function(x,i){
+    return '<div style="display:flex;align-items:center;gap:12px;padding:11px 13px;border:1px solid '+(i===0?'var(--green)':'var(--line)')+';background:'+(i===0?'var(--green-l)':'#fff')+';border-radius:12px;margin-bottom:8px">'
+     +'<div style="flex:1;min-width:0"><div style="font-weight:600;font-size:14px">'+x.fl+' '+x.name+(i===0?' <span style="color:var(--green);font-size:11.5px;font-weight:600">★ EN YÜKSEK</span>':'')+'</div>'
+     +'<div style="height:7px;background:#edf1f6;border-radius:6px;margin-top:6px;overflow:hidden"><i style="display:block;height:100%;width:'+Math.max(3,Math.abs(x.net)/max*100)+'%;background:'+(x.net<0?'var(--red)':(i===0?'var(--green)':'var(--blue)'))+'"></i></div></div>'
+     +'<div style="text-align:right;min-width:96px"><div style="font-weight:600;color:'+(x.net<0?'var(--red)':'var(--ink)')+'">'+f(x)+'</div><div class="sm muted">marj %'+x.marj.toFixed(1)+'</div></div>'
+     +'</div>';
+  }).join('');
+}
 function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice(0,3);el.innerHTML=`<div class="news-grid">`+L.map((x)=>`<div class="news-card" onclick="openArticle(${NEWS.indexOf(x)})"><div class="cov" aria-hidden="true">${artThumb(x)}</div><div class="bd"><div class="cat">${CATMAP[x.c]||x.c}</div><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""}</div></div></div>`).join('')+`</div>`;}
 renderHomeTeaser();
 
