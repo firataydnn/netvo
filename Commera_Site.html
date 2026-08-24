@@ -197,6 +197,17 @@
   .learn-card .lc-ic{font-size:24px;line-height:1}
   .learn-card h3{font-size:16px;font-weight:600;color:var(--navy);margin:9px 0 4px}
   .learn-card p{font-size:13px;color:var(--muted);margin:0;line-height:1.45}
+  /* Marketplace editorial directory list (kart değil) */
+  .mk-list{border-top:1px solid var(--line)}
+  .mk-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 4px;border-bottom:1px solid var(--line);cursor:pointer;text-decoration:none}
+  .mk-row:hover{background:var(--bg-hover)}
+  .mk-row:hover .mkr-name{color:var(--blue)}
+  .mkr-l{min-width:0}
+  .mkr-name{font-weight:600;font-size:15.5px;color:var(--navy);display:block;letter-spacing:-.01em}
+  .mkr-sub{font-size:12.5px;color:var(--muted)}
+  .mkr-r{display:flex;align-items:center;gap:18px;white-space:nowrap}
+  .mkr-rate{font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .mkr-go{font-size:13px;color:var(--muted)}
   .side-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
   /* ---- Pazaryeri bilgi sayfası ---- */
   /* ===== NORTHLINE düzeltmeleri: eksik CSS + sayı disiplini ===== */
@@ -1387,7 +1398,12 @@ function renderToolsHome(id){
  const host=document.getElementById(id); if(!host)return;
  const one=["trendyol","hepsiburada","amazontr","n11","amazonus","etsy","ebayus","amazonde"];
  const feat=one.filter(k=>MK[k]).slice(0,8);
- host.innerHTML=`<div class="grid4">${feat.map(toolCard).join("")}</div>
+ const row=k=>{const m=MK[k],co=CO[m.co];
+   return `<a class="mk-row" role="button" tabindex="0" onclick="openMkPage('${k}')" onkeydown="kbd(event,()=>openMkPage('${k}'))" aria-label="${m.n} — komisyon ${comRange(k)}">
+     <span class="mkr-l"><span class="mkr-name">${m.n}</span><span class="mkr-sub">${co.fl} ${co.n} · ${co.cur.trim()}</span></span>
+     <span class="mkr-r"><span class="mkr-rate">${comRange(k)}</span><span class="mkr-go">İncele →</span></span>
+   </a>`;};
+ host.innerHTML=`<div class="mk-list">${feat.map(row).join("")}</div>
    <div style="text-align:center;margin-top:20px"><a onclick="go('tools')" class="btn lg ghost">136 pazaryerinin tamamını gör →</a></div>`;
 }
 // ============ PAZARYERİ BİLGİ KAYNAĞI ============
