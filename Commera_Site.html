@@ -15,7 +15,7 @@
      "Sayı üründür; diğer her piksel dipnottur."
      Nötr zemin. Renk sadece anlam taşır: kâr yeşil, zarar kırmızı, link mavi. Başka renk yok. */
   /* ===== NETVO MARKA SİSTEMİ =====
-     Kategori: Marketplace Profit Intelligence
+     Kategori: E-ticareti doğru yap (bilgi + hesaplama + karşılaştırma + yayın)
      Vaat: Satışın gerçek matematiği.
      Prensip: Sayı başroldür. Arayüz açıklamadır.
      Renk dekorasyon değildir — bilgi taşır. */
@@ -1000,7 +1000,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <div><h4>Kaynaklar</h4><a onclick="go('radar')">Ücret Radarı</a><a onclick="go('sozluk')">Sözlük</a><a onclick="go('countries')">Ülke rehberleri</a><a onclick="go('compare')">Karşılaştırma</a></div>
     <div><h4>Ürün</h4><a href="#">İşletim Sistemi</a><a href="#">Ajanslar İçin</a><a href="#">Fiyatlandırma</a></div>
   </div>
-  <div class="bot">© 2026 Netvo · <b>Marketplace Profit Intelligence</b><br>Netvo beta aşamasındadır. Hesaplamalarda kullanılan oranların kaynağı ve doğrulama tarihi her pazaryeri sayfasında gösterilir. Netvo tahmin ile doğrulanmış veriyi birbirine karıştırmaz. Hesaplama operasyonel net kârı ölçer; gelir/kurumlar vergisi, depolama, kur farkı ve finansman maliyetleri kapsam dışıdır.</div>
+  <div class="bot">© 2026 Netvo · <b>E-ticareti doğru yap.</b><br>Netvo beta aşamasındadır. Her oranın yanında kaynağı gösterilir. Hesaplama operasyonel net kârı ölçer; gelir/kurumlar vergisi, depolama, kur farkı ve finansman maliyetleri kapsam dışıdır.</div>
 </div></footer>
 
 <script>
@@ -1246,8 +1246,8 @@ function provOf(k){
   const m=MK[k], age=ageDays(m.verified);
   if(!m.source) return {tier:"estimate", age, label:"Kaynak yok — tahmin", cls:"manual"};
   if(age===null) return {tier:"unverified", age:null, label:"Kaynak var, doğrulama tarihi yok", cls:"reference"};
-  if(age<=FRESH_DAYS) return {tier:"verified", age, label:(age===0?"bugün doğrulandı":age+" gün önce doğrulandı"), cls:"official"};
-  if(age<=STALE_DAYS) return {tier:"stale", age, label:age+" gün önce doğrulandı — değişmiş olabilir", cls:"reference"};
+  if(age<=FRESH_DAYS) return {tier:"verified", age, label:"kaynaklı", cls:"official"};
+  if(age<=STALE_DAYS) return {tier:"stale", age, label:"kaynak eskimiş olabilir", cls:"reference"};
   return {tier:"expired", age, label:age+" gün geçti — güncelliğini yitirdi", cls:"manual"};
 }
 // Eski `status` alanını provenance'tan türet (geriye dönük uyum)
