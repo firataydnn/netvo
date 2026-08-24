@@ -190,7 +190,7 @@ const T = {
     q3:(ad)=>`${ad} ${TAX.tr} oranı nedir?`, a3:(u,vat,bt)=>`${u} standart ${TAX.tr} oranı %${vat}. Komisyon matrahı: ${bt}.`,
     crumbHome:"Ana sayfa", crumbMk:"Pazaryerleri", srcWord:"Kaynak", statusWord:"Veri durumu",
     srcTail:`${BRAND} oranla birlikte kaynağı ve doğrulama tarihini gösterir; tahmini ve doğrulanmış veriyi ayırır.`,
-    calcWord:"Hesap makinesi",
+    calcWord:"Hesap makinesi",tagline:"E-ticareti doğru yap",
     idxTitle:`Pazaryeri komisyon oranları — 136 pazaryeri, 37 ülke | ${BRAND}`, idxDesc:"37 ülkede 136 pazaryerinin komisyon oranları, vergi, sabit ücretler ve satışın gerçek maliyeti. Kaynaklı ve tarihli.",
     idxH1:"Pazaryeri komisyon oranları", idxIntro:"37 ülkede 136 pazaryerinin komisyonu, vergisi ve satışın gerçek maliyeti.",
   },
@@ -211,7 +211,7 @@ const T = {
     q3:(ad)=>`What is the ${TAX.en} rate for ${ad}?`, a3:(u,vat,bt)=>`${u} standard ${TAX.en} is ${vat}%. Commission base: ${bt}.`,
     crumbHome:"Home", crumbMk:"Marketplaces", srcWord:"Source", statusWord:"Data status",
     srcTail:`${BRAND} shows the source and verification date with each rate, separating estimated from verified data.`,
-    calcWord:"Calculator",
+    calcWord:"Calculator",tagline:"Do e-commerce right",
     idxTitle:`Marketplace commission rates — 136 marketplaces, 37 countries | ${BRAND}`, idxDesc:"Commission rates, tax, fixed fees and the real cost of selling across 136 marketplaces in 37 countries. Sourced and dated.",
     idxH1:"Marketplace commission rates", idxIntro:"Commission, tax and the real cost of selling across 136 marketplaces in 37 countries.",
   },
@@ -232,7 +232,7 @@ const T = {
     q3:(ad)=>`Wie hoch ist der ${TAX.de}-Satz für ${ad}?`, a3:(u,vat,bt)=>`Der Standard-${TAX.de}-Satz in ${u} beträgt ${vat}%. Provisionsbasis: ${bt}.`,
     crumbHome:"Startseite", crumbMk:"Marktplätze", srcWord:"Quelle", statusWord:"Datenstatus",
     srcTail:`${BRAND} zeigt zu jedem Satz Quelle und Prüfdatum und trennt geschätzte von verifizierten Daten.`,
-    calcWord:"Rechner",
+    calcWord:"Rechner",tagline:"E-Commerce richtig machen",
     idxTitle:`Marktplatz-Provisionssätze — 136 Marktplätze, 37 Länder | ${BRAND}`, idxDesc:"Provisionssätze, Steuer, Fixgebühren und die wahren Verkaufskosten auf 136 Marktplätzen in 37 Ländern. Mit Quelle und Datum.",
     idxH1:"Marktplatz-Provisionssätze", idxIntro:"Provision, Steuer und die wahren Verkaufskosten auf 136 Marktplätzen in 37 Ländern.",
   },
@@ -253,7 +253,7 @@ const T = {
     q3:(ad)=>`Quel est le taux de ${TAX.fr} pour ${ad} ?`, a3:(u,vat,bt)=>`Le taux de ${TAX.fr} standard en ${u} est de ${vat}%. Base de commission : ${bt}.`,
     crumbHome:"Accueil", crumbMk:"Places de marché", srcWord:"Source", statusWord:"Statut des données",
     srcTail:`${BRAND} affiche la source et la date de vérification avec chaque taux, en séparant les données estimées des données vérifiées.`,
-    calcWord:"Calculateur",
+    calcWord:"Calculateur",tagline:"Faire l'e-commerce comme il faut",
     idxTitle:`Taux de commission des places de marché — 136 places, 37 pays | ${BRAND}`, idxDesc:"Taux de commission, taxe, frais fixes et le vrai coût de vente sur 136 places de marché dans 37 pays. Sourcé et daté.",
     idxH1:"Taux de commission des places de marché", idxIntro:"Commission, taxe et vrai coût de vente sur 136 places de marché dans 37 pays.",
   },
@@ -274,7 +274,7 @@ const T = {
     q3:(ad)=>`¿Cuál es el tipo de ${TAX.es} de ${ad}?`, a3:(u,vat,bt)=>`El ${TAX.es} estándar en ${u} es del ${vat}%. Base de comisión: ${bt}.`,
     crumbHome:"Inicio", crumbMk:"Marketplaces", srcWord:"Fuente", statusWord:"Estado de los datos",
     srcTail:`${BRAND} muestra la fuente y la fecha de verificación con cada tasa, separando los datos estimados de los verificados.`,
-    calcWord:"Calculadora",
+    calcWord:"Calculadora",tagline:"Haz bien el e-commerce",
     idxTitle:`Comisiones de marketplaces — 136 marketplaces, 37 países | ${BRAND}`, idxDesc:"Comisiones, impuestos, tarifas fijas y el coste real de vender en 136 marketplaces de 37 países. Con fuente y fecha.",
     idxH1:"Comisiones de marketplaces", idxIntro:"Comisión, impuesto y coste real de vender en 136 marketplaces de 37 países.",
   },
@@ -413,7 +413,7 @@ ${hreflangPage(k)}
   ${ilgili?`<h2>${esc(t.hOther(ulke))}</h2><p>${ilgili}</p>`:""}
   <p class="src">${esc(t.srcWord)}: ${kaynak} · ${esc(t.statusWord)}: ${esc(durum)}. ${esc(t.srcTail)}</p>
 </main>
-<footer><div class="wrap">© ${YEAR} ${BRAND} · Marketplace Profit Intelligence · <a href="${APP}">${esc(t.calcWord)}</a></div></footer>
+<footer><div class="wrap">© ${YEAR} ${BRAND} · ${esc(t.tagline)} · <a href="${APP}">${esc(t.calcWord)}</a></div></footer>
 </body></html>`;
 }
 

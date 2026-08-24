@@ -1,0 +1,182 @@
+[
+ {
+  "k": "trendyol",
+  "n": "Trendyol",
+  "rate": 19,
+  "vat": 20,
+  "cur": "₺",
+  "base": "net",
+  "comVatIncl": false
+ },
+ {
+  "k": "hepsiburada",
+  "n": "Hepsiburada",
+  "rate": 15.4,
+  "vat": 20,
+  "cur": "₺",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "amazontr",
+  "n": "Amazon TR",
+  "rate": 12.6,
+  "vat": 20,
+  "cur": "₺",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "n11",
+  "n": "N11",
+  "rate": 17,
+  "vat": 20,
+  "cur": "₺",
+  "base": "gross",
+  "comVatIncl": true
+ },
+ {
+  "k": "amazonus",
+  "n": "Amazon US",
+  "rate": 15,
+  "vat": 0,
+  "cur": "$",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "amazonde",
+  "n": "Amazon Almanya",
+  "rate": 15,
+  "vat": 19,
+  "cur": "€",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "amazonuk",
+  "n": "Amazon UK",
+  "rate": 15,
+  "vat": 20,
+  "cur": "£",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "ebayus",
+  "n": "eBay US",
+  "rate": 13.4,
+  "vat": 0,
+  "cur": "$",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "etsy",
+  "n": "Etsy (Global)",
+  "rate": 6.5,
+  "vat": 0,
+  "cur": "$",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "mercadolibre",
+  "n": "Mercado Libre (BR)",
+  "rate": 16.5,
+  "vat": 18,
+  "cur": "R$",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "allegro",
+  "n": "Allegro (Polonya)",
+  "rate": 8,
+  "vat": 23,
+  "cur": "zł",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "shopee",
+  "n": "Shopee (SEA)",
+  "rate": 8,
+  "vat": 9,
+  "cur": "S$",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "coupang",
+  "n": "Coupang (Kore)",
+  "rate": 11,
+  "vat": 10,
+  "cur": "₩",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "noon",
+  "n": "Noon (BAE)",
+  "rate": 12,
+  "vat": 5,
+  "cur": "AED",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "flipkart",
+  "n": "Flipkart",
+  "rate": 11,
+  "vat": 18,
+  "cur": "₹",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "bol",
+  "n": "Bol.com (NL/BE)",
+  "rate": 11,
+  "vat": 21,
+  "cur": "€",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "cdiscount",
+  "n": "Cdiscount (Fransa)",
+  "rate": 12,
+  "vat": 20,
+  "cur": "€",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "zalando",
+  "n": "Zalando (Moda)",
+  "rate": 20,
+  "vat": 19,
+  "cur": "€",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "walmart",
+  "n": "Walmart (US)",
+  "rate": 15,
+  "vat": 0,
+  "cur": "$",
+  "base": "gross",
+  "comVatIncl": false
+ },
+ {
+  "k": "aliexpress",
+  "n": "AliExpress",
+  "rate": 8,
+  "vat": 0,
+  "cur": "$",
+  "base": "gross",
+  "comVatIncl": false
+ }
+]
