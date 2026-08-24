@@ -3,3 +3,5 @@
   publish = "public"
 [build.environment]
   SITE_URL = "https://netvo.co"
+
+# redeploy: 2026-08-24T12:28:58Z — kredi sonrası yeniden yayın
