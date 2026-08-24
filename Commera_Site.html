@@ -654,10 +654,16 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   </div></section>
   <section class="blk" style="padding-top:30px"><div class="container">
     <div class="sec-title">Komisyon oranı, satışın maliyeti değildir.</div>
-    <div class="gap" style="max-width:780px;margin-top:4px">
-      <div class="announced"><div class="k">Açıklanan komisyon</div><div class="v">%15</div></div>
-      <div class="gapdelta">+9 puan<span class="gapdelta-sub">ek kesinti</span></div>
-      <div class="real"><div class="k">Toplam pazaryeri kesintisi</div><div class="v">%24</div><div class="n">vergi · hizmet bedeli · işlem ücretleri</div></div>
+    <div style="max-width:720px;margin:18px 0 0">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px">
+        <div><div style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">Açıklanan komisyon</div><div style="font-family:var(--font-display);font-size:42px;font-weight:700;line-height:1;color:var(--ink);margin-top:4px">%15</div></div>
+        <div style="text-align:right"><div style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red)">Toplam pazaryeri kesintisi</div><div style="font-family:var(--font-display);font-size:42px;font-weight:700;line-height:1;color:var(--red);margin-top:4px">%24</div></div>
+      </div>
+      <div style="position:relative;height:14px;border-radius:7px;overflow:hidden;background:#eef1f4;margin:16px 0 8px">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:62.5%;background:var(--ink)"></div>
+        <div style="position:absolute;left:62.5%;top:0;bottom:0;right:0;background:var(--red)"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted)"><span>ilan edilen</span><span style="color:var(--red);font-weight:600">+9 puan ek kesinti · vergi, hizmet bedeli, işlem</span></div>
     </div>
     <p class="sm muted" style="margin-top:14px;max-width:660px">349 TL'lik bir satışta ilan edilen komisyon %15 olabilir. Vergi, hizmet bedeli ve diğer pazaryeri kesintileri eklendiğinde toplam pazaryeri kesintisi %24'e çıkar. Kargo ayrı bir operasyon maliyetidir. Netvo tam bu farkı gösterir.</p>
   </div></section>
