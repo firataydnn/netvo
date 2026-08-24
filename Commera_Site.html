@@ -653,23 +653,23 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
      </div>
   </div></section>
   <section class="blk" style="padding-top:30px"><div class="container">
-    <div class="sec-title">Komisyon oranı, satışın maliyeti değildir.</div>
+    <div class="sec-title" data-i18n="gapT">Komisyon oranı, satışın maliyeti değildir.</div>
     <div style="max-width:720px;margin:18px 0 0">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px">
-        <div><div style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">Açıklanan komisyon</div><div style="font-family:var(--font-display);font-size:42px;font-weight:700;line-height:1;color:var(--ink);margin-top:4px">%15</div></div>
-        <div style="text-align:right"><div style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red)">Toplam pazaryeri kesintisi</div><div style="font-family:var(--font-display);font-size:42px;font-weight:700;line-height:1;color:var(--red);margin-top:4px">%24</div></div>
+        <div><div data-i18n="gapAnn" style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">Açıklanan komisyon</div><div style="font-family:var(--font-display);font-size:42px;font-weight:700;line-height:1;color:var(--ink);margin-top:4px">%15</div></div>
+        <div style="text-align:right"><div data-i18n="gapTot" style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red)">Toplam pazaryeri kesintisi</div><div style="font-family:var(--font-display);font-size:42px;font-weight:700;line-height:1;color:var(--red);margin-top:4px">%24</div></div>
       </div>
       <div style="position:relative;height:14px;border-radius:7px;overflow:hidden;background:#eef1f4;margin:16px 0 8px">
         <div style="position:absolute;left:0;top:0;bottom:0;width:62.5%;background:var(--ink)"></div>
         <div style="position:absolute;left:62.5%;top:0;bottom:0;right:0;background:var(--red)"></div>
       </div>
-      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted)"><span>ilan edilen</span><span style="color:var(--red);font-weight:600">+9 puan ek kesinti · vergi, hizmet bedeli, işlem</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted)"><span data-i18n="gapAdv">ilan edilen</span><span data-i18n="gapDelta" style="color:var(--red);font-weight:600">+9 puan ek kesinti · vergi, hizmet bedeli, işlem</span></div>
     </div>
-    <p class="sm muted" style="margin-top:14px;max-width:660px">349 TL'lik bir satışta ilan edilen komisyon %15 olabilir. Vergi, hizmet bedeli ve diğer pazaryeri kesintileri eklendiğinde toplam pazaryeri kesintisi %24'e çıkar. Kargo ayrı bir operasyon maliyetidir. Netvo tam bu farkı gösterir.</p>
+    <p class="sm muted" data-i18n="gapPara" style="margin-top:14px;max-width:660px">349 TL'lik bir satışta ilan edilen komisyon %15 olabilir. Vergi, hizmet bedeli ve diğer pazaryeri kesintileri eklendiğinde toplam pazaryeri kesintisi %24'e çıkar. Kargo ayrı bir operasyon maliyetidir. Netvo tam bu farkı gösterir.</p>
   </div></section>
   <section class="blk" style="padding-top:0"><div class="container">
-    <div class="sec-title">Aynı ürün. Başka pazaryeri. Başka sonuç.</div>
-    <div class="sec-sub">349&#8201;TL'lik bir moda ürününü (142&#8201;TL maliyet) üç pazaryerinde sattığında sana kalan — komisyon, vergi ve kargo sonrası.</div>
+    <div class="sec-title" data-i18n="cmpT">Aynı ürün. Başka pazaryeri. Başka sonuç.</div>
+    <div class="sec-sub" data-i18n="cmpS">349&#8201;TL'lik bir moda ürününü (142&#8201;TL maliyet) üç pazaryerinde sattığında sana kalan — komisyon, vergi ve kargo sonrası.</div>
     <div id="homeCompare" style="max-width:640px;margin-top:14px"></div>
     <div style="margin-top:14px"><a onclick="go('compare')" class="btn">Tüm pazaryerlerini karşılaştır →</a></div>
   </div></section>
@@ -702,17 +702,17 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 <!-- ÖĞREN HUB -->
 <div class="page" id="learn"><section class="blk"><div class="container">
   <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / Öğren</div>
-  <div class="sec-title">Öğren</div>
-  <div class="sec-sub">E-ticareti doğru yapmak için ihtiyacın olan her şey: pazaryerleri, ülkeler, ücretler ve terimler — kaynağıyla.</div>
+  <div class="sec-title" data-i18n="nav_learn">Öğren</div>
+  <div class="sec-sub" data-i18n="lrnSub">E-ticareti doğru yapmak için ihtiyacın olan her şey: pazaryerleri, ülkeler, ücretler ve terimler — kaynağıyla.</div>
   <div class="learn-grid" style="margin-top:20px">
-    <a class="learn-card" onclick="go('tools')"><div class="lc-ic">🏬</div><h3>Pazaryerleri</h3><p>136 pazaryeri: komisyon, koşullar ve gerçek maliyetler — kaynağıyla.</p></a>
-    <a class="learn-card" onclick="go('countries')"><div class="lc-ic">🌍</div><h3>Ülkeler</h3><p>37 ülke: KDV/GST, gümrük ve pazar koşulları.</p></a>
-    <a class="learn-card" onclick="go('radar')"><div class="lc-ic">📡</div><h3>Ücret Radarı</h3><p>Pazaryeri ücret ve kural değişiklikleri — tarih ve kaynakla.</p></a>
-    <a class="learn-card" onclick="go('sozluk')"><div class="lc-ic">📖</div><h3>Sözlük</h3><p>Komisyon, take rate, buy box… e-ticaret terimleri sade dille.</p></a>
-    <a class="learn-card" onclick="go('compare')"><div class="lc-ic">⚖️</div><h3>Karşılaştır</h3><p>Aynı ürün farklı pazaryerinde ne kadar kalır? Yan yana gör.</p></a>
-    <a class="learn-card" onclick="go('magazine')"><div class="lc-ic">📰</div><h3>Gündem</h3><p>E-ticaret dünyasından güncel gelişmeler ve analizler.</p></a>
+    <a class="learn-card" onclick="go('tools')"><div class="lc-ic">🏬</div><h3 data-i18n="lc1t">Pazaryerleri</h3><p data-i18n="lc1d">136 pazaryeri: komisyon, koşullar ve gerçek maliyetler — kaynağıyla.</p></a>
+    <a class="learn-card" onclick="go('countries')"><div class="lc-ic">🌍</div><h3 data-i18n="lc2t">Ülkeler</h3><p data-i18n="lc2d">37 ülke: KDV/GST, gümrük ve pazar koşulları.</p></a>
+    <a class="learn-card" onclick="go('radar')"><div class="lc-ic">📡</div><h3 data-i18n="lc3t">Ücret Radarı</h3><p data-i18n="lc3d">Pazaryeri ücret ve kural değişiklikleri — tarih ve kaynakla.</p></a>
+    <a class="learn-card" onclick="go('sozluk')"><div class="lc-ic">📖</div><h3 data-i18n="lc4t">Sözlük</h3><p data-i18n="lc4d">Komisyon, take rate, buy box… e-ticaret terimleri sade dille.</p></a>
+    <a class="learn-card" onclick="go('compare')"><div class="lc-ic">⚖️</div><h3 data-i18n="lc5t">Karşılaştır</h3><p data-i18n="lc5d">Aynı ürün farklı pazaryerinde ne kadar kalır? Yan yana gör.</p></a>
+    <a class="learn-card" onclick="go('magazine')"><div class="lc-ic">📰</div><h3 data-i18n="mag_title">Gündem</h3><p data-i18n="mag_sub">E-ticaret dünyasından güncel gelişmeler ve analizler.</p></a>
   </div>
-  <div class="sec-sub" style="margin-top:22px;font-size:13px">Yakında: Başlangıç rehberleri · Vergi · Kargo &amp; lojistik · Reklam · Ürün ve fiyatlama.</div>
+  <div class="sec-sub" data-i18n="lrnSoon" style="margin-top:22px;font-size:13px">Yakında: Başlangıç rehberleri · Vergi · Kargo &amp; lojistik · Reklam · Ürün ve fiyatlama.</div>
 </div></section></div>
 
 <!-- TOOLS -->
@@ -1407,10 +1407,10 @@ function renderToolsHome(id){
  const row=k=>{const m=MK[k],co=CO[m.co];
    return `<a class="mk-row" role="button" tabindex="0" onclick="openMkPage('${k}')" onkeydown="kbd(event,()=>openMkPage('${k}'))" aria-label="${m.n} — komisyon ${comRange(k)}">
      <span class="mkr-l"><span class="mkr-name">${m.n}</span><span class="mkr-sub">${co.fl} ${co.n} · ${co.cur.trim()}</span></span>
-     <span class="mkr-r"><span class="mkr-rate">${comRange(k)}</span><span class="mkr-go">İncele →</span></span>
+     <span class="mkr-r"><span class="mkr-rate">${comRange(k)}</span><span class="mkr-go">${t('mkView')}</span></span>
    </a>`;};
  host.innerHTML=`<div class="mk-list">${feat.map(row).join("")}</div>
-   <div style="text-align:center;margin-top:20px"><a onclick="go('tools')" class="btn lg ghost">136 pazaryerinin tamamını gör →</a></div>`;
+   <div style="text-align:center;margin-top:20px"><a onclick="go('tools')" class="btn lg ghost">${t('mkAll')}</a></div>`;
 }
 // ============ PAZARYERİ BİLGİ KAYNAĞI ============
 // Her pazaryeri için editöryal bilgi. Eksik olanlar veri katmanından otomatik üretilir.
@@ -2258,7 +2258,7 @@ function pickerRun(){
       <div class="pk-act"><a class="btn sm ghost" onclick="openMkPage('${c.k}')">Detay</a><a class="btn sm" onclick="selectMk('${c.k}');go('calc')">Kârını hesapla →</a></div></div>`;
   }).join("")+`</div><p class="sm muted" style="margin-top:12px">Öneriler gerçek komisyon verisine dayanır; her pazaryerinin kaynağı ve tarihi detay sayfasında. Nihai kararı kendi ürün ve operasyonuna göre ver.</p>`;
 }
-renderToolsHome('toolGridHome');renderAtlas();renderCountries();renderAdvisor();pickerInit();
+/* renderToolsHome('toolGridHome') → applyLang() içinde çağrılıyor (I18N/LANG hazır olduktan sonra; TDZ'yi önler) */renderAtlas();renderCountries();renderAdvisor();pickerInit();
 document.getElementById('stMk').textContent=Object.keys(MK).length+"";
 
 // marketplace select (grouped)
@@ -3054,32 +3054,32 @@ function go(p){
 
 // ============ DİL (i18n) — landing/nav çekirdeği; derin çeviri veri-katmanıyla gelecek ============
 const I18N={
- tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"Gündem",mag_title:"Gündem",mag_all:"Tüm haberler →",mag_sub:"E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.",nav_learn:"Öğren",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",
+ tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"Gündem",mag_title:"Gündem",mag_all:"Tüm haberler →",mag_sub:"E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.",nav_learn:"Öğren",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",gapT:"Komisyon oranı, satışın maliyeti değildir.",gapAnn:"Açıklanan komisyon",gapTot:"Toplam pazaryeri kesintisi",gapAdv:"ilan edilen",gapDelta:"+9 puan ek kesinti · vergi, hizmet bedeli, işlem",gapPara:"349 TL'lik bir satışta ilan edilen komisyon %15 olabilir. Vergi, hizmet bedeli ve diğer pazaryeri kesintileri eklendiğinde toplam pazaryeri kesintisi %24'e çıkar. Kargo ayrı bir operasyon maliyetidir. Netvo tam bu farkı gösterir.",cmpT:"Aynı ürün. Başka pazaryeri. Başka sonuç.",cmpS:"349 TL'lik bir moda ürününü (142 TL maliyet) üç pazaryerinde sattığında sana kalan — komisyon, vergi ve kargo sonrası.",chMk:"Pazaryeri",chKeep:"Satıştan kalan",chMarj:"Marj",chHigh:"EN YÜKSEK",mkView:"İncele →",mkAll:"136 pazaryerinin tamamını gör →",lc1t:"Pazaryerleri",lc1d:"136 pazaryeri: komisyon, koşullar ve gerçek maliyetler — kaynağıyla.",lc2t:"Ülkeler",lc2d:"37 ülke: KDV/GST, gümrük ve pazar koşulları.",lc3t:"Ücret Radarı",lc3d:"Pazaryeri ücret ve kural değişiklikleri — tarih ve kaynakla.",lc4t:"Sözlük",lc4d:"Komisyon, take rate, buy box… e-ticaret terimleri sade dille.",lc5t:"Karşılaştır",lc5d:"Aynı ürün farklı pazaryerinde ne kadar kalır? Yan yana gör.",lrnSub:"E-ticareti doğru yapmak için ihtiyacın olan her şey: pazaryerleri, ülkeler, ücretler ve terimler — kaynağıyla.",lrnSoon:"Yakında: Başlangıç rehberleri · Vergi · Kargo & lojistik · Reklam · Ürün ve fiyatlama.",
   hero_tag:"136 pazaryeri · 37 ülke · vergi ve gümrük dahil",hero_h1:"Satıldı. Sana ne kaldı?",
   hero_p:"Pazaryerinin söylediği komisyon başka, satış sonunda sana kalan başka. Netvo bütün maliyetleri tek hesapta gösterir.",
   hc_hint:"↓ Örnek değerlerle dolu — kendi rakamlarını gir, sonuç anında değişir",
   hero_b1:"Kârını hesapla",hero_b2:"Pazaryerlerini karşılaştır →"},
- en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"News",mag_title:"News",mag_all:"All news →",mag_sub:"The latest from the world of e-commerce: marketplaces, payments, logistics, regulation and more.",nav_learn:"Learn",nav_calcBtn:"Calculate",nav_try:"Calculate profit",
+ en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"News",mag_title:"News",mag_all:"All news →",mag_sub:"The latest from the world of e-commerce: marketplaces, payments, logistics, regulation and more.",nav_learn:"Learn",nav_calcBtn:"Calculate",nav_try:"Calculate profit",gapT:"The commission rate isn't the cost of the sale.",gapAnn:"Advertised commission",gapTot:"Total marketplace deduction",gapAdv:"advertised",gapDelta:"+9 pts extra deduction · tax, service fee, transaction",gapPara:"On a ₺349 sale the advertised commission may be 15%. Add tax, service fees and other marketplace deductions and the total marketplace cut rises to 24%. Shipping is a separate operational cost. Netvo shows exactly this gap.",cmpT:"Same product. Different marketplace. Different result.",cmpS:"What you keep selling a ₺349 fashion item (₺142 cost) across three marketplaces — after commission, tax and shipping.",chMk:"Marketplace",chKeep:"Left from sale",chMarj:"Margin",chHigh:"HIGHEST",mkView:"View →",mkAll:"See all 136 marketplaces →",lc1t:"Marketplaces",lc1d:"136 marketplaces: commission, terms and real costs — with sources.",lc2t:"Countries",lc2d:"37 countries: VAT/GST, customs and market conditions.",lc3t:"Fee Radar",lc3d:"Marketplace fee and rule changes — with date and source.",lc4t:"Glossary",lc4d:"Commission, take rate, buy box… e-commerce terms in plain language.",lc5t:"Compare",lc5d:"How much is left for the same product on different marketplaces? See side by side.",lrnSub:"Everything you need to do e-commerce right: marketplaces, countries, fees and terms — with sources.",lrnSoon:"Soon: Getting-started guides · Tax · Shipping & logistics · Ads · Product & pricing.",
   hero_tag:"136 marketplaces · 37 countries · tax and customs included",hero_h1:"Sold. What did you keep?",
   hero_p:"Not the advertised rate — after tax, shipping and every fee, we show what actually reaches your pocket from a sale. Every rate shows its source and date.",
   hc_hint:"↓ Filled with example values — enter your own, the result updates instantly",
   hero_b1:"Calculate profit",hero_b2:"Compare marketplaces"},
- de:{nav_tools:"Marktplätze",nav_calc:"Rechner",nav_compare:"Vergleichen",nav_mag:"Nachrichten",mag_title:"Nachrichten",mag_all:"Alle Nachrichten →",mag_sub:"Aktuelles aus der E-Commerce-Welt: Marktplätze, Zahlungen, Logistik, Regulierung und mehr.",nav_learn:"Lernen",nav_calcBtn:"Berechnen",nav_try:"Gewinn berechnen",
+ de:{nav_tools:"Marktplätze",nav_calc:"Rechner",nav_compare:"Vergleichen",nav_mag:"Nachrichten",mag_title:"Nachrichten",mag_all:"Alle Nachrichten →",mag_sub:"Aktuelles aus der E-Commerce-Welt: Marktplätze, Zahlungen, Logistik, Regulierung und mehr.",nav_learn:"Lernen",nav_calcBtn:"Berechnen",nav_try:"Gewinn berechnen",gapT:"Die Provision ist nicht die Kosten des Verkaufs.",gapAnn:"Angegebene Provision",gapTot:"Gesamter Marktplatz-Abzug",gapAdv:"angegeben",gapDelta:"+9 Pkt. Zusatzabzug · Steuer, Servicegebühr, Transaktion",gapPara:"Bei einem Verkauf von 349 ₺ kann die angegebene Provision 15 % betragen. Mit Steuer, Servicegebühren und weiteren Marktplatz-Abzügen steigt der gesamte Marktplatz-Abzug auf 24 %. Versand ist eine separate Betriebskostenposition. Netvo zeigt genau diese Differenz.",cmpT:"Gleiches Produkt. Anderer Marktplatz. Anderes Ergebnis.",cmpS:"Was übrig bleibt, wenn du einen Modeartikel für 349 ₺ (142 ₺ Kosten) auf drei Marktplätzen verkaufst — nach Provision, Steuer und Versand.",chMk:"Marktplatz",chKeep:"Vom Verkauf übrig",chMarj:"Marge",chHigh:"HÖCHSTE",mkView:"Ansehen →",mkAll:"Alle 136 Marktplätze ansehen →",lc1t:"Marktplätze",lc1d:"136 Marktplätze: Provision, Bedingungen und echte Kosten — mit Quelle.",lc2t:"Länder",lc2d:"37 Länder: MwSt./GST, Zoll und Marktbedingungen.",lc3t:"Gebühren-Radar",lc3d:"Änderungen bei Marktplatzgebühren und -regeln — mit Datum und Quelle.",lc4t:"Glossar",lc4d:"Provision, Take Rate, Buy Box… E-Commerce-Begriffe einfach erklärt.",lc5t:"Vergleichen",lc5d:"Wie viel bleibt beim selben Produkt auf verschiedenen Marktplätzen? Nebeneinander sehen.",lrnSub:"Alles, was du für erfolgreichen E-Commerce brauchst: Marktplätze, Länder, Gebühren und Begriffe — mit Quelle.",lrnSoon:"Bald: Einsteiger-Guides · Steuer · Versand & Logistik · Werbung · Produkt & Preisgestaltung.",
   hero_tag:"136 Marktplätze · 37 Länder · inkl. Steuer und Zoll",hero_h1:"Verkauft. Was bleibt dir?",
   hero_p:"Nicht der angegebene Satz — nach Steuer, Versand und allen Gebühren zeigen wir, was von einem Verkauf wirklich bei dir ankommt. Jeder Satz zeigt Quelle und Datum.",
   hc_hint:"↓ Mit Beispielwerten gefüllt — gib deine eigenen ein, das Ergebnis aktualisiert sich sofort",
   hero_b1:"Gewinn berechnen",hero_b2:"Marktplätze vergleichen"},
- fr:{nav_tools:"Places de marché",nav_calc:"Calculateur",nav_compare:"Comparer",nav_mag:"Actualités",mag_title:"Actualités",mag_all:"Toute l'actualité →",mag_sub:"L'actualité du monde de l'e-commerce : places de marché, paiements, logistique, réglementation et plus encore.",nav_learn:"Apprendre",nav_calcBtn:"Calculer",nav_try:"Calculer le profit",
+ fr:{nav_tools:"Places de marché",nav_calc:"Calculateur",nav_compare:"Comparer",nav_mag:"Actualités",mag_title:"Actualités",mag_all:"Toute l'actualité →",mag_sub:"L'actualité du monde de l'e-commerce : places de marché, paiements, logistique, réglementation et plus encore.",nav_learn:"Apprendre",nav_calcBtn:"Calculer",nav_try:"Calculer le profit",gapT:"Le taux de commission n'est pas le coût de la vente.",gapAnn:"Commission annoncée",gapTot:"Prélèvement total place de marché",gapAdv:"annoncé",gapDelta:"+9 pts prélèvement en plus · taxe, frais de service, transaction",gapPara:"Sur une vente de 349 ₺, la commission annoncée peut être de 15 %. En ajoutant la taxe, les frais de service et les autres prélèvements de la place de marché, le prélèvement total atteint 24 %. La livraison est un coût opérationnel distinct. Netvo montre exactement cet écart.",cmpT:"Même produit. Autre place de marché. Autre résultat.",cmpS:"Ce qu'il vous reste en vendant un article de mode à 349 ₺ (142 ₺ de coût) sur trois places de marché — après commission, taxe et livraison.",chMk:"Place de marché",chKeep:"Reste de la vente",chMarj:"Marge",chHigh:"LE PLUS ÉLEVÉ",mkView:"Voir →",mkAll:"Voir les 136 places de marché →",lc1t:"Places de marché",lc1d:"136 places de marché : commission, conditions et coûts réels — avec source.",lc2t:"Pays",lc2d:"37 pays : TVA/GST, douane et conditions de marché.",lc3t:"Radar des frais",lc3d:"Changements de frais et de règles des places de marché — avec date et source.",lc4t:"Glossaire",lc4d:"Commission, take rate, buy box… les termes de l'e-commerce en langage clair.",lc5t:"Comparer",lc5d:"Combien reste-t-il pour le même produit sur différentes places de marché ? Voir côte à côte.",lrnSub:"Tout ce qu'il faut pour bien faire de l'e-commerce : places de marché, pays, frais et termes — avec source.",lrnSoon:"Bientôt : Guides de démarrage · Taxe · Expédition & logistique · Publicité · Produit & tarification.",
   hero_tag:"136 places de marché · 37 pays · taxes et douane incluses",hero_h1:"Vendu. Que vous reste-t-il ?",
   hero_p:"Pas le taux affiché — après la taxe, la livraison et tous les frais, nous montrons ce qui arrive vraiment dans votre poche sur une vente. Chaque taux affiche sa source et sa date.",
   hc_hint:"↓ Rempli d'exemples — saisissez les vôtres, le résultat se met à jour instantanément",
   hero_b1:"Calculer le profit",hero_b2:"Comparer les places de marché"},
- es:{nav_tools:"Marketplaces",nav_calc:"Calculadora",nav_compare:"Comparar",nav_mag:"Noticias",mag_title:"Noticias",mag_all:"Todas las noticias →",mag_sub:"Lo último del mundo del e-commerce: marketplaces, pagos, logística, regulación y más.",nav_learn:"Aprender",nav_calcBtn:"Calcular",nav_try:"Calcular beneficio",
+ es:{nav_tools:"Marketplaces",nav_calc:"Calculadora",nav_compare:"Comparar",nav_mag:"Noticias",mag_title:"Noticias",mag_all:"Todas las noticias →",mag_sub:"Lo último del mundo del e-commerce: marketplaces, pagos, logística, regulación y más.",nav_learn:"Aprender",nav_calcBtn:"Calcular",nav_try:"Calcular beneficio",gapT:"La comisión no es el coste de la venta.",gapAnn:"Comisión anunciada",gapTot:"Deducción total del marketplace",gapAdv:"anunciado",gapDelta:"+9 pts deducción extra · impuesto, tarifa de servicio, transacción",gapPara:"En una venta de 349 ₺ la comisión anunciada puede ser del 15 %. Al sumar impuesto, tarifas de servicio y otras deducciones del marketplace, la deducción total sube al 24 %. El envío es un coste operativo aparte. Netvo muestra exactamente esta diferencia.",cmpT:"Mismo producto. Otro marketplace. Otro resultado.",cmpS:"Lo que te queda al vender un artículo de moda de 349 ₺ (142 ₺ de coste) en tres marketplaces — tras comisión, impuesto y envío.",chMk:"Marketplace",chKeep:"Queda de la venta",chMarj:"Margen",chHigh:"MÁS ALTO",mkView:"Ver →",mkAll:"Ver los 136 marketplaces →",lc1t:"Marketplaces",lc1d:"136 marketplaces: comisión, condiciones y costes reales — con fuente.",lc2t:"Países",lc2d:"37 países: IVA/GST, aduanas y condiciones de mercado.",lc3t:"Radar de tarifas",lc3d:"Cambios de tarifas y reglas de los marketplaces — con fecha y fuente.",lc4t:"Glosario",lc4d:"Comisión, take rate, buy box… términos del e-commerce en lenguaje claro.",lc5t:"Comparar",lc5d:"¿Cuánto queda del mismo producto en distintos marketplaces? Míralo lado a lado.",lrnSub:"Todo lo que necesitas para hacer bien el e-commerce: marketplaces, países, tarifas y términos — con fuente.",lrnSoon:"Pronto: Guías de inicio · Impuestos · Envío y logística · Publicidad · Producto y precios.",
   hero_tag:"136 marketplaces · 37 países · impuestos y aduana incluidos",hero_h1:"Vendido. ¿Qué te queda?",
   hero_p:"No la tasa anunciada — tras impuestos, envío y todas las tarifas, mostramos lo que realmente te queda de una venta. Cada tasa muestra su fuente y fecha.",
   hc_hint:"↓ Con valores de ejemplo — introduce los tuyos, el resultado se actualiza al instante",
   hero_b1:"Calcular beneficio",hero_b2:"Comparar marketplaces"},
- it:{nav_tools:"Marketplace",nav_calc:"Calcolatore",nav_compare:"Confronta",nav_mag:"Notizie",mag_title:"Notizie",mag_all:"Tutte le notizie →",mag_sub:"Le ultime dal mondo dell'e-commerce: marketplace, pagamenti, logistica, normative e altro.",nav_learn:"Impara",nav_calcBtn:"Calcola",nav_try:"Calcola il profitto",
+ it:{nav_tools:"Marketplace",nav_calc:"Calcolatore",nav_compare:"Confronta",nav_mag:"Notizie",mag_title:"Notizie",mag_all:"Tutte le notizie →",mag_sub:"Le ultime dal mondo dell'e-commerce: marketplace, pagamenti, logistica, normative e altro.",nav_learn:"Impara",nav_calcBtn:"Calcola",nav_try:"Calcola il profitto",gapT:"La commissione non è il costo della vendita.",gapAnn:"Commissione dichiarata",gapTot:"Trattenuta totale del marketplace",gapAdv:"dichiarato",gapDelta:"+9 pt trattenuta extra · imposta, commissione di servizio, transazione",gapPara:"Su una vendita da 349 ₺ la commissione dichiarata può essere del 15%. Aggiungendo imposta, commissioni di servizio e altre trattenute del marketplace, la trattenuta totale sale al 24%. La spedizione è un costo operativo a parte. Netvo mostra esattamente questa differenza.",cmpT:"Stesso prodotto. Altro marketplace. Altro risultato.",cmpS:"Quello che ti resta vendendo un articolo di moda da 349 ₺ (142 ₺ di costo) su tre marketplace — dopo commissione, imposta e spedizione.",chMk:"Marketplace",chKeep:"Resta dalla vendita",chMarj:"Margine",chHigh:"PIÙ ALTO",mkView:"Vedi →",mkAll:"Vedi tutti i 136 marketplace →",lc1t:"Marketplace",lc1d:"136 marketplace: commissione, condizioni e costi reali — con fonte.",lc2t:"Paesi",lc2d:"37 paesi: IVA/GST, dogana e condizioni di mercato.",lc3t:"Radar commissioni",lc3d:"Modifiche a commissioni e regole dei marketplace — con data e fonte.",lc4t:"Glossario",lc4d:"Commissione, take rate, buy box… i termini dell'e-commerce in parole semplici.",lc5t:"Confronta",lc5d:"Quanto resta dello stesso prodotto su marketplace diversi? Guarda affiancato.",lrnSub:"Tutto ciò che serve per fare e-commerce bene: marketplace, paesi, commissioni e termini — con fonte.",lrnSoon:"Presto: Guide introduttive · Imposte · Spedizione e logistica · Pubblicità · Prodotto e prezzi.",
   hero_tag:"136 marketplace · 37 paesi · tasse e dogana incluse",hero_h1:"Venduto. Cosa ti resta?",
   hero_p:"Non il tasso indicato — dopo tasse, spedizione e tutti i costi, mostriamo cosa ti resta davvero da una vendita. Ogni tasso mostra fonte e data.",
   hc_hint:"↓ Compilato con valori d'esempio — inserisci i tuoi, il risultato si aggiorna subito",
@@ -3087,7 +3087,11 @@ const I18N={
 };
 let LANG='tr';
 const LANG_ORDER=['tr','en','de','fr','es','it'];
-function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null){if(/</.test(v))e.innerHTML=v;else e.textContent=v;}});const lb=document.getElementById('langBtn');if(lb)lb.textContent=l.toUpperCase()+' ▾';document.documentElement.lang=l;try{markLangActive();}catch(e){}try{if(typeof AUTO_RAW!=='undefined'&&AUTO_RAW.length&&typeof mergeAutoNews==='function')mergeAutoNews();}catch(e){}}
+function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null){if(/</.test(v))e.innerHTML=v;else e.textContent=v;}});const lb=document.getElementById('langBtn');if(lb)lb.textContent=l.toUpperCase()+' ▾';document.documentElement.lang=l;try{markLangActive();}catch(e){}try{if(typeof AUTO_RAW!=='undefined'&&AUTO_RAW.length&&typeof mergeAutoNews==='function')mergeAutoNews();}catch(e){}
+ try{if(typeof renderHomeCompare==='function')renderHomeCompare();}catch(e){}
+ try{if(typeof renderToolsHome==='function'&&document.getElementById('toolGridHome'))renderToolsHome('toolGridHome');}catch(e){}}
+// t(): aktif dile göre I18N'den metin çeker (JS-render bileşenleri için). Anahtar yoksa TR'ye düşer.
+function t(k){var d=I18N[LANG]||I18N.tr;return (d&&d[k]!=null)?d[k]:(I18N.tr[k]!=null?I18N.tr[k]:k);}
 // ---- Dil seçici (tıklayınca açılır menü; başka dile otomatik geçmez) ----
 const LANG_NAMES={tr:'Türkçe',en:'English',de:'Deutsch',fr:'Français',es:'Español',it:'Italiano'};
 function buildLangMenu(){const m=document.getElementById('langMenu');if(!m)return;
@@ -3192,12 +3196,12 @@ function renderHomeCompare(){
   if(!rows.length){host.innerHTML='';return;}
   var f=function(x){return x.cur+x.net.toLocaleString(x.loc,{minimumFractionDigits:x.dec0?0:2,maximumFractionDigits:x.dec0?0:2});};
   var head='<tr style="color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em">'
-    +'<th style="text-align:left;font-weight:600;padding:0 0 8px">Pazaryeri</th>'
-    +'<th style="text-align:right;font-weight:600;padding:0 0 8px">Satıştan kalan</th>'
-    +'<th style="text-align:right;font-weight:600;padding:0 0 8px">Marj</th></tr>';
+    +'<th style="text-align:left;font-weight:600;padding:0 0 8px">'+t('chMk')+'</th>'
+    +'<th style="text-align:right;font-weight:600;padding:0 0 8px">'+t('chKeep')+'</th>'
+    +'<th style="text-align:right;font-weight:600;padding:0 0 8px">'+t('chMarj')+'</th></tr>';
   host.innerHTML='<table style="width:100%;border-collapse:collapse;font-size:15px">'+head+rows.map(function(x,i){
     return '<tr style="border-top:1px solid var(--line)">'
-     +'<td style="padding:12px 0;font-weight:600;color:var(--navy)">'+x.fl+' '+x.name+(i===0?' <span style="color:var(--green);font-size:11px;font-weight:600;letter-spacing:.03em">· EN YÜKSEK</span>':'')+'</td>'
+     +'<td style="padding:12px 0;font-weight:600;color:var(--navy)">'+x.fl+' '+x.name+(i===0?' <span style="color:var(--green);font-size:11px;font-weight:600;letter-spacing:.03em">· '+t('chHigh')+'</span>':'')+'</td>'
      +'<td style="padding:12px 0;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;color:'+(x.net<0?'var(--red)':'var(--ink)')+'">'+f(x)+'</td>'
      +'<td style="padding:12px 0;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums">%'+x.marj.toFixed(1)+'</td>'
      +'</tr>';
