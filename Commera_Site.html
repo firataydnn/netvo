@@ -792,6 +792,22 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
         </div>
       </details>
       <details class="incl"><summary>Hesaba neler dahil?</summary><div class="incl-b">Bu araç <b>operasyonel kârı</b> hesaplar: komisyon, hizmet bedeli, vergi, kargo, reklam, iade ve ürün maliyeti. <b>Dahil değildir:</b> yıl sonu gelir/kurumlar vergisi (şahıs/Ltd., %15–40 dilim, genç girişimci muafiyeti) ve sınır ötesi işlem/gümrük ücretleri. Kargo/gider KDV'sini satıcının faturalandığı ülkeye göre ayarla. <b>Not:</b> Hesap, KDV mükellefi satıcıyı varsayar (girdi KDV'sini indirdiğini kabul eder). KDV mükellefi değilsen sana kalan bundan düşüktür.</div></details>
+      <details class="adv" id="ohBox" style="margin-top:10px">
+        <summary><span>İşletme giderlerimi dahil et <span class="hint" style="font-weight:400">— mağaza bağlama yok, tek profil</span></span><span class="autos" id="ohAuto"></span><span class="chev">▾</span></summary>
+        <div class="advbody">
+          <p class="sm muted" style="margin:0 0 10px">Aylık toplam sabit giderini ve sipariş adedini gir; Netvo sipariş başına gider payını hesaplayıp <b>gerçek kâr</b>ı gösterir. Veriler yalnızca bu tarayıcıda saklanır.</p>
+          <div class="field"><label>Aylık sipariş adedi</label><input class="inp" id="ohOrders" type="number" min="1" value="2500" oninput="ohSave();calc()"></div>
+          <div class="two">
+            <div class="field"><label>Personel</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohStaff" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+            <div class="field"><label>Kira / depo</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohRent" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+          </div>
+          <div class="two">
+            <div class="field"><label>Muhasebe / mali müşavir</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohAcc" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+            <div class="field"><label>Yazılım / abonelikler</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohSoft" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+          </div>
+          <div class="field"><label>Diğer sabit gider</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohOther" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+        </div>
+      </details>
     </div>
 
     <div class="result">
@@ -822,6 +838,8 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
           <div class="rlist" id="rList" style="margin-top:10px"></div>
         </details>
       </div>
+
+      <div id="ohResult"></div>
 
       <div id="calcComply"></div>
 
@@ -2262,6 +2280,32 @@ function openMk(k){selectMk(k);go('calc');}
 function catChange(){const m=MK[current];if(m.cats)document.getElementById('com').value=m.cats[+document.getElementById('cat').value][1];calc();}
 function desiChange(){const v=desiTable[+desiSel.value][1];if(v!==null)document.getElementById('kargo').value=v;calc();}
 
+// ============ İŞLETME GİDERİ (overhead) — mağaza bağlama YOK, tek profil ============
+function ohVal(id){var el=document.getElementById(id);return el?Math.max(0,+el.value||0):0;}
+function ohSave(){try{localStorage.setItem('netvo_overhead',JSON.stringify({orders:ohVal('ohOrders'),staff:ohVal('ohStaff'),rent:ohVal('ohRent'),acc:ohVal('ohAcc'),soft:ohVal('ohSoft'),other:ohVal('ohOther')}));}catch(e){}}
+function ohLoad(){try{var o=JSON.parse(localStorage.getItem('netvo_overhead')||'null');if(!o)return;var map={orders:'ohOrders',staff:'ohStaff',rent:'ohRent',acc:'ohAcc',soft:'ohSoft',other:'ohOther'};Object.keys(map).forEach(function(k){var el=document.getElementById(map[k]);if(el&&o[k]!=null)el.value=o[k];});var box=document.getElementById('ohBox');if(box&&(o.staff||o.rent||o.acc||o.soft||o.other))box.open=true;}catch(e){}}
+function renderOverhead(net,co){
+  var out=document.getElementById('ohResult'); if(!out)return;
+  var sym=co.cur; try{document.querySelectorAll('.ohc').forEach(function(s){s.textContent=sym;});}catch(e){}
+  var orders=Math.max(1,ohVal('ohOrders'));
+  var monthly=ohVal('ohStaff')+ohVal('ohRent')+ohVal('ohAcc')+ohVal('ohSoft')+ohVal('ohOther');
+  if(monthly<=0){out.innerHTML='';return;}
+  var per=monthly/orders, real=net-per, neg=real<0;
+  var dec=co.dec0?0:2;
+  var f=function(n){return sym+n.toLocaleString(co.loc,{minimumFractionDigits:dec,maximumFractionDigits:dec});};
+  out.innerHTML='<div class="rescard" style="margin-top:12px;border:1px solid '+(neg?'var(--red)':'var(--green)')+'">'
+   +'<div class="rescard-h">Gerçek kâr — işletme giderleri dahil</div>'
+   +'<div class="flow">'
+   +'<div class="frow"><span>Operasyonel kâr (sipariş başına)</span><b>'+f(net)+'</b></div>'
+   +'<div class="frow"><span>İşletme gider payı ('+f(monthly)+' ÷ '+orders.toLocaleString(co.loc)+' sipariş)</span><b class="neg">−'+f(per)+'</b></div>'
+   +'<div class="frow ftot"><span>Gerçek kâr</span><b style="color:'+(neg?'var(--red)':'var(--ink)')+'">'+f(real)+'</b></div>'
+   +'</div>'
+   +'<div class="sm muted" style="margin-top:8px">'+(neg
+       ?'Sipariş başına <b style="color:var(--ink)">'+f(net)+'</b> kazandığını sanıyordun; işletme giderlerinden sonra gerçek kâr <b style="color:var(--red)">'+f(real)+'</b>. Bu üründen para kazanmak için operasyonel kârın en az <b>'+f(per)+'</b> olmalı.'
+       :'Operasyonel kârın işletme giderlerini karşılıyor: sipariş başına <b style="color:var(--ink)">'+f(real)+'</b> gerçek kâr kalıyor.')+'</div>'
+   +'</div>';
+}
+
 function calc(){
  const m=MK[current],co=CO[m.co],sym=co.cur;
  const S=+document.getElementById('price').value||0;
@@ -2308,6 +2352,7 @@ function calc(){
  const payout=S-feeGross-stopaj; // pazaryerinin hesabına yatıracağı yaklaşık tutar (komisyon+ücret+tevkifat düşülmüş)
  const mb=vat>0?Snet:S;const marj=mb>0?net/mb*100:0;const roi=(registered?Mnet:M)>0?net/(registered?Mnet:M)*100:0;
  LAST={net,marj};
+ try{renderOverhead(net,co);}catch(e){}
 
  const f0=n=>sym+Math.round(n).toLocaleString(co.loc);
  const dec=co.dec0?0:2;
@@ -3060,6 +3105,7 @@ function geoInit(){
  }).catch(()=>{/* file:// veya engel: sessizce geç */});
 }
 
+try{ohLoad();}catch(e){}
 selectMk('trendyol');
 initCompare();
 try{updateWatchLink();}catch(e){}
