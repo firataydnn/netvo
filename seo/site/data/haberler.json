@@ -1,22 +1,782 @@
 [
  {
-  "c": "pazar",
-  "t": "Amazon launches a low-price standalone shopping app, Amazon Bazaar, in over a dozen market",
-  "d": "Amazon Bazaar, a new low-cost shopping destination for Asia, Africa, and Latin America that will be available separately from the main Amazon shopping app.",
-  "dt": "7 Kas 2025",
-  "tag": "Global",
-  "body": "Amazon Bazaar, a new low-cost shopping destination for Asia, Africa, and Latin America that will be available separately from the main Amazon shopping app.\n\nSatıcı için: bu gelişme komisyon/vergi/ücret kalemlerini etkileyebilir; hesaplayıcıda ilgili pazaryerini seçip marja etkisini test et.\n\nKaynak: https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/",
-  "src": "https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/",
-  "auto": true
+  "c": "lojistik",
+  "dt": "21 Ağu 2026",
+  "tag": "ABD",
+  "src": "https://www.retaildive.com/news/home-depot-express-delivery-3-hours-or-less/828362/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Home Depot, 3 saatte teslimat hizmetini tüm ABD'ye yaydı",
+    "d": "Home Depot, 2000'den fazla mağazasını dağıtım merkezi olarak kullanarak, binlerce ürün için 3 saat veya daha kısa sürede teslimat seçeneğini sunmaya başladı.",
+    "body": "Home Depot, ekspres teslimat kapasitesini tüm Amerika Birleşik Devletleri'ne genişletti. Hizmet, binlerce ürün kategorisini kapsamakta ve şirketin 2000'den fazla ABD mağazasını fulfillment merkezi olarak işletmektedir. Bu hamle, geleneksel perakendecilerin e-ticaret lojistik yarışında Amazon gibi oyunculara karşı kompetitifliğini artırmaya yönelik bir stratejidir ve mağaza ağının lokal teslimat avantajına nasıl dönüştüğünü göstermektedir.\n\nKaynak: https://www.retaildive.com/news/home-depot-express-delivery-3-hours-or-less/828362/"
+   },
+   "en": {
+    "t": "Home Depot expands 3-hour express delivery nationwide across US",
+    "d": "Home Depot now offers 3-hour or faster delivery for thousands of products across the entire United States, leveraging over 2,000 stores as fulfillment hubs.",
+    "body": "Home Depot has rolled out its express delivery service nationwide, making 3-hour or faster delivery available across the United States. The service encompasses thousands of SKUs and operates through a distributed model where more than 2,000 company stores function as fulfillment centers. This expansion represents a key competitive move for traditional retailers to match the speed expectations set by e-commerce leaders and demonstrates how physical store networks can be repurposed as local logistics infrastructure.\n\nSource: https://www.retaildive.com/news/home-depot-express-delivery-3-hours-or-less/828362/"
+   },
+   "de": {
+    "t": "Home Depot erweitert Express-Lieferung auf 3 Stunden landesweit",
+    "d": "Home Depot bietet jetzt Lieferungen in 3 Stunden oder schneller für Tausende von Produkten in den gesamten USA an und nutzt dafür über 2000 Filialen als Erfüllungszentren.",
+    "body": "Home Depot hat seinen Express-Lieferservice landesweit ausgebaut. Der Service umfasst tausende von Artikeln und nutzt ein Netzwerk von über 2000 Filialen als Erfüllungszentren in den USA. Diese Expansion zeigt, wie traditionelle Einzelhandelsketten ihre physischen Ladennetze in schnelle Lieferlösungen umwandeln, um mit modernen E-Commerce-Erwartungen Schritt zu halten und gegen große Online-Plattformen konkurrenzfähig zu bleiben.\n\nQuelle: https://www.retaildive.com/news/home-depot-express-delivery-3-hours-or-less/828362/"
+   },
+   "fr": {
+    "t": "Home Depot déploie la livraison express en 3 heures sur tout le territoire américain",
+    "d": "Home Depot offre désormais une livraison en 3 heures ou moins pour des milliers de produits aux États-Unis en utilisant plus de 2000 magasins comme centres de distribution.",
+    "body": "Home Depot a étendu son service de livraison express à l'ensemble du territoire américain. Le service couvre des milliers de références et s'appuie sur un réseau de plus de 2000 magasins fonctionnant comme centres de traitement des commandes. Cette expansion illustre comment les détaillants traditionnels transforment leur infrastructure physique en avantage logistique pour rivaliser avec les plateformes de commerce électronique et répondre aux attentes modernes de rapidité de livraison.\n\nSource: https://www.retaildive.com/news/home-depot-express-delivery-3-hours-or-less/828362/"
+   },
+   "es": {
+    "t": "Home Depot expande entrega exprés en 3 horas a todo el territorio estadounidense",
+    "d": "Home Depot ahora ofrece entrega en 3 horas o menos para miles de productos en Estados Unidos, utilizando más de 2000 tiendas como centros de distribución.",
+    "body": "Home Depot ha expandido su servicio de entrega exprés a nivel nacional en Estados Unidos. El servicio abarca miles de referencias de productos y funciona mediante una red de más de 2000 tiendas que actúan como centros de cumplimiento de pedidos. Esta expansión demuestra cómo los minoristas tradicionales están convirtiendo sus redes físicas de tiendas en ventajas logísticas para competir con plataformas de comercio electrónico y satisfacer las expectativas modernas de rapidez en la entrega.\n\nFuente: https://www.retaildive.com/news/home-depot-express-delivery-3-hours-or-less/828362/"
+   },
+   "it": {
+    "t": "Home Depot estende la consegna express in 3 ore a livello nazionale",
+    "d": "Home Depot offre ora la consegna in 3 ore o meno per migliaia di prodotti in tutti gli Stati Uniti, utilizzando oltre 2000 negozi come centri di fulfillment.",
+    "body": "Home Depot ha lanciato il suo servizio di consegna express a livello nazionale negli Stati Uniti. Il servizio copre migliaia di articoli e si basa su una rete di oltre 2000 negozi che funzionano come centri di elaborazione degli ordini. Questa espansione mostra come i rivenditori tradizionali stanno trasformando la loro infrastruttura fisica di negozi in vantaggi logistici per competere con le piattaforme di e-commerce e soddisfare le moderne aspettative di velocità nella consegna.\n\nFonte: https://www.retaildive.com/news/home-depot-express-delivery-3-hours-or-less/828362/"
+   }
+  }
  },
  {
-  "c": "reg",
-  "t": "Medline tallies tariff refunds as Q2 sales rise 11.6%",
-  "d": "Medline Inc. recorded $243 million in net tariff refunds that it realized during its current fiscal year by the end of its Q2. Those funds arrived against the b",
-  "dt": "18 Ağu 2026",
+  "c": "pazar",
+  "dt": "20 Ağu 2026",
+  "tag": "ABD",
+  "src": "https://www.retaildive.com/news/walmarts-stores-omnichannel-tariffs-drug-pricing-regulation/828387/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Walmart, e-ticarete yanıt olarak mağaza konseptini yeniliyor",
+    "d": "Walmart'ın Mali İşler Müdürü, fiziksel mağazaların omnichannel perakendede kritik rol oynadığını vurguladı.",
+    "body": "Walmart, e-ticaretin hızlı büyümesiyle birlikte geleneksel mağaza ağını yeniden konumlandırıyor. Şirketin Mali İşler Müdürü John David Rainey, fiziksel perakende noktalarının omnichannel stratejisinin temel unsuru olduğunu belirtti; çevrimiçi siparişlerin mağaza tarafından karşılanması ve yerel teslimat gibi hizmetler bu dönüşümün anahtarı. Hamleler, geleneksel perakendecilerin dijital çağda ayakta kalma biçimini gösteriyor; Walmart'ın 2. çeyrek ABD satışlarında ise ilaç fiyatlandırması düzenlemesi etkili oldu.\n\nKaynak: https://www.retaildive.com/news/walmarts-stores-omnichannel-tariffs-drug-pricing-regulation/828387/"
+   },
+   "en": {
+    "t": "Walmart transforms stores as e-commerce reshapes retail landscape",
+    "d": "Walmart's CFO emphasizes that physical stores remain central to omnichannel retail strategy amid e-commerce growth.",
+    "body": "Walmart is reimagining its traditional store network in response to rapid e-commerce expansion. The company's Chief Financial Officer John David Rainey stressed that brick-and-mortar locations are integral to an omnichannel strategy, enabling services like buy-online-pickup-in-store and local fulfillment. The shift underscores how legacy retailers are adapting to compete in the digital age; Walmart's second-quarter U.S. sales performance was also tempered by pharmaceutical pricing regulations.\n\nSource: https://www.retaildive.com/news/walmarts-stores-omnichannel-tariffs-drug-pricing-regulation/828387/"
+   },
+   "de": {
+    "t": "Walmart passt Läden an das wachsende E-Commerce-Geschäft an",
+    "d": "Walmart-CFO betont, dass physische Einzelhandelsflächen weiterhin zentral für die Omnichannel-Strategie sind.",
+    "body": "Walmart überarbeitet sein traditionelles Geschäftsnetzwerk angesichts des rasanten E-Commerce-Wachstums. Der Chief Financial Officer des Unternehmens John David Rainey unterstrich, dass Einzelhandelsfilialen für eine Omnichannel-Strategie unerlässlich sind und Services wie Online-Kauf-im-Geschäft-Abholen sowie lokale Erfüllung ermöglichen. Die Anpassung zeigt, wie etablierte Einzelhandelsketten in der digitalen Ära konkurrieren. Die Gewinne von Walmart im zweiten Quartal wurden zudem durch Regulierungen der Arzneimittelpreisgestaltung gebremst.\n\nQuelle: https://www.retaildive.com/news/walmarts-stores-omnichannel-tariffs-drug-pricing-regulation/828387/"
+   },
+   "fr": {
+    "t": "Walmart réinvente ses magasins face à la croissance du commerce électronique",
+    "d": "Le directeur financier de Walmart souligne que les magasins physiques restent essentiels à la stratégie omnicanale.",
+    "body": "Walmart redéfinit son réseau traditionnel de magasins en réaction à la croissance rapide du commerce électronique. Le directeur financier John David Rainey a insisté sur le fait que les points de vente physiques sont intégraux à une stratégie omnicanale, permettant des services comme l'achat en ligne avec retrait en magasin et l'expédition locale. Ce pivot illustre comment les détaillants établis s'adaptent pour rester compétitifs à l'ère numérique; les ventes américaines du deuxième trimestre de Walmart ont également été affectées par la réglementation des prix des produits pharmaceutiques.\n\nSource: https://www.retaildive.com/news/walmarts-stores-omnichannel-tariffs-drug-pricing-regulation/828387/"
+   },
+   "es": {
+    "t": "Walmart transforma sus tiendas en respuesta al crecimiento del comercio electrónico",
+    "d": "El director financiero de Walmart enfatiza que las tiendas físicas siguen siendo fundamentales para la estrategia omnichannel.",
+    "body": "Walmart está rediseñando su red tradicional de tiendas ante el rápido crecimiento del comercio electrónico. El director financiero John David Rainey subrayó que los puntos de venta físicos son esenciales para una estrategia omnichannel, habilitando servicios como compra en línea con recogida en tienda y cumplimiento local. El movimiento demuestra cómo los minoristas establecidos se adaptan para competir en la era digital; las ventas estadounidenses del segundo trimestre de Walmart también fueron afectadas por regulaciones de precios de medicamentos.\n\nFuente: https://www.retaildive.com/news/walmarts-stores-omnichannel-tariffs-drug-pricing-regulation/828387/"
+   },
+   "it": {
+    "t": "Walmart trasforma i negozi mentre l'e-commerce cresce",
+    "d": "Il CFO di Walmart sottolinea che i punti vendita fisici rimangono cruciali per la strategia omnichannel.",
+    "body": "Walmart sta riprogettando la sua rete tradizionale di negozi in risposta alla rapida espansione dell'e-commerce. Il direttore finanziario John David Rainey ha enfatizzato che i punti vendita fisici sono parte integrante di una strategia omnichannel, abilitando servizi come l'acquisto online con ritiro in negozio e il fulfillment locale. La trasformazione illustra come i retailer consolidati si adattano per competere nell'era digitale; le vendite statunitensi del secondo trimestre di Walmart sono state inoltre influenzate da normative sulla determinazione dei prezzi dei farmaci.\n\nFonte: https://www.retaildive.com/news/walmarts-stores-omnichannel-tariffs-drug-pricing-regulation/828387/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "12 May 2026",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2026/05/12/amazon-expands-30-minute-delivery-across-the-u-s/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon ABD'de 30 dakikalık teslimatı genişletiyor",
+    "d": "Amazon, binlerce ürünün 30 dakika içinde teslim edilebileceği hizmetini Amerika Birleşik Devletleri genelinde sunmaya başladı.",
+    "body": "Amazon, ultra-hızlı teslimat seçeneğini ABD çapında yaygınlaştırıyor. Taze gıda, ev ihtiyaçları ve diğer yerel ürünler de dahil olmak üzere binlerce ürün bu hizmetin kapsamına alındı. Hamle, e-ticaret platformlarının son yıllarda hızlı teslimat konusunda yoğunlaştığı rekabeti daha da keskinleştiriyor ve Amazon'un lojistik altyapısındaki yatırımlarının ölçeğini gösteriyor.\n\nKaynak: https://techcrunch.com/2026/05/12/amazon-expands-30-minute-delivery-across-the-u-s/"
+   },
+   "en": {
+    "t": "Amazon expands 30-minute delivery across the US",
+    "d": "Amazon is rolling out its ultra-fast delivery service nationwide, covering thousands of items including fresh groceries and household essentials.",
+    "body": "Amazon is expanding its 30-minute delivery option across the United States, making it available for thousands of products ranging from fresh groceries to household essentials and locally relevant items. The move reflects intensifying competition in fast delivery services, where platforms are racing to meet consumer expectations for speed. This expansion demonstrates Amazon's significant investment in logistics infrastructure and its strategy to strengthen customer retention through operational excellence.\n\nSource: https://techcrunch.com/2026/05/12/amazon-expands-30-minute-delivery-across-the-u-s/"
+   },
+   "de": {
+    "t": "Amazon erweitert 30-Minuten-Lieferung in den USA",
+    "d": "Amazon führt seinen Ultra-Schnellversand landesweit aus und umfasst Tausende von Artikeln, einschließlich frischer Lebensmittel und Haushaltswaren.",
+    "body": "Amazon baut sein 30-Minuten-Lieferservice nun flächendeckend in den USA aus. Tausende Produkte, darunter frische Lebensmittel, Haushaltsgegenstände und lokal relevante Waren, sind jetzt Teil dieses Angebots. Die Expansion zeigt die intensiven Bemühungen des E-Commerce-Sektors um schnellere Lieferungen und unterstreicht Amazons kontinuierliche Investitionen in seine Logistikinfrastruktur.\n\nQuelle: https://techcrunch.com/2026/05/12/amazon-expands-30-minute-delivery-across-the-u-s/"
+   },
+   "fr": {
+    "t": "Amazon étend la livraison en 30 minutes aux États-Unis",
+    "d": "Amazon déploie son service de livraison ultra-rapide à l'échelle nationale, couvrant des milliers d'articles incluant produits frais et essentiels ménagers.",
+    "body": "Amazon généralise son option de livraison en 30 minutes à travers les États-Unis, rendant accessible des milliers de produits incluant aliments frais, articles ménagers et produits localement pertinents. Cette expansion s'inscrit dans une compétition accrue entre plateformes de commerce électronique autour de la rapidité de livraison. Elle démontre l'ampleur des investissements logistiques d'Amazon et sa stratégie pour renforcer la fidélité client par l'excellence opérationnelle.\n\nSource: https://techcrunch.com/2026/05/12/amazon-expands-30-minute-delivery-across-the-u-s/"
+   },
+   "es": {
+    "t": "Amazon amplía entregas en 30 minutos en toda Estados Unidos",
+    "d": "Amazon despliega su servicio de entrega ultrarrápida a nivel nacional, cubriendo miles de artículos incluyendo alimentos frescos y artículos de uso doméstico.",
+    "body": "Amazon está expandiendo su opción de entrega en 30 minutos en todo Estados Unidos, haciendo disponibles miles de productos que van desde alimentos frescos hasta artículos de hogar y bienes localmente relevantes. Este movimiento refleja la competencia intensificada en servicios de entrega rápida en el comercio electrónico, donde las plataformas compiten por satisfacer las expectativas de velocidad de los consumidores. La expansión evidencia las inversiones significativas de Amazon en infraestructura logística y su estrategia de fortalecer la retención de clientes.\n\nFuente: https://techcrunch.com/2026/05/12/amazon-expands-30-minute-delivery-across-the-u-s/"
+   },
+   "it": {
+    "t": "Amazon amplia la consegna in 30 minuti negli Stati Uniti",
+    "d": "Amazon sta implementando il suo servizio di consegna ultra-rapida a livello nazionale, coprendo migliaia di articoli tra cui alimenti freschi e beni essenziali per la casa.",
+    "body": "Amazon sta espandendo la sua opzione di consegna in 30 minuti negli Stati Uniti, rendendo disponibili migliaia di prodotti che includono alimenti freschi, articoli per la casa e merci localmente rilevanti. L'iniziativa riflette la crescente competizione tra le piattaforme di e-commerce sui tempi di consegna, con operatori che si contendono il favore dei consumatori sulla velocità. L'espansione dimostra l'entità degli investimenti di Amazon in infrastrutture logistiche e la sua strategia per rafforzare la fedeltà dei clienti attraverso l'eccellenza operativa.\n\nFonte: https://techcrunch.com/2026/05/12/amazon-expands-30-minute-delivery-across-the-u-s/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "2 Nis 2026",
   "tag": "Global",
-  "body": "Medline Inc. recorded $243 million in net tariff refunds that it realized during its current fiscal year by the end of its Q2. Those funds arrived against the backdrop of an overall net income decline of 58.3% year over year to $139 million for the quarter ended June 27. Despite that decrease, the medical supply [&#8230;]\nThe post Medline tallies tariff refunds as Q2 sales rise 11.6% appeared first on Digital Commerce 360.\n\nSatıcı için: bu gelişme komisyon/vergi/ücret kalemlerini etkileyebilir; hesaplayıcıda ilgili pazaryerini seçip marja etkisini test et.\n\nKaynak: https://www.digitalcommerce360.com/2026/08/18/medline-tariff-refunds-sales-q2-fy26/",
-  "src": "https://www.digitalcommerce360.com/2026/08/18/medline-tariff-refunds-sales-q2-fy26/",
-  "auto": true
+  "src": "https://techcrunch.com/2026/04/02/amazon-hits-sellers-with-fuel-surcharge-as-iran-war-roils-global-energy-markets/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon satıcılara yakıt ek ücreti uygulamaya başladı",
+    "d": "Amazon, küresel enerji piyasasının volatilitesini gerekçe göstererek satıcılara yönelik yakıt ek ücreti politikasını harekete geçirdi; politikanın süresi henüz belirtilmedi.",
+    "body": "Amazon, satıcılarına uyguladığı yakıt ek ücretinin geçici bir önlem olduğunu açıklamış ancak politikanın ne zaman kaldırılacağına ilişkin tarih verememiştir. Uygulama, gerekçe olarak küresel enerji pazarlarındaki dalgalanmaları göstermiş, özellikle bölgesel gerilimler nedeniyle artan maliyetlere atıfta bulunmuştur. Bu hamle, satıcıların kargo ve lojistik harcamalarında belirgin bir yük oluşturacak; Amazon platformu üzerinde ticaret yapan satıcıların marjlarını etkileyebilecek bir gelişmedir.\n\nKaynak: https://techcrunch.com/2026/04/02/amazon-hits-sellers-with-fuel-surcharge-as-iran-war-roils-global-energy-markets/"
+   },
+   "en": {
+    "t": "Amazon rolls out fuel surcharge for sellers amid energy volatility",
+    "d": "Amazon has introduced a fuel surcharge affecting sellers, citing temporary measures in response to global energy market shifts, with no clear end date announced.",
+    "body": "Amazon has activated a fuel surcharge policy affecting its selling partners, characterizing it as a temporary adjustment without specifying when it will be discontinued. The company attributes the measure to volatility in global energy markets, citing regional tensions and rising operational costs. The surcharge represents a direct cost increase for sellers using Amazon's logistics and fulfillment services, potentially compressing margins for third-party merchants on the platform.\n\nSource: https://techcrunch.com/2026/04/02/amazon-hits-sellers-with-fuel-surcharge-as-iran-war-roils-global-energy-markets/"
+   },
+   "de": {
+    "t": "Amazon führt Treibstoffzuschlag für Verkäufer ein",
+    "d": "Amazon hat einen Treibstoffzuschlag für Verkäufer eingeführt und begründet dies mit vorübergehenden Maßnahmen aufgrund volatiler globaler Energiemärkte, ohne ein Enddatum anzukündigen.",
+    "body": "Amazon hat eine Treibstoffzuschlagspolitik für seine Verkaufspartner aktiviert, die als vorübergehende Anpassung charakterisiert wird, ohne klare Informationen zum Auslaufen. Das Unternehmen führt die Maßnahme auf Schwankungen in den globalen Energiemärkten zurück und verweist auf regionale Spannungen und steigende Betriebskosten. Der Zuschlag stellt eine direkte Kostensteigerung für Verkäufer dar, die Amazons Logistik- und Fulfillment-Services nutzen, was die Margen von Drittanbieter-Verkäufern beeinträchtigen könnte.\n\nQuelle: https://techcrunch.com/2026/04/02/amazon-hits-sellers-with-fuel-surcharge-as-iran-war-roils-global-energy-markets/"
+   },
+   "fr": {
+    "t": "Amazon impose une surcharge carburant aux vendeurs",
+    "d": "Amazon a mis en place une surcharge carburant affectant les vendeurs, la qualifiant de mesure temporaire face aux fluctuations des marchés énergétiques mondiaux, sans date de fin annoncée.",
+    "body": "Amazon a activé une politique de surcharge carburant touchant ses partenaires vendeurs, la décrivant comme un ajustement temporaire sans préciser quand elle disparaîtra. La plateforme justifie cette mesure par la volatilité des marchés énergétiques mondiaux, citant les tensions régionales et l'augmentation des coûts d'exploitation. Cette surcharge représente une augmentation directe des dépenses pour les vendeurs utilisant les services logistiques et d'exécution d'Amazon, réduisant potentiellement les marges des vendeurs tiers.\n\nSource: https://techcrunch.com/2026/04/02/amazon-hits-sellers-with-fuel-surcharge-as-iran-war-roils-global-energy-markets/"
+   },
+   "es": {
+    "t": "Amazon aplica un recargo por combustible a los vendedores",
+    "d": "Amazon ha implementado un recargo por combustible que afecta a los vendedores, describiéndolo como una medida temporal frente a la volatilidad de los mercados energéticos globales, sin fecha de finalización anunciada.",
+    "body": "Amazon ha activado una política de recargo por combustible que impacta a sus asociados vendedores, caracterizándola como un ajuste temporal sin especificar cuándo se eliminará. La plataforma atribuye la medida a la volatilidad de los mercados energéticos mundiales, citando tensiones regionales y costos operacionales crecientes. Este recargo representa un aumento directo de gastos para los vendedores que utilizan los servicios logísticos de Amazon, lo que podría comprimir los márgenes de los vendedores externos.\n\nFuente: https://techcrunch.com/2026/04/02/amazon-hits-sellers-with-fuel-surcharge-as-iran-war-roils-global-energy-markets/"
+   },
+   "it": {
+    "t": "Amazon introduce un sovrapprezzo carburante per i venditori",
+    "d": "Amazon ha introdotto un sovrapprezzo carburante che colpisce i venditori, descrivendolo come misura temporanea di fronte alla volatilità dei mercati energetici globali, senza una data di fine annunciata.",
+    "body": "Amazon ha attivato una politica di sovrapprezzo carburante che incide sui suoi partner venditori, caratterizzandola come un aggiustamento temporaneo senza specificare quando sarà eliminata. La piattaforma attribuisce la misura alla volatilità dei mercati energetici globali, citando tensioni regionali e costi operativi crescenti. Questo sovrapprezzo rappresenta un aumento diretto delle spese per i venditori che utilizzano i servizi logistici di Amazon, comprimendo potenzialmente i margini dei venditori terzi sulla piattaforma.\n\nFonte: https://techcrunch.com/2026/04/02/amazon-hits-sellers-with-fuel-surcharge-as-iran-war-roils-global-energy-markets/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "11 Mar 2026",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2026/03/11/quince-series-e-10b-valuation-with-500m-round-led-by-iconiq/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Quince 500 milyon dolarlık yatırımla 10 milyar dolara ulaştı",
+    "d": "Doğrudan tüketiciye satış yapan moda e-ticaret şirketi Quince, Iconiq Capital öncülüğünde yeni finansman turunda 500 milyon dolar topladı ve değerlemesi 10 milyar dolara çıktı.",
+    "body": "Quince, geçtiği yıl gerçekleştirdiği turdan yaklaşık bir yıl sonra yeni bir mega finansman turu kapattı. Öncü yatırımcı Iconiq Capital tarafından yönetilen bu turun ardından şirketin değerlemesi 10 milyar dolar seviyesine ulaştı. D2C moda sektöründe hızla büyüyen bir oyuncu olan Quince için bu, işletme genişletme ve pazara penetrasyonunu artırmanın önemli bir adımı.\n\nKaynak: https://techcrunch.com/2026/03/11/quince-series-e-10b-valuation-with-500m-round-led-by-iconiq/"
+   },
+   "en": {
+    "t": "Quince reaches $10B valuation with $500M funding round",
+    "d": "Direct-to-consumer fashion e-commerce platform Quince secured $500 million in new funding led by Iconiq Capital, achieving unicorn-plus status at $10 billion valuation.",
+    "body": "Quince completed a major funding round less than a year after its previous capital raise, with Iconiq Capital leading the investment of $500 million. The financing brings the company's valuation to $10 billion, marking a significant milestone in the D2C fashion e-commerce space. The funding underscores strong investor confidence in the company's growth strategy and market expansion plans.\n\nSource: https://techcrunch.com/2026/03/11/quince-series-e-10b-valuation-with-500m-round-led-by-iconiq/"
+   },
+   "de": {
+    "t": "Quince erreicht 10-Milliarden-Dollar-Bewertung mit 500-Millionen-Finanzierungsrunde",
+    "d": "Das Direct-to-Consumer-Modeunternehmen Quince hat unter Führung von Iconiq Capital 500 Millionen Dollar eingesammelt und eine Bewertung von 10 Milliarden Dollar erreicht.",
+    "body": "Quince schloss eine Finanzierungsrunde in Höhe von 500 Millionen Dollar ab, angeführt von Investmentfirma Iconiq Capital. Die neue Bewertung von 10 Milliarden Dollar markiert einen wichtigen Meilenstein für das D2C-Modeunternehmen. Die Finanzierungszusage demonstriert das starke Vertrauen der Investoren in die Expansionsstrategie und das Marktpotenzial des Unternehmens.\n\nQuelle: https://techcrunch.com/2026/03/11/quince-series-e-10b-valuation-with-500m-round-led-by-iconiq/"
+   },
+   "fr": {
+    "t": "Quince atteint une valorisation de 10 milliards de dollars avec une levée de 500 millions",
+    "d": "La plateforme e-commerce de mode directe au consommateur Quince a levé 500 millions de dollars dirigés par Iconiq Capital, atteignant une valorisation de 10 milliards de dollars.",
+    "body": "Quince a clôturé un tour de financement majeur moins d'un an après sa précédente levée de fonds, avec Iconiq Capital en tête de file. La nouvelle valorisation de 10 milliards de dollars représente une étape clé dans le secteur du e-commerce de mode D2C. Cette injection de capital démontre la confiance solide des investisseurs envers la stratégie de croissance et les plans d'expansion de l'entreprise.\n\nSource: https://techcrunch.com/2026/03/11/quince-series-e-10b-valuation-with-500m-round-led-by-iconiq/"
+   },
+   "es": {
+    "t": "Quince alcanza valoración de 10.000 millones de dólares con ronda de 500 millones",
+    "d": "La plataforma de e-commerce de moda directa al consumidor Quince recaudó 500 millones de dólares liderados por Iconiq Capital, logrando una valoración de 10.000 millones de dólares.",
+    "body": "Quince completó una ronda de financiación significativa menos de un año después de su anterior levantamiento de capital, con Iconiq Capital como inversor principal. La nueva valoración de 10.000 millones de dólares marca un hito importante en el sector del e-commerce de moda D2C. Esta inyección de capital refleja la confianza sólida de los inversores en la estrategia de crecimiento y los planes de expansión de la empresa.\n\nFuente: https://techcrunch.com/2026/03/11/quince-series-e-10b-valuation-with-500m-round-led-by-iconiq/"
+   },
+   "it": {
+    "t": "Quince raggiunge una valutazione di 10 miliardi di dollari con una raccolta di 500 milioni",
+    "d": "La piattaforma e-commerce di moda diretta al consumatore Quince ha raccolto 500 milioni di dollari guidati da Iconiq Capital, raggiungendo una valutazione di 10 miliardi di dollari.",
+    "body": "Quince ha concluso un round di finanziamento importante meno di un anno dopo il suo precedente aumento di capitale, con Iconiq Capital come investitore principale. La nuova valutazione di 10 miliardi di dollari rappresenta un traguardo significativo nel settore dell'e-commerce di moda diretto al consumatore. Questo afflusso di capitali dimostra la forte fiducia degli investitori nella strategia di crescita e nei piani di espansione dell'azienda.\n\nFonte: https://techcrunch.com/2026/03/11/quince-series-e-10b-valuation-with-500m-round-led-by-iconiq/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "11 Mar 2026",
+  "tag": "Global",
+  "src": "https://techcrunch.com/2026/03/11/amazon-expands-a-program-that-lets-customers-shop-from-other-retailers-sites/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon Shop Direct programını satıcılara açıyor",
+    "d": "Amazon, müşterileri rakip perakendecilerin sitelerine yönlendirecek programına daha fazla satıcının katılımını sağlıyor.",
+    "body": "Amazon, Shop Direct adlı programını genişleterek, müşterilerini diğer e-ticaret sitelerine yönlendirme fırsatını daha fazla satıcıya sunuyor. Program sayesinde Amazon platformundaki satıcılar, kendi sayfalarında rakip perakendecilerin ürünlerine bağlantı verebiliyor ve bu trafiğin bir kısmından komisyon kazanabiliyor. Böylece Amazon, müşteri sadakat kaybı riski alarak ekosistemini dışa açıyor ve satıcılarına ek gelir kaynağı sağlıyor.\n\nKaynak: https://techcrunch.com/2026/03/11/amazon-expands-a-program-that-lets-customers-shop-from-other-retailers-sites/"
+   },
+   "en": {
+    "t": "Amazon expands Shop Direct program to more retailers",
+    "d": "Amazon broadens access to its Shop Direct initiative, allowing more merchants to direct customers to competing retailers' websites.",
+    "body": "Amazon is expanding its Shop Direct program, a feature that enables more merchants to direct their customers to other retailers' product pages. Through the program, participating sellers can earn commissions by routing traffic to competitors' sites. The move reflects Amazon's strategy to deepen seller engagement and create additional revenue streams, even at the risk of losing some customer transactions to rival platforms.\n\nSource: https://techcrunch.com/2026/03/11/amazon-expands-a-program-that-lets-customers-shop-from-other-retailers-sites/"
+   },
+   "de": {
+    "t": "Amazon erweitert Shop Direct für weitere Händler",
+    "d": "Amazon öffnet sein Shop Direct-Programm für mehr Verkäufer, die Kunden auf konkurrenzfähige Einzelhandelsseiten leiten können.",
+    "body": "Amazon baut sein Shop Direct-Programm aus und ermöglicht mehr Händlern, Kunden auf die Websites von Konkurrenten weiterzuleiten. Das Programm ermöglicht Verkäufern, Provisionen zu verdienen, indem sie Traffic auf andere E-Commerce-Plattformen lenken. Dies zeigt Amazons Bestreben, die Verkäuferbindung zu vertiefen und zusätzliche Einnahmequellen zu schaffen, auch wenn dies zu Kundenverlusten an Konkurrenten führen kann.\n\nQuelle: https://techcrunch.com/2026/03/11/amazon-expands-a-program-that-lets-customers-shop-from-other-retailers-sites/"
+   },
+   "fr": {
+    "t": "Amazon élargit son programme Shop Direct aux marchands",
+    "d": "Amazon ouvre son programme Shop Direct à davantage de marchands pour diriger les clients vers des sites de concurrents.",
+    "body": "Amazon élargit son programme Shop Direct, une initiative qui permet à un plus grand nombre de marchands de diriger leurs clients vers d'autres sites de vente au détail. Grâce au programme, les vendeurs participants peuvent gagner des commissions en générant du trafic vers les plateformes concurrentes. Cette évolution traduit la stratégie d'Amazon visant à renforcer l'engagement des vendeurs et à créer des sources de revenus supplémentaires, même au risque de perdre certaines transactions au profit de rivaux.\n\nSource: https://techcrunch.com/2026/03/11/amazon-expands-a-program-that-lets-customers-shop-from-other-retailers-sites/"
+   },
+   "es": {
+    "t": "Amazon amplía el programa Shop Direct a más minoristas",
+    "d": "Amazon abre su iniciativa Shop Direct a más vendedores que pueden dirigir clientes a sitios de comerciantes rivales.",
+    "body": "Amazon está expandiendo su programa Shop Direct, permitiendo que más vendedores dirijan a sus clientes hacia sitios web de otros minoristas. A través del programa, los vendedores participantes pueden ganar comisiones al generar tráfico hacia plataformas competidoras. Esta medida refleja la estrategia de Amazon por profundizar la retención de vendedores y crear fuentes de ingresos adicionales, aun con riesgo de perder transacciones frente a competidores.\n\nFuente: https://techcrunch.com/2026/03/11/amazon-expands-a-program-that-lets-customers-shop-from-other-retailers-sites/"
+   },
+   "it": {
+    "t": "Amazon estende il programma Shop Direct ai rivenditori",
+    "d": "Amazon allarga l'accesso al suo programma Shop Direct, consentendo a più commercianti di indirizzare i clienti verso siti concorrenti.",
+    "body": "Amazon sta ampliando il suo programma Shop Direct, un'iniziativa che consente a un numero maggiore di venditori di indirizzare i loro clienti verso siti web di altri rivenditori. Attraverso il programma, i venditori partecipanti possono guadagnare commissioni generando traffico verso piattaforme concorrenti. La mossa riflette la strategia di Amazon di approfondire il coinvolgimento dei venditori e creare flussi di reddito aggiuntivi, anche rischiando di perdere alcune transazioni a favore di rivali.\n\nFonte: https://techcrunch.com/2026/03/11/amazon-expands-a-program-that-lets-customers-shop-from-other-retailers-sites/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "1 Ara 2025",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2025/12/01/amazons-ai-chatbot-rufus-drove-sales-on-black-friday/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon'un Rufus chatbotu Black Friday'de satışları %100 artırdı",
+    "d": "Amazon'un yapay zeka asistanı Rufus, Kara Cuma'da kullanıldığı satışlarda %100 oranında artış sağlarken, chatbot olmadan satış artışı %20'de kaldı.",
+    "body": "Amazon'un Black Friday kampanyasında yapay zeka destekli chatbot Rufus'u kullanan müşterilerin satın alış oranı, onu kullanmayanlardan çok daha yüksek oldu. Rufus'un aktif kullanıldığı işlemlerde satış dönüşümü %100 artarken, chatbot yardımı olmayan seanslar sadece %20 büyüme gösterdi. Bu sonuç, Amazon'un müşteri deneyimini kişiselleştirmek için yapay zeka yatırımını ne kadar stratejik bulduğunu gösteriyor. Özellikle karmaşık ürün seçim süreçlerinde canlı asistan desteğinin dönüşüm oranlarını kayda değer şekilde iyileştirdiğini ortaya koymaktadır.\n\nKaynak: https://techcrunch.com/2025/12/01/amazons-ai-chatbot-rufus-drove-sales-on-black-friday/"
+   },
+   "en": {
+    "t": "Amazon's Rufus AI chatbot drove 100% sales lift on Black Friday",
+    "d": "Amazon's AI-powered Rufus chatbot doubled sales conversion rates when used during Black Friday, compared to 20% growth without the assistant.",
+    "body": "During Amazon's Black Friday campaign, sessions where customers used the AI chatbot Rufus achieved significantly higher purchase conversion rates than those without the tool. Transactions assisted by Rufus showed a 100% sales increase, while sessions without the chatbot support recorded only a 20% lift. This performance highlights how Amazon's artificial intelligence investment directly impacts customer purchasing decisions. The data underscores that real-time AI assistance substantially improves conversion rates, particularly when helping customers navigate complex product selections.\n\nSource: https://techcrunch.com/2025/12/01/amazons-ai-chatbot-rufus-drove-sales-on-black-friday/"
+   },
+   "de": {
+    "t": "Amazons KI-Chatbot Rufus verdoppelt Umsätze am Black Friday",
+    "d": "Amazons KI-gestützter Chatbot Rufus steigerte die Verkaufsquoten am Black Friday um 100%, während Sessions ohne das Tool nur 20% Wachstum zeigten.",
+    "body": "Während Amazons Black Friday Kampagne verzeichneten Kundeninteraktionen mit dem KI-Chatbot Rufus deutlich höhere Kaufabschlussquoten als jene ohne das Werkzeug. Mit Rufus-Unterstützung stieg der Umsatz um 100%, während Sitzungen ohne den Chatbot nur ein Wachstum von 20% aufwiesen. Diese Ergebnisse demonstrieren, wie Amazons Investitionen in künstliche Intelligenz direkte Auswirkungen auf Kaufentscheidungen haben. Die Daten belegen, dass intelligente Echtzeit-Assistenten die Umwandlungsquoten erheblich verbessern, insbesondere beim Navigation durch komplexe Produktauswahl.\n\nQuelle: https://techcrunch.com/2025/12/01/amazons-ai-chatbot-rufus-drove-sales-on-black-friday/"
+   },
+   "fr": {
+    "t": "Le chatbot IA Rufus d'Amazon double les ventes du Black Friday",
+    "d": "L'assistant IA Rufus d'Amazon a porté les taux de conversion à 100% lors du Black Friday, tandis que les sessions sans l'outil n'affichaient qu'une augmentation de 20%.",
+    "body": "Lors de la campagne Black Friday d'Amazon, les sessions client utilisant le chatbot IA Rufus ont enregistré des taux de conversion nettement supérieurs à ceux sans l'outil. Les transactions assistées par Rufus ont montré une augmentation des ventes de 100%, tandis que les sessions sans soutien du chatbot n'ont enregistré qu'une hausse de 20%. Ces résultats illustrent comment les investissements d'Amazon en intelligence artificielle impactent directement les décisions d'achat. Les données démontrent qu'une assistance IA en temps réel améliore substantiellement les taux de conversion, particulièrement lorsqu'elle aide les clients à naviguer dans des sélections de produits complexes.\n\nSource: https://techcrunch.com/2025/12/01/amazons-ai-chatbot-rufus-drove-sales-on-black-friday/"
+   },
+   "es": {
+    "t": "El chatbot IA Rufus de Amazon duplicó las ventas del Black Friday",
+    "d": "El asistente IA Rufus de Amazon aumentó las tasas de conversión 100% en Black Friday, mientras que las sesiones sin la herramienta solo mostraron 20% de crecimiento.",
+    "body": "Durante la campaña Black Friday de Amazon, las sesiones de clientes que utilizaron el chatbot IA Rufus lograron tasas de conversión significativamente más altas que aquellas sin la herramienta. Las transacciones asistidas por Rufus mostraron un aumento de ventas del 100%, mientras que las sesiones sin soporte del chatbot registraron solo un aumento del 20%. Estos resultados demuestran cómo las inversiones de Amazon en inteligencia artificial impactan directamente en las decisiones de compra. Los datos subrayan que la asistencia IA en tiempo real mejora sustancialmente las tasas de conversión, particularmente cuando ayuda a los clientes a navegar selecciones complejas de productos.\n\nFuente: https://techcrunch.com/2025/12/01/amazons-ai-chatbot-rufus-drove-sales-on-black-friday/"
+   },
+   "it": {
+    "t": "Il chatbot AI Rufus di Amazon ha raddoppiato le vendite del Black Friday",
+    "d": "L'assistente AI Rufus di Amazon ha aumentato i tassi di conversione del 100% durante il Black Friday, mentre le sessioni senza lo strumento hanno mostrato solo il 20% di crescita.",
+    "body": "Durante la campagna Black Friday di Amazon, le sessioni clienti che hanno utilizzato il chatbot AI Rufus hanno raggiunto tassi di conversione significativamente più alti rispetto a quelli senza lo strumento. Le transazioni assistite da Rufus hanno mostrato un aumento delle vendite del 100%, mentre le sessioni senza supporto del chatbot hanno registrato solo un aumento del 20%. Questi risultati dimostrano come gli investimenti di Amazon nell'intelligenza artificiale hanno un impatto diretto sulle decisioni di acquisto. I dati sottolineano che l'assistenza AI in tempo reale migliora sostanzialmente i tassi di conversione, in particolare quando aiuta i clienti a navigare complesse selezioni di prodotti.\n\nFonte: https://techcrunch.com/2025/12/01/amazons-ai-chatbot-rufus-drove-sales-on-black-friday/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "7 Kas 2025",
+  "tag": "Global",
+  "src": "https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon, gelişmekte olan pazarlarda bağımsız bir bütçet alışveriş uygulaması başlattı",
+    "d": "Amazon, Asya, Afrika ve Latin Amerika'da düşük fiyatlı ürünlere odaklanan 'Bazaar' adlı ayrı bir mobil uygulamayı ana platformundan bağımsız olarak yayınladı.",
+    "body": "Amazon, 12'den fazla gelişmekte olan ülkede 'Bazaar' adlı yeni bir alışveriş uygulaması piyasaya sürdü. Uygulama, ana Amazon uygulamasından ayrı olarak çalışacak ve fiyat bilincine sahip tüketicileri hedef alacak. Bu hamle, Amazon'un TikTok Shop ve Shein gibi düşük maliyetli pazaryerleriyle rekabet etme stratejisinin bir parçası olarak değerlendiriliyor ve şirketin özellikle mobil-first pazarlarda konumunu güçlendirmeyi amaçlıyor.\n\nKaynak: https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/"
+   },
+   "en": {
+    "t": "Amazon launches standalone budget shopping app in emerging markets",
+    "d": "Amazon rolled out 'Bazaar', a separate mobile application focused on affordable products, across a dozen-plus developing nations in Asia, Africa, and Latin America.",
+    "body": "Amazon introduced 'Bazaar', a dedicated shopping app independent of its main platform, across more than a dozen emerging markets. The app targets price-conscious consumers and operates as a standalone service. The move reflects Amazon's strategy to compete with low-cost marketplaces like TikTok Shop and Shein, particularly in mobile-first regions where consumers prioritize affordability.\n\nSource: https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/"
+   },
+   "de": {
+    "t": "Amazon startet eigenständige Budget-Shopping-App in Schwellenländern",
+    "d": "Amazon führt 'Bazaar', eine separate Anwendung für kostengünstige Produkte, in über einem Dutzend Schwellenländern in Asien, Afrika und Lateinamerika ein.",
+    "body": "Amazon startete 'Bazaar', eine unabhängige Shopping-App neben seiner Hauptplattform, in mehr als einem Dutzend Schwellenländern. Die App zielt auf preisbewusste Verbraucher ab und funktioniert als eigenständiger Service. Der Schritt ist Teil von Amazons Strategie, mit kostengünstigen Marktplätzen wie TikTok Shop und Shein zu konkurrieren, besonders in mobil-geprägten Regionen, wo Kunden Erschwinglichkeit priorisieren.\n\nQuelle: https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/"
+   },
+   "fr": {
+    "t": "Amazon lance une application shopping indépendante pour marché émergents",
+    "d": "Amazon déploie 'Bazaar', une application mobile dédiée aux produits abordables, sur plus d'une dizaine de marchés émergents en Asie, Afrique et Amérique latine.",
+    "body": "Amazon a introduit 'Bazaar', une application d'achat distincte et indépendante de sa plateforme principale, dans plus d'une douzaine de marchés émergents. L'application cible les consommateurs sensibles aux prix et fonctionne comme un service autonome. Cette initiative reflète la stratégie d'Amazon de rivaliser avec des places de marché bon marché comme TikTok Shop et Shein, notamment dans les régions où le mobile domine et où les consommateurs privilégient l'accessibilité.\n\nSource: https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/"
+   },
+   "es": {
+    "t": "Amazon lanza aplicación de compras independiente en mercados emergentes",
+    "d": "Amazon desplegó 'Bazaar', una aplicación móvil dedicada a productos asequibles, en más de una docena de mercados emergentes en Asia, África y América Latina.",
+    "body": "Amazon introdujo 'Bazaar', una aplicación de compras distinta e independiente de su plataforma principal, en más de una docena de mercados emergentes. La app apunta a consumidores conscientes del precio y opera como un servicio autónomo. El movimiento refleja la estrategia de Amazon de competir con mercados de bajo costo como TikTok Shop y Shein, especialmente en regiones lideradas por dispositivos móviles donde los consumidores priorizan la asequibilidad.\n\nFuente: https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/"
+   },
+   "it": {
+    "t": "Amazon lancia un'app di shopping indipendente nei mercati emergenti",
+    "d": "Amazon ha introdotto 'Bazaar', un'applicazione mobile dedicata ai prodotti convenienti, in oltre una dozzina di mercati emergenti in Asia, Africa e America Latina.",
+    "body": "Amazon ha lanciato 'Bazaar', un'app di shopping distinta e indipendente dalla sua piattaforma principale, in più di una dozzina di mercati emergenti. L'applicazione mira ai consumatori attenti al prezzo e funziona come servizio autonomo. Questa mossa riflette la strategia di Amazon di competere con marketplace a basso costo come TikTok Shop e Shein, soprattutto nelle regioni mobile-first dove i consumatori privilegiano l'accessibilità.\n\nFonte: https://techcrunch.com/2025/11/07/amazon-launches-a-low-price-standalone-shopping-app-amazon-bazaar-in-over-a-dozen-markets/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "21 Ağu 2026",
+  "tag": "ABD",
+  "src": "https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Walmart nihayet Apple Pay ve Google Pay'i kabul ediyor",
+    "d": "ABD'nin en büyük perakendecisi yıl sonuna kadar mağazalarında mobil cüzdan ödemelerini açıyor.",
+    "body": "Walmart, bu yılın sonuna kadar ABD mağazalarında Apple Pay ve Google Pay ile ödeme kabul etmeye başlayacak. Perakende devi yıllardır kendi Walmart Pay çözümünü öne çıkararak bu iki yaygın cüzdana kapalı kalmıştı. Mobil temassız ödemenin standart hâline geldiği bir dönemde bu adım, kasadaki sürtünmeyi azaltıp müşteri beklentisini karşılamayı hedefliyor.\n\nKaynak: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "en": {
+    "t": "Walmart will finally accept Apple Pay and Google Pay",
+    "d": "The largest U.S. retailer opens its stores to mobile-wallet payments by year-end.",
+    "body": "Walmart will start accepting Apple Pay and Google Pay in its U.S. stores by the end of this year. The retail giant had long held out, pushing its own Walmart Pay instead of the two ubiquitous wallets. With mobile contactless payment now standard, the move aims to cut checkout friction and meet shopper expectations.\n\nSource: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "de": {
+    "t": "Walmart akzeptiert endlich Apple Pay und Google Pay",
+    "d": "Der größte US-Händler öffnet seine Filialen bis Jahresende für Mobile-Wallet-Zahlungen.",
+    "body": "Walmart wird bis Ende dieses Jahres in seinen US-Filialen Apple Pay und Google Pay akzeptieren. Der Handelsriese hatte sich lange gesperrt und stattdessen sein eigenes Walmart Pay forciert. Da kontaktloses mobiles Bezahlen inzwischen Standard ist, soll der Schritt Reibung an der Kasse verringern und Kundenerwartungen erfüllen.\n\nQuelle: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "fr": {
+    "t": "Walmart va enfin accepter Apple Pay et Google Pay",
+    "d": "Le premier détaillant américain ouvre ses magasins aux paiements par portefeuille mobile d'ici la fin de l'année.",
+    "body": "Walmart commencera à accepter Apple Pay et Google Pay dans ses magasins américains d'ici la fin de l'année. Le géant de la distribution avait longtemps résisté en imposant son propre Walmart Pay plutôt que ces deux portefeuilles très répandus. Alors que le paiement mobile sans contact est devenu la norme, cette décision vise à réduire les frictions en caisse et à répondre aux attentes des clients.\n\nSource : https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "es": {
+    "t": "Walmart por fin aceptará Apple Pay y Google Pay",
+    "d": "El mayor minorista de EE. UU. abre sus tiendas a los pagos con billetera móvil antes de fin de año.",
+    "body": "Walmart empezará a aceptar Apple Pay y Google Pay en sus tiendas de EE. UU. antes de que termine el año. El gigante del comercio se había resistido durante años, impulsando su propio Walmart Pay en lugar de estas dos billeteras tan extendidas. Con el pago móvil sin contacto ya convertido en estándar, la medida busca reducir la fricción en la caja y responder a las expectativas de los clientes.\n\nFuente: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   },
+   "it": {
+    "t": "Walmart accetterà finalmente Apple Pay e Google Pay",
+    "d": "Il più grande rivenditore degli Stati Uniti apre i suoi negozi ai pagamenti con wallet mobile entro fine anno.",
+    "body": "Walmart inizierà ad accettare Apple Pay e Google Pay nei suoi negozi statunitensi entro la fine dell'anno. Il colosso del retail aveva a lungo resistito, spingendo il proprio Walmart Pay invece dei due wallet ormai diffusissimi. Ora che il pagamento mobile contactless è lo standard, la mossa punta a ridurre gli attriti alla cassa e a soddisfare le aspettative dei clienti.\n\nFonte: https://www.modernretail.co/technology/walmart-finally-starts-supporting-apple-pay-and-google-pay/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "21 Ağu 2026",
+  "tag": "ABD",
+  "src": "https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon dron teslimatını 5 yeni şehre taşıyor",
+    "d": "Prime Air; Chicago, Cleveland, Atlanta, Syracuse ve Boise'de devreye giriyor.",
+    "body": "Amazon, Prime Air dron teslimat hizmetini beş yeni ABD metropolüne genişletiyor: Chicago, Syracuse, Cleveland, Atlanta ve Boise. Şirket, yıl içinde daha fazla bölgenin ekleneceğini duyurdu. Hızlı teslimatın rekabetin merkezinde olduğu bir dönemde dron ağı, son kilometre lojistiğini ölçeklerken maliyet ve hız dengesini yeniden çiziyor.\n\nKaynak: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "en": {
+    "t": "Amazon expands drone delivery to five more U.S. metros",
+    "d": "Prime Air heads to Chicago, Cleveland, Atlanta, Syracuse and Boise.",
+    "body": "Amazon is expanding its Prime Air drone delivery to five more U.S. metro areas: Chicago, Syracuse, Cleveland, Atlanta and Boise. The company said more communities will follow later in the year. With fast delivery central to competition, the drone network reshapes the balance of cost and speed as last-mile logistics scale up.\n\nSource: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "de": {
+    "t": "Amazon weitet Drohnenlieferung auf fünf weitere US-Metropolen aus",
+    "d": "Prime Air kommt nach Chicago, Cleveland, Atlanta, Syracuse und Boise.",
+    "body": "Amazon weitet seine Prime-Air-Drohnenlieferung auf fünf weitere US-Ballungsräume aus: Chicago, Syracuse, Cleveland, Atlanta und Boise. Weitere Orte sollen im Laufe des Jahres folgen, so das Unternehmen. Da schnelle Lieferung im Wettbewerb entscheidend ist, verschiebt das Drohnennetz das Verhältnis von Kosten und Tempo, während die Logistik auf der letzten Meile skaliert.\n\nQuelle: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "fr": {
+    "t": "Amazon étend la livraison par drone à cinq nouvelles métropoles américaines",
+    "d": "Prime Air arrive à Chicago, Cleveland, Atlanta, Syracuse et Boise.",
+    "body": "Amazon étend sa livraison par drone Prime Air à cinq nouvelles zones métropolitaines américaines : Chicago, Syracuse, Cleveland, Atlanta et Boise. L'entreprise indique que d'autres localités suivront plus tard dans l'année. Alors que la rapidité de livraison est au cœur de la concurrence, le réseau de drones redessine l'équilibre entre coût et vitesse à mesure que la logistique du dernier kilomètre monte en puissance.\n\nSource : https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "es": {
+    "t": "Amazon amplía la entrega con drones a cinco metrópolis más de EE. UU.",
+    "d": "Prime Air llega a Chicago, Cleveland, Atlanta, Syracuse y Boise.",
+    "body": "Amazon está ampliando su entrega con drones Prime Air a cinco áreas metropolitanas más de EE. UU.: Chicago, Syracuse, Cleveland, Atlanta y Boise. La compañía señaló que más comunidades se sumarán a lo largo del año. Con la entrega rápida en el centro de la competencia, la red de drones redibuja el equilibrio entre coste y velocidad a medida que escala la logística de última milla.\n\nFuente: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   },
+   "it": {
+    "t": "Amazon estende la consegna con droni ad altre cinque metropoli USA",
+    "d": "Prime Air arriva a Chicago, Cleveland, Atlanta, Syracuse e Boise.",
+    "body": "Amazon sta estendendo la consegna con droni Prime Air ad altre cinque aree metropolitane statunitensi: Chicago, Syracuse, Cleveland, Atlanta e Boise. L'azienda ha dichiarato che altre località seguiranno nel corso dell'anno. Con la consegna rapida al centro della competizione, la rete di droni ridisegna l'equilibrio tra costo e velocità mentre la logistica dell'ultimo miglio cresce di scala.\n\nFonte: https://www.digitalcommerce360.com/2026/08/21/amazon-drone-delivery-expansion-summer-2026/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "21 Ağu 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://channelx.world/2026/08/walmart-three-part-holiday-success-guide-and-key-wfs-deadlines/",
+  "i18n": {
+   "tr": {
+    "t": "Walmart, Q4 için satıcı takvimini ve WFS son tarihlerini açıkladı",
+    "d": "Perakende devi, Kara Cuma ve yılbaşı sezonu için üç bölümlü başarı rehberi ve kritik tarihleri yayımladı.",
+    "body": "Walmart, dördüncü çeyrek için satıcılarına yönelik üç bölümlü bir 'tatil başarı rehberi' ve Walmart Fulfillment Services (WFS) son teslim tarihlerini paylaştı. Henüz ağustos olmasına rağmen Kara Cuma ve yılbaşı hazırlığının şimdiden başladığını hatırlatan platform, stok ve gönderi planlaması için net tarihler verdi. Erken planlama, sezon içi stok tükenmelerini ve gecikmeleri önlemeyi amaçlıyor.\n\nKaynak: https://channelx.world/2026/08/walmart-three-part-holiday-success-guide-and-key-wfs-deadlines/"
+   },
+   "en": {
+    "t": "Walmart lays out Q4 seller calendar and WFS deadlines",
+    "d": "The retailer published a three-part holiday success guide and key dates for Black Friday and Christmas.",
+    "body": "Walmart has shared a three-part 'holiday success guide' for sellers and the delivery deadlines for Walmart Fulfillment Services (WFS) ahead of Q4. Though it is still August, the platform stressed that Black Friday and Christmas preparation starts now, giving concrete dates for inventory and shipment planning. Early planning aims to avoid in-season stockouts and delays.\n\nSource: https://channelx.world/2026/08/walmart-three-part-holiday-success-guide-and-key-wfs-deadlines/"
+   },
+   "de": {
+    "t": "Walmart legt Q4-Verkäuferkalender und WFS-Fristen fest",
+    "d": "Der Händler veröffentlichte einen dreiteiligen Feiertags-Leitfaden und wichtige Termine für Black Friday und Weihnachten.",
+    "body": "Walmart hat einen dreiteiligen 'Feiertags-Erfolgsleitfaden' für Verkäufer sowie die Lieferfristen für Walmart Fulfillment Services (WFS) für das vierte Quartal veröffentlicht. Obwohl es erst August ist, betont die Plattform, dass die Vorbereitung auf Black Friday und Weihnachten jetzt beginnt, und nennt konkrete Termine für Bestands- und Versandplanung. Frühe Planung soll Lieferengpässe und Verzögerungen in der Saison vermeiden.\n\nQuelle: https://channelx.world/2026/08/walmart-three-part-holiday-success-guide-and-key-wfs-deadlines/"
+   },
+   "fr": {
+    "t": "Walmart détaille le calendrier vendeur du T4 et les délais WFS",
+    "d": "Le détaillant publie un guide de réussite des fêtes en trois parties et les dates clés pour Black Friday et Noël.",
+    "body": "Walmart a communiqué un « guide de réussite des fêtes » en trois parties pour les vendeurs ainsi que les délais de livraison de Walmart Fulfillment Services (WFS) avant le T4. Bien qu'on soit encore en août, la plateforme souligne que la préparation du Black Friday et de Noël commence dès maintenant, avec des dates précises pour la planification des stocks et des expéditions. Une planification anticipée vise à éviter les ruptures et les retards en pleine saison.\n\nSource : https://channelx.world/2026/08/walmart-three-part-holiday-success-guide-and-key-wfs-deadlines/"
+   },
+   "es": {
+    "t": "Walmart detalla el calendario de vendedores del Q4 y los plazos de WFS",
+    "d": "El minorista publicó una guía de éxito navideño en tres partes y fechas clave para Black Friday y Navidad.",
+    "body": "Walmart ha compartido una 'guía de éxito navideño' en tres partes para vendedores y los plazos de entrega de Walmart Fulfillment Services (WFS) de cara al Q4. Aunque todavía es agosto, la plataforma subraya que la preparación para Black Friday y Navidad empieza ya, con fechas concretas para planificar inventario y envíos. La planificación anticipada busca evitar roturas de stock y retrasos en plena temporada.\n\nFuente: https://channelx.world/2026/08/walmart-three-part-holiday-success-guide-and-key-wfs-deadlines/"
+   },
+   "it": {
+    "t": "Walmart definisce il calendario venditori del Q4 e le scadenze WFS",
+    "d": "Il rivenditore pubblica una guida al successo delle feste in tre parti e le date chiave per Black Friday e Natale.",
+    "body": "Walmart ha condiviso una 'guida al successo delle feste' in tre parti per i venditori e le scadenze di consegna di Walmart Fulfillment Services (WFS) in vista del Q4. Pur essendo ancora agosto, la piattaforma sottolinea che la preparazione a Black Friday e Natale inizia ora, con date precise per la pianificazione di scorte e spedizioni. Una pianificazione anticipata mira a evitare esaurimenti e ritardi in piena stagione.\n\nFonte: https://channelx.world/2026/08/walmart-three-part-holiday-success-guide-and-key-wfs-deadlines/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "20 Ağu 2026",
+  "tag": "İngiltere",
+  "src": "https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Yankee Candle İngiltere'de TikTok Shop'a açıldı",
+    "d": "Ev kokusu markası, sosyal ticaret platformunda doğrudan satışa geçti.",
+    "body": "Yankee Candle, İngiltere'de resmî olarak TikTok Shop'ta satışa başladı; müşteriler artık ürünleri doğrudan platform içinden keşfedip satın alabiliyor. Hamle, markanın dijital perakende stratejisinde önemli bir adım ve hızla büyüyen sosyal ticaret kanalına yönelişini gösteriyor. TikTok Shop, keşif ile satın almayı tek akışta birleştirerek markalara yeni bir doğrudan-tüketici kanalı sunuyor.\n\nKaynak: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "en": {
+    "t": "Yankee Candle launches on TikTok Shop in the UK",
+    "d": "The home-fragrance brand moves to direct selling on the social-commerce platform.",
+    "body": "Yankee Candle has officially launched on TikTok Shop in the UK, letting customers discover and buy its products directly within the platform. The move is a notable step in the brand's digital retail strategy and its shift toward the fast-growing social-commerce channel. TikTok Shop merges discovery and purchase in a single flow, giving brands a new direct-to-consumer route.\n\nSource: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "de": {
+    "t": "Yankee Candle startet im TikTok Shop in Großbritannien",
+    "d": "Die Duftmarke geht auf der Social-Commerce-Plattform zum Direktverkauf über.",
+    "body": "Yankee Candle ist offiziell im TikTok Shop in Großbritannien gestartet und lässt Kundinnen und Kunden Produkte direkt auf der Plattform entdecken und kaufen. Der Schritt ist ein wichtiger Teil der digitalen Handelsstrategie der Marke und zeigt ihre Hinwendung zum schnell wachsenden Social-Commerce-Kanal. TikTok Shop verbindet Entdeckung und Kauf in einem Fluss und eröffnet Marken einen neuen Direktvertriebsweg.\n\nQuelle: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "fr": {
+    "t": "Yankee Candle se lance sur TikTok Shop au Royaume-Uni",
+    "d": "La marque de parfums d'intérieur passe à la vente directe sur la plateforme de social commerce.",
+    "body": "Yankee Candle s'est officiellement lancée sur TikTok Shop au Royaume-Uni, permettant aux clients de découvrir et d'acheter ses produits directement sur la plateforme. Cette décision marque une étape importante de la stratégie de vente numérique de la marque et son virage vers le social commerce en forte croissance. TikTok Shop réunit découverte et achat dans un même parcours, offrant aux marques un nouveau canal direct au consommateur.\n\nSource : https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "es": {
+    "t": "Yankee Candle se lanza en TikTok Shop en el Reino Unido",
+    "d": "La marca de fragancias para el hogar pasa a la venta directa en la plataforma de social commerce.",
+    "body": "Yankee Candle se ha lanzado oficialmente en TikTok Shop en el Reino Unido, permitiendo a los clientes descubrir y comprar sus productos directamente en la plataforma. La medida es un paso relevante en la estrategia de venta digital de la marca y en su giro hacia el social commerce, de rápido crecimiento. TikTok Shop une descubrimiento y compra en un mismo flujo, ofreciendo a las marcas un nuevo canal directo al consumidor.\n\nFuente: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   },
+   "it": {
+    "t": "Yankee Candle debutta su TikTok Shop nel Regno Unito",
+    "d": "Il marchio di fragranze per la casa passa alla vendita diretta sulla piattaforma di social commerce.",
+    "body": "Yankee Candle ha ufficialmente debuttato su TikTok Shop nel Regno Unito, permettendo ai clienti di scoprire e acquistare i suoi prodotti direttamente sulla piattaforma. La mossa è un passo importante nella strategia di vendita digitale del marchio e nel suo spostamento verso il social commerce in rapida crescita. TikTok Shop unisce scoperta e acquisto in un unico flusso, offrendo ai brand un nuovo canale diretto al consumatore.\n\nFonte: https://channelx.world/2026/08/yankee-candle-expands-uk-retail-strategy-with-tiktok-shop-launch/"
+   }
+  }
+ },
+ {
+  "c": "global",
+  "dt": "20 Ağu 2026",
+  "tag": "Global",
+  "src": "https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Yeni sıralama: Yapay zekâ en çok hangi perakendecilere yarıyor?",
+    "d": "AI Commerce Rankings, çevrimiçi mağazaların yapay zekâ kanallarındaki görünürlüğünü ölçüyor.",
+    "body": "Digital Commerce 360 ve ReFiBuy'ın temmuzda başlattığı AI Commerce Rankings, yapay zekâdan en çok fayda sağlayan çevrimiçi perakendecileri ortaya koyuyor. Sıralama yalnızca markaların yapay zekâ kanallarında ne kadar görünür olduğuna değil, bu kanallarda ne kadar iyi performans gösterdiğine de bakıyor. Yapay zekânın alışveriş keşfini yeniden şekillendirdiği bir dönemde bu tür ölçümler, markaların yeni görünürlük savaşını anlamasına yardımcı oluyor.\n\nKaynak: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "en": {
+    "t": "New ranking tracks which retailers AI is helping the most",
+    "d": "The AI Commerce Rankings measure online stores' visibility across AI channels.",
+    "body": "The AI Commerce Rankings, launched in July by Digital Commerce 360 and ReFiBuy, reveal which online retailers are getting the most help from artificial intelligence. The ranking looks not only at how visible brands are in AI channels but also at how well they perform there. As AI reshapes product discovery, such measures help brands understand the new contest for visibility.\n\nSource: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "de": {
+    "t": "Neues Ranking zeigt, welchen Händlern KI am meisten hilft",
+    "d": "Die AI Commerce Rankings messen die Sichtbarkeit von Onlineshops in KI-Kanälen.",
+    "body": "Die im Juli von Digital Commerce 360 und ReFiBuy gestarteten AI Commerce Rankings zeigen, welche Onlinehändler am meisten von künstlicher Intelligenz profitieren. Das Ranking betrachtet nicht nur, wie sichtbar Marken in KI-Kanälen sind, sondern auch, wie gut sie dort abschneiden. Da KI die Produktsuche verändert, helfen solche Kennzahlen Marken, den neuen Wettbewerb um Sichtbarkeit zu verstehen.\n\nQuelle: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "fr": {
+    "t": "Un nouveau classement mesure les détaillants les plus aidés par l'IA",
+    "d": "Les AI Commerce Rankings évaluent la visibilité des boutiques en ligne dans les canaux d'IA.",
+    "body": "Lancés en juillet par Digital Commerce 360 et ReFiBuy, les AI Commerce Rankings révèlent quels détaillants en ligne profitent le plus de l'intelligence artificielle. Le classement examine non seulement la visibilité des marques dans les canaux d'IA, mais aussi leur performance sur ces canaux. Alors que l'IA transforme la découverte de produits, ces mesures aident les marques à comprendre la nouvelle bataille de la visibilité.\n\nSource : https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "es": {
+    "t": "Un nuevo ranking mide a qué minoristas ayuda más la IA",
+    "d": "Los AI Commerce Rankings evalúan la visibilidad de las tiendas online en los canales de IA.",
+    "body": "Los AI Commerce Rankings, lanzados en julio por Digital Commerce 360 y ReFiBuy, revelan qué minoristas online obtienen más ayuda de la inteligencia artificial. El ranking no solo analiza la visibilidad de las marcas en los canales de IA, sino también su desempeño en ellos. A medida que la IA transforma el descubrimiento de productos, estas métricas ayudan a las marcas a entender la nueva batalla por la visibilidad.\n\nFuente: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   },
+   "it": {
+    "t": "Una nuova classifica misura quali rivenditori l'IA aiuta di più",
+    "d": "Gli AI Commerce Rankings valutano la visibilità dei negozi online nei canali di IA.",
+    "body": "Gli AI Commerce Rankings, lanciati a luglio da Digital Commerce 360 e ReFiBuy, rivelano quali rivenditori online ottengono più aiuto dall'intelligenza artificiale. La classifica considera non solo quanto i brand siano visibili nei canali di IA, ma anche quanto vi performino bene. Mentre l'IA trasforma la scoperta dei prodotti, queste misure aiutano i brand a capire la nuova sfida per la visibilità.\n\nFonte: https://www.digitalcommerce360.com/2026/08/20/ecommerce-trends-which-online-retailers-ai-is-helping-the-most/"
+   }
+  }
+ },
+ {
+  "c": "reklam",
+  "dt": "20 Ağu 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://www.modernretail.co/technology/walmart-extends-scintilla-data-platform-to-sams-club/",
+  "i18n": {
+   "tr": {
+    "t": "Walmart'ın veri platformu Scintilla, Sam's Club'a genişliyor",
+    "d": "Marka ve satıcılar, üye davranışını anlamak ve öngörmek için Walmart'ın analiz platformunu kullanabilecek.",
+    "body": "Walmart, Scintilla veri analizi platformunu Sam's Club'a genişletiyor. Sam's Club satıcıları ve markaları, üye davranışını daha iyi anlamak ve tahmin etmek için platformu kullanabilecek. Hamle, perakende medya ve birinci taraf veriye dayalı satıcı araçlarının büyüyen önemini gösteriyor.\n\nKaynak: https://www.modernretail.co/technology/walmart-extends-scintilla-data-platform-to-sams-club/"
+   },
+   "en": {
+    "t": "Walmart extends its Scintilla data platform to Sam's Club",
+    "d": "Merchants and brands will be able to use it to understand and predict member behavior.",
+    "body": "Walmart is extending its Scintilla data-analytics platform to Sam's Club. Sam's Club merchants and brands will be able to use it to better understand and predict member behavior. The move underscores the growing importance of retail media and first-party-data tools for sellers.\n\nSource: https://www.modernretail.co/technology/walmart-extends-scintilla-data-platform-to-sams-club/"
+   },
+   "de": {
+    "t": "Walmart weitet seine Datenplattform Scintilla auf Sam's Club aus",
+    "d": "Händler und Marken können damit das Verhalten der Mitglieder verstehen und vorhersagen.",
+    "body": "Walmart weitet seine Datenanalyse-Plattform Scintilla auf Sam's Club aus. Händler und Marken von Sam's Club können damit das Verhalten der Mitglieder besser verstehen und vorhersagen. Der Schritt unterstreicht die wachsende Bedeutung von Retail Media und First-Party-Daten-Tools für Verkäufer.\n\nQuelle: https://www.modernretail.co/technology/walmart-extends-scintilla-data-platform-to-sams-club/"
+   },
+   "fr": {
+    "t": "Walmart étend sa plateforme de données Scintilla à Sam's Club",
+    "d": "Les marchands et les marques pourront s'en servir pour comprendre et anticiper le comportement des membres.",
+    "body": "Walmart étend sa plateforme d'analyse de données Scintilla à Sam's Club. Les marchands et les marques de Sam's Club pourront l'utiliser pour mieux comprendre et anticiper le comportement des membres. Ce mouvement souligne l'importance croissante du retail media et des outils fondés sur les données first-party pour les vendeurs.\n\nSource : https://www.modernretail.co/technology/walmart-extends-scintilla-data-platform-to-sams-club/"
+   },
+   "es": {
+    "t": "Walmart amplía su plataforma de datos Scintilla a Sam's Club",
+    "d": "Comercios y marcas podrán usarla para entender y predecir el comportamiento de los socios.",
+    "body": "Walmart está ampliando su plataforma de análisis de datos Scintilla a Sam's Club. Los comercios y marcas de Sam's Club podrán usarla para entender y predecir mejor el comportamiento de los socios. El movimiento subraya la creciente importancia del retail media y de las herramientas basadas en datos propios para los vendedores.\n\nFuente: https://www.modernretail.co/technology/walmart-extends-scintilla-data-platform-to-sams-club/"
+   },
+   "it": {
+    "t": "Walmart estende la sua piattaforma dati Scintilla a Sam's Club",
+    "d": "Commercianti e brand potranno usarla per capire e prevedere il comportamento dei soci.",
+    "body": "Walmart sta estendendo la sua piattaforma di analisi dati Scintilla a Sam's Club. I commercianti e i brand di Sam's Club potranno usarla per capire e prevedere meglio il comportamento dei soci. La mossa sottolinea la crescente importanza del retail media e degli strumenti basati sui dati proprietari per i venditori.\n\nFonte: https://www.modernretail.co/technology/walmart-extends-scintilla-data-platform-to-sams-club/"
+   }
+  }
+ },
+ {
+  "c": "reklam",
+  "dt": "20 Ağu 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/",
+  "i18n": {
+   "tr": {
+    "t": "Michaels, 3D ve artırılmış gerçeklikli çerçeve tasarımcısını açtı",
+    "d": "Perakendeci, alışverişte 3D/AR teknolojisini kullanarak müşteriye ürünü önden gösteriyor.",
+    "body": "Hobi ve el sanatları perakendecisi Michaels, 3D ve artırılmış gerçeklik teknolojisiyle çalışan bir dijital çerçeve oluşturucu başlattı. Araç, müşterilerin çerçeveyi satın almadan önce sanal olarak tasarlayıp önizlemesine olanak tanıyor. Hamle, deneyimsel e-ticaretin ve AR'ın perakendede yaygınlaşan rolünü örnekliyor.\n\nKaynak: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "en": {
+    "t": "Michaels launches a 3D, augmented-reality frame builder",
+    "d": "The retailer uses 3D/AR in shopping to let customers preview a product before buying.",
+    "body": "Michaels, the arts-and-crafts retailer, has launched a digital frame builder powered by 3D and augmented-reality technology. The tool lets shoppers design and preview a frame virtually before they buy. The move illustrates the growing role of experiential commerce and AR in retail.\n\nSource: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "de": {
+    "t": "Michaels startet einen 3D-Rahmenbauer mit Augmented Reality",
+    "d": "Der Händler nutzt 3D/AR im Einkauf, damit Kunden ein Produkt vor dem Kauf vorschauen.",
+    "body": "Michaels, der Bastel- und Kunsthandwerks-Händler, hat einen digitalen Rahmenbauer auf Basis von 3D- und Augmented-Reality-Technologie gestartet. Das Werkzeug lässt Kunden einen Rahmen virtuell gestalten und vorab ansehen, bevor sie kaufen. Der Schritt zeigt die wachsende Rolle von Experiential Commerce und AR im Handel.\n\nQuelle: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "fr": {
+    "t": "Michaels lance un configurateur de cadres en 3D et réalité augmentée",
+    "d": "Le détaillant utilise la 3D/RA dans l'achat pour prévisualiser un produit avant l'achat.",
+    "body": "Michaels, l'enseigne de loisirs créatifs, a lancé un configurateur de cadres numérique reposant sur la 3D et la réalité augmentée. L'outil permet aux clients de concevoir et de prévisualiser un cadre virtuellement avant l'achat. Cette initiative illustre le rôle croissant du commerce expérientiel et de la RA dans le retail.\n\nSource : https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "es": {
+    "t": "Michaels lanza un configurador de marcos en 3D y realidad aumentada",
+    "d": "El minorista usa 3D/RA en la compra para previsualizar un producto antes de comprarlo.",
+    "body": "Michaels, la cadena de manualidades, ha lanzado un configurador de marcos digital basado en 3D y realidad aumentada. La herramienta permite a los clientes diseñar y previsualizar un marco de forma virtual antes de comprar. El movimiento ilustra el creciente papel del comercio experiencial y la RA en el retail.\n\nFuente: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   },
+   "it": {
+    "t": "Michaels lancia un configuratore di cornici in 3D e realtà aumentata",
+    "d": "Il rivenditore usa 3D/AR nell'acquisto per l'anteprima di un prodotto prima di comprarlo.",
+    "body": "Michaels, il rivenditore di hobbistica e artigianato, ha lanciato un configuratore di cornici digitale basato su 3D e realtà aumentata. Lo strumento permette ai clienti di progettare e visualizzare in anteprima una cornice in modo virtuale prima dell'acquisto. La mossa illustra il ruolo crescente del commercio esperienziale e dell'AR nel retail.\n\nFonte: https://www.retaildive.com/news/michaels-3d-augmented-reality-digital-frame-builder/828381/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "19 Ağu 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://www.digitalcommerce360.com/2026/08/19/glass-ai-upgrades-government-procurement-marketplace/",
+  "i18n": {
+   "tr": {
+    "t": "Glass, kamu tedarik pazaryerine yapay zekâ özellikleri getirdi",
+    "d": "Şirket, devlet kurumlarının kullandığı G-Commerce pazaryerini yapay zekâ yenilikleriyle yeniden konumlandırıyor.",
+    "body": "Kamu tedarikine odaklanan teknoloji şirketi Glass, pazaryeri G-Commerce için birden fazla yapay zekâ özelliğini kamuya açtı. Şirket, hamleyi devlet kurumları için G-Commerce'in yeniden tanıtımı olarak konumlandırıyor. Gelişme, B2G (işletmeden kamuya) e-ticaretinde yapay zekânın artan rolüne işaret ediyor.\n\nKaynak: https://www.digitalcommerce360.com/2026/08/19/glass-ai-upgrades-government-procurement-marketplace/"
+   },
+   "en": {
+    "t": "Glass brings AI features to its government procurement marketplace",
+    "d": "The company is relaunching its G-Commerce marketplace for government agencies with AI upgrades.",
+    "body": "Glass, a government-procurement technology company, has publicly released multiple AI features for G-Commerce, its marketplace. The company frames the move as a reintroduction of G-Commerce for the government agencies that use it. The development points to AI's growing role in business-to-government (B2G) e-commerce.\n\nSource: https://www.digitalcommerce360.com/2026/08/19/glass-ai-upgrades-government-procurement-marketplace/"
+   },
+   "de": {
+    "t": "Glass bringt KI-Funktionen auf seinen Beschaffungs-Marktplatz für Behörden",
+    "d": "Das Unternehmen relauncht seinen Marktplatz G-Commerce für Behörden mit KI-Erweiterungen.",
+    "body": "Glass, ein Technologieunternehmen für die öffentliche Beschaffung, hat mehrere KI-Funktionen für seinen Marktplatz G-Commerce veröffentlicht. Das Unternehmen versteht den Schritt als Neueinführung von G-Commerce für die nutzenden Behörden. Die Entwicklung verweist auf die wachsende Rolle von KI im B2G-E-Commerce (Business-to-Government).\n\nQuelle: https://www.digitalcommerce360.com/2026/08/19/glass-ai-upgrades-government-procurement-marketplace/"
+   },
+   "fr": {
+    "t": "Glass apporte des fonctions IA à sa place de marché d'achats publics",
+    "d": "L'entreprise relance sa place de marché G-Commerce pour les administrations avec des nouveautés IA.",
+    "body": "Glass, entreprise technologique spécialisée dans les achats publics, a rendu publiques plusieurs fonctions d'IA pour sa place de marché G-Commerce. L'entreprise présente cette étape comme une réintroduction de G-Commerce pour les administrations qui l'utilisent. Cette évolution illustre le rôle croissant de l'IA dans l'e-commerce B2G (business-to-government).\n\nSource : https://www.digitalcommerce360.com/2026/08/19/glass-ai-upgrades-government-procurement-marketplace/"
+   },
+   "es": {
+    "t": "Glass lleva funciones de IA a su marketplace de compras públicas",
+    "d": "La empresa relanza su marketplace G-Commerce para organismos públicos con mejoras de IA.",
+    "body": "Glass, una empresa de tecnología para compras públicas, ha lanzado públicamente varias funciones de IA para G-Commerce, su marketplace. La compañía presenta el paso como una reintroducción de G-Commerce para los organismos que lo usan. El avance apunta al creciente papel de la IA en el e-commerce B2G (empresa a gobierno).\n\nFuente: https://www.digitalcommerce360.com/2026/08/19/glass-ai-upgrades-government-procurement-marketplace/"
+   },
+   "it": {
+    "t": "Glass porta funzioni IA nel suo marketplace per gli acquisti pubblici",
+    "d": "L'azienda rilancia il marketplace G-Commerce per gli enti pubblici con novità basate sull'IA.",
+    "body": "Glass, azienda tecnologica specializzata negli acquisti pubblici, ha reso pubbliche diverse funzioni di IA per G-Commerce, il suo marketplace. L'azienda presenta la mossa come una reintroduzione di G-Commerce per gli enti pubblici che lo utilizzano. Lo sviluppo evidenzia il ruolo crescente dell'IA nell'e-commerce B2G (business-to-government).\n\nFonte: https://www.digitalcommerce360.com/2026/08/19/glass-ai-upgrades-government-procurement-marketplace/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "10 Haz 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/",
+  "i18n": {
+   "tr": {
+    "t": "Wing dron teslimatı Walmart'la 7 yeni şehre yayılıyor",
+    "d": "Alphabet'in dron şirketi Wing, Walmart ortaklığıyla ABD'de kapsamını genişletiyor.",
+    "body": "Alphabet'in dron teslimat şirketi Wing, Walmart ile ortaklığını yedi yeni ABD şehrine taşıyor. Genişleme, dron teslimatın artık bir yenilik denemesi olmaktan çıkıp ölçeklenen bir hizmete dönüştüğünü gösteriyor. Amazon Prime Air ile birlikte hava teslimatı, son kilometre lojistiğinde rekabeti kızıştırıyor.\n\nKaynak: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "en": {
+    "t": "Wing drone delivery expands to 7 more cities with Walmart",
+    "d": "Alphabet's drone company scales its U.S. footprint through its Walmart partnership.",
+    "body": "Wing, Alphabet's drone delivery company, is expanding its Walmart partnership into seven more U.S. cities. The rollout signals that drone delivery is moving from novelty pilot to a scaling service. Alongside Amazon Prime Air, aerial delivery is intensifying competition in last-mile logistics.\n\nSource: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "de": {
+    "t": "Wing-Drohnenlieferung wächst mit Walmart auf 7 weitere Städte",
+    "d": "Alphabets Drohnenfirma skaliert ihre US-Präsenz über die Walmart-Partnerschaft.",
+    "body": "Wing, das Drohnenlieferunternehmen von Alphabet, weitet seine Walmart-Partnerschaft auf sieben weitere US-Städte aus. Der Rollout zeigt, dass Drohnenlieferung vom Pilotversuch zum skalierenden Dienst wird. Neben Amazon Prime Air verschärft die Luftzustellung den Wettbewerb in der Last-Mile-Logistik.\n\nQuelle: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "fr": {
+    "t": "La livraison par drone Wing s'étend à 7 villes avec Walmart",
+    "d": "La société de drones d'Alphabet développe sa présence américaine via son partenariat Walmart.",
+    "body": "Wing, la société de livraison par drone d'Alphabet, étend son partenariat avec Walmart à sept nouvelles villes américaines. Ce déploiement montre que la livraison par drone passe du pilote-nouveauté à un service qui monte en charge. Aux côtés d'Amazon Prime Air, la livraison aérienne intensifie la concurrence sur le dernier kilomètre.\n\nSource : https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "es": {
+    "t": "La entrega con drones Wing se amplía a 7 ciudades con Walmart",
+    "d": "La empresa de drones de Alphabet escala su presencia en EE. UU. mediante su alianza con Walmart.",
+    "body": "Wing, la empresa de entrega con drones de Alphabet, amplía su alianza con Walmart a siete ciudades más de EE. UU. El despliegue indica que la entrega con drones pasa de piloto-novedad a un servicio que escala. Junto a Amazon Prime Air, la entrega aérea intensifica la competencia en la última milla.\n\nFuente: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   },
+   "it": {
+    "t": "La consegna con droni Wing si estende a 7 città con Walmart",
+    "d": "L'azienda di droni di Alphabet scala la sua presenza negli USA tramite la partnership con Walmart.",
+    "body": "Wing, l'azienda di consegne con droni di Alphabet, estende la partnership con Walmart ad altre sette città statunitensi. Il rollout indica che la consegna con droni passa da pilota-novità a servizio che scala. Accanto ad Amazon Prime Air, la consegna aerea intensifica la concorrenza sull'ultimo miglio.\n\nFonte: https://techcrunch.com/2026/06/10/wing-drone-delivery-might-not-be-a-novelty-anymore/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "8 Haz 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://techcrunch.com/2026/06/08/amazon-now-lets-you-design-custom-merch-using-ai/",
+  "i18n": {
+   "tr": {
+    "t": "Amazon, yapay zekâyla özel ürün tasarlamayı uygulamasına ekledi",
+    "d": "Alışveriş uygulamasındaki yeni özellik, Alexa ile üretilen tasarımları tişört ve benzeri ürünlere basıyor.",
+    "body": "Amazon, Alışveriş uygulamasına yapay zekâyla özel ürün tasarlama özelliği ekledi. Kullanıcılar Alexa üzerinden görsel tasarımlar üretip bunları tişört, kapüşonlu ve termos gibi ürünlere bastırabiliyor. Özellik, kişiselleştirmeyi doğrudan alışveriş akışına yerleştirerek platform içi üretimi genişletiyor.\n\nKaynak: https://techcrunch.com/2026/06/08/amazon-now-lets-you-design-custom-merch-using-ai/"
+   },
+   "en": {
+    "t": "Amazon adds AI-designed custom merchandise to its app",
+    "d": "A new Shopping-app feature turns Alexa-generated designs into printed products like T-shirts.",
+    "body": "Amazon has added a feature that lets users create custom merchandise with AI inside its Shopping app. Shoppers can generate designs through Alexa and print them on products such as T-shirts, hoodies and tumblers. The feature builds personalization directly into the shopping flow, expanding on-platform creation.\n\nSource: https://techcrunch.com/2026/06/08/amazon-now-lets-you-design-custom-merch-using-ai/"
+   },
+   "de": {
+    "t": "Amazon bringt KI-gestaltete Custom-Produkte in seine App",
+    "d": "Eine neue Funktion der Shopping-App druckt mit Alexa erstellte Designs auf Produkte wie T-Shirts.",
+    "body": "Amazon hat eine Funktion eingeführt, mit der Nutzer in der Shopping-App per KI eigene Produkte gestalten können. Über Alexa erstellte Designs lassen sich auf Artikel wie T-Shirts, Hoodies und Thermobecher drucken. Die Funktion bettet Personalisierung direkt in den Einkaufsprozess ein und erweitert die Erstellung auf der Plattform.\n\nQuelle: https://techcrunch.com/2026/06/08/amazon-now-lets-you-design-custom-merch-using-ai/"
+   },
+   "fr": {
+    "t": "Amazon ajoute des produits personnalisés conçus par IA dans son appli",
+    "d": "Une nouvelle fonction de l'appli imprime sur des produits les visuels générés via Alexa.",
+    "body": "Amazon a ajouté une fonction permettant de créer des produits personnalisés par IA dans son application Shopping. Les utilisateurs peuvent générer des visuels via Alexa et les imprimer sur des articles comme des t-shirts, des sweats et des mugs isothermes. La fonction intègre la personnalisation directement dans le parcours d'achat et étend la création sur la plateforme.\n\nSource : https://techcrunch.com/2026/06/08/amazon-now-lets-you-design-custom-merch-using-ai/"
+   },
+   "es": {
+    "t": "Amazon suma productos personalizados diseñados con IA en su app",
+    "d": "Una nueva función de la app imprime en productos los diseños generados con Alexa.",
+    "body": "Amazon ha añadido una función que permite crear productos personalizados con IA dentro de su app de compras. Los usuarios pueden generar diseños a través de Alexa e imprimirlos en artículos como camisetas, sudaderas y vasos térmicos. La función integra la personalización directamente en el flujo de compra y amplía la creación dentro de la plataforma.\n\nFuente: https://techcrunch.com/2026/06/08/amazon-now-lets-you-design-custom-merch-using-ai/"
+   },
+   "it": {
+    "t": "Amazon aggiunge prodotti personalizzati creati con l'IA nella sua app",
+    "d": "Una nuova funzione dell'app stampa sui prodotti i design generati tramite Alexa.",
+    "body": "Amazon ha aggiunto una funzione che consente di creare prodotti personalizzati con l'IA nella sua app Shopping. Gli utenti possono generare design tramite Alexa e stamparli su articoli come t-shirt, felpe e borracce termiche. La funzione integra la personalizzazione direttamente nel percorso d'acquisto ed estende la creazione sulla piattaforma.\n\nFonte: https://techcrunch.com/2026/06/08/amazon-now-lets-you-design-custom-merch-using-ai/"
+   }
+  }
+ },
+ {
+  "c": "global",
+  "dt": "1 Haz 2026",
+  "tag": "ABD",
+  "auto": true,
+  "src": "https://techcrunch.com/2026/06/01/a-new-app-the-mall-is-building-a-universal-feed-for-online-shopping/",
+  "i18n": {
+   "tr": {
+    "t": "'The Mall' uygulaması online alışveriş için tek akış kuruyor",
+    "d": "Uygulama; binlerce perakendeciden markaları tek kişiselleştirilmiş akışta topluyor, indirim ve lansmanları takip ediyor.",
+    "body": "The Mall adlı yeni uygulama, online alışveriş için 'evrensel bir akış' oluşturmayı hedefliyor. Kullanıcılar markalardan oluşan kişisel bir akış kurabiliyor, indirimleri ve yeni ürün lansmanlarını izleyebiliyor ve binlerce perakendeci arasında ürün keşfedebiliyor. Uygulama, dağınık alışveriş deneyimini tek bir keşif katmanında toplama iddiasında.\n\nKaynak: https://techcrunch.com/2026/06/01/a-new-app-the-mall-is-building-a-universal-feed-for-online-shopping/"
+   },
+   "en": {
+    "t": "New app 'The Mall' builds a universal feed for online shopping",
+    "d": "It gathers brands from thousands of retailers into one personalized feed, tracking sales and drops.",
+    "body": "A new app called The Mall aims to build a 'universal feed' for online shopping. Users can create a personalized feed of brands, track sales and new-product drops, and discover items across thousands of retailers. The app pitches itself as a single discovery layer over an otherwise fragmented shopping experience.\n\nSource: https://techcrunch.com/2026/06/01/a-new-app-the-mall-is-building-a-universal-feed-for-online-shopping/"
+   },
+   "de": {
+    "t": "Neue App 'The Mall' baut einen universellen Feed fürs Online-Shopping",
+    "d": "Sie bündelt Marken aus Tausenden Händlern in einem personalisierten Feed und verfolgt Angebote und Drops.",
+    "body": "Eine neue App namens The Mall will einen 'universellen Feed' fürs Online-Shopping schaffen. Nutzer können einen personalisierten Marken-Feed anlegen, Angebote und Produkt-Drops verfolgen und Artikel über Tausende Händler hinweg entdecken. Die App versteht sich als einzige Entdeckungsebene über einem sonst fragmentierten Einkaufserlebnis.\n\nQuelle: https://techcrunch.com/2026/06/01/a-new-app-the-mall-is-building-a-universal-feed-for-online-shopping/"
+   },
+   "fr": {
+    "t": "La nouvelle appli « The Mall » crée un fil universel pour le shopping en ligne",
+    "d": "Elle réunit les marques de milliers de détaillants dans un fil personnalisé et suit soldes et sorties.",
+    "body": "Une nouvelle application nommée The Mall veut créer un « fil universel » pour le shopping en ligne. Les utilisateurs peuvent constituer un fil personnalisé de marques, suivre les promotions et les sorties de produits, et découvrir des articles parmi des milliers de détaillants. L'appli se présente comme une couche de découverte unique au-dessus d'une expérience d'achat autrement fragmentée.\n\nSource : https://techcrunch.com/2026/06/01/a-new-app-the-mall-is-building-a-universal-feed-for-online-shopping/"
+   },
+   "es": {
+    "t": "La nueva app 'The Mall' crea un feed universal para las compras online",
+    "d": "Reúne marcas de miles de minoristas en un feed personalizado y sigue ofertas y lanzamientos.",
+    "body": "Una nueva app llamada The Mall busca crear un 'feed universal' para las compras online. Los usuarios pueden montar un feed personalizado de marcas, seguir ofertas y lanzamientos de productos y descubrir artículos entre miles de minoristas. La app se presenta como una única capa de descubrimiento sobre una experiencia de compra por lo demás fragmentada.\n\nFuente: https://techcrunch.com/2026/06/01/a-new-app-the-mall-is-building-a-universal-feed-for-online-shopping/"
+   },
+   "it": {
+    "t": "La nuova app 'The Mall' crea un feed universale per lo shopping online",
+    "d": "Raccoglie i brand di migliaia di rivenditori in un feed personalizzato e segue offerte e uscite.",
+    "body": "Una nuova app chiamata The Mall punta a creare un 'feed universale' per lo shopping online. Gli utenti possono costruire un feed personalizzato di brand, seguire offerte e lanci di prodotti e scoprire articoli tra migliaia di rivenditori. L'app si propone come un unico livello di scoperta sopra un'esperienza d'acquisto altrimenti frammentata.\n\nFonte: https://techcrunch.com/2026/06/01/a-new-app-the-mall-is-building-a-universal-feed-for-online-shopping/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "26 May 2026",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon'a rakip lojistik girişimi Stord 250 milyon dolar topladı",
+    "d": "E-ticaret fulfillment ağı Stord, 3 milyar dolar değerleme ile yatırım aldı.",
+    "body": "E-ticaret markaları için depo ağı ve stok yönetim yazılımı sunan Stord, 3 milyar dolarlık değerleme üzerinden 250 milyon dolar yatırım aldı. Şirket kendini 'Amazon karşıtı' olarak konumlandırıyor; markalara rekabet edecek teslimat hızını sunarken müşteri ilişkisinin markada kalmasını vaat ediyor. Yatırım, bağımsız fulfillment altyapısına olan talebin büyüdüğünü gösteriyor.\n\nKaynak: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "en": {
+    "t": "Amazon fulfillment rival Stord raises $250M at $3B valuation",
+    "d": "The e-commerce fulfillment network lands fresh funding as demand for independent logistics grows.",
+    "body": "Stord, which offers a network of warehouses and inventory-management software for e-commerce brands, has raised $250 million at a $3 billion valuation. The company positions itself as a sort of 'anti-Amazon,' giving brands the speed to compete while letting them keep ownership of the customer relationship. The round signals growing demand for independent fulfillment infrastructure.\n\nSource: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "de": {
+    "t": "Amazon-Rivale Stord sammelt 250 Mio. $ bei 3-Mrd.-Bewertung ein",
+    "d": "Das E-Commerce-Fulfillment-Netzwerk erhält frisches Kapital, da die Nachfrage nach unabhängiger Logistik wächst.",
+    "body": "Stord, das ein Netzwerk aus Lagern und Software zur Bestandsverwaltung für E-Commerce-Marken bietet, hat 250 Millionen Dollar bei einer Bewertung von 3 Milliarden Dollar eingesammelt. Das Unternehmen versteht sich als eine Art 'Anti-Amazon': Es gibt Marken das Tempo zum Wettbewerb, während sie die Kundenbeziehung behalten. Die Runde zeigt die wachsende Nachfrage nach unabhängiger Fulfillment-Infrastruktur.\n\nQuelle: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "fr": {
+    "t": "Stord, rival d'Amazon dans la logistique, lève 250 M$ à 3 Md$ de valorisation",
+    "d": "Le réseau de fulfillment e-commerce obtient de nouveaux fonds alors que la demande de logistique indépendante augmente.",
+    "body": "Stord, qui propose un réseau d'entrepôts et un logiciel de gestion des stocks pour les marques e-commerce, a levé 250 millions de dollars pour une valorisation de 3 milliards. L'entreprise se présente comme une sorte d'« anti-Amazon » : elle offre aux marques la rapidité nécessaire pour rivaliser tout en leur laissant la maîtrise de la relation client. Le tour de table témoigne d'une demande croissante d'infrastructures de fulfillment indépendantes.\n\nSource : https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "es": {
+    "t": "Stord, rival de Amazon en logística, capta 250 M$ con una valoración de 3.000 M$",
+    "d": "La red de fulfillment para e-commerce logra financiación mientras crece la demanda de logística independiente.",
+    "body": "Stord, que ofrece una red de almacenes y software de gestión de inventario para marcas de e-commerce, ha captado 250 millones de dólares con una valoración de 3.000 millones. La compañía se posiciona como una especie de 'anti-Amazon': da a las marcas la velocidad para competir mientras conservan la relación con el cliente. La ronda evidencia la creciente demanda de infraestructura de fulfillment independiente.\n\nFuente: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   },
+   "it": {
+    "t": "Stord, rivale di Amazon nella logistica, raccoglie 250 mln $ a una valutazione di 3 mld",
+    "d": "La rete di fulfillment per l'e-commerce ottiene nuovi fondi mentre cresce la domanda di logistica indipendente.",
+    "body": "Stord, che offre una rete di magazzini e software di gestione dell'inventario per i brand e-commerce, ha raccolto 250 milioni di dollari a una valutazione di 3 miliardi. L'azienda si posiziona come una sorta di 'anti-Amazon': dà ai brand la velocità per competere lasciando loro la proprietà della relazione con il cliente. Il round segnala la crescente domanda di infrastrutture di fulfillment indipendenti.\n\nFonte: https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/"
+   }
+  }
  }
 ]
