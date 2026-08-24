@@ -613,20 +613,18 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <button class="navtog" aria-label="Menüyü aç/kapat" aria-expanded="false" onclick="navToggle()">☰</button>
   </nav>
 </header>
-<div id="geoBanner" style="display:none;background:var(--blue-l);border-bottom:1px solid var(--line);font-size:13px;color:var(--navy);text-align:center;padding:9px 16px"></div>
+<!-- Konum bandı kaldırıldı: hero'nun üstüne sistem bildirimi konmaz. Geo, pazaryeri seçimini sessizce etkiler. -->
 
 <!-- HOME -->
 <main id="main" tabindex="-1">
 <div class="page on" id="home">
   <div class="hero"><div class="container">
-    <div style="max-width:780px;margin:0 auto;text-align:center;padding:52px 0 16px">
+    <div style="max-width:760px;margin:0 auto;text-align:center;padding:40px 0 10px">
       <h1 data-i18n="hero_h1">Satıldı. Sana ne kaldı?</h1>
-      <p data-i18n="hero_p" style="max-width:600px;margin:14px auto 0">Pazaryerinin söylediği komisyon başka, satış sonunda sana kalan başka. Vergi, kargo ve tüm kesintilerden sonra bir satıştan cebine gerçekten ne kaldığını gösteririz.</p>
-      <div class="row" style="justify-content:center;margin-top:22px">
-        <a onclick="go('calc')" class="btn lg" data-i18n="hero_b1">Kârını hesapla</a>
-        <a onclick="go('compare')" class="btn lg ghost" data-i18n="hero_b2">Pazaryerlerini karşılaştır</a>
-      </div>
-      <div style="display:flex;justify-content:center;margin-top:26px"><div class="stats" style="margin:0"><div><b id="stMk">136</b><span>Pazaryeri</span></div><div><b>37</b><span>Ülke</span></div></div></div>
+      <p data-i18n="hero_p" style="max-width:560px;margin:14px auto 0">Pazaryerinin söylediği komisyon başka, satış sonunda sana kalan başka. Netvo bütün maliyetleri tek hesapta gösterir.</p>
+      <div style="margin-top:22px"><a onclick="go('calc')" class="btn lg" data-i18n="hero_b1">Kârını hesapla</a></div>
+      <div style="margin-top:12px"><a onclick="go('compare')" style="cursor:pointer;color:var(--blue);font-weight:500;font-size:14px" data-i18n="hero_b2">Pazaryerlerini karşılaştır →</a></div>
+      <div class="muted" style="margin-top:20px;font-size:13px"><b id="stMk" style="color:var(--ink)">136</b> pazaryeri · <b style="color:var(--ink)">37</b> ülke</div>
     </div>
   </div></div>
   <!-- Hesap makinesi artık kendi bölümünde (hero tek başına) -->
@@ -658,20 +656,8 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <div id="homeCompare" style="max-width:640px;margin-top:14px"></div>
     <div style="margin-top:14px"><a onclick="go('compare')" class="btn">Tüm pazaryerlerini karşılaştır →</a></div>
   </div></section>
-  <section class="blk" style="padding-top:0"><div class="container">
-    <div class="picker">
-      <div class="sec-title" style="margin-bottom:2px">Peki nerede daha çok kalır? 4 soru, sana uygun 3 pazaryeri.</div>
-      <div class="sec-sub" style="margin-bottom:0">E-ticarete başlamanın en hızlı yolu: nerede, neyi, nasıl. Kayıt yok — gerçek komisyon verisiyle.</div>
-      <div class="pk-grid">
-        <div class="pk-f"><label for="pkRegion">Nereye satmak istiyorsun?</label><select id="pkRegion" class="inp"></select></div>
-        <div class="pk-f"><label for="pkCat">Ne satıyorsun?</label><select id="pkCat" class="inp"></select></div>
-        <div class="pk-f"><label for="pkPri">Önceliğin ne?</label><select id="pkPri" class="inp"><option value="cost">En düşük kesinti</option><option value="reach">En büyük kitle</option><option value="easy">Kolay başlangıç</option></select></div>
-        <div class="pk-f"><label for="pkXb">Yurt dışına da satacak mısın?</label><select id="pkXb" class="inp"><option value="no">Hayır, yerel pazar</option><option value="yes">Evet, sınır ötesi</option></select></div>
-      </div>
-      <button class="btn lg" onclick="pickerRun()">Bana uygun pazaryerlerini göster →</button>
-      <div id="pkOut"></div>
-    </div>
-  </div></section>
+  <!-- "4 soru / 3 pazaryeri" öneri widget'ı ana sayfadan kaldırıldı: akışı SaaSlaştırıyordu.
+       Karşılaştırma işi zaten Karşılaştır sayfasında; pkRegion yok → picker init kendini atlar. -->
   <section class="blk" style="padding-top:0"><div class="container">
     <div class="sec-title">En çok kullanılan pazaryerleri</div>
     <div class="sec-sub">Buradan hızlı başla — ya da 136 pazaryerinin tamamını Atlas'ta ara. Kayıt gerekmez.</div>
@@ -987,7 +973,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 </main>
 <footer><div class="container">
   <div class="nl">
-    <div class="nl-t"><h4>Pazaryeri ücret değişikliklerini e-postanda al</h4><p>Haftada bir, sadece marjını etkileyen gelişmeler. Spam yok, tek tıkla çık.</p></div>
+    <div class="nl-t"><h4>Netvo Bülten</h4><p>E-ticarette işini etkileyen önemli gelişmeleri e-postanda al. Spam yok, tek tıkla çık.</p></div>
     <form class="nl-f" onsubmit="return netvoSubscribe(event)">
       <input type="email" id="nlEmail" required placeholder="e-posta adresin" aria-label="e-posta">
       <button type="submit">Katıl</button>
@@ -996,11 +982,11 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   </div>
   <div class="cols">
     <div><div class="logo" style="color:#fff;display:flex;align-items:center;gap:8px"><svg width="22" height="22" viewBox="0 0 48 48" style="flex:none"><circle cx="24" cy="24" r="24" fill="#1c1c1c"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.28" stroke-width="5"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/></svg>netvo</div><div style="font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px">E-ticareti doğru yap</div><p style="margin-top:10px;font-size:13px;max-width:280px">Satışın gerçek matematiği. Komisyon, vergi ve operasyon maliyetlerinden sonra kalan tutarı hesapla — 37 ülkede 136 pazaryerinde.</p></div>
-    <div><h4>Bölgeler</h4><a onclick="go('tools')">Türkiye</a><a onclick="go('tools')">Avrupa</a><a onclick="go('tools')">Amerika</a><a onclick="go('tools')">Asya</a></div>
-    <div><h4>Kaynaklar</h4><a onclick="go('radar')">Ücret Radarı</a><a onclick="go('sozluk')">Sözlük</a><a onclick="go('countries')">Ülke rehberleri</a><a onclick="go('compare')">Karşılaştırma</a></div>
-    <div><h4>Ürün</h4><a href="#">İşletim Sistemi</a><a href="#">Ajanslar İçin</a><a href="#">Fiyatlandırma</a></div>
+    <div><h4>Keşfet</h4><a onclick="go('tools')">Pazaryerleri</a><a onclick="go('countries')">Ülkeler</a><a onclick="go('compare')">Karşılaştır</a><a onclick="go('magazine')">Gündem</a></div>
+    <div><h4>Öğren</h4><a onclick="go('learn')">Öğren merkezi</a><a onclick="go('sozluk')">Sözlük</a><a onclick="go('radar')">Ücret Radarı</a></div>
+    <div><h4>Araçlar</h4><a onclick="go('calc')">Kâr hesapla</a><a onclick="go('watch')">Takibim</a></div>
   </div>
-  <div class="bot">© 2026 Netvo · <b>E-ticareti doğru yap.</b><br>Netvo beta aşamasındadır. Her oranın yanında kaynağı gösterilir. Hesaplama operasyonel net kârı ölçer; gelir/kurumlar vergisi, depolama, kur farkı ve finansman maliyetleri kapsam dışıdır.</div>
+  <div class="bot">© 2026 Netvo · <b>E-ticareti doğru yap.</b><br>Hesaplamalar bilgilendirme amaçlıdır; her oranın yanında kaynağı gösterilir.</div>
 </div></footer>
 
 <script>
@@ -3048,9 +3034,9 @@ function go(p){
 const I18N={
  tr:{nav_tools:"Pazaryerleri",nav_calc:"Hesapla",nav_compare:"Karşılaştır",nav_mag:"Gündem",mag_title:"Gündem",mag_all:"Tüm haberler →",mag_sub:"E-ticaret dünyasından güncel gelişmeler: pazaryerleri, ödeme, lojistik, regülasyon ve daha fazlası.",nav_learn:"Öğren",nav_calcBtn:"Hesapla",nav_try:"Kârını hesapla",
   hero_tag:"136 pazaryeri · 37 ülke · vergi ve gümrük dahil",hero_h1:"Satıldı. Sana ne kaldı?",
-  hero_p:"Pazaryerinin söylediği komisyon başka, satış sonunda sana kalan başka. Vergi, kargo ve tüm kesintilerden sonra bir satıştan cebine gerçekten ne kaldığını gösteririz.",
+  hero_p:"Pazaryerinin söylediği komisyon başka, satış sonunda sana kalan başka. Netvo bütün maliyetleri tek hesapta gösterir.",
   hc_hint:"↓ Örnek değerlerle dolu — kendi rakamlarını gir, sonuç anında değişir",
-  hero_b1:"Kârını hesapla",hero_b2:"Pazaryerlerini karşılaştır"},
+  hero_b1:"Kârını hesapla",hero_b2:"Pazaryerlerini karşılaştır →"},
  en:{nav_tools:"Tools",nav_calc:"Fee Calculator",nav_compare:"Compare",nav_mag:"News",mag_title:"News",mag_all:"All news →",mag_sub:"The latest from the world of e-commerce: marketplaces, payments, logistics, regulation and more.",nav_learn:"Learn",nav_calcBtn:"Calculate",nav_try:"Calculate profit",
   hero_tag:"136 marketplaces · 37 countries · tax and customs included",hero_h1:"Sold. What did you keep?",
   hero_p:"Not the advertised rate — after tax, shipping and every fee, we show what actually reaches your pocket from a sale. Every rate shows its source and date.",
