@@ -1789,7 +1789,7 @@ function complyBox(coCode){
    <h4>⚠︎ Bu hesapta olmayan bir kalem var</h4>
    <p><b>${co.n}</b>'ya satmak için <b>${c.need}</b> gerekiyor — ${c.why}. Yani yukarıdaki kâr, bu kayıtlar yapılmadan <b>hiç gerçekleşmiyor</b>.
    Tipik maliyet <b>${c.cost}</b>, süre <b>${c.time}</b>.</p>
-   <a class="btn" href="#" onclick="complyLead('${coCode}');return false;">Bu işi yapan firmalardan fiyat al →</a>
+   <a class="btn" style="cursor:pointer" onclick="complyLead('${coCode}')">Bu işi yapan firmalardan fiyat al →</a>
    <div class="disc">Netvo bu yönlendirmeden komisyon alır; senin ödediğin fiyat değişmez. ${COINFO[coCode]?'Kayıtları kendin de yapabilirsin — bu ülkenin rehberinde adım adım anlatılıyor.':'Kayıtları kendin de yapabilirsin.'}</div>
  </div>`;
 }
