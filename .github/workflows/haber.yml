@@ -25,6 +25,7 @@ jobs:
       - name: Haberleri üret
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: node icerik/haber_uret.mjs
       - name: Günlük bülteni gönder (Resend)
         env:
@@ -42,6 +43,6 @@ jobs:
         run: |
           git config user.name "netvo-bot"
           git config user.email "bot@netvo"
-          git add icerik/haberler.json seo/site/data/haberler.json 2>/dev/null || true
+          git add icerik/haberler.json seo/site/data/haberler.json marka/haber-gorsel 2>/dev/null || true
           git diff --cached --quiet || git commit -m "içerik: günlük haber güncellemesi"
           git push || echo "değişiklik yok"

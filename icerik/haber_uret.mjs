@@ -23,6 +23,33 @@ const KEEP = 150;
 const LANGS = ["tr","en","de","fr","es","it"];
 const API_KEY = process.env.ANTHROPIC_API_KEY || "";
 const MODEL = "claude-haiku-4-5-20251001";
+// Konuyla-alakalı GERÇEK foto (otomatik) — Unsplash. Anahtar yoksa img boş → marka kapağı devrede.
+// Ücretsiz anahtar: unsplash.com/developers → GitHub secret: UNSPLASH_ACCESS_KEY
+const UNSPLASH = process.env.UNSPLASH_ACCESS_KEY || "";
+const ROOT = KOK + "../";
+const IMGDIR = ROOT + "marka/haber-gorsel/";
+function slugify(s){return String(s||"").toLowerCase().replace(/[ışğüöçİ]/g,c=>({"ı":"i","ş":"s","ğ":"g","ü":"u","ö":"o","ç":"c","İ":"i"}[c]||c)).replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"").slice(0,60);}
+function imgQuery(enTitle, cat){
+  const BRANDS=/\b(amazon|walmart|shopify|tiktok|temu|shein|ebay|etsy|alibaba|aliexpress|adobe|apple|google|microsoft|meta|home ?depot|michaels|yankee|quince|stord|wing|rufus|sam'?s club|trendyol|hepsiburada|shopee|lazada|allegro|coupang|noon|flipkart|zalando|vinted|wildberries|ozon)\b/gi;
+  let q=String(enTitle||"").replace(BRANDS," ").replace(/[^a-zA-Z ]/g," ").split(/\s+/).filter(w=>w.length>3).slice(0,4).join(" ");
+  const CATQ={pazar:"online shopping ecommerce",reg:"customs trade shipping documents",global:"ecommerce retail technology",reklam:"digital marketing analytics screen",lojistik:"parcel delivery courier warehouse"};
+  return (q.trim().length>6) ? (q.trim()+" ecommerce") : (CATQ[cat]||"online shopping ecommerce");
+}
+async function unsplashImg(enTitle, cat, slug){
+  if(!UNSPLASH) return null;
+  try{
+    const q=imgQuery(enTitle,cat);
+    const u=`https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&content_filter=high&per_page=1`;
+    const r=await fetch(u,{headers:{Authorization:`Client-ID ${UNSPLASH}`}});
+    if(!r.ok) return null;
+    const j=await r.json(); const p=(j.results||[])[0]; if(!p||!p.urls) return null;
+    try{ if(p.links&&p.links.download_location) await fetch(p.links.download_location,{headers:{Authorization:`Client-ID ${UNSPLASH}`}}); }catch(e){}
+    const ir=await fetch(`${p.urls.raw}&w=1600&q=80&fm=jpg&fit=max`); if(!ir.ok) return null;
+    fs.mkdirSync(IMGDIR,{recursive:true});
+    fs.writeFileSync(IMGDIR+slug+".jpg", Buffer.from(await ir.arrayBuffer()));
+    return { img:`/marka/haber-gorsel/${slug}.jpg`, imgCredit:(p.user&&p.user.name?`${p.user.name} / Unsplash`:"Unsplash") };
+  }catch(e){ return null; }
+}
 
 const SOURCES = [
   "https://www.retaildive.com/feeds/news/",
@@ -124,9 +151,13 @@ async function main(){
       for(const l of LANGS){ const x=obj.i18n[l];
         i18n[l]={ t:String(x.t).slice(0,120), d:String(x.d).slice(0,240),
           body:String(x.body)+`\n\n${kaynakSoz[l]}: ${src}` }; }
-      written.push({ c:["pazar","reg","global","reklam","lojistik"].includes(obj.category)?obj.category:"global",
-        dt:fmtDate(raw.date), tag:obj.region||"Global", src, auto:true, i18n });
-      console.log("YAYINA UYGUN:", i18n.tr.t);
+      const cat=["pazar","reg","global","reklam","lojistik"].includes(obj.category)?obj.category:"global";
+      // Konuyla-alakalı gerçek foto (Unsplash) — yoksa marka kapağı devrede
+      const slug=slugify((obj.i18n.tr&&obj.i18n.tr.t)||i18n.en.t);
+      const im=await unsplashImg(i18n.en.t||i18n.tr.t, cat, slug);
+      written.push({ c:cat, dt:fmtDate(raw.date), tag:obj.region||"Global", src, auto:true, i18n,
+        ...(im?{img:im.img, imgCredit:im.imgCredit}:{}) });
+      console.log("YAYINA UYGUN:", i18n.tr.t, im?"(fotolu)":"(marka kapak)");
     }catch(e){ console.error("değerlendirme hatası, atlandı:", e.message); }
   }
 
