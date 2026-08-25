@@ -2687,7 +2687,7 @@ let _tt;function toast(msg){let t=document.getElementById('_toast');if(!t){t=doc
 const CATMAP={pazar:"Pazaryeri & Ücretler",reg:"Regülasyon & Vergi",global:"Global & Sınır Ötesi",reklam:"Reklam & Büyüme",lojistik:"Lojistik & Kargo"};
 const CATIC={pazar:"🏷️",reg:"⚖️",global:"🌍",reklam:"📣",lojistik:"📦"};
 const NEWS=[
- {c:"reg",t:"AB'de €150 gümrük muafiyeti kalkıyor: gönderideki her gümrük tarife kategorisi için ~€3 geçici ücret",d:"Regülasyon 2026/382 ile AB'ye üçüncü ülkelerden gelen düşük değerli gönderilerdeki de minimis kaldırıldı; ücret ürün başına değil, gönderideki her ayrı tarife kategorisi için uygulanıyor.",dt:"1 Tem 2026",tag:"AB",f:true,pop:true,
+ {c:"reg",t:"AB'de €150 gümrük muafiyeti kalkıyor: gönderideki her gümrük tarife kategorisi için ~€3 geçici ücret",d:"Regülasyon 2026/382 ile AB'ye üçüncü ülkelerden gelen düşük değerli gönderilerdeki de minimis kaldırıldı; ücret ürün başına değil, gönderideki her ayrı tarife kategorisi için uygulanıyor.",dt:"1 Tem 2026",tag:"AB",pop:true,
    body:"1 Temmuz 2026'da yürürlüğe giren düzenlemeyle, AB'ye üçüncü ülkelerden giren ve değeri €150'ye kadar olan gönderilerdeki gümrük muafiyeti sona erdi. Yerine ürün başına yaklaşık €3 sabit gümrük vergisi geliyor. Bu, özellikle Türkiye ve Uzak Doğu'dan Avrupa'ya düşük fiyatlı ürün satan sınır ötesi satıcıların maliyet yapısını değiştiriyor: küçük sepetlerde vergi, ürün fiyatına oranla ciddi bir yük oluşturabilir. Hesaplayıcıda Amazon DE/UK gibi AB pazaryerlerini seçip bu ek maliyeti kâr üzerinde test edebilirsiniz."},
  {c:"pazar",t:"TikTok Shop Brezilya'da ücretleri artırıyor: R$50 altı komisyon %6→%10",d:"15 Temmuz 2026'da yürürlüğe giren değişiklikle düşük fiyatlı üründe komisyon yükseliyor; sabit sipariş ücreti ~%50 artışla R$6'ya çıkıyor.",dt:"15 Tem 2026",tag:"Brezilya",pop:true},
  {c:"pazar",t:"Shopee 4 ülkede %5 teknik destek bedeli getirdi",d:"Singapur, Malezya, Tayland ve Vietnam'da Şubat 2026'dan beri geçerli yeni kalem, efektif kesintiyi yukarı çekiyor.",dt:"Şub 2026",tag:"SEA",pop:true},
@@ -2708,6 +2708,15 @@ const NEWS=[
 const CATCOLOR={pazar:'#0A7A43',reg:'#B4841E',global:'#1F4E79',reklam:'#B42318',lojistik:'#7C3AED'};
 // Okuma süresi (dk) — gövdeden (yoksa spot) ~200 kelime/dk. Kart künyesine editöryal disiplin.
 function readMin(a){var w=String((a&&(a.body||a.d))||'').trim().split(/\s+/).filter(Boolean).length; return Math.max(1,Math.round(w/200))+' dk';}
+// Haber tarihi (TR) → zaman damgası. "24 Ağu 2026" veya "Tem 2026" biçimlerini çözer.
+// Kronolojik sıralama için: en yeni üstte. Çözülemeyen tarih → 0 (en alta iner).
+var _TRMON={Oca:0,'Şub':1,Mar:2,Nis:3,May:4,Haz:5,Tem:6,'Ağu':7,Eyl:8,Eki:9,Kas:10,Ara:11};
+function _mon(x){if(x==null)return null;var v=_TRMON[x];if(v==null)v=_TRMON[x.slice(0,3)];return (v==null)?null:v;}
+function parseTRDate(dt){var s=String(dt||'').trim();
+  var m=/(\d{1,2})\s+(\S+)\s+(\d{4})/.exec(s); if(m){var mo=_mon(m[2]); if(mo!=null)return new Date(+m[3],mo,+m[1]).getTime();}
+  var m2=/(\S+)\s+(\d{4})/.exec(s); if(m2){var mo2=_mon(m2[1]); if(mo2!=null)return new Date(+m2[2],mo2,1).getTime();}
+  return 0;}
+function byDateDesc(a,b){return parseTRDate(b&&b.dt)-parseTRDate(a&&a.dt);}
 // Marka-uyumlu, TELİFSİZ üretilen kapak görseli. Dış fotoğraf KULLANMAZ:
 // her kapak kategori renginden + başlık hash'inden deterministik üretilir.
 function artHue(s){s=String(s||'');let h=5381;for(let i=0;i<s.length;i++)h=((h*33)^s.charCodeAt(i))>>>0;return h;}
@@ -2760,7 +2769,7 @@ function openArticle(i,o){ o=o||{};
  }
  const hasBody=paras.length>3;
  // kategori içi diğer haberler (iç linkleme — SEO)
- const related=NEWS.map((x,j)=>({x,j})).filter(o=>o.x.c===a.c&&o.j!==i).slice(0,4);
+ const related=NEWS.map((x,j)=>({x,j})).filter(o=>o.x.c===a.c&&o.j!==i).sort((p,q)=>byDateDesc(p.x,q.x)).slice(0,4);
  const relHtml=related.length?`<div style="margin-top:34px;border-top:1px solid var(--line);padding-top:18px"><div style="font-weight:600;color:var(--navy);margin-bottom:10px">${CATIC[a.c]} ${CATMAP[a.c]} — diğer haberler</div>${related.map(o=>`<div class="art-row" onclick="openArticle(${o.j})"><div class="thumb">${artThumb(o.x)}</div><div><div class="cat">${o.x.tag}</div><h3>${o.x.t}</h3><div class="mt">${o.x.dt}</div></div></div>`).join('')}</div>`:'';
  document.getElementById('artBody').innerHTML=`
    <div class="crumb"><a onclick="go('magazine')">${(I18N[LANG]&&I18N[LANG].mag_title)||'Haberler'}</a> / <a onclick="go('magazine')">${CATMAP[a.c]}</a></div>
@@ -2785,7 +2794,7 @@ function closeReader(){}
 function renderMagazine(){
   // Aktif dilde gösterilecek liste: TR'de her şey; diğer dillerde SADECE çok dilli
   // (auto) haberler — böylece o dili seçen okur karışık/yabancı içerik görmez.
-  const LIST=NEWS.filter(a=>a.auto||LANG==='tr');
+  const LIST=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc);
   const ALLW=({tr:'Tümü',en:'All',de:'Alle',fr:'Tout',es:'Todo',it:'Tutto'}[LANG])||'Tümü';
   const F=(a,i)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${a.t}">
     <div class="cov" aria-hidden="true">${artThumb(a)}</div>
@@ -3293,7 +3302,7 @@ function renderHomeCompare(){
      +'</tr>';
   }).join('')+'</table>';
 }
-function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice(0,3);
+function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc).slice(0,3);
  // .news-grid sarmalı KALDIRILDI — kartlar doğrudan #magHomeTeaser (.grid3) 3 kolonuna otursun (masaüstü denge). Kart klavyeyle erişilebilir.
  el.innerHTML=L.map((x)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${NEWS.indexOf(x)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(x)}))"><div class="cov" aria-hidden="true">${artThumb(x)}</div><div class="bd"><div class="cat">${CATMAP[x.c]||x.c}</div><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""} · ${readMin(x)}</div></div></div>`).join('');}
 renderHomeTeaser();
