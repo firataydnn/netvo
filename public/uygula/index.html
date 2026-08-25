@@ -82,7 +82,7 @@
   .muted{color:var(--muted)} .sm{font-size:13px}
   .tag{display:inline-block;font-size:12px;font-weight:600;padding:4px 11px;border-radius:20px;background:var(--blue-l);color:var(--navy)}
   .hero{background:#fff;color:var(--ink);padding:72px 0 56px;border-bottom:1px solid var(--line)}
-  .hero h1{font-size:clamp(42px,5.2vw,64px);font-weight:600;letter-spacing:-.035em;line-height:1.0;max-width:640px}
+  .hero h1{font-size:clamp(42px,5.2vw,64px);font-weight:600;letter-spacing:-.035em;line-height:1.0;max-width:640px;margin-left:auto;margin-right:auto}
   .hero p{font-size:18px;color:var(--muted);line-height:1.55;margin-top:16px;max-width:640px}
   .hero .row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
   .hero .btn.ghost{background:rgba(255,255,255,.14);color:#fff}
@@ -1614,7 +1614,7 @@ function renderCoPage(code){
     </div>
   </div>`;
 }
-function openCoPage(c){renderCoPage(c);go('copage');try{location.hash='#/ulke/'+c;}catch(e){}}
+function openCoPage(c){renderCoPage(c);go('copage',{noURL:true});try{history.pushState(null,'','/ulke/'+c);}catch(e){}setCanonical('/ulke/'+c);}
 function coCard(c){const co=CO[c],n=coMarkets(c).length;
  return `<div class="tool" role="button" tabindex="0" onclick="openCoPage('${c}')" onkeydown="kbd(event,()=>openCoPage('${c}'))" aria-label="${co.n} rehberi"><div class="ic">${co.fl}</div><h3>${co.n}</h3><p>KDV %${co.vat} · ${co.cur.trim()} · ${n} pazaryeri</p>${COINFO[c]?'<span class="co-badge">Rehber var</span>':'<span class="mk-badge manual">Künye</span>'}<div class="go">Nasıl satılır →</div></div>`;}
 function renderCountries(){const host=document.getElementById('coGrid');if(!host)return;
@@ -1922,7 +1922,7 @@ function wireVerdict(k){
  [p,c].forEach(el=>el.oninput=run); cat.onchange=run; run();
 }
 function fmt(n,co){try{return co.cur+n.toLocaleString(co.loc,{minimumFractionDigits:co.dec0?0:2,maximumFractionDigits:co.dec0?0:2});}catch(e){return co.cur+n.toFixed(2);}}
-function openMkPage(k){renderMkPage(k);wireVerdict(k);go('mkpage');try{location.hash='#/pazaryeri/'+k;}catch(e){}}
+function openMkPage(k){renderMkPage(k);wireVerdict(k);go('mkpage',{noURL:true});try{history.pushState(null,'','/pazaryeri/'+k);}catch(e){}setCanonical('/pazaryeri/'+k+'.html');}
 // derin linkler: #/pazaryeri/{key} · #/ulke/{CODE}
 function routeHash(){const h=location.hash||"";
  let m=h.match(/^#\/pazaryeri\/([a-z0-9]+)$/i); if(m&&MK[m[1]]){renderMkPage(m[1]);wireVerdict(m[1]);go('mkpage');return true;}
@@ -1931,8 +1931,9 @@ function routeHash(){const h=location.hash||"";
  // Hash boş/kök (ör. geri tuşuyla detaydan çıkıldı) → ana sayfaya dön (detay sayfasında takılma).
  if(!h||h==='#'||h==='#/'){ if(typeof go==='function')go('home'); return true; }
  return false;}
-setTimeout(routeHash,0);
-window.addEventListener('hashchange',routeHash);
+setTimeout(function(){try{route();}catch(e){}},0);
+window.addEventListener('popstate',function(){try{route();}catch(e){}});
+window.addEventListener('hashchange',function(){try{route();}catch(e){}});
 
 // 2. dalga güvenilirlik etiketleri (kesin oranlar satıcı sözleşmesine göre değişir)
 ["taobao","jd","pinduoduo","douyin","yahoojapan","mercarijp","zozotown","manomano","fnac","miravia","aboutyou","cdon","galaxus","depop","vestiaire","poshmark","chrono24","reverb","alibaba","alibaba1688","ankorstore","indiamart","nykaa","ajio","americanas","coppel","namshi","amazoneg","konga","catch","theiconic","targetplus","wayfair","newegg"].forEach(k=>{if(MK[k]&&!MK[k].sourceLabel)Object.assign(MK[k],{sourceLabel:"Pazaryeri satıcı merkezi — kesin oran kategori/sözleşmeye göre değişir"});});
@@ -2728,7 +2729,7 @@ function artThumb(x){
   +`</svg>`;
 }
 function slugify(s){return s.toLowerCase().replace(/[ışğüöçİ]/g,c=>({'ı':'i','ş':'s','ğ':'g','ü':'u','ö':'o','ç':'c','İ':'i'}[c]||c)).replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,60);}
-function openArticle(i){
+function openArticle(i,o){ o=o||{};
  const a=NEWS[i], slug=a._slug||slugify(a.t);
  // Reklamı 3. paragraftan SONRA araya sok (en yüksek RPM'li konum) + makale ortasına 2. birim
  const paras=a.body?a.body.split('\n').filter(x=>x.trim()):[];
@@ -2764,8 +2765,8 @@ function openArticle(i){
  const _sd=document.getElementById("artSide"); if(_sd)_sd.innerHTML=hasBody?adSlot("sidebar"):"";
  adsPush();
  document.title=a.t+" · Netvo Intelligence";
- try{location.hash='#/dergi/'+slug;}catch(e){}
- go('dergiArt');
+ go('dergiArt',{noURL:true});
+ if(!o.noURL){ try{history.pushState(null,'','/haber/'+slug);}catch(e){} setCanonical('/haber/'+slug+'.html'); }
 }
 function closeReader(){}
 // Dergi/İçgörüler render'ı. (Not: bu fonksiyon bir düzenleme sırasında silinmişti, yeniden yazıldı.)
@@ -3059,7 +3060,12 @@ function navToggle(){
   const open=nav.classList.toggle('nav-open');
   const b=nav.querySelector('.navtog'); if(b)b.setAttribute('aria-expanded',open?'true':'false');
 }
-function go(p){
+// ===== GERÇEK URL YÖNLENDİRME (History API) — her sayfa kendi temiz path'ini gösterir =====
+// Üst-düzey sayfalar için path haritası. Detay sayfaları (pazaryeri/ülke/haber) açıcı fonksiyonlarında.
+const PATHS={home:'/',calc:'/hesapla',compare:'/karsilastir',learn:'/ogren',magazine:'/gundem',tools:'/pazaryerleri',countries:'/ulkeler',sozluk:'/sozluk',radar:'/radar',watch:'/takibim',saved:'/urunlerim',advisor:'/oneri'};
+const PATH2PAGE={}; Object.keys(PATHS).forEach(function(k){PATH2PAGE[PATHS[k]]=k;});
+function setCanonical(p){ try{ var abs=(p&&p.charAt(0)==='/')?('https://netvo.co'+(p==='/'?'':p)):p; var l=document.querySelector('link[rel="canonical"]'); if(l)l.setAttribute('href',abs||'https://netvo.co/'); }catch(e){} }
+function go(p,o){ o=o||{};
   // Sayfa değişince mobil menü kapansın (yoksa açık kalıp içeriği örter).
   const nav=document.querySelector('.nav'); if(nav&&nav.classList.contains('nav-open')){nav.classList.remove('nav-open');const b=nav.querySelector('.navtog');if(b)b.setAttribute('aria-expanded','false');}
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));
@@ -3077,12 +3083,26 @@ function go(p){
   const ann=document.getElementById('routeAnnouncer');
   if(ann)ann.textContent=t+' sayfası yüklendi';
   document.title=(t?t+' — ':'')+'Netvo';
-  // URL hijyeni: yalnız derin-linklenebilir DETAY sayfaları (pazaryeri/ülke/haber) hash tutar.
-  // Üst-düzey sayfaya geçilince (Ana Sayfa, Hesapla, Karşılaştır…) eski #/pazaryeri/... hash'ini
-  // TEMİZLE — yoksa Ana Sayfa'ya basıp yenileyince routeHash eski sayfayı tekrar açıyordu (takılma).
-  const _DETAIL={mkpage:1,copage:1,dergiArt:1};
-  if(!_DETAIL[p]){ try{ if(location.hash) history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
   try{kbdUpgrade(el);}catch(e){}
+  // URL: üst-düzey sayfa kendi temiz path'ini gösterir (/karsilastir, /ogren, /gundem…). Detay
+  // sayfaları (mkpage/copage/dergiArt) URL'ini kendi açıcı fonksiyonu kurar → burada dokunulmaz.
+  if(!o.noURL){ var _pt=PATHS[p]; if(_pt){ try{ history[o.replace?'replaceState':'pushState'](null,'',_pt+location.search); }catch(e){} setCanonical(_pt); } }
+}
+// Router: URL → sayfa. Yükleme + geri/ileri (popstate) + eski hash linkleri (statik sayfa CTA'ları).
+function route(){
+  try{
+    // 1) Eski hash deep-link'leri (statik SEO sayfalarının /?lang=x#/pazaryeri/x CTA'ları) — geri uyum
+    if(location.hash && location.hash.length>2){ if(routeHash()) return; }
+    var path=decodeURIComponent(location.pathname||'/'); var m;
+    // 2) Detay path'leri
+    if((m=path.match(/^\/pazaryeri\/([a-z0-9]+)$/i)) && typeof MK!=='undefined' && MK[m[1]]){ renderMkPage(m[1]);try{wireVerdict(m[1]);}catch(e){} go('mkpage',{noURL:true}); setCanonical('/pazaryeri/'+m[1]+'.html'); return; }
+    if((m=path.match(/^\/ulke\/([a-z]{2})$/i)) && typeof CO!=='undefined' && CO[m[1].toUpperCase()]){ renderCoPage(m[1].toUpperCase()); go('copage',{noURL:true}); return; }
+    if((m=path.match(/^\/haber\/(.+)$/))){ var s=m[1].replace(/\.html$/,''); var gi=NEWS.findIndex(function(n){return (n._slug||slugify(n.t))===s;}); if(gi>=0){ openArticle(gi,{noURL:true}); setCanonical('/haber/'+s+'.html'); return; } }
+    // 3) Üst-düzey temiz path'ler
+    if(PATH2PAGE[path]){ go(PATH2PAGE[path],{noURL:true}); return; }
+    // 4) Varsayılan: ana sayfa
+    go('home',{noURL:true});
+  }catch(e){ try{go('home',{noURL:true});}catch(_){} }
 }
 // Klavye erişilebilirliği: href'siz onclick anchor'ları (nav, breadcrumb, footer, hero, learn) klavyeyle
 // çalışır kıl (tabindex+role+Enter). Kartlar zaten role/tabindex/onkeydown taşıyor; bu onları atlar.
@@ -3213,7 +3233,7 @@ function mergeAutoNews(){
   try{renderMagazine();}catch(e){}
   try{renderHomeTeaser();}catch(e){}
   // Auto-haber yüklendikten sonra, açık bir #/dergi/<slug> deep-link'i varsa şimdi çöz (fetch async olduğu için ilk routeHash kaçırmış olabilir)
-  try{if(/^#\/dergi\//.test(location.hash))routeHash();}catch(e){}
+  try{if(/^\/haber\//.test(location.pathname)||/^#\/dergi\//.test(location.hash))route();}catch(e){}
 }
 (function(){ try{
   fetch('/data/haberler.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(list){

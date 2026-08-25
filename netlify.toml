@@ -5,3 +5,9 @@
   SITE_URL = "https://netvo.co"
 
 # redeploy: 2026-08-24T12:28:58Z — kredi sonrası yeniden yayın
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+# SPA fallback: statik dosyalar once servis edilir; eslesmeyen temiz path ler uygulamaya duser, istemci router dogru sayfayi acar.
