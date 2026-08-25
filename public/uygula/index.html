@@ -2696,6 +2696,8 @@ const NEWS=[
 ];
 
 const CATCOLOR={pazar:'#0A7A43',reg:'#B4841E',global:'#1F4E79',reklam:'#B42318',lojistik:'#7C3AED'};
+// Okuma süresi (dk) — gövdeden (yoksa spot) ~200 kelime/dk. Kart künyesine editöryal disiplin.
+function readMin(a){var w=String((a&&(a.body||a.d))||'').trim().split(/\s+/).filter(Boolean).length; return Math.max(1,Math.round(w/200))+' dk';}
 // Marka-uyumlu, TELİFSİZ üretilen kapak görseli. Dış fotoğraf KULLANMAZ:
 // her kapak kategori renginden + başlık hash'inden deterministik üretilir.
 function artHue(s){s=String(s||'');let h=5381;for(let i=0;i<s.length;i++)h=((h*33)^s.charCodeAt(i))>>>0;return h;}
@@ -2705,8 +2707,8 @@ function artThumb(x){
  const c=it.c||'global', col=CATCOLOR[c]||'#1F4E79';
  const tag=(it.tag||'').toString(), h=artHue(it.t||it.d||c);
  const ang=30+(h%80);                         // gradient açısı
- const light=`color-mix(in srgb, ${col} 74%, #ffffff)`;
- const mid=col, dark=`color-mix(in srgb, ${col} 52%, #0b0b12)`;
+ const light=`color-mix(in srgb, ${col} 82%, #ffffff)`;
+ const mid=col, dark=`color-mix(in srgb, ${col} 46%, #0b0b12)`;
  const gid='ng'+(h%100000)+'_'+(artThumb._n=(artThumb._n||0)+1); // per-render benzersiz id → aynı DOM'da gradient çakışması yok
  const c1x=280+(h%90), c1y=30+(h%50), r1=110+(h%50);
  const c2x=40+(h%70),  c2y=210+(h%40), r2=70+(h%40);
@@ -2774,7 +2776,7 @@ function renderMagazine(){
   const ALLW=({tr:'Tümü',en:'All',de:'Alle',fr:'Tout',es:'Todo',it:'Tutto'}[LANG])||'Tümü';
   const F=(a,i)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${a.t}">
     <div class="cov" aria-hidden="true">${artThumb(a)}</div>
-    <div class="bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${a.t}</h3><p>${a.d||''}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""}</div></div>
+    <div class="bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${a.t}</h3><p>${a.d||''}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
   </div>`;
   // Manşet
   let li=LIST.findIndex(a=>a.f); if(li<0)li=0;
@@ -3253,7 +3255,7 @@ function renderHomeCompare(){
 }
 function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice(0,3);
  // .news-grid sarmalı KALDIRILDI — kartlar doğrudan #magHomeTeaser (.grid3) 3 kolonuna otursun (masaüstü denge). Kart klavyeyle erişilebilir.
- el.innerHTML=L.map((x)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${NEWS.indexOf(x)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(x)}))"><div class="cov" aria-hidden="true">${artThumb(x)}</div><div class="bd"><div class="cat">${CATMAP[x.c]||x.c}</div><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""}</div></div></div>`).join('');}
+ el.innerHTML=L.map((x)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${NEWS.indexOf(x)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(x)}))"><div class="cov" aria-hidden="true">${artThumb(x)}</div><div class="bd"><div class="cat">${CATMAP[x.c]||x.c}</div><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""} · ${readMin(x)}</div></div></div>`).join('');}
 renderHomeTeaser();
 
 // ============ HESAP (Supabase Auth) + BULUT SENKRON ============
@@ -3269,6 +3271,7 @@ function nvErr(m){m=(m||'').toLowerCase();
 function netvoAuthBuild(){
  if(document.getElementById('nvAuth'))return;
  var d=document.createElement('div'); d.id='nvAuth';
+ d.setAttribute('role','dialog'); d.setAttribute('aria-modal','true'); d.setAttribute('aria-labelledby','nvTitle');
  d.style.cssText='position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;background:rgba(10,10,10,.55);padding:18px';
  d.innerHTML='<div style="background:#fff;border-radius:18px;max-width:400px;width:100%;padding:26px 24px;box-shadow:0 24px 60px rgba(0,0,0,.28)" onclick="event.stopPropagation()">'
   +'<div style="display:flex;align-items:center;gap:9px;margin-bottom:4px"><svg width="26" height="26" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#0A0A0A"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.24" stroke-width="5"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/></svg><b style="font-family:var(--font-serif,serif);font-size:20px">netvo</b></div>'
@@ -3282,7 +3285,7 @@ function netvoAuthBuild(){
   +'<input id="nvPass" type="password" autocomplete="current-password" placeholder="Şifre (en az 6 karakter)" style="width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin-bottom:14px" onkeydown="if(event.key===\'Enter\')netvoAuthSubmit()">'
   +'<button id="nvGo" onclick="netvoAuthSubmit()" class="btn" style="width:100%;justify-content:center;padding:12px">Giriş yap</button>'
   +'<div style="text-align:center;margin-top:12px"><a onclick="netvoAuthClose()" class="sm muted" style="cursor:pointer">Kapat</a></div>'
-  +'<div class="sm muted" style="text-align:center;margin-top:10px;line-height:1.5">Hesap açarak <a onclick="go(\'legal\')" style="cursor:pointer;text-decoration:underline">şartları</a> kabul edersin. E-postanı kimseyle paylaşmayız.</div>'
+  +'<div class="sm muted" style="text-align:center;margin-top:10px;line-height:1.5">Hesap açarak kullanım şartlarını kabul edersin. E-postanı kimseyle paylaşmayız.</div>'
   +'</div>';
  d.onclick=netvoAuthClose;
  document.body.appendChild(d);
@@ -3298,8 +3301,9 @@ function netvoAuthMode(m){_nvMode=m;
  el('nvPass').setAttribute('autocomplete',isUp?'new-password':'current-password');
  el('nvGo').textContent=isUp?'Hesabı oluştur':'Giriş yap';
 }
-function netvoAuthOpen(m){ netvoAuthBuild(); netvoAuthMode(m||'signin'); document.getElementById('nvAuth').style.display='flex'; setTimeout(function(){var e=document.getElementById('nvEmail');if(e)e.focus();},60); }
-function netvoAuthClose(){ var d=document.getElementById('nvAuth'); if(d)d.style.display='none'; }
+function _nvEsc(e){ if(e.key==='Escape')netvoAuthClose(); }
+function netvoAuthOpen(m){ netvoAuthBuild(); netvoAuthMode(m||'signin'); document.getElementById('nvAuth').style.display='flex'; document.addEventListener('keydown',_nvEsc); setTimeout(function(){var e=document.getElementById('nvEmail');if(e)e.focus();},60); }
+function netvoAuthClose(){ var d=document.getElementById('nvAuth'); if(d)d.style.display='none'; document.removeEventListener('keydown',_nvEsc); }
 async function netvoAuthSubmit(){
  if(!NETVO_SB){toast('Bağlantı kurulamadı, birazdan tekrar dene.');return;}
  var email=(_nvv('nvEmail')||'').trim(), pass=_nvv('nvPass')||'', name=(_nvv('nvName')||'').trim();
