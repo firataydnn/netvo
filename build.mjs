@@ -12,6 +12,8 @@ const OUT = process.env.PUBLIC_DIR || "public";
 
 console.log("→ SEO sayfaları üretiliyor:", SITE);
 execSync(`node seo/uret.mjs ${SITE}`, { stdio: "inherit" });
+console.log("→ Haber SEO sayfaları üretiliyor");
+execSync(`node seo/haber_uret.mjs ${SITE}`, { stdio: "inherit" });
 
 console.log("→ public/ hazırlanıyor");
 fs.rmSync(OUT, { recursive: true, force: true });

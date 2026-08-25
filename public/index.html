@@ -1919,6 +1919,7 @@ function openMkPage(k){renderMkPage(k);wireVerdict(k);go('mkpage');try{location.
 function routeHash(){const h=location.hash||"";
  let m=h.match(/^#\/pazaryeri\/([a-z0-9]+)$/i); if(m&&MK[m[1]]){renderMkPage(m[1]);wireVerdict(m[1]);go('mkpage');return true;}
  m=h.match(/^#\/ulke\/([A-Z]{2})$/i); if(m&&CO[m[1].toUpperCase()]&&COINFO[m[1].toUpperCase()]){renderCoPage(m[1].toUpperCase());go('copage');return true;}
+ m=h.match(/^#\/dergi\/(.+)$/); if(m){const s=decodeURIComponent(m[1]);const gi=NEWS.findIndex(n=>(n._slug||slugify(n.t))===s);if(gi>=0){openArticle(gi);return true;}}
  return false;}
 setTimeout(routeHash,0);
 window.addEventListener('hashchange',routeHash);
@@ -2702,7 +2703,7 @@ function artThumb(x){
 }
 function slugify(s){return s.toLowerCase().replace(/[ışğüöçİ]/g,c=>({'ı':'i','ş':'s','ğ':'g','ü':'u','ö':'o','ç':'c','İ':'i'}[c]||c)).replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,60);}
 function openArticle(i){
- const a=NEWS[i], slug=slugify(a.t);
+ const a=NEWS[i], slug=a._slug||slugify(a.t);
  // Reklamı 3. paragraftan SONRA araya sok (en yüksek RPM'li konum) + makale ortasına 2. birim
  const paras=a.body?a.body.split('\n').filter(x=>x.trim()):[];
  const P=x=>`<p style="font-size:16px;line-height:1.7;margin:12px 0">${x}</p>`;
@@ -3159,8 +3160,10 @@ function pickAuto(item){
   var L=(typeof LANG!=='undefined'&&LANG)?LANG:'tr';
   var x=item.i18n?(item.i18n[L]||item.i18n.tr||item.i18n.en):item; // i18n yoksa düz eski şema
   if(!x||!x.t)return null;
+  // _slug: STABİL slug (TR, yoksa EN başlıktan) — statik /haber/ sayfalarıyla birebir eşleşir, dil değişse de sabit
+  var _sb=(item.i18n&&((item.i18n.tr&&item.i18n.tr.t)||(item.i18n.en&&item.i18n.en.t)))||x.t;
   return {c:_okCatN(item.c),tag:_stripN(item.tag),dt:_stripN(item.dt),src:item.src,auto:true,pop:false,
-    t:_stripN(x.t),d:_stripN(x.d),body:_stripN(x.body)};
+    _slug:slugify(_sb),t:_stripN(x.t),d:_stripN(x.d),body:_stripN(x.body)};
 }
 function mergeAutoNews(){
   for(var i=NEWS.length-1;i>=0;i--){ if(NEWS[i]&&NEWS[i].auto) NEWS.splice(i,1); } // eski auto'ları çıkar
@@ -3170,6 +3173,8 @@ function mergeAutoNews(){
   if(add.length) NEWS.unshift.apply(NEWS,add);
   try{renderMagazine();}catch(e){}
   try{renderHomeTeaser();}catch(e){}
+  // Auto-haber yüklendikten sonra, açık bir #/dergi/<slug> deep-link'i varsa şimdi çöz (fetch async olduğu için ilk routeHash kaçırmış olabilir)
+  try{if(/^#\/dergi\//.test(location.hash))routeHash();}catch(e){}
 }
 (function(){ try{
   fetch('/data/haberler.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(list){
