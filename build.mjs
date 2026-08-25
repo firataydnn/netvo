@@ -48,6 +48,10 @@ if (fs.existsSync("marka")) {
   for (const f of ["netvo-logo.svg", "netvo-mark.svg", "netvo-favicon.svg", "og-home.png"]) {
     if (fs.existsSync(`marka/${f}`)) fs.copyFileSync(`marka/${f}`, `${OUT}/marka/${f}`);
   }
+  // alt klasörler (ör. haber-gorsel/ = haberlerin konuyla-alakalı üretilen görselleri)
+  for (const d of ["haber-gorsel"]) {
+    if (fs.existsSync(`marka/${d}`)) fs.cpSync(`marka/${d}`, `${OUT}/marka/${d}`, { recursive: true });
+  }
 }
 
 const say = p => { try { return fs.readdirSync(p).length; } catch { return 0; } };

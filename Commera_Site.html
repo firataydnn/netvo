@@ -164,7 +164,7 @@
   .mag-secondary .sec-mini{display:grid;grid-template-columns:104px 1fr;gap:13px;align-items:start;text-decoration:none;color:inherit;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line);cursor:pointer}
   .mag-secondary .sec-mini:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
   .mag-secondary .sec-mini:hover h3{color:var(--blue)}
-  .sm-th{width:104px;height:74px;border-radius:9px;overflow:hidden;background:var(--bg-hover)}
+  .sm-th{position:relative;width:104px;height:74px;border-radius:9px;overflow:hidden;background:var(--bg-hover)}
   .sm-th svg{width:100%;height:100%;display:block}
   .sm-bd .cat{font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
   .sm-bd h3{font-size:15px;font-weight:600;line-height:1.25;margin:3px 0 4px;color:var(--navy)}
@@ -195,8 +195,9 @@
   .news-card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:.16s;display:flex;flex-direction:column}
   .news-card:hover{border-color:var(--blue);box-shadow:0 10px 26px rgba(31,58,95,.10);transform:translateY(-2px)}
   .news-card:hover h3{color:var(--blue)}
-  .news-card .cov{aspect-ratio:16/10;width:100%;overflow:hidden;background:var(--bg-hover);display:block}
+  .news-card .cov{position:relative;aspect-ratio:16/10;width:100%;overflow:hidden;background:var(--bg-hover);display:block}
   .news-card .cov svg{display:block;width:100%;height:100%}
+  .cov-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
   .art-hero svg{display:block;width:100%;height:100%}
   .news-card .bd{padding:13px 14px 15px;display:flex;flex-direction:column;flex:1}
   .news-card .cat{font-size:11px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px}
@@ -2713,6 +2714,9 @@ function artHue(s){s=String(s||'');let h=5381;for(let i=0;i<s.length;i++)h=((h*3
 function _esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function artThumb(x){
  const it=(x&&typeof x==='object')?x:{c:x};
+ // Konuyla-alakalı GERÇEK görsel (varsa) SVG kapağın üzerine biner; yüklenemezse
+ // (this.remove) altındaki marka kapağı görünür → hiçbir zaman boş/patlak kalmaz.
+ const imgOver=it.img?`<img src="${_esc(it.img)}" loading="lazy" alt="" class="cov-photo" onerror="this.remove()">`:'';
  const c=it.c||'global', col=CATCOLOR[c]||'#1F4E79';
  const tag=(it.tag||'').toString(), h=artHue(it.t||it.d||c);
  const ang=30+(h%80);                         // gradient açısı
@@ -2734,7 +2738,7 @@ function artThumb(x){
   +`<text x="26" y="196" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" fill="#ffffff" fill-opacity="0.92" letter-spacing="2">${_esc(tag.toLocaleUpperCase('tr'))}</text>`
   +`<circle cx="336" cy="229.5" r="3.2" fill="#ffffff" fill-opacity="0.9"/>`
   +`<text x="346" y="234" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#ffffff" fill-opacity="0.9" letter-spacing="0.4">netvo</text>`
-  +`</svg>`;
+  +`</svg>`+imgOver;
 }
 function slugify(s){return s.toLowerCase().replace(/[ışğüöçİ]/g,c=>({'ı':'i','ş':'s','ğ':'g','ü':'u','ö':'o','ç':'c','İ':'i'}[c]||c)).replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,60);}
 function openArticle(i,o){ o=o||{};
@@ -2760,7 +2764,7 @@ function openArticle(i,o){ o=o||{};
  const relHtml=related.length?`<div style="margin-top:34px;border-top:1px solid var(--line);padding-top:18px"><div style="font-weight:600;color:var(--navy);margin-bottom:10px">${CATIC[a.c]} ${CATMAP[a.c]} — diğer haberler</div>${related.map(o=>`<div class="art-row" onclick="openArticle(${o.j})"><div class="thumb">${artThumb(o.x)}</div><div><div class="cat">${o.x.tag}</div><h3>${o.x.t}</h3><div class="mt">${o.x.dt}</div></div></div>`).join('')}</div>`:'';
  document.getElementById('artBody').innerHTML=`
    <div class="crumb"><a onclick="go('magazine')">${(I18N[LANG]&&I18N[LANG].mag_title)||'Haberler'}</a> / <a onclick="go('magazine')">${CATMAP[a.c]}</a></div>
-   <div class="art-hero" style="aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin:10px 0 6px;position:relative">${artThumb(a)}${a.auto?`<img src="/haber/covers/${slug}.png" alt="${_esc(a.t)}" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()">`:''}</div>
+   <div class="art-hero" style="aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin:10px 0 6px;position:relative">${artThumb(a)}${(a.img||a.auto)?`<img src="${_esc(a.img||('/haber/covers/'+slug+'.png'))}" alt="${_esc(a.t)}" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3" onerror="this.remove()">`:''}</div>
    <div style="font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;margin-top:6px">${CATIC[a.c]} ${CATMAP[a.c]} · ${a.tag}</div>
    <h1 style="font-size:30px;font-weight:600;color:var(--navy);line-height:1.2;margin:8px 0 6px">${a.t}</h1>
    <div style="font-size:12.5px;color:var(--muted);margin-bottom:16px">${a.dt} · Netvo Intelligence</div>
@@ -2804,6 +2808,8 @@ function renderMagazine(){
       <p style="font-size:14px;opacity:.9;line-height:1.5">${lead.d||''}</p>
       <div style="font-size:12px;opacity:.8;margin-top:10px">${lead.dt}${lead.tag?" · "+lead.tag:""}</div>
     </div></div>`;
+  // Manşet görseli LCP → lazy değil eager yükle (anında görünsün)
+  if(ml){var _lp=ml.querySelector('.cov-photo'); if(_lp){_lp.loading='eager'; _lp.setAttribute('fetchpriority','high');}}
   // Manşet altı 3 haber
   const sec=LIST.filter(a=>a!==lead).slice(0,3);
   const ms=document.getElementById('magSecondary');
@@ -3235,6 +3241,7 @@ function pickAuto(item){
   // _slug: STABİL slug (TR, yoksa EN başlıktan) — statik /haber/ sayfalarıyla birebir eşleşir, dil değişse de sabit
   var _sb=(item.i18n&&((item.i18n.tr&&item.i18n.tr.t)||(item.i18n.en&&item.i18n.en.t)))||x.t;
   return {c:_okCatN(item.c),tag:_stripN(item.tag),dt:_stripN(item.dt),src:item.src,auto:true,pop:false,
+    img:(typeof item.img==='string'&&/^\/?[\w./-]+\.(jpg|jpeg|png|webp)$/i.test(item.img))?item.img:'', f:!!item.f,
     _slug:slugify(_sb),t:_stripN(x.t),d:_stripN(x.d),body:_stripN(x.body)};
 }
 function mergeAutoNews(){
