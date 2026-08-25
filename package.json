@@ -1,0 +1,9 @@
+{
+  "name": "netvo",
+  "private": true,
+  "description": "Netvo build — SEO sayfa üretimi + kapak görselleri",
+  "scripts": { "build": "node build.mjs" },
+  "optionalDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}
