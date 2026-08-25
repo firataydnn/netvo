@@ -1920,6 +1920,8 @@ function routeHash(){const h=location.hash||"";
  let m=h.match(/^#\/pazaryeri\/([a-z0-9]+)$/i); if(m&&MK[m[1]]){renderMkPage(m[1]);wireVerdict(m[1]);go('mkpage');return true;}
  m=h.match(/^#\/ulke\/([A-Z]{2})$/i); if(m&&CO[m[1].toUpperCase()]&&COINFO[m[1].toUpperCase()]){renderCoPage(m[1].toUpperCase());go('copage');return true;}
  m=h.match(/^#\/dergi\/(.+)$/); if(m){const s=decodeURIComponent(m[1]);const gi=NEWS.findIndex(n=>(n._slug||slugify(n.t))===s);if(gi>=0){openArticle(gi);return true;}}
+ // Hash boş/kök (ör. geri tuşuyla detaydan çıkıldı) → ana sayfaya dön (detay sayfasında takılma).
+ if(!h||h==='#'||h==='#/'){ if(typeof go==='function')go('home'); return true; }
  return false;}
 setTimeout(routeHash,0);
 window.addEventListener('hashchange',routeHash);
@@ -3051,6 +3053,11 @@ function go(p){
   const ann=document.getElementById('routeAnnouncer');
   if(ann)ann.textContent=t+' sayfası yüklendi';
   document.title=(t?t+' — ':'')+'Netvo';
+  // URL hijyeni: yalnız derin-linklenebilir DETAY sayfaları (pazaryeri/ülke/haber) hash tutar.
+  // Üst-düzey sayfaya geçilince (Ana Sayfa, Hesapla, Karşılaştır…) eski #/pazaryeri/... hash'ini
+  // TEMİZLE — yoksa Ana Sayfa'ya basıp yenileyince routeHash eski sayfayı tekrar açıyordu (takılma).
+  const _DETAIL={mkpage:1,copage:1,dergiArt:1};
+  if(!_DETAIL[p]){ try{ if(location.hash) history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
 }
 
 // ============ DİL (i18n) — landing/nav çekirdeği; derin çeviri veri-katmanıyla gelecek ============
