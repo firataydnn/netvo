@@ -45,7 +45,7 @@ if (fs.existsSync("icerik/haberler.json")) fs.copyFileSync("icerik/haberler.json
 // 5) Marka varlıkları → public/marka/
 if (fs.existsSync("marka")) {
   fs.mkdirSync(`${OUT}/marka`, { recursive: true });
-  for (const f of ["netvo-logo.svg", "netvo-mark.svg", "netvo-favicon.svg"]) {
+  for (const f of ["netvo-logo.svg", "netvo-mark.svg", "netvo-favicon.svg", "og-home.png"]) {
     if (fs.existsSync(`marka/${f}`)) fs.copyFileSync(`marka/${f}`, `${OUT}/marka/${f}`);
   }
 }
