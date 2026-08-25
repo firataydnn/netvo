@@ -89,6 +89,8 @@
   .sec-sub{color:var(--muted);margin-bottom:22px;font-size:15px}
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid3{grid-template-columns:1fr}}
   .tool{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px;display:flex;flex-direction:column;gap:6px;transition:.15s;cursor:pointer}
   .tool:hover{border-color:var(--blue);box-shadow:0 8px 22px rgba(31,58,95,.08);}
   .tool .ic{width:38px;height:38px;border-radius:10px;background:var(--blue-l);display:grid;place-items:center;font-size:14px;color:var(--navy);font-weight:600}
@@ -2367,7 +2369,11 @@ function calc(){
  const pctFee=(n,base,r,c)=>{const net=base*r;fees.push({n,c,net,gross:net*(1+vat)});};
  const grossFee=(n,val,c)=>{fees.push({n,c,net:vat>0?val/(1+vat):val,gross:val});};
  const comBase=m.base==="net"?Snet:S;
- pctFee((m.perOrder!==undefined?"Komisyon/FVF":"Komisyon")+" ("+(rate*100).toFixed(1)+"%)",comBase,rate,"var(--navy)");
+ // Komisyon: netFor() ile AYNI mantık — tek doğruluk kaynağı. comCap (tavan) ve comVatIncl (oran zaten KDV dahil) uygulanır.
+ { let comAmt=comBase*rate; if(m.comCap!==undefined) comAmt=Math.min(comAmt,m.comCap);
+   const comLabel=(m.perOrder!==undefined?"Komisyon/FVF":"Komisyon")+" ("+(rate*100).toFixed(1)+"%)";
+   if(m.comVatIncl) grossFee(comLabel,comAmt,"var(--navy)");
+   else fees.push({n:comLabel,c:"var(--navy)",net:comAmt,gross:comAmt*(1+vat)}); }
  (m.pct||[]).forEach((p,i)=>pctFee(p[0],S,p[1],["#3f7fbf","#7fb0e0"][i%2]));
  (m.fixed||[]).forEach(f=>grossFee(f[0],f[1],"#8fb4d6"));
  if(m.fba&&fbaG>0)grossFee("FBA / gönderim",fbaG,"#5f97cf");
@@ -3058,7 +3064,15 @@ function go(p){
   // TEMİZLE — yoksa Ana Sayfa'ya basıp yenileyince routeHash eski sayfayı tekrar açıyordu (takılma).
   const _DETAIL={mkpage:1,copage:1,dergiArt:1};
   if(!_DETAIL[p]){ try{ if(location.hash) history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
+  try{kbdUpgrade(el);}catch(e){}
 }
+// Klavye erişilebilirliği: href'siz onclick anchor'ları (nav, breadcrumb, footer, hero, learn) klavyeyle
+// çalışır kıl (tabindex+role+Enter). Kartlar zaten role/tabindex/onkeydown taşıyor; bu onları atlar.
+function kbdUpgrade(root){ try{ (root||document).querySelectorAll('a[onclick]:not([href]):not([data-kbd])').forEach(function(a){
+  a.setAttribute('data-kbd','1'); if(!a.hasAttribute('tabindex'))a.setAttribute('tabindex','0'); if(!a.getAttribute('role'))a.setAttribute('role','link');
+  a.style.cursor=a.style.cursor||'pointer';
+  a.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();a.click();} });
+}); }catch(e){} }
 
 // ============ DİL (i18n) — landing/nav çekirdeği; derin çeviri veri-katmanıyla gelecek ============
 const I18N={
@@ -3194,6 +3208,8 @@ function mergeAutoNews(){
 // SEO sayfaları desteklenmeyen diller için ?lang=en gönderir (Türkçe yerine İngilizce iniş).
 // Öncelik: kullanıcının seçtiği (kayıtlı) dil > ?lang paramı > tr. IP dili yoksa geoInit sonradan ayarlar.
 (function(){try{const saved=localStorage.getItem('netvo_lang');const q=new URLSearchParams(location.search).get('lang');const pick=(saved&&I18N[saved])?saved:((q&&I18N[q])?q:'tr');buildLangMenu();applyLang(pick);}catch(e){try{buildLangMenu();}catch(_){}applyLang('tr');}})();
+// Yükleme: nav/header/footer (sayfa-dışı) href'siz linkleri klavyeyle erişilebilir kıl.
+try{kbdUpgrade(document);}catch(e){}
 geoInit();
 function renderHomeCompare(){
   var host=document.getElementById('homeCompare'); if(!host||typeof netFor!=='function'||typeof MK==='undefined')return;
@@ -3219,7 +3235,9 @@ function renderHomeCompare(){
      +'</tr>';
   }).join('')+'</table>';
 }
-function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice(0,3);el.innerHTML=`<div class="news-grid">`+L.map((x)=>`<div class="news-card" onclick="openArticle(${NEWS.indexOf(x)})"><div class="cov" aria-hidden="true">${artThumb(x)}</div><div class="bd"><div class="cat">${CATMAP[x.c]||x.c}</div><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""}</div></div></div>`).join('')+`</div>`;}
+function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice(0,3);
+ // .news-grid sarmalı KALDIRILDI — kartlar doğrudan #magHomeTeaser (.grid3) 3 kolonuna otursun (masaüstü denge). Kart klavyeyle erişilebilir.
+ el.innerHTML=L.map((x)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${NEWS.indexOf(x)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(x)}))"><div class="cov" aria-hidden="true">${artThumb(x)}</div><div class="bd"><div class="cat">${CATMAP[x.c]||x.c}</div><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""}</div></div></div>`).join('');}
 renderHomeTeaser();
 
 // ============ HESAP (Supabase Auth) + BULUT SENKRON ============
