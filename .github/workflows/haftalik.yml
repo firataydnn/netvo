@@ -1,0 +1,36 @@
+# NETVO — HAFTALIK ÖZET (pillar) · her Cumartesi
+# O haftanın haberlerinden tek kapsayıcı "E-ticarette Bu Hafta" makalesi üretir,
+# haberler.json a ekler. Push → Netlify build → haftalık makalenin SEO sayfası + kapağı.
+# Gerekli secret: ANTHROPIC_API_KEY (yoksa şablon-özet ile yine üretir).
+
+name: Haftalık Özet
+on:
+  schedule:
+    - cron: "0 7 * * 6"      # her Cumartesi 07:00 UTC (~10:00 TR)
+  workflow_dispatch: {}        # elle de tetiklenebilir (hemen görmek için)
+
+permissions:
+  contents: write
+
+jobs:
+  haftalik:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Haftalık özet üret
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node icerik/haftalik_ozet.mjs
+      - name: Yayına kopyala (site kökü /data/)
+        run: |
+          mkdir -p seo/site/data
+          cp icerik/haberler.json seo/site/data/haberler.json 2>/dev/null || echo "değişiklik yok"
+      - name: Commit
+        run: |
+          git config user.name "netvo-bot"
+          git config user.email "bot@netvo"
+          git add icerik/haberler.json seo/site/data/haberler.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "içerik: haftalık özet makalesi"
+          git push || echo "değişiklik yok"
