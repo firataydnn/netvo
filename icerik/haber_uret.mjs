@@ -67,7 +67,7 @@ async function evaluate(raw){
 ADIM 1 — ALAKA: Bu, E-TİCARET / online perakende / pazaryeri / dijital ticaret dünyasını takip eden bir okurun ilgisini çeken GERÇEK bir haber mi? Şunlar "relevant=true": pazaryeri ve platform hamleleri (açılış/kapanış/özellik), komisyon/ücret/politika değişiklikleri, ödeme ve BNPL, lojistik/kargo/fulfillment, sınır ötesi ticaret ve gümrük/vergi (KDV/GST/tarife/de-minimis), sosyal ticaret ve canlı satış, D2C/DTC markaları, yapay zeka/otomasyonun ticarete etkisi, büyük oyuncuların (Amazon, Shopify, Temu, Trendyol vb.) stratejileri, sektör verileri/trendleri.
 Şunlar "relevant=false": tıbbi/ilaç/sanayi haberleri, e-ticaretle ilgisiz kurumsal finans/borsa, genel siyaset, magazin, e-ticaretle bağı olmayan perakende.
 
-ADIM 2 — Sadece relevant=true ise: İYİ bir haber metni yaz (düz, bilgilendirici gazetecilik; "satıcının marjı" gibi zorlama kalıplar KULLANMA) ve ALTI DİLE çevir (tr,en,de,fr,es,it). Her dil için: t (başlık, <=90 karakter, net), d (tek cümle spot/özet), body (3-4 cümle: ne oldu, kim/nerede, neden önemli). Kaynak linkini body'ye KOYMA.
+ADIM 2 — Sadece relevant=true ise: İYİ bir haber metni yaz (düz, bilgilendirici gazetecilik; "satıcının marjı" gibi zorlama kalıplar KULLANMA) ve ALTI DİLE çevir (tr,en,de,fr,es,it). Her dil için: t (başlık, <=90 karakter, net), d (tek cümle spot/özet), body (2-3 PARAGRAF, ~170-240 kelime, dolu ve anlamlı — asla tek paragraf/2 cümle bırakma. Paragrafları \n\n ile ayır. P1: NE OLDU — kim, nerede, ne zaman, rakamlar/detaylar. P2: BAĞLAM — neden şimdi oldu, sektörde neye oturuyor, benzer gelişmelerle ilişkisi. P3: E-TİCARET SATICISI/İŞLETME İÇİN NE ANLAMA GELİYOR + kısa ileriye bakış. Uydurma rakam ekleme; kaynakta olmayan spesifik veri icat etme, olguları bilmiyorsan genel-analitik yaz). Kaynak linkini body'ye KOYMA.
 
 TELİF KURALLARI (ZORUNLU): (1) Başlığı KENDİ cümlenle yeniden yaz — kaynağın başlığını birebir kopyalama. (2) Metni tamamen KENDİ sözlerinle yaz; kaynaktan cümle, cümle parçası veya paragraf ALINTILAMA/KOPYALAMA. (3) Yalnızca OLGULARI aktar (kim, ne, nerede, ne zaman, rakamlar) — olgular telife tabi değildir, ifade biçimi tabidir. (4) Kaynağın görsellerini/fotoğraflarını KULLANMA; site kendi kapak görselini üretir. (5) Emin değilsen daha kısa ve genel yaz.
 
@@ -80,7 +80,7 @@ HABER BAŞLIK: ${raw.title}
 ÖZET: ${raw.desc}`;
   const r = await fetch("https://api.anthropic.com/v1/messages",{method:"POST",
     headers:{"content-type":"application/json","x-api-key":API_KEY,"anthropic-version":"2023-06-01"},
-    body:JSON.stringify({model:MODEL,max_tokens:1800,system:sys,messages:[{role:"user",content:usr}]})});
+    body:JSON.stringify({model:MODEL,max_tokens:4000,system:sys,messages:[{role:"user",content:usr}]})});
   if(!r.ok) throw new Error("api "+r.status+" "+(await r.text()).slice(0,200));
   const j=await r.json();
   const txt=(j.content&&j.content[0]&&j.content[0].text)||"";

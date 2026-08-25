@@ -160,8 +160,16 @@
   .mag-ticker .lbl{background:var(--red);color:#fff;font-weight:600;padding:3px 9px;border-radius:6px;font-size:11px;white-space:nowrap;letter-spacing:.3px}
   .mag-ticker .tk{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
   .mag-ticker .tk:hover{color:var(--blue)}
-  .mag-hero{display:grid;grid-template-columns:1.9fr 1fr;gap:16px;margin-bottom:26px}
-  .mag-lead{position:relative;border-radius:16px;overflow:hidden;color:#fff;min-height:310px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background:#09090B;cursor:pointer}
+  .mag-hero{display:grid;grid-template-columns:1.9fr 1fr;gap:20px;margin-bottom:26px}
+  .mag-secondary .sec-mini{display:grid;grid-template-columns:104px 1fr;gap:13px;align-items:start;text-decoration:none;color:inherit;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line);cursor:pointer}
+  .mag-secondary .sec-mini:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+  .mag-secondary .sec-mini:hover h3{color:var(--blue)}
+  .sm-th{width:104px;height:74px;border-radius:9px;overflow:hidden;background:var(--bg-hover)}
+  .sm-th svg{width:100%;height:100%;display:block}
+  .sm-bd .cat{font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
+  .sm-bd h3{font-size:15px;font-weight:600;line-height:1.25;margin:3px 0 4px;color:var(--navy)}
+  .sm-bd .mt{font-size:11.5px;color:var(--muted)}
+  .mag-lead{position:relative;border-radius:16px;overflow:hidden;color:#fff;min-height:340px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background:#09090B;cursor:pointer}
   .mag-lead::before{content:"";position:absolute;inset:0;background:none}
   .mag-lead>*{position:relative}
   .mag-lead .cat{font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#8fc0f0}
@@ -2779,6 +2787,11 @@ function renderMagazine(){
     <div class="cov" aria-hidden="true">${artThumb(a)}</div>
     <div class="bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${a.t}</h3><p>${a.d||''}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
   </div>`;
+  // Manşet-altı kompakt kart (küçük thumb + başlık) — sağ kolon lead yüksekliğine yakın kalsın
+  const F2=(a,i)=>`<a class="sec-mini" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${a.t}">
+    <div class="sm-th" aria-hidden="true">${artThumb(a)}</div>
+    <div class="sm-bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${a.t}</h3><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
+  </a>`;
   // Manşet
   let li=LIST.findIndex(a=>a.f); if(li<0)li=0;
   const lead=LIST[li]; const leadIdx=NEWS.indexOf(lead);
@@ -2794,7 +2807,7 @@ function renderMagazine(){
   // Manşet altı 3 haber
   const sec=LIST.filter(a=>a!==lead).slice(0,3);
   const ms=document.getElementById('magSecondary');
-  if(ms)ms.innerHTML=`<div class="news-grid">`+sec.map(a=>F(a,NEWS.indexOf(a))).join("")+`</div>`;
+  if(ms)ms.innerHTML=sec.map(a=>F2(a,NEWS.indexOf(a))).join("");
   // Akış
   const rest=LIST.filter(a=>a!==lead&&sec.indexOf(a)<0);
   const mm=document.getElementById('magMain');

@@ -1,0 +1,35 @@
+# NETVO — mevcut kısa haberleri 2-3 paragrafa uzatır (tek seferlik / tekrar güvenli)
+# Elle tetiklenir (Actions → "Haberleri Uzat" → Run workflow). Olguya sadık uzatma;
+# uydurma yok. Uzatılanı expanded:true işaretler → ikinci çalışmada atlar.
+#
+# Gerekli secret: ANTHROPIC_API_KEY
+
+name: Haberleri Uzat
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  genislet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Mevcut haberleri uzat
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node icerik/genislet.mjs
+      - name: Yayına kopyala (site kökü /data/)
+        run: |
+          mkdir -p seo/site/data
+          cp icerik/haberler.json seo/site/data/haberler.json 2>/dev/null || echo "kopyalanmadı"
+      - name: Commit
+        run: |
+          git config user.name "netvo-bot"
+          git config user.email "bot@netvo"
+          git add icerik/haberler.json seo/site/data/haberler.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "içerik: mevcut haberler 2-3 paragrafa uzatıldı"
+          git push || echo "değişiklik yok"
