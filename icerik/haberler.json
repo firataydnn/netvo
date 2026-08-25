@@ -1,6 +1,318 @@
 [
  {
   "c": "lojistik",
+  "dt": "24 Ağu 2026",
+  "tag": "ABD",
+  "src": "https://www.retaildive.com/news/walmart-expands-30-minutes-or-less-delivery/828570/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Walmart hızlı teslimat hizmetini genişletiyor",
+    "d": "Perakende devi Walmart, 30 dakika içinde ürün teslimi yapan hizmetini artırıyor; müşteriler ek ücrete rağmen hızlı seçenekleri tercih ediyor.",
+    "body": "Walmart, hızlı teslimat seçeneklerinin sunumunu genişletmeye devam ediyor. Şirket yöneticilerine göre, müşteriler hızlı kargo için ek ücret ödemeye istekli; bu da tüketiciler arasında teslimat hızının gittikçe daha önemli bir satın alma kriteri haline geldiğini gösteriyor. Azalan teslimat süreleri e-ticaret platformlarında rekabet unsuru olmaya devam ediyor ve büyük oyuncuların bu alanda yatırım artırması sektörde yeni bir standart belirlemeye başlıyor.\n\nKaynak: https://www.retaildive.com/news/walmart-expands-30-minutes-or-less-delivery/828570/"
+   },
+   "en": {
+    "t": "Walmart expands rapid delivery amid growing customer demand",
+    "d": "Walmart is scaling its quick-delivery footprint; customers are increasingly willing to pay premiums for faster fulfillment options.",
+    "body": "Walmart is expanding its quick-delivery service offerings to more markets and locations. The retailer's executives report strong customer adoption of express delivery options, with shoppers accepting additional fees for faster service. The trend underscores how delivery speed has become a key competitive differentiator in e-commerce, pushing major retailers to prioritize same-day and ultra-fast delivery capabilities.\n\nSource: https://www.retaildive.com/news/walmart-expands-30-minutes-or-less-delivery/828570/"
+   },
+   "de": {
+    "t": "Walmart baut Schnelllieferdienste aus",
+    "d": "Walmart erweitert seine Express-Lieferdienste; Kunden akzeptieren zusätzliche Gebühren für schnellere Zustellung.",
+    "body": "Walmart skaliert seine Schnelllieferservices landesweit. Unternehmensführer berichten von hoher Kundenakzeptanz für Express-Optionen, trotz Zusatzgebühren. Die Entwicklung zeigt, dass Liefergeschwindigkeit zunehmend ein entscheidender Wettbewerbsfaktor im E-Commerce wird und große Einzelhandelsketten in Same-Day- und Ultra-Fast-Delivery-Kapazitäten investieren.\n\nQuelle: https://www.retaildive.com/news/walmart-expands-30-minutes-or-less-delivery/828570/"
+   },
+   "fr": {
+    "t": "Walmart développe ses services de livraison ultra-rapide",
+    "d": "Walmart élargit son offre de livraison express ; les clients acceptent volontiers des frais supplémentaires pour une livraison plus rapide.",
+    "body": "Walmart amplifie son réseau de services de livraison rapide. Les dirigeants de l'entreprise signalent une forte adoption client des options express, même avec des tarifs majorés. Cette tendance confirme que la vitesse de livraison est devenue un facteur de différenciation majeur dans l'e-commerce, poussant les grands détaillants à investir dans des capacités de livraison le jour même et ultra-rapide.\n\nSource: https://www.retaildive.com/news/walmart-expands-30-minutes-or-less-delivery/828570/"
+   },
+   "es": {
+    "t": "Walmart expande entregas ultra-rápidas ante creciente demanda",
+    "d": "Walmart amplía sus servicios de entrega express; los clientes aceptan pagar más por entregas más veloces.",
+    "body": "Walmart está escalando su oferta de entregas rápidas en más mercados. Los ejecutivos del retailer reportan alta adopción de opciones de envío express entre clientes, quienes pagan cuotas adicionales voluntariamente. La tendencia subraya que la velocidad de entrega se ha convertido en un factor clave de competencia en e-commerce, impulsando a grandes minoristas a invertir en capacidades de entrega same-day y ultra-rápida.\n\nFuente: https://www.retaildive.com/news/walmart-expands-30-minutes-or-less-delivery/828570/"
+   },
+   "it": {
+    "t": "Walmart espande i servizi di consegna velocissima",
+    "d": "Walmart allarga la sua offerta di consegna espressa; i clienti accettano volentieri tariffe aggiuntive per velocità maggiore.",
+    "body": "Walmart sta espandendo i suoi servizi di consegna rapida in nuovi mercati. I dirigenti aziendali riferiscono di forte adozione da parte dei clienti delle opzioni express, anche con tariffe supplementari. La tendenza evidenzia come la velocità di consegna sia diventata un fattore competitivo determinante nell'e-commerce, spingendo i grandi retailer a investire in capacità di consegna same-day e ultra-veloce.\n\nFonte: https://www.retaildive.com/news/walmart-expands-30-minutes-or-less-delivery/828570/"
+   }
+  }
+ },
+ {
+  "c": "global",
+  "dt": "2 Ara 2025",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2025/12/02/chatgpt-referrals-to-retailers-apps-increased-28-year-over-year-says-report/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "ChatGPT aracılığıyla perakendeci uygulamalarına erişim yüzde 28 arttı",
+    "d": "Yapay zeka aracılığıyla e-ticaret uygulamalarına yönlendirilen kullanıcı trafiği önemli ölçüde artarken, Walmart ve Amazon en büyük kazananlar oldu.",
+    "body": "ChatGPT'den perakendeci uygulamalarına yapılan referanslar geçen yılın aynı dönemine kıyasla yüzde 28 oranında arttı. Kara Cuma döneminde bu artış daha belirgin hale geldi ve başta Walmart ile Amazon olmak üzere büyük pazaryerleri en fazla fayda gördü. Bu eğilim, tüketicilerin alışveriş kararlarında yapay zeka araçlarına giderek daha fazla güvendiğini ve e-ticaret oyuncularının AI entegrasyonunun ne kadar kritik olduğunu ortaya koyuyor.\n\nKaynak: https://techcrunch.com/2025/12/02/chatgpt-referrals-to-retailers-apps-increased-28-year-over-year-says-report/"
+   },
+   "en": {
+    "t": "ChatGPT referrals to retail apps surge 28% year-over-year",
+    "d": "User traffic driven by AI to e-commerce apps rose significantly, with Walmart and Amazon capturing the largest share of gains.",
+    "body": "Referrals from ChatGPT to retailer apps increased 28 percent compared to the same period last year, with particularly strong growth during the Black Friday period. Walmart and Amazon emerged as the biggest beneficiaries of this AI-driven traffic shift. The trend underscores how consumers increasingly rely on artificial intelligence tools for shopping decisions and highlights the strategic importance of AI integration for major e-commerce players.\n\nSource: https://techcrunch.com/2025/12/02/chatgpt-referrals-to-retailers-apps-increased-28-year-over-year-says-report/"
+   },
+   "de": {
+    "t": "ChatGPT-Verweise auf Einzelhandels-Apps steigen um 28 Prozent",
+    "d": "Der durch KI generierte Nutzerverkehr zu E-Commerce-Apps ist gestiegen, Walmart und Amazon profitieren am meisten.",
+    "body": "Verweise von ChatGPT auf Einzelhandelsanwendungen stiegen um 28 Prozent gegenüber dem Vorjahreszeitraum, besonders stark während des Black Friday. Walmart und Amazon waren die Hauptnutznießer dieser KI-gesteuerten Verkehrsverlagerung. Der Trend zeigt, dass Verbraucher zunehmend auf künstliche Intelligenz bei Kaufentscheidungen verlassen und unterstreicht die strategische Bedeutung von KI-Integration für große E-Commerce-Akteure.\n\nQuelle: https://techcrunch.com/2025/12/02/chatgpt-referrals-to-retailers-apps-increased-28-year-over-year-says-report/"
+   },
+   "fr": {
+    "t": "Les références ChatGPT vers les apps de détail augmentent de 28 %",
+    "d": "Le trafic utilisateur généré par l'IA vers les applications de commerce électronique a augmenté, Walmart et Amazon en étant les principaux bénéficiaires.",
+    "body": "Les références de ChatGPT vers les applications de détaillants ont augmenté de 28 pour cent par rapport à la même période l'année précédente, particulièrement pendant le Black Friday. Walmart et Amazon ont été les principaux bénéficiaires de ce changement de trafic piloté par l'IA. Cette tendance montre que les consommateurs dépendent de plus en plus des outils d'intelligence artificielle pour leurs décisions d'achat et souligne l'importance stratégique de l'intégration de l'IA pour les grands acteurs du commerce électronique.\n\nSource: https://techcrunch.com/2025/12/02/chatgpt-referrals-to-retailers-apps-increased-28-year-over-year-says-report/"
+   },
+   "es": {
+    "t": "Las referencias de ChatGPT a apps minoristas aumentan 28 % anual",
+    "d": "El tráfico de usuarios dirigido por IA hacia aplicaciones de comercio electrónico subió significativamente, siendo Walmart y Amazon los mayores ganadores.",
+    "body": "Las referencias de ChatGPT a aplicaciones minoristas aumentaron 28 por ciento en comparación con el mismo período del año anterior, con un crecimiento particularmente fuerte durante Black Friday. Walmart y Amazon emergieron como los principales beneficiarios de este cambio de tráfico impulsado por IA. La tendencia subraya cómo los consumidores cada vez más confían en herramientas de inteligencia artificial para sus decisiones de compra y destaca la importancia estratégica de la integración de IA para los grandes actores del comercio electrónico.\n\nFuente: https://techcrunch.com/2025/12/02/chatgpt-referrals-to-retailers-apps-increased-28-year-over-year-says-report/"
+   },
+   "it": {
+    "t": "I referimenti ChatGPT alle app di vendita al dettaglio aumentano del 28 %",
+    "d": "Il traffico utente generato dall'IA verso le app di e-commerce è cresciuto significativamente, con Walmart e Amazon come principali beneficiari.",
+    "body": "I referimenti da ChatGPT alle app dei rivenditori sono aumentati del 28 percento rispetto allo stesso periodo dello scorso anno, con una crescita particolarmente forte durante il Black Friday. Walmart e Amazon sono stati i principali beneficiari di questo cambio di traffico guidato dall'IA. La tendenza dimostra come i consumatori si affidano sempre più ai sistemi di intelligenza artificiale nelle decisioni di acquisto e sottolinea l'importanza strategica dell'integrazione dell'IA per i principali attori dell'e-commerce.\n\nFonte: https://techcrunch.com/2025/12/02/chatgpt-referrals-to-retailers-apps-increased-28-year-over-year-says-report/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "4 Kas 2025",
+  "tag": "Global",
+  "src": "https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Shopify'de AI trafiği 7 katına çıktı, AI siparişleri 11 katına",
+    "d": "Shopify, AI destekli alışveriş aracılarının Ocak ayından bu yana trafikte 7 kat, siparişlerde 11 kat büyüme gösterdiğini açıkladı.",
+    "body": "E-ticaret platformu Shopify, üçüncü çeyrek finansal sonuçlarında yapay zekanın şirket kullanıcılarının işletme genişletmesi için \"inanılmaz bir araç\" olduğunu vurgulayarak, AI-destekli alışveriş aracılarına yönelik güçlü bir tutum sergiledi. Şirket, söz konusu aracıların kullanıldığı seçkin mağazalarda trafiğin Ocak ayından bu yana yedi kat artış gösterdiğini ve satın alma işlemlerinin ise on bir kat arttığını belirtti. Shopify yönetimi, yapay zekanın internetten bu yana yaşanan en büyük teknoloji değişimi olduğunu ifade ederek, bu teknolojiye olan inancını açıkça ortaya koymaktadır.\n\nKaynak: https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/"
+   },
+   "en": {
+    "t": "Shopify reports 7x surge in AI traffic, 11x growth in AI orders",
+    "d": "Shopify revealed significant gains in AI-powered shopping agents, with traffic up sevenfold and orders up elevenfold since January.",
+    "body": "During its third-quarter earnings call, Shopify expressed strong confidence in AI-driven commerce agents, positioning artificial intelligence as a critical enabler for merchant growth. The platform disclosed that stores leveraging AI shopping agents have experienced a seven-fold increase in traffic and an eleven-fold surge in orders since January. Shopify's leadership framed AI as the most transformative technology shift since the internet's emergence, underscoring the company's strategic bet on intelligent commerce automation.\n\nSource: https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/"
+   },
+   "de": {
+    "t": "Shopify meldet 7x Anstieg des KI-Verkehrs, 11x Wachstum bei KI-Bestellungen",
+    "d": "Shopify gab erhebliche Zuwächse bei KI-gesteuerten Shopping-Agenten bekannt, mit siebenfach höherem Verkehr und elffachem Bestellwachstum seit Januar.",
+    "body": "In seiner Telefonkonferenz zum dritten Quartal äußerte Shopify großes Vertrauen in KI-gesteuerte Commerce-Agenten und positionierte künstliche Intelligenz als entscheidenden Enabler für Händlerwachstum. Die Plattform gab bekannt, dass Shops, die KI-Shopping-Agenten nutzen, seit Januar einen siebenmaligen Anstieg des Verkehrs und einen elfmaligen Anstieg der Bestellungen erlebt haben. Shopifys Führung beschrieb KI als den transformativsten technologischen Wandel seit dem Aufkommen des Internets und unterstreicht damit das strategische Engagement des Unternehmens für intelligente Handelsautomation.\n\nQuelle: https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/"
+   },
+   "fr": {
+    "t": "Shopify signale une hausse de 7x du trafic IA et une croissance de 11x des commandes IA",
+    "d": "Shopify a révélé des gains significatifs pour ses agents commerciaux alimentés par l'IA, avec un trafic en hausse de sept fois et des commandes en hausse de onze fois depuis janvier.",
+    "body": "Lors de son appel aux résultats du troisième trimestre, Shopify a exprimé une forte confiance dans les agents commerciaux alimentés par l'IA, en positionnant l'intelligence artificielle comme un élément essentiel de la croissance des marchands. La plateforme a divulgué que les magasins tirant parti des agents d'achat pilotés par l'IA ont connu une augmentation septuple du trafic et une augmentation onze fois plus importante des commandes depuis janvier. La direction de Shopify a décrit l'IA comme le changement technologique le plus transformateur depuis l'émergence d'Internet, soulignant l'engagement stratégique de l'entreprise envers l'automatisation du commerce intelligent.\n\nSource: https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/"
+   },
+   "es": {
+    "t": "Shopify reporta aumento de 7x en tráfico de IA y crecimiento 11x en pedidos de IA",
+    "d": "Shopify reveló ganancias significativas en agentes de compra impulsados por IA, con tráfico siete veces mayor y crecimiento de once veces en pedidos desde enero.",
+    "body": "Durante su conferencia de resultados del tercer trimestre, Shopify expresó gran confianza en agentes comerciales impulsados por IA, posicionando la inteligencia artificial como un factor esencial para el crecimiento comercial. La plataforma informó que las tiendas que aprovechan agentes de compra impulsados por IA han experimentado un aumento siete veces en tráfico y un aumento once veces en pedidos desde enero. El liderazgo de Shopify caracterizó la IA como el cambio tecnológico más transformador desde la aparición de Internet, subrayando el compromiso estratégico de la empresa con la automatización del comercio inteligente.\n\nFuente: https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/"
+   },
+   "it": {
+    "t": "Shopify riporta aumento di 7x nel traffico IA e crescita di 11x negli ordini IA",
+    "d": "Shopify ha rivelato guadagni significativi negli agenti di shopping alimentati da IA, con traffico aumentato sette volte e ordini aumentati undici volte da gennaio.",
+    "body": "Durante la conferenza sui risultati del terzo trimestre, Shopify ha espresso grande fiducia negli agenti commerciali alimentati da IA, posizionando l'intelligenza artificiale come un elemento critico per la crescita dei commercianti. La piattaforma ha divulgato che i negozi che sfruttano agenti di shopping alimentati da IA hanno sperimentato un aumento sette volte nel traffico e un aumento undici volte negli ordini da gennaio. La leadership di Shopify ha descritto l'IA come il cambiamento tecnologico più trasformativo dall'emergere di Internet, sottolineando l'impegno strategico dell'azienda verso l'automazione commerciale intelligente.\n\nFonte: https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
+  "dt": "22 Eki 2025",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2025/10/22/amazon-unveils-ai-smart-glasses-for-its-delivery-drivers/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon teslimat görevlilerine AI gözlük dağıtıyor",
+    "d": "Amazon, teslimat verimliliğini artırmak için yapay zekaya entegre akıllı gözlük teknolojisini sunucuya almaya başladı.",
+    "body": "Amazon, teslimat görevlilerinin kullanması için yapay zeka destekli akıllı gözlük geliştirdi. Gözlükler, görevlilere rota bilgisi ve tehlike uyarılarını doğrudan görüş alanlarına yansıtarak her teslimatın süresini kısaltmayı hedefliyor. Sistem, son mile lojistiğinde operasyonel maliyetleri düşürüp teslimat hızını artırmanın yanı sıra çalışan güvenliğini de iyileştirmeyi amaçlıyor. Bu hamle, büyük e-ticaret platformlarının teslimat ağlarında teknolojik yatırım trendi içerisinde önemli bir adım.\n\nKaynak: https://techcrunch.com/2025/10/22/amazon-unveils-ai-smart-glasses-for-its-delivery-drivers/"
+   },
+   "en": {
+    "t": "Amazon rolls out AI-powered smart glasses for delivery workforce",
+    "d": "Amazon is deploying artificial intelligence-integrated smart glasses to delivery drivers to streamline route navigation and hazard awareness.",
+    "body": "Amazon has launched AI-enabled smart glasses designed for its delivery personnel. The glasses project turn-by-turn navigation and hazard warnings directly into the driver's visual field, aiming to reduce delivery time per stop. Beyond improving delivery speed and reducing operational costs, the technology is intended to enhance worker safety during last-mile operations. This deployment represents a significant technology investment in the delivery logistics segment by a major e-commerce operator.\n\nSource: https://techcrunch.com/2025/10/22/amazon-unveils-ai-smart-glasses-for-its-delivery-drivers/"
+   },
+   "de": {
+    "t": "Amazon führt KI-Brille für Zustellfahrer ein",
+    "d": "Amazon setzt künstliche Intelligenz-gestützte Datenbrillen bei Zustellfahrern ein, um Routennavigation und Gefahrenerkennung zu optimieren.",
+    "body": "Amazon hat eine KI-enabled Smart-Brille für sein Zustellpersonal entwickelt. Die Brille projiziert Navigationsanweisungen und Gefahrenwarnungen direkt ins Sichtfeld des Fahrers und soll dadurch die Zustellzeit pro Halt senken. Über schnellere Zustellung und niedrigere Betriebskosten hinaus zielt die Technologie auch auf verbesserte Arbeitssicherheit in der letzten Meile ab. Diese Maßnahme markiert eine bedeutende Technologieinvestition im Logistikbereich durch einen großen E-Commerce-Anbieter.\n\nQuelle: https://techcrunch.com/2025/10/22/amazon-unveils-ai-smart-glasses-for-its-delivery-drivers/"
+   },
+   "fr": {
+    "t": "Amazon déploie des lunettes intelligentes alimentées par l'IA pour les livreurs",
+    "d": "Amazon déploie des lunettes de réalité assistée basées sur l'IA auprès de ses chauffeurs-livreurs pour optimiser la navigation et la détection des dangers.",
+    "body": "Amazon a lancé des lunettes intelligentes dotées d'IA destinées à son personnel de livraison. Les lunettes projettent les instructions de route et les avertissements de danger directement dans le champ visuel du livreur, visant à réduire le temps de livraison par arrêt. Au-delà de l'accélération des livraisons et de la réduction des coûts opérationnels, la technologie vise à améliorer la sécurité des travailleurs dans le segment du dernier kilomètre. Ce déploiement représente un investissement technologique majeur dans la logistique par un acteur majeur du e-commerce.\n\nSource: https://techcrunch.com/2025/10/22/amazon-unveils-ai-smart-glasses-for-its-delivery-drivers/"
+   },
+   "es": {
+    "t": "Amazon despliega gafas inteligentes con IA para repartidores",
+    "d": "Amazon despliega gafas inteligentes impulsadas por IA entre sus repartidores para optimizar la navegación de rutas y la detección de peligros.",
+    "body": "Amazon ha lanzado gafas inteligentes habilitadas con IA diseñadas para su personal de entrega. Las gafas proyectan instrucciones de navegación y advertencias de peligro directamente en el campo visual del repartidor, con el objetivo de reducir el tiempo de entrega por parada. Más allá de acelerar las entregas y reducir costos operacionales, la tecnología apunta a mejorar la seguridad de los trabajadores en la logística de última milla. Este despliegue representa una inversión tecnológica significativa en logística por parte de un operador principal del comercio electrónico.\n\nFuente: https://techcrunch.com/2025/10/22/amazon-unveils-ai-smart-glasses-for-its-delivery-drivers/"
+   },
+   "it": {
+    "t": "Amazon introduce occhiali intelligenti con IA per i fattorini",
+    "d": "Amazon distribuisce occhiali intelligenti alimentati da IA ai suoi corrieri per ottimizzare la navigazione dei percorsi e l'identificazione dei pericoli.",
+    "body": "Amazon ha lanciato occhiali intelligenti abilitati all'IA progettati per il suo personale di consegna. Gli occhiali proiettano istruzioni di navigazione e avvertenze di pericolo direttamente nel campo visivo del fattorino, mirando a ridurre il tempo di consegna per fermata. Oltre ad accelerare le consegne e ridurre i costi operativi, la tecnologia mira a migliorare la sicurezza dei lavoratori nella logistica dell'ultimo miglio. Questo dispiegamento rappresenta un investimento tecnologico significativo nella logistica da parte di un grande operatore di e-commerce.\n\nFonte: https://techcrunch.com/2025/10/22/amazon-unveils-ai-smart-glasses-for-its-delivery-drivers/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "14 Eki 2025",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2025/10/14/youll-soon-be-able-to-shop-walmart-from-chatgpt/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Walmart ChatGPT'den alışveriş yapılmasına açılıyor",
+    "d": "Walmart ile OpenAI ortaklığı, kullanıcıların ChatGPT içinde doğrudan Walmart ürünlerini satın almasını mümkün kılıyor.",
+    "body": "Walmart, OpenAI ile ortaklık yaparak ChatGPT'nin alışveriş platformuna dönüştürüyor. Kullanıcılar sohbet arayüzü üzerinden Walmart hesaplarını bağlayabilecek, ürünleri listeleyebilecek ve ödemeyi tamamlayabilecekler. Bu hamle, yapay zeka tabanlı conversational commerce'in e-ticaret şirketleri tarafından müşteri deneyimini genişletmek için kullanılmasının bir örneğidir.\n\nKaynak: https://techcrunch.com/2025/10/14/youll-soon-be-able-to-shop-walmart-from-chatgpt/"
+   },
+   "en": {
+    "t": "Walmart launches shopping integration in ChatGPT",
+    "d": "A Walmart-OpenAI partnership enables customers to browse and purchase products directly within ChatGPT's interface.",
+    "body": "Walmart has partnered with OpenAI to turn ChatGPT into a shopping destination. Customers can connect their Walmart accounts through the chatbot, explore products, and complete purchases without leaving the conversation interface. The move reflects how major retailers are embedding commerce directly into AI platforms to streamline the buying experience.\n\nSource: https://techcrunch.com/2025/10/14/youll-soon-be-able-to-shop-walmart-from-chatgpt/"
+   },
+   "de": {
+    "t": "Walmart ermöglicht Shopping in ChatGPT",
+    "d": "Eine Partnerschaft zwischen Walmart und OpenAI erlaubt Kunden, Produkte direkt in ChatGPT zu kaufen.",
+    "body": "Walmart kooperiert mit OpenAI, um ChatGPT als Einkaufsplattform zu nutzen. Nutzer können ihre Walmart-Konten verbinden, Produkte durchsuchen und Käufe direkt im Chat abschließen. Diese Initiative zeigt, wie große Einzelhandelsketten künstliche Intelligenz nutzen, um Einkäufe nahtlos in neue Kanäle zu integrieren.\n\nQuelle: https://techcrunch.com/2025/10/14/youll-soon-be-able-to-shop-walmart-from-chatgpt/"
+   },
+   "fr": {
+    "t": "Walmart proposera bientôt des achats via ChatGPT",
+    "d": "Un partenariat Walmart-OpenAI permet aux clients d'accéder et acheter des produits directement dans ChatGPT.",
+    "body": "Walmart s'associe à OpenAI pour transformer ChatGPT en plateforme marchande. Les utilisateurs pourront connecter leurs comptes Walmart, consulter des articles et finaliser leurs achats sans quitter la conversation. Cette initiative démontre comment les grands détaillants intègrent le commerce directement dans les interfaces d'IA pour simplifier l'expérience d'achat.\n\nSource: https://techcrunch.com/2025/10/14/youll-soon-be-able-to-shop-walmart-from-chatgpt/"
+   },
+   "es": {
+    "t": "Walmart habilita compras directas desde ChatGPT",
+    "d": "Una alianza entre Walmart y OpenAI permite a los clientes comprar productos directamente en ChatGPT.",
+    "body": "Walmart se asocia con OpenAI para convertir ChatGPT en una plataforma de compras. Los usuarios podrán conectar sus cuentas de Walmart, explorar productos y completar transacciones sin salir del chat. Este movimiento ilustra cómo los grandes minoristas utilizan inteligencia artificial para integrar el comercio electrónico en nuevos canales digitales.\n\nFuente: https://techcrunch.com/2025/10/14/youll-soon-be-able-to-shop-walmart-from-chatgpt/"
+   },
+   "it": {
+    "t": "Walmart abilita gli acquisti direttamente su ChatGPT",
+    "d": "Una partnership tra Walmart e OpenAI consente ai clienti di acquistare prodotti direttamente tramite ChatGPT.",
+    "body": "Walmart collabora con OpenAI per trasformare ChatGPT in una piattaforma di shopping. Gli utenti potranno collegare i loro account Walmart, esplorare i prodotti e completare gli acquisti senza lasciare l'interfaccia della chat. Questa iniziativa evidenzia come i grandi retailer stanno integrando il commercio elettronico direttamente negli strumenti AI per semplificare l'esperienza d'acquisto.\n\nFonte: https://techcrunch.com/2025/10/14/youll-soon-be-able-to-shop-walmart-from-chatgpt/"
+   }
+  }
+ },
+ {
+  "c": "global",
+  "dt": "6 Eki 2025",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2025/10/06/adobe-predicts-ai-assisted-online-shopping-to-grow-520-during-the-2025-u-s-holiday-season/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Adobe: Yapay zeka destekli alışveriş 2025 tatil sezonunda 5 kat artacak",
+    "d": "Adobe'nin anketi, ABD'de yapay zekanın alışveriş araştırmasında giderek daha önemli rol oynadığını gösteriyor.",
+    "body": "Adobe, 2025 yılsonu alışveriş sezonunda yapay zeka yardımıyla yapılan ürün araştırmalarının %520 artacağını öngörüyor. Şirketin 5 bin ABD tüketiciyle yaptığı araştırmaya göre, katılımcıların yüzde 53'ü satın alma kararı öncesinde yapay zeka araçlarından yararlanabileceğini söylüyor. Bu eğilim, e-ticaretin müşteri yolculuğunda yapay zekanın entegrasyonunun hızlanmakta olduğunu gösteriyor ve perakende platformlarının bu teknolojiye uyum sağlama gerekliliğini ortaya koymakta.\n\nKaynak: https://techcrunch.com/2025/10/06/adobe-predicts-ai-assisted-online-shopping-to-grow-520-during-the-2025-u-s-holiday-season/"
+   },
+   "en": {
+    "t": "Adobe forecasts AI-driven shopping research to surge 520% in 2025 US holiday season",
+    "d": "Adobe's survey reveals that artificial intelligence is playing an increasingly significant role in product research during the US shopping season.",
+    "body": "Adobe projects that artificial intelligence-assisted product research will grow 520% during the 2025 year-end shopping season in the United States. According to the company's survey of 5,000 US consumers, 53% of respondents indicated they may use AI tools to support their purchase decisions. This trend underscores the accelerating integration of AI into the customer journey in e-commerce and highlights the necessity for retail platforms to adapt to these technological shifts.\n\nSource: https://techcrunch.com/2025/10/06/adobe-predicts-ai-assisted-online-shopping-to-grow-520-during-the-2025-u-s-holiday-season/"
+   },
+   "de": {
+    "t": "Adobe prognostiziert 520% Wachstum bei KI-gestütztem Online-Shopping in der US-Ferienzeit 2025",
+    "d": "Eine Adobe-Umfrage zeigt, dass künstliche Intelligenz bei der Produktrecherche während der US-Einkaufssaison zunehmend an Bedeutung gewinnt.",
+    "body": "Adobe geht davon aus, dass KI-unterstützte Produktrecherchen während der Weihnachtssaison 2025 in den USA um 520% zunehmen werden. Laut einer Umfrage des Unternehmens unter 5.000 US-Verbrauchern geben 53% der Befragten an, dass sie KI-Tools zur Unterstützung ihrer Kaufentscheidungen nutzen könnten. Dieser Trend zeigt die fortschreitende Integration von KI in die Customer Journey im E-Commerce und verdeutlicht die Notwendigkeit für Einzelhandelsplattformen, sich diesen technologischen Veränderungen anzupassen.\n\nQuelle: https://techcrunch.com/2025/10/06/adobe-predicts-ai-assisted-online-shopping-to-grow-520-during-the-2025-u-s-holiday-season/"
+   },
+   "fr": {
+    "t": "Adobe prédit une croissance de 520% du shopping en ligne assisté par l'IA durant la saison des fêtes 2025 aux États-Unis",
+    "d": "Une enquête d'Adobe révèle que l'intelligence artificielle joue un rôle croissant dans la recherche de produits pendant la saison commerciale américaine.",
+    "body": "Adobe prévoit que la recherche de produits assistée par l'IA augmentera de 520% durant la saison des fêtes 2025 aux États-Unis. Selon une enquête de l'entreprise auprès de 5 000 consommateurs américains, 53% des répondants indiquent qu'ils pourraient utiliser des outils d'IA pour soutenir leurs décisions d'achat. Cette tendance souligne l'intégration accélérée de l'IA dans le parcours client du commerce électronique et met en évidence la nécessité pour les plateformes de vente au détail de s'adapter à ces changements technologiques.\n\nSource: https://techcrunch.com/2025/10/06/adobe-predicts-ai-assisted-online-shopping-to-grow-520-during-the-2025-u-s-holiday-season/"
+   },
+   "es": {
+    "t": "Adobe predice un crecimiento del 520% en compras en línea asistidas por IA en la temporada navideña 2025 de EE.UU.",
+    "d": "Una encuesta de Adobe revela que la inteligencia artificial está ganando importancia creciente en la investigación de productos durante la temporada comercial estadounidense.",
+    "body": "Adobe proyecta que la investigación de productos asistida por IA crecerá 520% durante la temporada navideña de 2025 en Estados Unidos. Según una encuesta de la empresa entre 5.000 consumidores estadounidenses, el 53% de los encuestados indica que podría utilizar herramientas de IA para apoyar sus decisiones de compra. Esta tendencia subraya la integración acelerada de la IA en el viaje del cliente en el comercio electrónico y destaca la necesidad de que las plataformas minoristas se adapten a estos cambios tecnológicos.\n\nFuente: https://techcrunch.com/2025/10/06/adobe-predicts-ai-assisted-online-shopping-to-grow-520-during-the-2025-u-s-holiday-season/"
+   },
+   "it": {
+    "t": "Adobe prevede una crescita del 520% degli acquisti online assistiti dall'IA nella stagione natalizia 2025 negli USA",
+    "d": "Un sondaggio di Adobe rivela che l'intelligenza artificiale sta acquisendo un ruolo sempre più importante nella ricerca di prodotti durante la stagione commerciale statunitense.",
+    "body": "Adobe prevede che la ricerca di prodotti assistita dall'IA crescerà del 520% durante la stagione natalizia del 2025 negli Stati Uniti. Secondo un'indagine dell'azienda condotta su 5.000 consumatori americani, il 53% degli intervistati afferma che potrebbe utilizzare strumenti di IA per supportare le proprie decisioni di acquisto. Questo trend sottolinea l'integrazione accelerata dell'IA nel customer journey dell'e-commerce e mette in evidenza la necessità per le piattaforme di retail di adattarsi a questi cambiamenti tecnologici.\n\nFonte: https://techcrunch.com/2025/10/06/adobe-predicts-ai-assisted-online-shopping-to-grow-520-during-the-2025-u-s-holiday-season/"
+   }
+  }
+ },
+ {
+  "c": "pazar",
+  "dt": "1 Eki 2025",
+  "tag": "ABD",
+  "src": "https://techcrunch.com/2025/10/01/amazon-launches-a-grocery-brand-with-most-products-under-5/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Amazon kendi gıda markasını başlattı",
+    "d": "Amazon Fresh markasıyla sunduğu ürünlerin çoğu 5 doların altında fiyatlandırılacak ve hem çevrimiçi hem de fiziksel mağazalarda satılacak.",
+    "body": "Amazon, kendi gıda markası altında yeni bir ürün hattı piyasaya sürüyor. Amazon Fresh adıyla sunulacak ürünlerin büyük çoğunluğu 5 doların altında bir fiyat noktasında konumlanıyor. Bu ürünler hem Amazon'un çevrimiçi platformu hem de Amazon Fresh adıyla işlettiği fiziksel perakende mağazalarında müşterilere ulaşacak. Hamle, geleneksel gıda perakendecilerine karşı Amazon'un rekabet stratejisini güçlendirecek ve düşük fiyat odaklı tüketicilere hitap etmeyi amaçlıyor.\n\nKaynak: https://techcrunch.com/2025/10/01/amazon-launches-a-grocery-brand-with-most-products-under-5/"
+   },
+   "en": {
+    "t": "Amazon launches its own grocery brand",
+    "d": "Most products under Amazon Fresh brand will be priced below $5 and sold both online and in Amazon Fresh stores.",
+    "body": "Amazon is introducing a new grocery brand offering competitively priced products to consumers. The majority of items in the Amazon Fresh lineup will be positioned under the $5 price point, targeting value-conscious shoppers. These products will be distributed through both Amazon's e-commerce platform and its physical Amazon Fresh retail locations. The move strengthens Amazon's position against traditional grocery retailers by leveraging its omnichannel presence.\n\nSource: https://techcrunch.com/2025/10/01/amazon-launches-a-grocery-brand-with-most-products-under-5/"
+   },
+   "de": {
+    "t": "Amazon startet eigene Lebensmittelmarke",
+    "d": "Die meisten Produkte der Marke Amazon Fresh werden unter 5 Dollar bepreist und sowohl online als auch in Amazon Fresh-Läden verkauft.",
+    "body": "Amazon bringt eine neue Lebensmittelmarke auf den Markt, um preisbewusste Verbraucher anzusprechen. Der Großteil der Amazon Fresh Produktlinie wird mit Preisen unter 5 Dollar positioniert. Diese Produkte werden über Amazons E-Commerce-Plattform und seine physischen Amazon Fresh-Einzelhandelsstandorte vertrieben. Der Schritt verstärkt Amazons Position gegen traditionelle Lebensmittelhändler durch die Nutzung seiner Omnichannel-Präsenz.\n\nQuelle: https://techcrunch.com/2025/10/01/amazon-launches-a-grocery-brand-with-most-products-under-5/"
+   },
+   "fr": {
+    "t": "Amazon lance sa propre marque d'épicerie",
+    "d": "La plupart des produits de la marque Amazon Fresh seront tarifés sous 5 dollars et vendus en ligne et dans les magasins Amazon Fresh.",
+    "body": "Amazon introduit une nouvelle marque d'épicerie pour cibler les consommateurs soucieux de leur budget. La majorité des articles de la gamme Amazon Fresh seront positionnés à moins de 5 dollars. Ces produits seront distribués via la plateforme e-commerce d'Amazon et ses emplacements de vente au détail Amazon Fresh physiques. Cette initiative renforce la position d'Amazon face aux épiceries traditionnelles en exploitant sa présence omnicanale.\n\nSource: https://techcrunch.com/2025/10/01/amazon-launches-a-grocery-brand-with-most-products-under-5/"
+   },
+   "es": {
+    "t": "Amazon lanza su propia marca de productos de abarrotes",
+    "d": "La mayoría de los productos de la marca Amazon Fresh tendrán un precio inferior a 5 dólares y se venderán tanto en línea como en tiendas Amazon Fresh.",
+    "body": "Amazon introduce una nueva marca de abarrotes dirigida a consumidores conscientes del precio. La mayoría de los artículos de la línea Amazon Fresh se posicionarán por debajo de 5 dólares. Estos productos se distribuirán a través de la plataforma de comercio electrónico de Amazon y sus ubicaciones minoristas físicas de Amazon Fresh. La estrategia fortalece la posición de Amazon frente a los minoristas tradicionales de alimentos aprovechando su presencia omnicanal.\n\nFuente: https://techcrunch.com/2025/10/01/amazon-launches-a-grocery-brand-with-most-products-under-5/"
+   },
+   "it": {
+    "t": "Amazon lancia il suo marchio di generi alimentari",
+    "d": "La maggior parte dei prodotti del marchio Amazon Fresh avrà un prezzo inferiore a 5 dollari e sarà venduta sia online che nei negozi Amazon Fresh.",
+    "body": "Amazon introduce un nuovo marchio di generi alimentari rivolto ai consumatori attenti al prezzo. La maggior parte degli articoli della linea Amazon Fresh sarà posizionata al di sotto dei 5 dollari. Questi prodotti saranno distribuiti tramite la piattaforma di e-commerce di Amazon e le sue ubicazioni di vendita al dettaglio fisiche di Amazon Fresh. La mossa rafforza la posizione di Amazon rispetto ai rivenditori alimentari tradizionali sfruttando la sua presenza omnichanale.\n\nFonte: https://techcrunch.com/2025/10/01/amazon-launches-a-grocery-brand-with-most-products-under-5/"
+   }
+  }
+ },
+ {
+  "c": "global",
+  "dt": "19 Ağu 2026",
+  "tag": "Global",
+  "src": "https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/",
+  "auto": true,
+  "i18n": {
+   "tr": {
+    "t": "Adobe: Yapay zeka trafiği daha yüksek satışa ve dönüşüme yol açıyor",
+    "d": "Adobe Analytics verilerine göre yapay zeka tarafından yönlendirilen alışveriş trafiği, diğer kaynaklardan gelen ziyaretçilere kıyasla %53 daha yüksek gelir üretiyor.",
+    "body": "Adobe Analytics'in yeni analiz verilerine göre, yapay zeka aracılığıyla e-ticaret sitelerine gelen alışveriş trafiği, geleneksel yöntemlerle gelen ziyaretçilere göre daha yüksek satış hacmi ve dönüşüm oranı sağlıyor. Araştırmada, yapay zeka tarafından yönlendirilen müşteriler ziyaret başına %53 daha fazla gelir üretiyor bulgusu elde edildi. Bu sonuç, yapay zekanın e-ticaret perakendesinde müşteri kazanımı ve para harcama davranışlarını önemli ölçüde etkilediğini gösteriyor. Bulgu, online satıcıların AI tabanlı çözümlere yatırım yapma motivasyonunu arttırıyor.\n\nKaynak: https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/"
+   },
+   "en": {
+    "t": "Adobe: AI-driven traffic shows higher spending and conversion rates",
+    "d": "Adobe Analytics reveals that shoppers directed to e-commerce sites through AI generate 53% more revenue per visit than other traffic sources.",
+    "body": "New data from Adobe Analytics demonstrates that artificial intelligence-driven traffic to online retail sites achieves higher conversion rates and spending volumes compared to traditional referral sources. The analysis found that customers acquired through AI referrals generate 53% more revenue per visit than shoppers arriving through other channels. This finding underscores AI's growing impact on e-commerce customer acquisition and purchase behavior. The results suggest that online retailers should prioritize AI-based traffic solutions to maximize revenue per visitor.\n\nSource: https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/"
+   },
+   "de": {
+    "t": "Adobe: KI-gesteuerte Ladenbesuche führen zu höheren Ausgaben",
+    "d": "Adobe Analytics zeigt: Kunden, die durch künstliche Intelligenz auf Online-Shops geleitet werden, geben 53% mehr pro Besuch aus als andere Besucher.",
+    "body": "Nach Angaben von Adobe Analytics generiert KI-gesteuerter Verkehr zu Online-Einzelhandelsseiten höhere Konversionsraten und Ausgabenvolumina als traditionelle Verkehrquellen. Die Analyse belegt, dass über KI-Empfehlungen akquirierte Kunden 53% mehr Umsatz pro Besuch erzielen als Besucher aus anderen Kanälen. Dies unterstreicht die wachsende Bedeutung von künstlicher Intelligenz bei der Kundengewinnung im E-Commerce und bei Kaufverhalten. Die Erkenntnisse deuten darauf hin, dass Online-Händler vermehrt in KI-gestützte Verkehrslösungen investieren sollten.\n\nQuelle: https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/"
+   },
+   "fr": {
+    "t": "Adobe : le trafic généré par l'IA affiche des dépenses et conversions supérieures",
+    "d": "Selon Adobe Analytics, les clients dirigés vers les boutiques en ligne via l'IA génèrent 53% plus de revenus par visite que les autres visiteurs.",
+    "body": "Les données d'Adobe Analytics montrent que le trafic dirigé par l'intelligence artificielle vers les sites de vente en ligne génère des taux de conversion et des volumes de dépenses plus élevés que les sources de trafic traditionnelles. L'analyse révèle que les clients acquis via des recommandations basées sur l'IA dépensent 53% plus par visite que ceux provenant d'autres canaux. Ces résultats soulignent l'impact croissant de l'IA sur l'acquisition de clients en e-commerce et le comportement d'achat. Les conclusions suggèrent que les commerçants en ligne devraient augmenter leurs investissements dans les solutions de trafic assistées par l'IA.\n\nSource: https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/"
+   },
+   "es": {
+    "t": "Adobe: el tráfico impulsado por IA genera mayores gastos y tasas de conversión",
+    "d": "Adobe Analytics revela que los clientes dirigidos a tiendas en línea a través de IA gastan 53% más por visita que otros visitantes.",
+    "body": "Según datos de Adobe Analytics, el tráfico dirigido por inteligencia artificial a sitios de venta en línea logra tasas de conversión y volúmenes de gasto más altos en comparación con fuentes de tráfico tradicionales. El análisis muestra que los clientes adquiridos a través de recomendaciones basadas en IA generan 53% más ingresos por visita que los visitantes procedentes de otros canales. Este hallazgo subraya el creciente impacto de la inteligencia artificial en la adquisición de clientes en el comercio electrónico y el comportamiento de compra. Los resultados sugieren que los minoristas en línea deberían priorizar inversiones en soluciones de tráfico asistidas por IA.\n\nFuente: https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/"
+   },
+   "it": {
+    "t": "Adobe: il traffico alimentato dall'IA genera spese e conversioni più elevate",
+    "d": "Secondo Adobe Analytics, i clienti indirizzati ai negozi online tramite IA generano il 53% di entrate in più per visita rispetto ad altri visitatori.",
+    "body": "I dati di Adobe Analytics dimostrano che il traffico indirizzato dall'intelligenza artificiale ai siti di vendita al dettaglio online genera tassi di conversione e volumi di spesa più elevati rispetto alle fonti di traffico tradizionali. L'analisi rivela che i clienti acquisiti attraverso raccomandazioni basate su IA generano il 53% di ricavi in più per visita rispetto ai visitatori provenienti da altri canali. Questi risultati sottolineano il crescente impatto dell'intelligenza artificiale sull'acquisizione di clienti nel commercio elettronico e sul comportamento d'acquisto. Le conclusioni suggeriscono che i rivenditori online dovrebbero aumentare gli investimenti in soluzioni di traffico assistite dall'IA.\n\nFonte: https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/"
+   }
+  }
+ },
+ {
+  "c": "lojistik",
   "dt": "21 Ağu 2026",
   "tag": "ABD",
   "src": "https://www.retaildive.com/news/home-depot-express-delivery-3-hours-or-less/828362/",
