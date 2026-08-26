@@ -88,10 +88,16 @@ async function send(to, subject, html){
   return r.json();
 }
 
+const _MON={Oca:0,"Şub":1,Mar:2,Nis:3,May:4,Haz:5,Tem:6,"Ağu":7,Eyl:8,Eki:9,Kas:10,Ara:11};
+function _mon(x){if(x==null)return null;var v=_MON[x];if(v==null)v=_MON[x.slice(0,3)];return v==null?null:v;}
+function tsOf(dt){var s=String(dt||"").trim();var m=/(\d{1,2})\s+(\S+)\s+(\d{4})/.exec(s);if(m){var mo=_mon(m[2]);if(mo!=null)return new Date(+m[3],mo,+m[1]).getTime();}var m2=/(\S+)\s+(\d{4})/.exec(s);if(m2){var mo2=_mon(m2[1]);if(mo2!=null)return new Date(+m2[2],mo2,1).getTime();}return 0;}
+
 async function main(){
   let list=[]; try{ list=JSON.parse(fs.readFileSync(OUT,"utf8")); }catch(e){}
-  const items = list.map(pickTR).filter(Boolean).slice(0, N);
+  // En yeni tarihli 5 haber (dosya sırasına değil, TARİHE göre)
+  const items = list.slice().sort((a,b)=>tsOf(b.dt)-tsOf(a.dt)).map(pickTR).filter(Boolean).slice(0, N);
   if(!items.length){ console.log("Gönderilecek haber yok."); return; }
+  if(!process.env.MAIL_FROM && API_KEY){ console.log("UYARI: MAIL_FROM tanımsız → Resend test göndericisi (onboarding@resend.dev) kullanılıyor; yalnız Resend hesabının kendi e-postasına ulaşır. Alan adını doğrulayıp MAIL_FROM ekle."); }
 
   const dateStr = new Date().toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"});
   const subject = `Netvo · Günün e-ticaret haberleri (${items.length}) — ${dateStr}`;
