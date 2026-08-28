@@ -36,6 +36,10 @@ async function testHiggsfield(){
   }catch(e){ return "FAIL "+(e&&e.message||e); }
 }
 
+const rPix = await testPixabay();
+const rHig = await testHiggsfield();
 console.log("== NETVO görsel sağlayıcı testi ==");
-console.log("PIXABAY    :", await testPixabay());
-console.log("HIGGSFIELD :", await testHiggsfield());
+console.log("PIXABAY    :", rPix);
+console.log("HIGGSFIELD :", rHig);
+// Sonucu commit edilecek dosyaya yaz (logu tarayıcıdan okumak zor)
+fs.writeFileSync(OUT+"_test_result.txt", `PIXABAY: ${rPix}\nHIGGSFIELD: ${rHig}\nnode: ${process.version}\n`);
