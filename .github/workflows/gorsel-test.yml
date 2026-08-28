@@ -25,6 +25,6 @@ jobs:
         run: |
           git config user.name "netvo-bot"
           git config user.email "bot@netvo"
-          git add marka/haber-gorsel/_test_pixabay.jpg marka/haber-gorsel/_test_higgsfield.jpg marka/haber-gorsel/_test_result.txt 2>/dev/null || true
+          git add GORSEL_TEST_SONUC.txt marka/haber-gorsel/_test_result.txt marka/haber-gorsel/_test_pixabay.jpg marka/haber-gorsel/_test_higgsfield.jpg 2>/dev/null || true
           git diff --cached --quiet || git commit -m "test: gorsel saglayici ciktilari"
           git push || echo "degisiklik yok"

@@ -1,7 +1,7 @@
 // NETVO — GÖRSEL SAĞLAYICI TESTİ (Pixabay + Higgsfield) — CI'da gerçek anahtarlarla
 // Yeni haber beklemeden iki sağlayıcıyı da dener, örnek görselleri marka/haber-gorsel/_test_*.jpg yazar.
 import fs from "fs";
-const OUT = new URL("./", import.meta.url).pathname + "../marka/haber-gorsel/";
+const OUT = process.cwd() + "/marka/haber-gorsel/";   // Action'da cwd = repo kökü (güvenilir)
 fs.mkdirSync(OUT, { recursive: true });
 
 const QUERY  = "parcel delivery courier ecommerce";
@@ -41,5 +41,7 @@ const rHig = await testHiggsfield();
 console.log("== NETVO görsel sağlayıcı testi ==");
 console.log("PIXABAY    :", rPix);
 console.log("HIGGSFIELD :", rHig);
-// Sonucu commit edilecek dosyaya yaz (logu tarayıcıdan okumak zor)
-fs.writeFileSync(OUT+"_test_result.txt", `PIXABAY: ${rPix}\nHIGGSFIELD: ${rHig}\nnode: ${process.version}\n`);
+// Sonucu commit edilecek dosyaya yaz (logu tarayıcıdan okumak zor) — hem marka/ hem repo köküne
+const RES = `PIXABAY: ${rPix}\nHIGGSFIELD: ${rHig}\nnode: ${process.version}\ncwd: ${process.cwd()}\n`;
+fs.writeFileSync(OUT+"_test_result.txt", RES);
+fs.writeFileSync(process.cwd()+"/GORSEL_TEST_SONUC.txt", RES);
