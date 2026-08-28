@@ -37,10 +37,12 @@ function imgQuery(enTitle, cat){
   const CATQ={pazar:"online shopping ecommerce",reg:"customs trade shipping documents",global:"ecommerce retail technology",reklam:"digital marketing analytics screen",lojistik:"parcel delivery courier warehouse"};
   return (q.trim().length>6) ? (q.trim()+" ecommerce") : (CATQ[cat]||"online shopping ecommerce");
 }
-async function pixabayImg(enTitle, cat, slug){
+const BRANDS_RE=/\b(amazon|walmart|shopify|tiktok|temu|shein|ebay|etsy|alibaba|aliexpress|adobe|apple|google|microsoft|meta|youtube|home ?depot|michaels|yankee|quince|stord|wing|rufus|sam'?s club|trendyol|hepsiburada|shopee|lazada|allegro|coupang|noon|flipkart|zalando|vinted|wildberries|ozon|nvidia|paypal|stripe|klarna)\b/gi;
+async function pixabayImg(q, slug){
   if(!PIXABAY) return null;
   try{
-    const q=imgQuery(enTitle,cat);
+    q=String(q||"").replace(BRANDS_RE," ").replace(/\s+/g," ").trim();  // marka adı temizle (yoksa alakasız doğa gelir)
+    if(q.length<4) q="online shopping ecommerce";
     const u=`https://pixabay.com/api/?key=${PIXABAY}&q=${encodeURIComponent(q)}&image_type=photo&orientation=horizontal&safesearch=true&order=popular&per_page=3`;
     const r=await fetch(u); if(!r.ok) return null;
     const j=await r.json(); const p=(j.hits||[])[0]; if(!p) return null;
@@ -99,8 +101,10 @@ ADIM 2 — Sadece relevant=true ise: İYİ bir haber metni yaz (düz, bilgilendi
 
 TELİF KURALLARI (ZORUNLU): (1) Başlığı KENDİ cümlenle yeniden yaz — kaynağın başlığını birebir kopyalama. (2) Metni tamamen KENDİ sözlerinle yaz; kaynaktan cümle, cümle parçası veya paragraf ALINTILAMA/KOPYALAMA. (3) Yalnızca OLGULARI aktar (kim, ne, nerede, ne zaman, rakamlar) — olgular telife tabi değildir, ifade biçimi tabidir. (4) Kaynağın görsellerini/fotoğraflarını KULLANMA; site kendi kapak görselini üretir. (5) Emin değilsen daha kısa ve genel yaz.
 
+GÖRSEL ARAMA TERİMİ (imgq) — ÇOK ÖNEMLİ: Bu habere kapak fotoğrafı bulmak için stok foto sitesinde aratılacak, İngilizce 2-4 kelimelik SOMUT bir sahne/nesne yaz. KURALLAR: (a) MARKA ADI YASAK (Amazon, Walmart, Shopify, TikTok, Temu, YouTube vb. YAZMA — yoksa alakasız doğa/marka fotosu gelir). (b) Somut, fotoğraflanabilir bir sahne olsun: "delivery drone package", "fulfillment warehouse robots", "contactless payment terminal", "online shopping smartphone", "cargo courier parcels", "customs shipping containers", "influencer live shopping". (c) Soyut kavram/şirket adı DEĞİL, gözle görülür nesne/eylem.
+
 SADECE şu JSON'u döndür (başka metin yok):
-{"relevant":true|false,"reason":"...","category":"pazar|reg|global|reklam|lojistik","region":"Türkiye|ABD|AB|Global|SEA|Çin S.Ötesi|Rusya|Körfez|LatAm|Hindistan|...","i18n":{"tr":{"t":"","d":"","body":""},"en":{...},"de":{...},"fr":{...},"es":{...},"it":{...}}}
+{"relevant":true|false,"reason":"...","category":"pazar|reg|global|reklam|lojistik","region":"Türkiye|ABD|AB|Global|SEA|Çin S.Ötesi|Rusya|Körfez|LatAm|Hindistan|...","imgq":"english concrete photo search term, no brand","i18n":{"tr":{"t":"","d":"","body":""},"en":{...},"de":{...},"fr":{...},"es":{...},"it":{...}}}
 
 Kategori kılavuzu: pazar=pazaryeri/platform, reg=regülasyon/vergi/gümrük, global=sınır ötesi/genel, reklam=pazarlama/reklam, lojistik=kargo/depo/teslimat.
 
@@ -155,7 +159,8 @@ async function main(){
       const cat=["pazar","reg","global","reklam","lojistik"].includes(obj.category)?obj.category:"global";
       // Konuyla-alakalı gerçek foto (Unsplash) — yoksa marka kapağı devrede
       const slug=slugify((obj.i18n.tr&&obj.i18n.tr.t)||i18n.en.t);
-      const im=await pixabayImg(i18n.en.t||i18n.tr.t, cat, slug);
+      const q=(obj.imgq&&String(obj.imgq).trim().length>3)?String(obj.imgq).trim():imgQuery(i18n.en.t||i18n.tr.t,cat);
+      const im=await pixabayImg(q, slug);
       written.push({ c:cat, dt:fmtDate(raw.date), tag:obj.region||"Global", src, auto:true, i18n,
         ...(im?{img:im.img, imgCredit:im.imgCredit}:{}) });
       console.log("YAYINA UYGUN:", i18n.tr.t, im?"(fotolu)":"(marka kapak)");
