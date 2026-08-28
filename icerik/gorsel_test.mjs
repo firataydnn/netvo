@@ -23,16 +23,12 @@ async function testHiggsfield(){
   const cred = process.env.HIGGSFIELD_API_KEY || ""; if(!cred) return "SKIP (anahtar yok)";
   const [id, secret] = cred.split(":");
   if(!id || !secret) return "FAIL cred KEY_ID:KEY_SECRET degil";
-  // v1 client + /v1/text2image/soul (en iyi belgelenen text-to-image endpoint)
+  // v1 client + /v1/text2image/soul — helpers export'u bozuk, ham değerler dene
   try{
     const mod = await import('@higgsfield/client');
-    const helpers = await import('@higgsfield/client/helpers');
     const client = new mod.HiggsfieldClient({ apiKey:id, apiSecret:secret });
     const js = await client.generate('/v1/text2image/soul', {
-      prompt: PROMPT,
-      width_and_height: (helpers.SoulSize && (helpers.SoulSize.SQUARE_1536x1536 || helpers.SoulSize.SQUARE)) || "1536x1536",
-      quality: (helpers.SoulQuality && (helpers.SoulQuality.HD || helpers.SoulQuality.STANDARD)) || "1080p",
-      batch_size: (helpers.BatchSize && (helpers.BatchSize.SINGLE || 1)) || 1
+      prompt: PROMPT, width_and_height: "1536x1536", quality: "1080p", batch_size: 1
     }, { withPolling:true });
     if(!js.isCompleted) return "FAIL durum: "+(js.isFailed?'failed':js.isNsfw?'nsfw':'timeout');
     const url = js.jobs?.[0]?.results?.raw?.url; if(!url) return "FAIL sonuç url yok";
