@@ -23,9 +23,11 @@ const KEEP = 150;
 const LANGS = ["tr","en","de","fr","es","it"];
 const API_KEY = process.env.ANTHROPIC_API_KEY || "";
 const MODEL = "claude-haiku-4-5-20251001";
-// Konuyla-alakalı GERÇEK foto (otomatik) — Unsplash. Anahtar yoksa img boş → marka kapağı devrede.
-// Ücretsiz anahtar: unsplash.com/developers → GitHub secret: UNSPLASH_ACCESS_KEY
-const UNSPLASH = process.env.UNSPLASH_ACCESS_KEY || "";
+// Konuyla-alakalı GERÇEK foto (otomatik) — Pixabay. Anahtar yoksa img boş → marka kapağı devrede.
+// Pixabay lisansı otomatik indir+barındır+ticari kullanıma izin verir, atıf gerektirmez (Unsplash'in
+// aksine — Unsplash "non-automated" + hotlink şartı koştuğu için uygun değildi).
+// Ücretsiz anahtar: pixabay.com/api/docs/ (giriş yapınca sayfada görünür) → GitHub secret: PIXABAY_API_KEY
+const PIXABAY = process.env.PIXABAY_API_KEY || "";
 const ROOT = KOK + "../";
 const IMGDIR = ROOT + "marka/haber-gorsel/";
 function slugify(s){return String(s||"").toLowerCase().replace(/[ışğüöçİ]/g,c=>({"ı":"i","ş":"s","ğ":"g","ü":"u","ö":"o","ç":"c","İ":"i"}[c]||c)).replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"").slice(0,60);}
@@ -35,19 +37,18 @@ function imgQuery(enTitle, cat){
   const CATQ={pazar:"online shopping ecommerce",reg:"customs trade shipping documents",global:"ecommerce retail technology",reklam:"digital marketing analytics screen",lojistik:"parcel delivery courier warehouse"};
   return (q.trim().length>6) ? (q.trim()+" ecommerce") : (CATQ[cat]||"online shopping ecommerce");
 }
-async function unsplashImg(enTitle, cat, slug){
-  if(!UNSPLASH) return null;
+async function pixabayImg(enTitle, cat, slug){
+  if(!PIXABAY) return null;
   try{
     const q=imgQuery(enTitle,cat);
-    const u=`https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&content_filter=high&per_page=1`;
-    const r=await fetch(u,{headers:{Authorization:`Client-ID ${UNSPLASH}`}});
-    if(!r.ok) return null;
-    const j=await r.json(); const p=(j.results||[])[0]; if(!p||!p.urls) return null;
-    try{ if(p.links&&p.links.download_location) await fetch(p.links.download_location,{headers:{Authorization:`Client-ID ${UNSPLASH}`}}); }catch(e){}
-    const ir=await fetch(`${p.urls.raw}&w=1600&q=80&fm=jpg&fit=max`); if(!ir.ok) return null;
+    const u=`https://pixabay.com/api/?key=${PIXABAY}&q=${encodeURIComponent(q)}&image_type=photo&orientation=horizontal&safesearch=true&order=popular&per_page=3`;
+    const r=await fetch(u); if(!r.ok) return null;
+    const j=await r.json(); const p=(j.hits||[])[0]; if(!p) return null;
+    const url=p.largeImageURL||p.webformatURL; if(!url) return null;
+    const ir=await fetch(url); if(!ir.ok) return null;
     fs.mkdirSync(IMGDIR,{recursive:true});
     fs.writeFileSync(IMGDIR+slug+".jpg", Buffer.from(await ir.arrayBuffer()));
-    return { img:`/marka/haber-gorsel/${slug}.jpg`, imgCredit:(p.user&&p.user.name?`${p.user.name} / Unsplash`:"Unsplash") };
+    return { img:`/marka/haber-gorsel/${slug}.jpg`, imgCredit:(p.user?`${p.user} / Pixabay`:"Pixabay") };
   }catch(e){ return null; }
 }
 
@@ -154,7 +155,7 @@ async function main(){
       const cat=["pazar","reg","global","reklam","lojistik"].includes(obj.category)?obj.category:"global";
       // Konuyla-alakalı gerçek foto (Unsplash) — yoksa marka kapağı devrede
       const slug=slugify((obj.i18n.tr&&obj.i18n.tr.t)||i18n.en.t);
-      const im=await unsplashImg(i18n.en.t||i18n.tr.t, cat, slug);
+      const im=await pixabayImg(i18n.en.t||i18n.tr.t, cat, slug);
       written.push({ c:cat, dt:fmtDate(raw.date), tag:obj.region||"Global", src, auto:true, i18n,
         ...(im?{img:im.img, imgCredit:im.imgCredit}:{}) });
       console.log("YAYINA UYGUN:", i18n.tr.t, im?"(fotolu)":"(marka kapak)");

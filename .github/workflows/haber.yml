@@ -25,7 +25,7 @@ jobs:
       - name: Haberleri üret
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: node icerik/haber_uret.mjs
       - name: Günlük bülteni gönder (Resend)
         env:
