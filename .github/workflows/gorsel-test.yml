@@ -20,12 +20,12 @@ jobs:
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           HIGGSFIELD_API_KEY: ${{ secrets.HIGGSFIELD_API_KEY }}
-        run: node icerik/gorsel_test.mjs > GORSEL_TEST_SONUC.txt 2>&1 || true
-      - name: Sonucu commit et
         run: |
-          echo "--- exit/log yakalandı ---" >> GORSEL_TEST_SONUC.txt
-          git config user.name "netvo-bot"
-          git config user.email "bot@netvo"
-          git add GORSEL_TEST_SONUC.txt marka/haber-gorsel/_test_pixabay.jpg marka/haber-gorsel/_test_higgsfield.jpg 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "test: gorsel saglayici ciktilari"
-          git push || echo "degisiklik yok"
+          set +e
+          node icerik/gorsel_test.mjs > out.txt 2>&1
+          echo "exit_code=$?" >> out.txt
+          echo '## Görsel sağlayıcı testi' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat out.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          exit 0
