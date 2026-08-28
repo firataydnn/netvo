@@ -21,19 +21,25 @@ async function testPixabay(){
 
 async function testHiggsfield(){
   const cred = process.env.HIGGSFIELD_API_KEY || ""; if(!cred) return "SKIP (anahtar yok)";
+  const [id, secret] = cred.split(":");
+  if(!id || !secret) return "FAIL cred KEY_ID:KEY_SECRET degil";
+  // v1 client + /v1/text2image/soul (en iyi belgelenen text-to-image endpoint)
   try{
-    const mod = await import('@higgsfield/client/v2');
-    const higgsfield = mod.higgsfield, config = mod.config;
-    config({ credentials: cred });   // beklenen biçim: KEY_ID:KEY_SECRET
-    const js = await higgsfield.subscribe('flux-pro/kontext/max/text-to-image', {
-      input: { aspect_ratio:'16:9', prompt:PROMPT, safety_tolerance:2 }, withPolling:true
-    });
+    const mod = await import('@higgsfield/client');
+    const helpers = await import('@higgsfield/client/helpers');
+    const client = new mod.HiggsfieldClient({ apiKey:id, apiSecret:secret });
+    const js = await client.generate('/v1/text2image/soul', {
+      prompt: PROMPT,
+      width_and_height: (helpers.SoulSize && (helpers.SoulSize.SQUARE_1536x1536 || helpers.SoulSize.SQUARE)) || "1536x1536",
+      quality: (helpers.SoulQuality && (helpers.SoulQuality.HD || helpers.SoulQuality.STANDARD)) || "1080p",
+      batch_size: (helpers.BatchSize && (helpers.BatchSize.SINGLE || 1)) || 1
+    }, { withPolling:true });
     if(!js.isCompleted) return "FAIL durum: "+(js.isFailed?'failed':js.isNsfw?'nsfw':'timeout');
     const url = js.jobs?.[0]?.results?.raw?.url; if(!url) return "FAIL sonuç url yok";
     const ir = await fetch(url); if(!ir.ok) return "FAIL indirme "+ir.status;
     const buf = Buffer.from(await ir.arrayBuffer()); fs.writeFileSync(OUT+"_test_higgsfield.jpg", buf);
-    return `PASS (${Math.round(buf.length/1024)}KB)`;
-  }catch(e){ return "FAIL "+(e&&e.message||e); }
+    return `PASS soul (${Math.round(buf.length/1024)}KB)`;
+  }catch(e){ return "FAIL(soul) "+(e&&e.message||e); }
 }
 
 const rPix = await testPixabay();
