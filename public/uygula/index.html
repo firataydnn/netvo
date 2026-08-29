@@ -2303,7 +2303,7 @@ const mkSel=document.getElementById('mkSel');
 const desiSel=document.getElementById('desi');desiTable.forEach((d,i)=>{const o=document.createElement('option');o.value=i;o.textContent=d[0];desiSel.appendChild(o);});desiSel.value=1;
 
 // compare table
-(function(){const bm=byRegion();let rows="";REGIONS.forEach(r=>{bm[r].forEach(k=>{const m=MK[k],co=CO[m.co];const comm=comRange(k);const extra=[...(m.pct||[]).map(p=>p[0]),...(m.fixed||[]).map(f=>f[0]),m.perOrder?"sipariş başı":"" ,m.fba?"FBA ops.":""].filter(Boolean).join(", ")||"—";rows+=`<tr><td><b>${m.n}</b></td><td>${co.fl} ${co.n}</td><td>${comm}</td><td>${extra}</td><td>%${co.vat} · ${co.cur.trim()}</td></tr>`;});});document.getElementById('cmpTable').innerHTML=`<thead><tr><th>Pazaryeri</th><th>Ülke</th><th>Komisyon</th><th>Ek Ücretler</th><th>Vergi/Birim</th></tr></thead><tbody>${rows}</tbody>`;})();
+(function(){const bm=byRegion();let rows="";REGIONS.forEach(r=>{bm[r].forEach(k=>{const m=MK[k],co=CO[m.co];const comm=comRange(k);const extra=[...(m.pct||[]).map(p=>p[0]),...(m.fixed||[]).map(f=>f[0]),m.perOrder?"sipariş başı":"" ,m.fba?"FBA ops.":""].filter(Boolean).join(", ")||"—";rows+=`<tr><td><b>${m.n}</b></td><td>${co.fl} ${co.n}</td><td>${comm}</td><td>${extra}</td><td>%${co.vat} · ${co.cur.trim()}</td></tr>`;});});document.getElementById('cmpTable').innerHTML=`<thead><tr><th>Pazaryeri</th><th>Ülke</th><th>Komisyon aralığı</th><th>Ek Ücretler</th><th>Vergi/Birim</th></tr></thead><tbody>${rows}</tbody>`;})();
 
 // ============ STATE + ENGINE ============
 let current="trendyol";
@@ -2556,7 +2556,7 @@ function applyPrice(S){document.getElementById('price').value=(+S).toFixed(2);ca
 // ============ KARŞILAŞTIRMA MODU ============
 function initCompare(){
  const set=[];Object.keys(MK).forEach(k=>{const cu=CO[MK[k].co].cur;if(!set.includes(cu))set.push(cu);});
- const sel=document.getElementById('cmpCur');set.forEach(cu=>{const o=document.createElement('option');o.value=cu;o.textContent=cu.trim()+" ("+Object.keys(MK).filter(k=>CO[MK[k].co].cur===cu).length+")";sel.appendChild(o);});
+ const sel=document.getElementById('cmpCur');set.forEach(cu=>{const o=document.createElement('option');o.value=cu;o.textContent=cu.trim()+" · "+Object.keys(MK).filter(k=>CO[MK[k].co].cur===cu).length+" pazaryeri";sel.appendChild(o);});
  const cs=document.getElementById('cmpCat');
  if(cs){NORM.forEach(x=>{const o=document.createElement('option');o.value=x.k;o.textContent=x.n;cs.appendChild(o);});cs.value='genel';}
  sel.value='₺';cmpCurChange();
