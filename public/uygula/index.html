@@ -2775,7 +2775,7 @@ function openArticle(i,o){ o=o||{};
  if(paras.length){
    paras.forEach((x,ix)=>{
      body+=P(x);
-     if(ix===2) body+=adSlot('inarticle1');
+     if(ix===2 && paras.length>3) body+=adSlot('inarticle1');
      if(ix===Math.floor(paras.length/2)+2 && paras.length>7) body+=adSlot('inarticle2');
    });
  } else {
@@ -2786,14 +2786,14 @@ function openArticle(i,o){ o=o||{};
  const hasBody=paras.length>3;
  // kategori içi diğer haberler (iç linkleme — SEO)
  const related=NEWS.map((x,j)=>({x,j})).filter(o=>o.x.c===a.c&&o.j!==i).sort((p,q)=>byDateDesc(p.x,q.x)).slice(0,4);
- const relHtml=related.length?`<div style="margin-top:34px;border-top:1px solid var(--line);padding-top:18px"><div style="font-weight:600;color:var(--navy);margin-bottom:10px">${CATIC[a.c]} ${CATMAP[a.c]} — diğer haberler</div>${related.map(o=>`<div class="art-row" onclick="openArticle(${o.j})"><div class="thumb">${artThumb(o.x)}</div><div><div class="cat">${o.x.tag}</div><h3>${o.x.t}</h3><div class="mt">${o.x.dt}</div></div></div>`).join('')}</div>`:'';
+ const relHtml=related.length?`<div style="margin-top:34px;border-top:1px solid var(--line);padding-top:18px"><div style="font-weight:600;color:var(--navy);margin-bottom:10px">${CATIC[a.c]} ${CATMAP[a.c]} — diğer haberler</div>${related.map(o=>`<div class="art-row" role="button" tabindex="0" onclick="openArticle(${o.j})" onkeydown="kbd(event,()=>openArticle(${o.j}))"><div class="thumb">${artThumb(o.x)}</div><div><div class="cat">${_esc(o.x.tag||'')}</div><h3>${_esc(o.x.t)}</h3><div class="mt">${o.x.dt}</div></div></div>`).join('')}</div>`:'';
  document.getElementById('artBody').innerHTML=`
    <div class="crumb"><a onclick="go('magazine')">${(I18N[LANG]&&I18N[LANG].mag_title)||'Haberler'}</a> / <a onclick="go('magazine')">${CATMAP[a.c]}</a></div>
    <div class="art-hero" style="aspect-ratio:16/9;max-height:380px;border-radius:14px;overflow:hidden;margin:10px 0 6px;position:relative">${artThumb(a)}${(!a.img&&a.auto)?`<img src="/haber/covers/${slug}.png?v=${IMGV}" alt="${_esc(a.t)}" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3" onerror="this.remove()">`:''}</div>
    <div style="font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;margin-top:6px">${CATIC[a.c]} ${CATMAP[a.c]} · ${a.tag}</div>
-   <h1 style="font-size:30px;font-weight:600;color:var(--navy);line-height:1.2;margin:8px 0 6px">${a.t}</h1>
+   <h1 style="font-size:30px;font-weight:600;color:var(--navy);line-height:1.2;margin:8px 0 6px">${_esc(a.t)}</h1>
    <div style="font-size:12.5px;color:var(--muted);margin-bottom:16px">${a.dt} · Netvo Intelligence</div>
-   <p style="font-size:18px;color:var(--muted);line-height:1.5;margin-bottom:14px">${a.d}</p>
+   <p style="font-size:18px;color:var(--muted);line-height:1.5;margin-bottom:14px">${_esc(a.d)}</p>
    ${body}
    <div class="ctastrip" style="margin-top:24px"><div><h3>Bu değişiklik kârını nasıl etkiler?</h3><p>136 pazaryerinde komisyon, vergi ve kargo sonrası net kârını saniyede hesapla.</p></div><a onclick="go('calc')" class="btn lg">Hesapla →</a></div>
    ${relHtml}
@@ -2812,9 +2812,9 @@ function renderMagazine(){
   // (auto) haberler — böylece o dili seçen okur karışık/yabancı içerik görmez.
   const LIST=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc);
   const ALLW=({tr:'Tümü',en:'All',de:'Alle',fr:'Tout',es:'Todo',it:'Tutto'}[LANG])||'Tümü';
-  const F=(a,i)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${a.t}">
+  const F=(a,i)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${_esc(a.t)}">
     <div class="cov" aria-hidden="true">${artThumb(a)}</div>
-    <div class="bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${a.t}</h3><p>${a.d||''}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
+    <div class="bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
   </div>`;
   // Manşet-altı kompakt kart (küçük thumb + başlık) — sağ kolon lead yüksekliğine yakın kalsın
   const F2=(a,i)=>`<a class="sec-mini" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${a.t}">
