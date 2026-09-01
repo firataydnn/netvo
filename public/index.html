@@ -455,7 +455,7 @@
     .nav{flex-wrap:wrap}
     .navtog{display:block;margin-left:auto;order:2}
     .nav .cta{order:1}
-    .nav .cta .btn.ghost{display:none}
+    .nav .cta .btn.ghost:not(#langBtn){display:none}
     .nav .links{display:none;flex-basis:100%;order:3;flex-direction:column;gap:0;margin:0;padding:4px 0 2px}
     .nav.nav-open .links{display:flex}
     .nav .links a{padding:12px 4px;border-top:1px solid var(--line);font-size:15px;color:var(--ink)}
@@ -558,7 +558,7 @@
   /* Serif başlıklarda optik boyut — Fraunces variable opsz — */
   .hero h1{font-optical-sizing:auto}
   /* Küçük telefon: iki-kolon form alanları tek kolon (349px'de sıkışmasın) */
-  @media(max-width:480px){ .hc-two,.two,.vin{grid-template-columns:1fr} }
+  @media(max-width:600px){ .hc-two,.two,.vin{grid-template-columns:1fr} }
   /* Haber-kanalı hissi veren breaking-news ticker'ı kaldırıldı (otorite markası). */
   .mag-ticker{display:none}
   /* Fark cümlesi — ilk 5 saniyede "bu neden farklı" sorusuna cevap */
@@ -622,7 +622,7 @@
     .hero{padding:40px 0 30px} .hero p{font-size:16px}
     section.blk,.blk{padding:34px 0}
     #artBody h1{font-size:26px;line-height:1.15} #artBody p{font-size:16px;line-height:1.7}
-    .art-hero{aspect-ratio:16/10}
+    .art-hero{aspect-ratio:16/10!important;max-height:280px!important}
     .mag-lead h2{font-size:22px}
     .sec-title{font-size:23px}
     .hero .stats{gap:20px} .hero .stats div b{font-size:21px}
