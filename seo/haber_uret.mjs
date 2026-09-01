@@ -50,6 +50,7 @@ function mix(a,b,t){ const A=hx(a),B=hx(b); return toHex([0,1,2].map(i=>A[i]*t+B
 function hashN(s){ s=String(s||''); let h=5381; for(let i=0;i<s.length;i++) h=((h*33)^s.charCodeAt(i))>>>0; return h; }
 
 // --- 1200×630 marka kapak SVG (kategori rengi + hash, foto DEĞİL, telifsiz) ---
+let IMGV="1"; try{ const _c=fs.readFileSync(new URL("../Commera_Site.html",import.meta.url),"utf8"); const _m=_c.match(/const IMGV="([^"]+)"/); if(_m) IMGV=_m[1]; }catch(e){}
 function coverSVG(a, slug){
   const c = a.c || 'global', col = CATCOLOR[c] || '#1F4E79';
   const h = hashN(slug), ang = 18 + (h % 44);
@@ -101,7 +102,7 @@ header{border-bottom:1px solid #eef1f4}header .wrap{display:flex;align-items:cen
 main{padding:26px 0 40px}
 .crumb{font-size:13px;color:#6b7280;margin:0 0 14px}.crumb a{color:#6b7280}
 .cat{font:600 11px/1 Arial;letter-spacing:.6px;text-transform:uppercase;color:#1F4E79}
-.hero{width:100%;height:auto;border-radius:14px;display:block;margin:6px 0 20px}
+.hero{width:100%;max-height:380px;object-fit:cover;border-radius:14px;display:block;margin:6px 0 20px}@media(max-width:600px){.hero{max-height:260px}}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:30px;line-height:1.25;margin:10px 0 8px}
 .meta{font-size:13px;color:#9aa6b6;margin:0 0 20px}
 .lede{font-size:18px;color:#42505f;margin:0 0 18px}
@@ -158,7 +159,7 @@ function articlePage(a, lang, slug, langsAvail, cover){
     + `<div class="cat">${esc(cat)}${a.tag?" · "+esc(a.tag):""}</div>`
     + `<h1>${esc(tr.t)}</h1>`
     + `<div class="meta">${esc(a.dt||"")}</div>`
-    + (cover ? `<img class="hero" src="${cover}" width="1200" height="630" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : "")
+    + (a.img ? `<img class="hero" src="${BASE}${a.img}?v=${IMGV}" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : (cover ? `<img class="hero" src="${cover}" width="1200" height="630" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : ""))
     + (tr.d?`<p class="lede">${esc(tr.d)}</p>`:"")
     + `<div class="body">${paras}</div>`
     + `<p><a class="cta" href="${appLink}">${esc(t.inApp)}</a></p>`
