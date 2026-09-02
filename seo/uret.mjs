@@ -447,6 +447,83 @@ const entries = [];
 LANGS.forEach(lang => entries.push({ loc: absHub(lang), alts: LANGS.map(l=>[l, absHub(l)]) }));
 // sayfalar
 keys.forEach(k => LANGS.forEach(lang => entries.push({ loc: absPage(lang,k), alts: LANGS.map(l=>[l, absPage(l,k)]) })));
+
+// ==== TIER 1: niyet (hesaplama) + karşılaştırma sayfaları — TR, SEO büyüme ====
+(function(){
+  fs.mkdirSync(OUT+"karsilastir", { recursive:true });
+  const shell=(title,desc,url,jsonlds,body)=>`<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${url}"><meta name="robots" content="index,follow">
+<meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+${jsonlds.map(j=>`<script type="application/ld+json">${JSON.stringify(j)}</script>`).join("")}
+<style>${CSS}</style></head><body>
+<header><div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="logo" href="${absHub('tr')}">${BRAND.toLowerCase()}</a></div></header>
+<main class="wrap">${body}</main>
+<footer><div class="wrap">© ${YEAR} ${BRAND} · <a href="${APP}">Hesap makinesi</a></div></footer>
+</body></html>`;
+  const faqLD=a=>({"@context":"https://schema.org","@type":"FAQPage","inLanguage":"tr","mainEntity":a.map(f=>({"@type":"Question","name":f[0],"acceptedAnswer":{"@type":"Answer","text":f[1]}}))});
+  const bcLD=(n,u)=>({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":BRAND,"item":absHub('tr')},{"@type":"ListItem","position":2,"name":n,"item":u}]});
+  const made=[];
+  function intent(k,kind){
+    const m=MK[k]; if(!m) return;
+    const ad=yerelAd(m,'tr'), kisa=mkShort(ad), co=CO[m.co]||{}, aralik=oranAraligi(m), gap=pazaryeriKesintisi(m,co);
+    const kindT= kind==='kar'?'Kâr':(kind==='fba'?'FBA Ücret':'Komisyon');
+    const slug=k+'-'+(kind==='kar'?'kar':(kind==='fba'?'fba-ucret':'komisyon'))+'-hesaplama';
+    const url=BASE+'/pazaryeri/'+slug+'.html';
+    const title=`${ad} ${kindT} Hesaplama ${YEAR} — Net Kârını Anında Gör | ${BRAND}`;
+    const desc=`${ad} ${kindT.toLowerCase()} hesaplama: komisyon ${aralik}, KDV %${co.vat}, kargo ve hizmet bedeli sonrası net kârını saniyede hesapla.`;
+    const cta=`${APP}?lang=tr#/pazaryeri/${k}`;
+    const tablo=(m.cats&&m.cats.length)?`<table><thead><tr><th>Kategori</th><th class="r">Komisyon</th></tr></thead><tbody>${m.cats.map(c=>`<tr><td>${esc(catAd(c[0],'tr'))}</td><td class="r mono">%${c[1]}</td></tr>`).join("")}</tbody></table>`:`<p>Komisyon: <b class="mono">${aralik}</b></p>`;
+    const faq=[
+      [`${ad} komisyonu nasıl hesaplanır?`, `${kisa} komisyonu kategoriye göre ${aralik} arasında değişir. Net kâr için komisyona ek olarak %${co.vat} KDV, varsa hizmet/işlem bedeli ve kargo maliyeti düşülür; Netvo hepsini tek hesapta gösterir.`],
+      [`349 TL'lik satışta ${kisa} ne kadar kesinti alır?`, gap?`İlan edilen komisyon ~%${gap.ilanRate} görünse de KDV ve ek bedellerle toplam kesinti ~%${gap.toplamPct}'e çıkabilir. Kendi kategorin ve fiyatınla kesin sonucu hesap makinesinde gör.`:`Komisyon (${aralik}), KDV (%${co.vat}) ve varsa ek bedeller düşülür; kesin tutarı ürününle hesap makinesinde gör.`],
+      [`Kargo ve KDV dahil net kâr nasıl bulunur?`, `Satış fiyatından komisyon + KDV + hizmet bedeli + kargo + ürün maliyeti çıkarılır. Netvo bu farkı net gösterir.`],
+    ];
+    const body=`<div class="crumb"><a href="${absHub('tr')}">Ana sayfa</a> / <a href="${absHub('tr')}">Pazaryerleri</a> / ${esc(ad)} ${esc(kindT)} Hesaplama</div>
+<h1>${esc(ad)} ${esc(kindT)} Hesaplama (${YEAR})</h1>
+<p class="muted">${esc(co.fl||'')} ${esc(ulkeAd(m.co,'tr'))} · KDV %${co.vat} · Komisyon ${esc(aralik)}</p>
+<p>${esc(kisa)}'da bir ürün sattığında cebine ne kaldığını merak ediyorsan doğru yerdesin. İlan edilen komisyon çoğu zaman gerçek kesintinin sadece bir parçası: KDV, hizmet/işlem bedeli ve kargo eklendiğinde net kâr belirgin şekilde düşer. Aşağıdaki hesap makinesine satış fiyatını ve maliyetini gir — ${esc(kisa)} için net kârını saniyede gösterir.</p>
+${gap?`<section class="gap"><div class="gap-a"><div class="gap-k">İlan edilen</div><div class="gap-v mono">%${gap.ilanRate}</div></div><div class="gap-r"><div class="gap-k" style="color:var(--red)">Toplam kesinti</div><div class="gap-v mono" style="color:var(--red)">%${gap.toplamPct}</div></div></section>`:''}
+<a class="cta" href="${esc(cta)}">${esc(kisa)} kârını hesapla →</a>
+<h2>${esc(ad)} komisyon oranları</h2>${tablo}
+<h2>Sık sorulan sorular</h2>${faq.map(f=>`<div class="faq"><h3>${esc(f[0])}</h3><p>${esc(f[1])}</p></div>`).join("")}
+<p class="muted sm"><a href="${BASE}/pazaryeri/${k}.html">${esc(ad)} ücret detayları</a> · <a href="${APP}?lang=tr#/karsilastir">Pazaryeri karşılaştır</a></p>`;
+    fs.writeFileSync(OUT+'pazaryeri/'+slug+'.html', shell(title,desc,url,[bcLD(`${ad} ${kindT} Hesaplama`,url),faqLD(faq)],body));
+    made.push(url);
+  }
+  function compare(k1,k2){
+    const a=MK[k1], b=MK[k2]; if(!a||!b) return;
+    const ad1=yerelAd(a,'tr'), ad2=yerelAd(b,'tr'), co1=CO[a.co]||{}, co2=CO[b.co]||{}, r1=oranAraligi(a), r2=oranAraligi(b);
+    const slug=k1+'-'+k2, url=BASE+'/karsilastir/'+slug+'.html';
+    const title=`${ad1} mu ${ad2} mu? Hangisi Daha Kârlı (${YEAR}) | ${BRAND}`;
+    const desc=`${ad1} ve ${ad2} komisyon, KDV ve ek ücret karşılaştırması. Aynı üründe hangisi sana daha çok kâr bırakır — saniyede hesapla.`;
+    const faq=[
+      [`${ad1} mı ${ad2} mi daha ucuz komisyon?`, `${ad1} komisyonu ${r1}, ${ad2} komisyonu ${r2} aralığında. Ama net kâr sadece komisyonla belirlenmez; KDV, hizmet bedeli ve kargo da etkiler. Kendi kategorin ve fiyatınla ikisini yan yana hesapla.`],
+      [`Aynı ürünü ikisinde de satsam ne değişir?`, `Fiyat aynı olsa bile komisyon oranı, ek ücretler ve kategori farkı net kârı değiştirir. Netvo aynı ürünü iki pazaryerinde yan yana kıyaslar.`],
+    ];
+    const body=`<div class="crumb"><a href="${absHub('tr')}">Ana sayfa</a> / <a href="${APP}?lang=tr#/karsilastir">Karşılaştır</a> / ${esc(ad1)} vs ${esc(ad2)}</div>
+<h1>${esc(ad1)} mu ${esc(ad2)} mu — Hangisi Daha Kârlı?</h1>
+<p>İki pazaryerinde de aynı ürünü satabilirsin ama sana kalan tutar farklı olur. Aşağıda komisyon ve vergi çerçevesini yan yana koyduk; kesin kararı kendi fiyat ve maliyetinle hesap makinesinde ver.</p>
+<table><thead><tr><th></th><th class="r">${esc(ad1)}</th><th class="r">${esc(ad2)}</th></tr></thead><tbody>
+<tr><td>Komisyon aralığı</td><td class="r mono">${r1}</td><td class="r mono">${r2}</td></tr>
+<tr><td>KDV</td><td class="r mono">%${co1.vat}</td><td class="r mono">%${co2.vat}</td></tr>
+<tr><td>Para birimi</td><td class="r">${esc((co1.cur||'').trim())}</td><td class="r">${esc((co2.cur||'').trim())}</td></tr>
+</tbody></table>
+<a class="cta" href="${APP}?lang=tr#/karsilastir">İkisini yan yana hesapla →</a>
+<h2>Sık sorulan sorular</h2>${faq.map(f=>`<div class="faq"><h3>${esc(f[0])}</h3><p>${esc(f[1])}</p></div>`).join("")}
+<p class="muted sm"><a href="${BASE}/pazaryeri/${k1}.html">${esc(ad1)} ücretleri</a> · <a href="${BASE}/pazaryeri/${k2}.html">${esc(ad2)} ücretleri</a></p>`;
+    fs.writeFileSync(OUT+'karsilastir/'+slug+'.html', shell(title,desc,url,[bcLD(`${ad1} vs ${ad2}`,url),faqLD(faq)],body));
+    made.push(url);
+  }
+  [['trendyol','komisyon'],['trendyol','kar'],['hepsiburada','komisyon'],['hepsiburada','kar'],['n11','komisyon'],['amazontr','komisyon'],['ciceksepeti','komisyon'],['amazontr','fba']].forEach(x=>intent(x[0],x[1]));
+  [['trendyol','hepsiburada'],['amazontr','trendyol']].forEach(x=>compare(x[0],x[1]));
+  made.forEach(loc=>entries.push({ loc, alts:[['tr',loc]] }));
+  console.log('TIER1 niyet/karşılaştırma sayfası :', made.length);
+})();
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`
   + entries.map(e=>`  <url><loc>${e.loc}</loc>${e.alts.map(a=>`<xhtml:link rel="alternate" hreflang="${a[0]}" href="${a[1]}"/>`).join("")}<xhtml:link rel="alternate" hreflang="x-default" href="${e.alts[0][1]}"/><lastmod>${today}</lastmod></url>`).join("\n")
   + `\n</urlset>\n`;
