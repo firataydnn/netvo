@@ -1654,7 +1654,7 @@ function renderCountries(){const host=document.getElementById('coGrid');if(!host
 // Reklam KOYULMAYAN tek yer: hesap makinesi sonucu — orada yönlendirme var ve
 // o görüntüleme ~€4 değerinde; aynı piksele 2 sentlik reklam koymak para kaybı.
 const ADS={
-  enabled:true,
+  enabled:true, showPlaceholders:false,  // true yaparsan bos dashed onizleme kutulari gorunur
   client:"",              // ← AdSense yayıncı kimliğin: "ca-pub-XXXXXXXXXXXXXXXX"
   density:"max",          // "max" (5 birim) | "dengeli" (3 birim) | "kapali"
   slots:{                 // ← AdSense'te birim açınca slot ID'lerini buraya yaz
@@ -1685,6 +1685,7 @@ function adSlot(place,extra){
       <ins class="adsbygoogle" style="display:block" data-ad-client="${ADS.client}"
         data-ad-slot="${ADS.slots[place]}" data-ad-format="auto" data-full-width-responsive="true"></ins></div>`;
   }
+  if(!ADS.showPlaceholders) return ""; // gercek reklam (ADS.client) yokken slot bos kalsin — temiz site + AdSense onayi
   return `<div class="adwrap ${place}" style="${style}"><span class="adlbl">Reklam</span>
     <div class="adslot"><b>${s.w}</b><small>${s.why}</small></div></div>`;
 }
