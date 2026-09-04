@@ -210,6 +210,13 @@
   .news-card h3{font-size:15.5px;font-weight:600;line-height:1.28;margin:5px 0 7px;color:var(--navy)}
   .news-card p{font-size:13px;color:var(--muted);line-height:1.45;margin:0}
   .news-card .mt{font-size:11.5px;color:#6b7685;margin-top:auto;padding-top:9px}
+  /* ── ONEDIO TARZI: görsel üstü renkli kategori etiketi + hover zoom ── */
+  .catpill{position:absolute;top:10px;left:10px;z-index:3;display:inline-block;font-size:10px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:#fff;padding:4px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.22);line-height:1.35;white-space:nowrap;max-width:calc(100% - 20px);overflow:hidden;text-overflow:ellipsis}
+  .cat-pazar{background:#EA5B2A}.cat-reg{background:#7C3AED}.cat-global{background:#2563EB}.cat-reklam{background:#DB2777}.cat-lojistik{background:#0D9488}
+  .news-card .cov img,.news-card .cov svg{transition:transform .5s ease}
+  .news-card:hover .cov img,.news-card:hover .cov svg{transform:scale(1.07)}
+  .sec-mini .catpill{position:static;box-shadow:none;font-size:9px;padding:2px 8px;margin-bottom:3px}
+  .mag-lead .catpill{position:static;font-size:11px;padding:5px 12px;margin-bottom:8px}
   .mag-lead .cov{position:absolute;inset:0;z-index:0}
   .mag-lead .cov svg{width:100%;height:100%}
   .mag-lead::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(9,9,11,.22) 0%,rgba(9,9,11,.55) 52%,rgba(9,9,11,.93) 100%)}
@@ -2821,13 +2828,13 @@ function renderMagazine(){
   const LIST=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc);
   const ALLW=({tr:'Tümü',en:'All',de:'Alle',fr:'Tout',es:'Todo',it:'Tutto'}[LANG])||'Tümü';
   const F=(a,i)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${_esc(a.t)}">
-    <div class="cov" aria-hidden="true">${artThumb(a)}</div>
-    <div class="bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
+    <div class="cov" aria-hidden="true">${artThumb(a)}<span class="catpill cat-${a.c}">${CATMAP[a.c]||a.c}</span></div>
+    <div class="bd"><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
   </div>`;
   // Manşet-altı kompakt kart (küçük thumb + başlık) — sağ kolon lead yüksekliğine yakın kalsın
   const F2=(a,i)=>`<a class="sec-mini" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${a.t}">
     <div class="sm-th" aria-hidden="true">${artThumb(a)}</div>
-    <div class="sm-bd"><div class="cat">${CATMAP[a.c]||a.c}</div><h3>${a.t}</h3><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
+    <div class="sm-bd"><span class="catpill cat-${a.c}">${CATMAP[a.c]||a.c}</span><h3>${a.t}</h3><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
   </a>`;
   // Manşet
   let li=LIST.findIndex(a=>a.f); if(li<0)li=0;
@@ -2836,7 +2843,7 @@ function renderMagazine(){
   if(ml&&lead)ml.innerHTML=`<div class="mag-lead" role="button" tabindex="0" onclick="openArticle(${leadIdx})" onkeydown="kbd(event,()=>openArticle(${leadIdx}))" aria-label="${lead.t}">
     <div class="cov" aria-hidden="true">${artThumb(lead)}</div>
     <div style="position:relative;z-index:1">
-      <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.9">${CATMAP[lead.c]||lead.c}</div>
+      <span class="catpill cat-${lead.c}">${CATMAP[lead.c]||lead.c}</span>
       <h2 style="font-size:26px;font-weight:600;letter-spacing:-.02em;margin:8px 0 6px;line-height:1.2">${lead.t}</h2>
       <p style="font-size:14px;opacity:.9;line-height:1.5">${lead.d||''}</p>
       <div style="font-size:12px;opacity:.8;margin-top:10px">${lead.dt}${lead.tag?" · "+lead.tag:""}</div>
@@ -3336,7 +3343,7 @@ function renderHomeCompare(){
 }
 function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc).slice(0,3);
  // .news-grid sarmalı KALDIRILDI — kartlar doğrudan #magHomeTeaser (.grid3) 3 kolonuna otursun (masaüstü denge). Kart klavyeyle erişilebilir.
- el.innerHTML=L.map((x)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${NEWS.indexOf(x)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(x)}))"><div class="cov" aria-hidden="true">${artThumb(x)}</div><div class="bd"><div class="cat">${CATMAP[x.c]||x.c}</div><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""} · ${readMin(x)}</div></div></div>`).join('');}
+ el.innerHTML=L.map((x)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${NEWS.indexOf(x)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(x)}))"><div class="cov" aria-hidden="true">${artThumb(x)}<span class="catpill cat-${x.c}">${CATMAP[x.c]||x.c}</span></div><div class="bd"><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""} · ${readMin(x)}</div></div></div>`).join('');}
 renderHomeTeaser();
 
 // ============ HESAP (Supabase Auth) + BULUT SENKRON ============
