@@ -2737,7 +2737,7 @@ function byDateDesc(a,b){return parseTRDate(b&&b.dt)-parseTRDate(a&&a.dt);}
 // her kapak kategori renginden + başlık hash'inden deterministik üretilir.
 function artHue(s){s=String(s||'');let h=5381;for(let i=0;i<s.length;i++)h=((h*33)^s.charCodeAt(i))>>>0;return h;}
 function _esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-const IMGV="20260901a"; // görsel sürüm damgası — bump edince edge/tarayıcı önbelleği taze çeker
+const IMGV="20260904a"; // görsel sürüm damgası — bump edince edge/tarayıcı önbelleği taze çeker
 function artThumb(x){
  const it=(x&&typeof x==='object')?x:{c:x};
  // Konuyla-alakalı GERÇEK görsel (varsa) SVG kapağın üzerine biner; yüklenemezse
