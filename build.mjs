@@ -10,6 +10,8 @@ import fs from "fs";
 const SITE = process.env.SITE_URL || "https://netvo.co";
 const OUT = process.env.PUBLIC_DIR || "public";
 
+console.log("→ Hesap motoru regresyon testi");
+execSync("node test/calc.test.mjs", { stdio: "inherit" });
 console.log("→ SEO sayfaları üretiliyor:", SITE);
 execSync(`node seo/uret.mjs ${SITE}`, { stdio: "inherit" });
 console.log("→ Haber SEO sayfaları üretiliyor");
