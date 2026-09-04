@@ -25,23 +25,25 @@
      Prensip: Sayı başroldür. Arayüz açıklamadır.
      Renk dekorasyon değildir — bilgi taşır. */
   :root{
-    /* zemin */
-    --bg:#FFFFFF; --card:#FFFFFF; --bg-sunk:#F7F7F5; --bg-hover:#F1F1EE;
-    /* mürekkep */
-    --ink:#0A0A0A; --muted:#606060; --ink-3:#767672; --ink-deco:#8A8A86;
-    /* çizgi */
-    --line:#E3E3DF; --line-2:#D2D2CD;
-    /* İŞLEVSEL RENKLER — sadece bunlar, sadece bu görevler için */
+    /* zemin — sıcak krem, davetkâr */
+    --bg:#FCF8F1; --card:#FFFFFF; --bg-sunk:#F6EFE3; --bg-hover:#F1E9D9;
+    /* mürekkep — sıcak siyah */
+    --ink:#1A1511; --muted:#6B6055; --ink-3:#8A7F70; --ink-deco:#A99D8B;
+    /* çizgi — sıcak */
+    --line:#ECE3D3; --line-2:#DBD0BC;
+    /* İŞLEVSEL RENKLER — anlam sabittir, değişmez */
     --green:#0A7A43;   /* yalnızca pozitif sonuç */
     --red:#B42318;     /* yalnızca negatif sonuç */
-    --accent:#1D4ED8;  /* yalnızca bağlantı, doğrulama, veri kaynağı */
+    --accent:#1D4ED8;  /* yalnızca doğrulama / veri kaynağı */
     --amber:#93500C;   /* yalnızca değişken/doğrulanmamış veri */
-    --green-l:#EDF7F1; --red-l:#FDF2F1; --amber-l:#FBF6EC;
-    /* eski token adları yeni sisteme bağlandı */
-    --navy:#0A0A0A; --navy2:#0A0A0A; --blue:#1D4ED8; --blue-d:#1E40AF; --blue-l:#F1F1EE;
-    --orange:#93500C; --orange-l:#FBF6EC;
-    /* YARIÇAP — tek sistem: form/buton 4, kart/panel 8, pill. Başka değer yok. */
-    --r-sm:4px; --r-md:8px; --r-pill:999px;
+    --green-l:#EAF6EF; --red-l:#FBEEEC; --amber-l:#FAF3E6;
+    /* MARKA — sıcak mercan; yalnızca marka kimliği + eylem çağrısı */
+    --brand:#EA5B2A; --brand-d:#D04A1D; --brand-l:#FCEBE1;
+    /* eski token adları yeni (marka) sisteme bağlandı */
+    --navy:#1A1511; --navy2:#1A1511; --blue:var(--brand); --blue-d:var(--brand-d); --blue-l:var(--brand-l);
+    --orange:#93500C; --orange-l:#FAF3E6;
+    /* YARIÇAP — daha yumuşak, davetkâr köşeler */
+    --r-sm:6px; --r-md:12px; --r-pill:999px;
     --radius:var(--r-md);
     /* TİPOGRAFİ — art direction: Fraunces (serif otorite) + Inter (gövde) + JetBrains Mono (veri). */
     --font-display:'Fraunces',Georgia,'Times New Roman',serif;
@@ -69,19 +71,23 @@
   .nav{max-width:1080px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:22px}
   .logo{font-size:21px;font-weight:600;color:var(--ink);cursor:pointer;letter-spacing:-.03em}
   .nav .links{display:flex;gap:24px;margin-left:18px}
-  .nav .links a{color:var(--muted);font-weight:500;font-size:14px;cursor:pointer;transition:color .12s}
+  .nav .links a{color:var(--muted);font-weight:500;font-size:14px;cursor:pointer;transition:color .12s;padding:4px 2px;position:relative}
   .nav .links .mob-only{display:none}
-  .nav .links a:hover{color:var(--ink)}
+  .nav .links a:hover{color:var(--brand)}
+  .nav .links a.active{color:var(--ink);font-weight:600}
+  .nav .links a.active::after{content:"";position:absolute;left:2px;right:2px;bottom:-6px;height:2px;background:var(--brand);border-radius:2px}
   .nav .cta{margin-left:auto;display:flex;gap:10px;align-items:center}
-  .btn{background:var(--blue);color:#fff;border:0;padding:10px 18px;border-radius:10px;font-weight:500;font-size:14px;cursor:pointer;display:inline-block}
-  .btn:hover{background:var(--blue-d)} .btn.ghost{background:var(--blue-l);color:var(--navy)}
+  .btn{background:var(--brand);color:#fff;border:0;padding:11px 20px;border-radius:11px;font-weight:600;font-size:14px;cursor:pointer;display:inline-block;box-shadow:0 2px 6px rgba(234,91,42,.28);transition:transform .12s,box-shadow .12s,background .12s}
+  .btn:hover{background:var(--brand-d);transform:translateY(-1px);box-shadow:0 4px 12px rgba(234,91,42,.34)}
+  .btn.ghost{background:var(--brand-l);color:var(--brand-d);box-shadow:none;font-weight:600}
+  .btn.ghost:hover{background:#FADFD1;transform:none;box-shadow:none}
   .btn.lg{padding:13px 26px;font-size:15px} .btn.wide{width:100%;text-align:center}
   .container{max-width:1080px;margin:0 auto;padding:0 22px}
   .page{display:none} .page.on{display:block;animation:fade .25s ease}
   @keyframes fade{from{opacity:0}to{opacity:1}}
   .muted{color:var(--muted)} .sm{font-size:13px}
   .tag{display:inline-block;font-size:12px;font-weight:600;padding:4px 11px;border-radius:20px;background:var(--blue-l);color:var(--navy)}
-  .hero{background:#fff;color:var(--ink);padding:72px 0 56px;border-bottom:1px solid var(--line)}
+  .hero{background:radial-gradient(120% 90% at 50% -10%,#FDEFE3 0%,#FCEEDF 26%,var(--bg) 62%);color:var(--ink);padding:72px 0 56px;border-bottom:1px solid var(--line)}
   .hero h1{font-size:clamp(42px,5.2vw,64px);font-weight:600;letter-spacing:-.035em;line-height:1.0;max-width:640px;margin-left:auto;margin-right:auto}
   .hero p{font-size:18px;color:var(--muted);line-height:1.55;margin-top:16px;max-width:640px}
   .hero .row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
@@ -268,12 +274,12 @@
   .reg-h,.mkbar .lbl,table.ex th{font-weight:600}
   b,strong{font-weight:600}
 
-  /* — 2. GRADIENT YOK. Hero beyaz; sayı kahraman, arka plan değil. — */
-  .hero{background:#fff;color:var(--ink);border-bottom:1px solid var(--line);padding:72px 0 56px}
+  /* — 2. Hero: sıcak krem ışıması. Davetkâr ama sayı hâlâ kahraman. — */
+  .hero{background:radial-gradient(120% 90% at 50% -8%,#FDECDD 0%,#FBEAD8 24%,var(--bg) 60%);color:var(--ink);border-bottom:1px solid var(--line);padding:72px 0 56px}
   .hero .stats div span{color:var(--muted)}
   .hero .stats div b{color:var(--ink)}
   .hero .btn.ghost{background:#fff;border:1px solid var(--line-2);color:var(--ink)}
-  .hero .tag{background:var(--bg-hover)!important;color:var(--muted)!important}
+  .hero .tag{background:var(--brand-l)!important;color:var(--brand-d)!important}
 
   /* — 3. Sonuç paneli: gradient yerine çerçeve. — */
   .rtop{background:#fff;border:1px solid var(--line);color:var(--ink)}
@@ -283,20 +289,21 @@
   .rtop .subm{border-top:1px solid var(--line)}
   .rtop .subm div b{color:var(--ink)}
 
-  /* — 4. BUTON: birincil siyah. Mavi buton yok — mavi sadece link. — */
-  .btn{background:#09090B;color:#FAFAFA;border-radius:6px;padding:10px 16px}
-  .btn:hover{background:#27272A}
-  .btn.ghost{background:#fff;border:1px solid var(--line-2);color:var(--ink)}
-  .btn.ghost:hover{background:var(--bg-sunk);border-color:#A1A1AA}
+  /* — 4. BUTON: birincil sıcak mercan (marka). Eylem çağrısı davetkâr. — */
+  .btn{background:var(--brand);color:#fff;border-radius:11px;padding:11px 20px;box-shadow:0 2px 8px rgba(234,91,42,.30);transition:transform .12s,box-shadow .12s,background .12s}
+  .btn:hover{background:var(--brand-d);transform:translateY(-1px);box-shadow:0 5px 16px rgba(234,91,42,.36)}
+  .btn.ghost{background:var(--brand-l);border:0;color:var(--brand-d);box-shadow:none;font-weight:600}
+  .btn.ghost:hover{background:#FADFD1;border:0;transform:none;box-shadow:none}
 
-  /* — 5. KART: gölge yok, zıplama yok. Hover = çizgi koyulaşır. — */
-  .tool{border-radius:10px;padding:16px;transition:border-color .12s}
-  .tool:hover{border-color:var(--line-2);box-shadow:none;transform:none}
+  /* — 5. KART: yumuşak sıcak gölge + hafif hover kalkışı. Davetkâr. — */
+  .tool{border-radius:14px;padding:16px;transition:border-color .14s,box-shadow .14s,transform .14s;box-shadow:0 1px 3px rgba(70,50,30,.05)}
+  .tool:hover{border-color:var(--brand);box-shadow:0 8px 22px rgba(70,50,30,.10);transform:translateY(-2px)}
   .tool .ic{background:none;width:auto;height:auto;font-size:22px;place-items:start}
   .tool h3{font-size:15px;letter-spacing:-.01em}
-  .tool .go{color:var(--muted);font-weight:500}
-  .tool:hover .go{color:var(--accent)}
-  .panel,.rlist,.side-card,.mkbar{border-radius:10px}
+  .tool .go{color:var(--muted);font-weight:600}
+  .tool:hover .go{color:var(--brand)}
+  .panel,.rlist,.side-card,.mkbar{border-radius:14px}
+  .panel,.side-card{box-shadow:0 1px 3px rgba(70,50,30,.05)}
 
   /* — 6. TABLO: zebra yok, lacivert başlık yok. — */
   .cmp th{background:#fff;color:var(--muted);font-size:11px;text-transform:uppercase;
@@ -305,9 +312,9 @@
   .cmp td{border-bottom:1px solid var(--line);padding:11px 12px}
   .cmp tr:hover td{background:var(--bg-sunk)}
 
-  /* — 7. Girdi alanları, nötr. — */
-  .inp,select.inp{border-radius:var(--r-sm);border:1px solid var(--line)}
-  .inp:focus,select.inp:focus{border-color:var(--ink);outline:0}
+  /* — 7. Girdi alanları: odakta marka rengi + yumuşak halka. — */
+  .inp,select.inp{border-radius:9px;border:1px solid var(--line);transition:border-color .12s,box-shadow .12s}
+  .inp:focus,select.inp:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-l);outline:0}
 
   /* — 8. Rozet mantığı ters çevrildi: "official" beklenen durumdur, rozet almaz.
          Rozet sadece istisnayı işaretler (Northline). — */
@@ -503,8 +510,8 @@
   .hcalc{box-shadow:0 10px 30px rgba(9,9,11,.06)!important;border:1px solid var(--line)}
 
   /* — KÖŞE YARIÇAPI: 3 değere indir — */
-  .ctastrip,.mk-hero,.side-card,.soz-card,.panel,.tool,.verdict,.note{border-radius:var(--r-md)}
-  .inp,.btn,.soz-chip{border-radius:var(--r-sm)}
+  .ctastrip,.mk-hero,.side-card,.soz-card,.panel,.tool,.verdict,.note{border-radius:14px}
+  .inp,.soz-chip{border-radius:9px} .btn{border-radius:11px}
   .mk-badge,.co-badge,.flagchip,.tag,.radar-pill,.gapdelta,.gapbar,.soz-chip{border-radius:999px}
 
   /* — TEK KOYU EVREN: footer + CTA şeridi (lacivert değil, saf koyu) — */
@@ -547,14 +554,14 @@
   .gap .real .v{letter-spacing:-.04em}
   .reg-h{font-weight:500;letter-spacing:.09em}
 
-  /* — BUTONLAR: editöryal siyah (mavi değil). Link mavi kalır. — */
-  .btn{background:var(--ink);color:#fff}
-  .btn:hover{background:#000}
-  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
-  .btn.ghost:hover{border-color:var(--ink);background:transparent}
+  /* — BUTONLAR: sıcak mercan (marka). Davetkâr eylem. — */
+  .btn{background:var(--brand);color:#fff;box-shadow:0 2px 8px rgba(234,91,42,.30)}
+  .btn:hover{background:var(--brand-d)}
+  .btn.ghost{background:var(--brand-l);color:var(--brand-d);border:0;box-shadow:none}
+  .btn.ghost:hover{background:#FADFD1;border:0}
 
-  /* — İNCE KURAL: hero altı sert siyah çizgi; hesap kutusu gölge yerine çerçeve — */
-  .hero{border-bottom:1px solid var(--ink)}
+  /* — İNCE KURAL: hero altı yumuşak sıcak çizgi — */
+  .hero{border-bottom:1px solid var(--line-2)}
   /* Serif başlıklarda optik boyut — Fraunces variable opsz — */
   .hero h1{font-optical-sizing:auto}
   /* Küçük telefon: iki-kolon form alanları tek kolon (349px'de sıkışmasın) */
@@ -3116,6 +3123,14 @@ function go(p,o){ o=o||{};
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));
   const el=document.getElementById(p); if(!el)return;
   el.classList.add('on');
+  // Nav aktif-durum: bulunduğun sayfa menüde işaretlensin
+  try{
+    document.querySelectorAll('.nav .links a').forEach(function(a){
+      a.classList.remove('active');
+      var oc=a.getAttribute('onclick')||'';
+      if(oc.indexOf("go('"+p+"')")>-1) a.classList.add('active');
+    });
+  }catch(e){}
   if(p==='saved')renderSaved();
   if(p==='radar')renderRadar();
   if(p==='watch')renderWatch();
