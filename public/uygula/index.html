@@ -402,6 +402,11 @@
   .impact-cta{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--brand);cursor:pointer}
   .impact-cta:hover{color:var(--brand-d)}
   .founder-note{border-left:3px solid var(--brand);padding-left:16px}
+  .atlas-stats{display:flex;gap:34px;margin:10px 0 16px}
+  .atlas-stats b{font-family:var(--font-display);font-size:40px;font-weight:700;line-height:1;color:var(--ink);display:block}
+  .atlas-stats span{font-size:13px;color:var(--muted)}
+  .crumb-ent:empty{display:none}
+  .crumb-ent:not(:empty)::before{content:" / "}
   /* Ana sayfa: popüler pazaryeri kartları (ana CTA = Hesapla) */
   .pop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
   .pop-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:5px;box-shadow:0 1px 3px rgba(70,50,30,.05);transition:border-color .14s,box-shadow .14s,transform .14s}
@@ -828,8 +833,6 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <a class="learn-card" onclick="go('countries')"><div class="lc-ic">🌍</div><h3 data-i18n="lc2t">Ülkeler</h3><p data-i18n="lc2d">37 ülke: KDV/GST, gümrük ve pazar koşulları.</p></a>
     <a class="learn-card" onclick="go('radar')"><div class="lc-ic">📡</div><h3 data-i18n="lc3t">Ücret Radarı</h3><p data-i18n="lc3d">Pazaryeri ücret ve kural değişiklikleri — tarih ve kaynakla.</p></a>
     <a class="learn-card" onclick="go('sozluk')"><div class="lc-ic">📖</div><h3 data-i18n="lc4t">Sözlük</h3><p data-i18n="lc4d">Komisyon, take rate, buy box… e-ticaret terimleri sade dille.</p></a>
-    <a class="learn-card" onclick="go('compare')"><div class="lc-ic">⚖️</div><h3 data-i18n="lc5t">Karşılaştır</h3><p data-i18n="lc5d">Aynı ürün farklı pazaryerinde ne kadar kalır? Yan yana gör.</p></a>
-    <a class="learn-card" onclick="go('magazine')"><div class="lc-ic">📰</div><h3 data-i18n="mag_title">Gündem</h3><p data-i18n="mag_sub">E-ticaret dünyasından güncel gelişmeler ve analizler.</p></a>
   </div>
   <div class="sec-sub" data-i18n="lrnSoon" style="margin-top:22px;font-size:13px">Yakında: Başlangıç rehberleri · Vergi · Kargo &amp; lojistik · Reklam · Ürün ve fiyatlama.</div>
 </div></section></div>
@@ -839,7 +842,11 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / Atlas</div>
   <div class="atlas-tabs"><button class="atab on" onclick="go('tools')">Pazaryerleri</button><button class="atab" onclick="go('countries')">Ülkeler</button></div>
   <div class="sec-title">Pazaryeri Atlası</div>
-  <div class="sec-sub">37 ülkede <b id="mkCount">—</b> pazaryerinin komisyonu, vergisi, satış koşulları ve nasıl başlanacağı. <b id="coCount">—</b> ülke rehberi.</div>
+  <div class="atlas-stats">
+    <div><b id="mkCount">136</b><span>pazaryeri</span></div>
+    <div><b id="coCount">37</b><span>ülke</span></div>
+  </div>
+  <div class="sec-sub">Bul, incele, kârını hesapla — her pazaryerinin komisyonu, vergisi ve satış koşulları, kaynağıyla.</div>
   <div class="mk-filters">
     <input id="mkSearch" type="search" placeholder="Pazaryeri veya ülke ara — örn. Japonya, Wildberries, ikinci el…" autocomplete="off"/>
     <select id="mkRegion"><option value="">Tüm bölgeler</option></select>
@@ -877,7 +884,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 </div></section></div>
 
 <div class="page" id="mkpage"><section class="blk"><div class="container">
-  <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / <a onclick="go('tools')">Pazaryerleri</a> / <span id="crumbMkPage">—</span></div>
+  <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / <a onclick="go('tools')">Pazaryerleri</a><span id="crumbMkPage" class="crumb-ent"></span></div>
   <div id="mkPageBody"></div>
 </div></section></div>
 
@@ -890,7 +897,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 </div></section></div>
 
 <div class="page" id="copage"><section class="blk"><div class="container">
-  <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / <a onclick="go('countries')">Ülkeler</a> / <span id="crumbCoPage">—</span></div>
+  <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / <a onclick="go('countries')">Ülkeler</a><span id="crumbCoPage" class="crumb-ent"></span></div>
   <div id="coPageBody"></div>
 </div></section></div>
 
@@ -1023,7 +1030,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 <div class="page" id="saved"><section class="blk"><div class="container">
   <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / Ürünlerim</div>
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-    <div><div class="sec-title" style="margin-bottom:2px">Kayıtlı Hesaplarım</div><div class="sec-sub" style="margin-bottom:0">Ürün/kod bazında kaydettiğin tüm hesaplar. Tarayıcında saklanır.</div></div>
+    <div><div class="sec-title" style="margin-bottom:2px">Ürünlerim</div><div class="sec-sub" style="margin-bottom:0">Kaydettiğin ürünler: her birinde sana ne kaldığı ve marjı. Tekrar hesapla ya da karşılaştır.</div></div>
     <div style="display:flex;gap:8px"><button class="btn ghost" onclick="exportCSV()">CSV indir</button><button class="btn ghost" onclick="clearSaved()">Tümünü sil</button></div>
   </div>
   <div style="height:14px"></div>
@@ -1032,8 +1039,8 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 
 <!-- MAGAZINE -->
 <div class="page" id="radar"><section class="blk"><div class="container">
-  <div class="sec-title">Ücret Radarı</div>
-  <div class="sec-sub">Pazaryeri ücretleri ve satış koşulları zaman içinde değişir. Her değişikliği tarihi, kaynağı ve tahmini maliyet etkisiyle izle.</div>
+  <div class="sec-title">Pazaryeri ücretleri değişiyor. Netvo kaydını tutuyor.</div>
+  <div class="sec-sub">Her komisyon ve ücret değişikliği tarihi ve kaynağıyla burada — hesabına etkisini gör.</div>
   <div id="radarChips" class="soz-chips" style="margin-top:6px"></div>
   <div id="radarWatchHint"></div>
   <div id="radarFeed" style="margin-top:8px"></div>
@@ -1050,10 +1057,10 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 <div class="page" id="watch"><section class="blk"><div class="container">
   <div class="sec-title">Takip ettiğin ücretler</div>
   <div class="sec-sub">Takibe aldığın pazaryeri ve kategori ücretlerini burada gör. Değişiklik olduğunda Netvo seni bilgilendirir.</div>
-  <div class="infobanner" style="max-width:760px;margin-top:6px"><span>ⓘ</span><div>Bu liste <b>şu an bu tarayıcıda</b> tutulur. Bilgisayar veya tarayıcı değişince gitmesin diye <b>dışa aktar</b> — dosyayı istediğin cihazda geri yükle. Kalıcı, e-posta uyaracaklı takip yakında Pro'da.</div></div>
+  <div class="infobanner" style="max-width:760px;margin-top:6px"><span>ⓘ</span><div>Bu liste <b>şu an bu tarayıcıda</b> tutulur. Bilgisayar veya tarayıcı değişince kaybolmasın diye <b>yedeğini indir</b> — dosyayı istediğin cihazda geri yükle. Kalıcı, e-posta uyaran takip yakında Pro'da.</div></div>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
-    <button class="btn ghost sm" onclick="exportWatch()">⭳ Listeyi dışa aktar (JSON)</button>
-    <label class="btn ghost sm" style="cursor:pointer">⭱ İçe aktar<input type="file" accept="application/json,.json" onchange="importWatch(this)" style="display:none"></label>
+    <button class="btn ghost sm" onclick="exportWatch()">⭳ Yedeği indir</button>
+    <label class="btn ghost sm" style="cursor:pointer">⭱ Yedeği geri yükle<input type="file" accept="application/json,.json" onchange="importWatch(this)" style="display:none"></label>
   </div>
   <div id="watchList" style="margin-top:14px"></div>
 </div></section></div>
@@ -1106,10 +1113,10 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 </main>
 <footer><div class="container">
   <div class="nl">
-    <div class="nl-t"><h4>Netvo Bülten</h4><p>E-ticarette işini etkileyen önemli gelişmeleri e-postanda al. Spam yok, tek tıkla çık.</p></div>
+    <div class="nl-t"><h4>Netvo Günlük</h4><p>E-ticarette bugün ne değişti? Paranı etkileyen gelişmeler her sabah e-postanda. Spam yok, tek tıkla çık.</p></div>
     <form class="nl-f" onsubmit="return netvoSubscribe(event)">
       <input type="email" id="nlEmail" required placeholder="e-posta adresin" aria-label="e-posta">
-      <button type="submit">Katıl</button>
+      <button type="submit">Ücretsiz al</button>
       <span id="nlMsg" class="nl-ok" role="status"></span>
     </form>
   </div>
@@ -1118,6 +1125,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <div><h4>Keşfet</h4><a onclick="go('tools')">Pazaryerleri</a><a onclick="go('countries')">Ülkeler</a><a onclick="go('compare')">Karşılaştır</a><a onclick="go('magazine')">Gündem</a></div>
     <div><h4>Öğren</h4><a onclick="go('learn')">Öğren merkezi</a><a onclick="go('sozluk')">Sözlük</a><a onclick="go('radar')">Ücret Radarı</a></div>
     <div><h4>Araçlar</h4><a onclick="go('calc')">Kâr hesapla</a><a onclick="go('watch')">Takibim</a></div>
+    <div><h4>Güven</h4><a onclick="go('calc')">Metodoloji</a><a onclick="go('tools')">Veri kaynakları</a></div>
   </div>
   <div class="bot">© 2026 Netvo · <b>E-ticareti doğru yap.</b><br>Hesaplamalar bilgilendirme amaçlıdır; her oranın yanında kaynağı gösterilir.</div>
 </div></footer>
@@ -2922,7 +2930,7 @@ function renderMagazine(){
   // Onedio kart: görsel üstü renkli etiket + hover zoom. İlk kart (Tümü'de) öne çıkan.
   const F=(a,feat)=>{const i=NEWS.indexOf(a);return `<div class="news-card${feat?' feature':''}" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${_esc(a.t)}">
     <div class="cov" aria-hidden="true">${artThumb(a)}<span class="catpill cat-${a.c}">${CATMAP[a.c]||a.c}</span></div>
-    <div class="bd"><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div></div>
+    <div class="bd"><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div><a class="impact-cta" onclick="event.stopPropagation();go('calc')" onkeydown="event.stopPropagation()">Hesabına etkisini gör →</a></div>
   </div>`;};
   const shown=(MAG_CAT==='all'?LIST:LIST.filter(a=>a.c===MAG_CAT));
   const g=document.getElementById('magGrid');
