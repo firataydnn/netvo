@@ -139,6 +139,15 @@
   .mkbar select{flex:1;min-width:220px}
   .flagchip{font-size:12px;font-weight:500;color:var(--navy);background:var(--blue-l);padding:6px 11px;border-radius:20px}
   .result{position:sticky;top:78px}
+  .rtop.is-empty .big,.rtop.is-empty .band,.rtop.is-empty .subm,.rtop.is-empty #rVerdict{display:none}
+  .rtop.is-empty::after{content:"Hesabın burada görünecek — satış fiyatını ve maliyetini gir";display:block;color:var(--muted);font-size:14px;line-height:1.55;margin-top:8px}
+  .mob-result{display:none}
+  @media(max-width:880px){
+    .mob-result.show{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:#fff;justify-content:center;align-items:center;gap:10px;padding:13px 16px;font-size:15px;box-shadow:0 -4px 16px rgba(0,0,0,.2)}
+    .mob-result b{font-variant-numeric:tabular-nums;font-weight:600}
+    .mob-result .dot{opacity:.5}
+    #calc{padding-bottom:64px}
+  }
   .rtop{background:#fff;border:1px solid var(--line);color:var(--ink);border-radius:var(--radius);padding:22px;text-align:center}
   .rtop .l{font-size:13px;color:#cfe0f2;font-weight:600}
   .rtop .big{font-size:36px;font-weight:600;margin:6px 0}
@@ -895,6 +904,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <select class="inp" id="mkSel" onchange="selectMk(this.value)"></select>
     <span class="flagchip" id="coChip">🇹🇷 TR · KDV %20 · ₺</span>
   </div>
+  <div id="mobResult" class="mob-result" aria-hidden="true"></div>
   <div class="verifybox" id="verifyBox"></div>
 
   <div class="calc-wrap">
@@ -908,7 +918,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
       </div>
       <div class="field"><label id="kargoLabel">Kargo / gönderim <span class="hint">(vergi dahil · tahmini)</span></label><div class="inp-money"><span class="cur" id="cur3">₺</span><input class="inp" id="kargo" type="number" min="0" value="55" oninput="calc()"></div></div>
       <details class="adv">
-        <summary><span>Gelişmiş maliyetler <span class="hint" style="font-weight:400">— komisyon, vergi, reklam, iade, stopaj</span></span><span class="autos" id="advAuto"></span><span class="chev">▾</span></summary>
+        <summary><span>Gelişmiş maliyetler <span class="hint" style="font-weight:400">— reklam, iade, vergi, ek giderler</span></span><span class="autos" id="advAuto"></span><span class="chev">▾</span></summary>
         <div class="advbody">
       <div class="two">
         <div class="field"><label id="comLabel">Komisyon oranı (%)</label><input class="inp" id="com" type="number" min="0" step="0.1" value="22" oninput="calc()"></div>
@@ -930,9 +940,9 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
       <div class="note" id="mkNote"></div>
         </div>
       </details>
-      <details class="incl"><summary>Hesaba neler dahil?</summary><div class="incl-b">Bu araç <b>operasyonel kârı</b> hesaplar: komisyon, hizmet bedeli, vergi, kargo, reklam, iade ve ürün maliyeti. <b>Dahil değildir:</b> yıl sonu gelir/kurumlar vergisi (şahıs/Ltd., %15–40 dilim, genç girişimci muafiyeti) ve sınır ötesi işlem/gümrük ücretleri. Kargo/gider KDV'sini satıcının faturalandığı ülkeye göre ayarla. <b>Not:</b> Hesap, KDV mükellefi satıcıyı varsayar (girdi KDV'sini indirdiğini kabul eder). KDV mükellefi değilsen sana kalan bundan düşüktür.</div></details>
+      <details class="incl"><summary>ⓘ Netvo neleri hesaplıyor?</summary><div class="incl-b">Bu araç <b>operasyonel kârı</b> hesaplar: komisyon, hizmet bedeli, vergi, kargo, reklam, iade ve ürün maliyeti. <b>Dahil değildir:</b> yıl sonu gelir/kurumlar vergisi (şahıs/Ltd., %15–40 dilim, genç girişimci muafiyeti) ve sınır ötesi işlem/gümrük ücretleri. Kargo/gider KDV'sini satıcının faturalandığı ülkeye göre ayarla. <b>Not:</b> Hesap, KDV mükellefi satıcıyı varsayar (girdi KDV'sini indirdiğini kabul eder). KDV mükellefi değilsen sana kalan bundan düşüktür.</div></details>
       <details class="adv" id="ohBox" style="margin-top:10px">
-        <summary><span>İşletme giderlerimi dahil et <span class="hint" style="font-weight:400">— mağaza bağlama yok, tek profil</span></span><span class="autos" id="ohAuto"></span><span class="chev">▾</span></summary>
+        <summary><span>Gerçek işletme giderlerini de ekle</span><span class="autos" id="ohAuto"></span><span class="chev">▾</span></summary>
         <div class="advbody">
           <p class="sm muted" style="margin:0 0 10px">Aylık toplam sabit giderini ve sipariş adedini gir; Netvo sipariş başına gider payını hesaplayıp <b>gerçek kâr</b>ı gösterir. Veriler yalnızca bu tarayıcıda saklanır.</p>
           <div class="field"><label>Aylık sipariş adedi</label><input class="inp" id="ohOrders" type="number" min="1" value="2500" oninput="ohSave();calc()"></div>
@@ -957,7 +967,19 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
         <div class="subm"><div><span>Kâr marjı</span><b id="rMarj">%0</b></div><div><span>Maliyet getirisi</span><b id="rRoi">%0</b></div></div>
       </div>
 
-      <div class="rescard">
+      <div class="rescard" style="margin-top:16px">
+        <div class="rescard-h">Kaça satmalısın?</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="sm muted">Hedef marj</span>
+          <input id="tgt" class="inp" type="number" min="0" value="25" style="width:70px;padding:8px 10px">
+          <span class="sm">%</span>
+          <button class="btn" onclick="solve('marj')">Hedef fiyatı hesapla</button>
+          <button class="btn ghost" onclick="solve('be')">Başabaşı göster</button>
+        </div>
+        <div id="solveOut" class="sm" style="margin-top:10px;color:var(--ink);line-height:1.6"></div>
+      </div>
+
+      <div class="rescard" style="margin-top:16px">
         <div class="rescard-h">Para akışı</div>
         <div class="flow">
           <div class="frow"><span>Satış fiyatı</span><b id="gSale">—</b></div>
@@ -985,20 +1007,8 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
       <div class="allocbar" id="alloc" style="margin-top:16px"></div>
       <div style="font-size:11px;color:var(--muted);text-align:center" id="allocCap">Satışın dağılımı</div>
 
-      <div class="rescard" style="margin-top:16px">
-        <div class="rescard-h">Hedef fiyat</div>
-        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-          <span class="sm muted">Hedef marj</span>
-          <input id="tgt" class="inp" type="number" min="0" value="25" style="width:70px;padding:8px 10px">
-          <span class="sm">%</span>
-          <button class="btn" onclick="solve('marj')">Hedef fiyatı hesapla</button>
-          <button class="btn ghost" onclick="solve('be')">Başabaşı göster</button>
-        </div>
-        <div id="solveOut" class="sm" style="margin-top:10px;color:var(--ink);line-height:1.6"></div>
-      </div>
-
       <div style="margin-top:16px">
-        <button class="btn wide lg" onclick="toggleSave()">Hesabı kaydet</button>
+        <button class="btn wide lg" onclick="toggleSave()">Bu ürünü kaydet</button>
         <div id="saveForm" class="hide" style="margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px">
           <input id="saveName" class="inp" placeholder="Ürün adı / SKU / kod — ne istersen" style="margin-bottom:8px">
           <input id="saveNote" class="inp" placeholder="Not (opsiyonel)" style="margin-bottom:10px">
@@ -2458,6 +2468,16 @@ function calc(){
  const m=MK[current],co=CO[m.co],sym=co.cur;
  const S=+document.getElementById('price').value||0;
  const M=+document.getElementById('cost').value||0;
+ // BOŞ DURUM: satış fiyatı yokken 0 gösterme — kullanıcıyı yönlendir.
+ const _rtop=document.querySelector('#calc .rtop');
+ if(S<=0){
+   if(_rtop)_rtop.classList.add('is-empty');
+   ['gSale','gMarket','gCogs','gProfit'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent='—';});
+   var _so=document.getElementById('solveOut'); if(_so)_so.textContent='';
+   var _mb0=document.getElementById('mobResult'); if(_mb0)_mb0.classList.remove('show');
+   return;
+ }
+ if(_rtop)_rtop.classList.remove('is-empty');
  const rate=(+document.getElementById('com').value||0)/100;
  const kargoG=+document.getElementById('kargo').value||0;
  const fbaG=m.fba?(+document.getElementById('fba').value||0):0;
@@ -2512,6 +2532,9 @@ function calc(){
  const rNet=document.getElementById('rNet');rNet.textContent=f0(net);rNet.style.color=net<0?'var(--red)':'var(--ink)';
  document.getElementById('rMarj').textContent='%'+marj.toFixed(1);
  document.getElementById('rRoi').textContent='%'+roi.toFixed(0);
+ // Mobil sabit sonuç barı — aşağı inince sonucu kaybetme
+ const _mb=document.getElementById('mobResult');
+ if(_mb){_mb.innerHTML=`<span>Kalan <b>${f0(net)}</b></span><span class="dot">·</span><span>%${marj.toFixed(0)} marj</span>`;_mb.classList.add('show');_mb.style.background=net<0?'var(--red)':'';}
  let band,bc;if(net<0){band='Zarar';bc='rgba(176,42,42,.55)';}else if(marj<8){band='Riskli — düşük marj';bc='rgba(194,86,14,.6)';}else if(marj<18){band='İzlenmeli';bc='rgba(184,134,11,.6)';}else{band='Sağlıklı kâr';bc='rgba(30,123,79,.65)';}
  const be=document.getElementById('rBand');be.textContent=band;be.style.background=bc;
  // İnsan-dili yorum: satıcı rakamı değil, kararı okusun.
