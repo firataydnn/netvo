@@ -31,21 +31,31 @@ const SB_KEY    = process.env.SUPABASE_SERVICE_KEY || "";
 const esc = s => String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const CATTR = {pazar:"Pazaryeri",reg:"Regülasyon",global:"Global",reklam:"Reklam",lojistik:"Lojistik"};
 
+// Statik haber üreticisiyle BİREBİR aynı slug (seo/haber_uret.mjs) — mail linkleri
+// bizim /haber/<slug>.html sayfamıza gitsin, dış kaynağa DEĞİL.
+function slugify(s){ return String(s).toLowerCase()
+  .replace(/[ışğüöçİ]/g, c => ({ 'ı':'i','ş':'s','ğ':'g','ü':'u','ö':'o','ç':'c','İ':'i' }[c] || c))
+  .replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,60); }
+function srcHost(u){ try{ return new URL(u).hostname.replace(/^www\./,''); }catch(e){ return ""; } }
 function pickTR(x){
   const t = x.i18n ? (x.i18n.tr||x.i18n.en) : x;
   if(!t || !t.t) return null;
-  // gövdeden kaynak satırını çıkar (e-postada ayrı link veriyoruz)
+  // gövdeden kaynak satırını çıkar (e-postada ayrı gösteriyoruz)
   const body = String(t.body||t.d||"").split("\nKaynak:")[0].split("\nSource:")[0].trim();
-  return { c:x.c||"global", dt:x.dt||"", tag:x.tag||"", src:x.src||"", t:t.t, d:t.d||"", body };
+  // netvo haber sayfamızın URL'i (üreticiyle aynı slug tabanı: TR başlık)
+  const base = (x.i18n && x.i18n.tr && x.i18n.tr.t) || (x.i18n && x.i18n.en && x.i18n.en.t) || t.t;
+  const slug = slugify(base);
+  const url  = (x.i18n && slug) ? `${SITE}/haber/${slug}.html` : `${SITE}/gundem`;
+  return { c:x.c||"global", dt:x.dt||"", tag:x.tag||"", src:x.src||"", host:srcHost(x.src||""), url, t:t.t, d:t.d||"", body };
 }
 
 function buildHTML(items, dateStr){
   const rows = items.map(a=>`
     <tr><td style="padding:0 0 22px">
       <div style="font:600 11px/1 Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#1F4E79">${esc(CATTR[a.c]||a.c)}${a.tag?" · "+esc(a.tag):""}</div>
-      <a href="${esc(a.src||SITE)}" style="font:600 18px/1.3 Georgia,serif;color:#0b0b12;text-decoration:none;display:block;margin:6px 0 4px">${esc(a.t)}</a>
+      <a href="${esc(a.url)}" style="font:600 18px/1.3 Georgia,serif;color:#0b0b12;text-decoration:none;display:block;margin:6px 0 4px">${esc(a.t)}</a>
       <div style="font:400 14px/1.55 Arial,sans-serif;color:#42505f">${esc(a.d)}</div>
-      <div style="font:400 12px/1 Arial,sans-serif;color:#9aa6b6;margin-top:8px">${esc(a.dt)} · <a href="${esc(a.src||SITE)}" style="color:#1F4E79">Kaynağı aç →</a></div>
+      <div style="font:400 12px/1 Arial,sans-serif;color:#9aa6b6;margin-top:8px">${esc(a.dt)} · <a href="${esc(a.url)}" style="color:#1F4E79;font-weight:600">Haberi oku →</a>${a.host?` · <span style="color:#b6bfca">kaynak: ${esc(a.host)}</span>`:""}</div>
     </td></tr>`).join("");
   return `<!doctype html><html><body style="margin:0;background:#f4f6f8;padding:24px 0">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">
@@ -58,7 +68,7 @@ function buildHTML(items, dateStr){
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
       </td></tr>
       <tr><td style="padding:8px 26px 24px">
-        <a href="${SITE}/#/haberler" style="display:inline-block;background:#0b0b12;color:#fff;font:600 14px/1 Arial,sans-serif;text-decoration:none;padding:12px 18px;border-radius:9px">Tüm haberler →</a>
+        <a href="${SITE}/gundem" style="display:inline-block;background:#0b0b12;color:#fff;font:600 14px/1 Arial,sans-serif;text-decoration:none;padding:12px 18px;border-radius:9px">Tüm haberler →</a>
       </td></tr>
       <tr><td style="background:#f7f9fb;border-top:1px solid #eef1f4;padding:16px 26px;font:400 11px/1.5 Arial,sans-serif;color:#9aa6b6">
         Netvo · Satıldı. Sana ne kaldı? — 136 pazaryeri, 37 ülke.<br>
