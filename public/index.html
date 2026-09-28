@@ -2090,7 +2090,7 @@ function renderAtlas(){
  if(rs){const bm=byRegion();REGIONS.forEach(r=>{const n=(bm[r]||[]).length;if(n){const o=document.createElement('option');o.value=r;o.textContent=r+" ("+n+")";rs.appendChild(o);}});}
  ['mkSearch','mkRegion','mkSort'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('input',renderAtlas);});
  const mc=document.getElementById('mkCount');if(mc)mc.textContent=Object.keys(MK).length;
- const cc=document.getElementById('coCount');if(cc)cc.textContent=Object.keys(CO).length-1;
+ const cc=document.getElementById('coCount');if(cc)cc.textContent=new Set(Object.values(MK).map(m=>m.co).filter(c=>c&&c!=='GL')).size;
 })();
 
 // ---- Danışman arayüzü ----
