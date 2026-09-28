@@ -30,6 +30,8 @@ let RAW = [];
 try { RAW = JSON.parse(fs.readFileSync(KOK + "icerik/haberler.json", "utf8")); }
 catch (e) { console.log("→ haberler.json yok — haber SEO üretimi atlandı"); process.exit(0); }
 if (!Array.isArray(RAW) || !RAW.length) { console.log("→ haber yok — atlandı"); process.exit(0); }
+// Köşe yazıları (kose.json) da kendi /haber/<slug> sayfalarını alsın — haberlerle aynı üretici.
+try { if (fs.existsSync(KOK + "icerik/kose.json")) { const K = JSON.parse(fs.readFileSync(KOK + "icerik/kose.json", "utf8")); if (Array.isArray(K)) RAW = [...K, ...RAW]; } } catch (e) { console.warn("→ kose.json atlandı:", e.message); }
 
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 function slugify(s){ return String(s).toLowerCase()

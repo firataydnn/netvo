@@ -231,7 +231,7 @@
   .news-card .mt{font-size:11.5px;color:#6b7685;margin-top:auto;padding-top:9px}
   /* ── ONEDIO TARZI: görsel üstü renkli kategori etiketi + hover zoom ── */
   .catpill{position:absolute;top:10px;left:10px;z-index:3;display:inline-block;font-size:10px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:#fff;padding:4px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.22);line-height:1.35;white-space:nowrap;max-width:calc(100% - 20px);overflow:hidden;text-overflow:ellipsis}
-  .cat-pazar{background:#EA5B2A}.cat-reg{background:#7C3AED}.cat-global{background:#2563EB}.cat-reklam{background:#DB2777}.cat-lojistik{background:#0D9488}
+  .cat-pazar{background:#EA5B2A}.cat-reg{background:#7C3AED}.cat-global{background:#2563EB}.cat-reklam{background:#DB2777}.cat-lojistik{background:#0D9488}.cat-kose{background:#1A1511;letter-spacing:.8px}
   .news-card .cov img,.news-card .cov svg{transition:transform .5s ease}
   .news-card:hover .cov img,.news-card:hover .cov svg{transform:scale(1.07)}
   .sec-mini .catpill{position:static;box-shadow:none;font-size:9px;padding:2px 8px;margin-bottom:3px}
@@ -2901,7 +2901,7 @@ function openArticle(i,o){ o=o||{};
    <div class="art-hero" style="aspect-ratio:16/9;max-height:380px;border-radius:14px;overflow:hidden;margin:10px 0 6px;position:relative">${artThumb(a)}${(!a.img&&a.auto)?`<img src="/haber/covers/${slug}.png?v=${IMGV}" alt="${_esc(a.t)}" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3" onerror="this.remove()">`:''}</div>
    <div style="font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;margin-top:6px">${CATIC[a.c]} ${CATMAP[a.c]} · ${a.tag}</div>
    <h1 style="font-size:30px;font-weight:600;color:var(--navy);line-height:1.2;margin:8px 0 6px">${_esc(a.t)}</h1>
-   <div style="font-size:12.5px;color:var(--muted);margin-bottom:16px">${a.dt} · Netvo Intelligence</div>
+   <div style="font-size:12.5px;color:var(--muted);margin-bottom:16px">${a.dt} · ${a.author?('<b style="color:var(--ink);font-weight:600">'+_esc(a.author.n)+'</b> — Netvo AI köşe yazarı'+(a.author.role?' · '+_esc(a.author.role):'')):'Netvo'}</div>
    <p style="font-size:18px;color:var(--muted);line-height:1.5;margin-bottom:14px">${_esc(a.d)}</p>
    ${body}
    <div class="ctastrip" style="margin-top:24px"><div><h3>Bu değişiklik kârını nasıl etkiler?</h3><p>136 pazaryerinde komisyon, vergi ve kargo sonrası net kârını saniyede hesapla.</p></div><a onclick="go('calc')" class="btn lg">Hesapla →</a></div>
@@ -2929,8 +2929,8 @@ function renderMagazine(){
     +cats.map(c=>`<button class="fpill cat-f-${c}${MAG_CAT===c?' on':''}" role="tab" aria-selected="${MAG_CAT===c}" onclick="magFilter('${c}')">${CATMAP[c]||c}</button>`).join('');
   // Onedio kart: görsel üstü renkli etiket + hover zoom. İlk kart (Tümü'de) öne çıkan.
   const F=(a,feat)=>{const i=NEWS.indexOf(a);return `<div class="news-card${feat?' feature':''}" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${_esc(a.t)}">
-    <div class="cov" aria-hidden="true">${artThumb(a)}<span class="catpill cat-${a.c}">${CATMAP[a.c]||a.c}</span></div>
-    <div class="bd"><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${a.dt}${a.tag?" · "+a.tag:""} · ${readMin(a)}</div><a class="impact-cta" onclick="event.stopPropagation();go('calc')" onkeydown="event.stopPropagation()">Hesabına etkisini gör →</a></div>
+    <div class="cov" aria-hidden="true">${artThumb(a)}<span class="catpill ${a.kose?'cat-kose':'cat-'+a.c}">${a.kose?'KÖŞE':(CATMAP[a.c]||a.c)}</span></div>
+    <div class="bd"><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${(a.kose&&a.author)?('✍️ '+_esc(a.author.n)+' · '):''}${a.dt} · ${readMin(a)}</div><a class="impact-cta" onclick="event.stopPropagation();go('calc')" onkeydown="event.stopPropagation()">Hesabına etkisini gör →</a></div>
   </div>`;};
   const shown=(MAG_CAT==='all'?LIST:LIST.filter(a=>a.c===MAG_CAT));
   const g=document.getElementById('magGrid');
@@ -3363,8 +3363,10 @@ function pickAuto(item){
   if(!x||!x.t)return null;
   // _slug: STABİL slug (TR, yoksa EN başlıktan) — statik /haber/ sayfalarıyla birebir eşleşir, dil değişse de sabit
   var _sb=(item.i18n&&((item.i18n.tr&&item.i18n.tr.t)||(item.i18n.en&&item.i18n.en.t)))||x.t;
+  var _au=item.author&&typeof item.author==='object'?{n:_stripN(item.author.n),slug:_stripN(item.author.slug),role:_stripN(item.author.role)}:null;
   return {c:_okCatN(item.c),tag:_stripN(item.tag),dt:_stripN(item.dt),src:item.src,auto:true,pop:false,
     img:(typeof item.img==='string'&&/^\/?[\w./-]+\.(jpg|jpeg|png|webp)$/i.test(item.img))?item.img:'', f:!!item.f,
+    kose:!!item.kose, author:_au,
     _slug:slugify(_sb),t:_stripN(x.t),d:_stripN(x.d),body:_stripN(x.body)};
 }
 function mergeAutoNews(){

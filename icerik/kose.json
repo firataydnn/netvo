@@ -1,0 +1,30 @@
+[
+  {
+    "c": "pazar",
+    "dt": "28 Eyl 2026",
+    "tag": "Köşe",
+    "kose": true,
+    "author": { "n": "Mert Kayan", "slug": "mert-kayan", "role": "Marj & Operasyon" },
+    "i18n": {
+      "tr": {
+        "t": "Komisyon indirimi seni zengin etmez",
+        "d": "Bir pazaryeri komisyonu düşürünce içimiz rahatlıyor. Oysa senin marjını komisyon değil, komisyon-dışı görünmez kalemler belirliyor. Rakamla bakalım.",
+        "body": "Bir pazaryeri \"komisyonu iki puan düşürdük\" diye duyurunca satıcının içi rahatlıyor. Oysa 349 TL'lik bir satışta iki puanlık indirim cebine yalnızca yaklaşık 7 TL ekler. Aynı üründe KDV 58 TL, kargo 55 TL, buna bir de iade karşılığı ile reklam payı eklenince topluca 40–60 TL daha çıkar. Yani senin marjını komisyon değil, komisyonun etrafındaki kalemler belirliyor.\n\nNetvo'nun tek fikri tam da bu: ilan edilen komisyon başka, satış sonunda cebine giren başka. 349 TL'lik moda ürününde ilan edilen %15'lik komisyon, vergi ve hizmet bedelleriyle gerçekte %24'lük bir kesintiye dönüşüyor. Pazaryeri \"%2 indirim\" derken senin bakman gereken yer, o dokuz puanlık görünmez fark.\n\nPeki ne yapmalı? Üç şey. Bir: fiyatı komisyona göre değil, kalan tutara göre kur. Netvo hesap makinesinde hedef marjını gir, satış fiyatını geriye doğru çöz — \"%30 kalsın\" dediğinde kaça satman gerektiğini sana söyler. İki: iade ve reklam payını maliyet say, \"sonra bakarım\" deme; çünkü bu iki kalem çoğu kategoride komisyondan daha büyük. Üç: komisyon indirimi duyurusunu tek başına sevinç sebebi yapma, aynı ürünü üç pazaryerinde karşılaştır ve gerçek kazananı gör.\n\nKomisyon, satışının maliyeti değildir. Maliyetin tamamına bakan kazanır — indirim manşetine değil."
+      }
+    }
+  },
+  {
+    "c": "global",
+    "dt": "28 Eyl 2026",
+    "tag": "Köşe",
+    "kose": true,
+    "author": { "n": "Deniz Aral", "slug": "deniz-aral", "role": "Global & Sınır Ötesi" },
+    "i18n": {
+      "tr": {
+        "t": "Yurt dışına açılırken kazancını yiyen üç görünmez kalem",
+        "d": "İhracat cazip görünür: yüksek sepet, güçlü para birimi. Ama kârı belirleyen, faturaya girmeyen üç kalemdir. Sınır ötesinde bunları hesaba katmayan zarar eder.",
+        "body": "Yurt dışına satış cazip görünür: daha yüksek sepet, daha güçlü para birimi, ödeme gücü yüksek müşteri. Ama sınır ötesinde kârı belirleyen şey ürün fiyatı değil, faturaya net girmeyen üç görünmez kalemdir.\n\nBirincisi hedef ülkenin vergisi. Türkiye'den bakınca %20 KDV'yi biliyorsun ama Almanya %19, İngiltere %20, Körfez %5, kimi eyalette satış vergisi ayrı. Ürünü aynı fiyata listeleyip vergiyi unutursan, marj sandığından düşük çıkar. Netvo'da ülke seçince oran kendiliğinden değişir; sen sadece sonuca bak.\n\nİkincisi sınır ötesi ödeme ve kur kalemi. Payoneer, Wise ya da pazaryerinin kendi ödeme akışı; her biri %1–3 arası bir pay ve bir de kur farkı alır. Küçük sepette bu, komisyondan daha çok yakar. Üçüncüsü iade lojistiği: yurt içinde 30 TL olan iade, sınır ötesinde gümrük ve geri-gönderim maliyetiyle katlanır — ve iade oranı moda kategorisinde azımsanmayacak kadar yüksektir.\n\nSonuç? Sınır ötesi bir fırsat, ama \"ciro büyük\" diye girilmez, \"kalan ne\" diye girilir. Bir ürünü hedef ülkede listelemeden önce Netvo'da o ülkenin vergisi, komisyonu ve kargosuyla hesapla; kalan tutar seni ikna ediyorsa aç. Etmiyor da sırf ciro için açıyorsan, o cironun altında sessizce zarar birikiyordur."
+      }
+    }
+  }
+]

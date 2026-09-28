@@ -42,7 +42,15 @@ for (const f of ["embed.js", "netvo-widget.html", "data.json"]) {
 
 // 4) İçerik motoru çıktısı → public/data/haberler.json
 fs.mkdirSync(`${OUT}/data`, { recursive: true });
-if (fs.existsSync("icerik/haberler.json")) fs.copyFileSync("icerik/haberler.json", `${OUT}/data/haberler.json`);
+if (fs.existsSync("icerik/haberler.json")) {
+  // Köşe yazıları (icerik/kose.json) haber verisiyle birleştirilir — bot dokunmaz, yine de
+  // Gündem + /haber/<slug> sayfası + akışa girer. Köşe yazıları başa (en yeni) konur.
+  const _h = JSON.parse(fs.readFileSync("icerik/haberler.json", "utf8"));
+  let _k = [];
+  try { if (fs.existsSync("icerik/kose.json")) _k = JSON.parse(fs.readFileSync("icerik/kose.json", "utf8")); } catch (e) { console.warn("kose.json atlandı:", e.message); }
+  fs.writeFileSync(`${OUT}/data/haberler.json`, JSON.stringify([..._k, ..._h]));
+  if (_k.length) console.log("→ Köşe yazısı verisi eklendi:", _k.length);
+}
 
 // 5) Marka varlıkları → public/marka/
 if (fs.existsSync("marka")) {
