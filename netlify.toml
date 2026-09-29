@@ -6,6 +6,13 @@
 
 # redeploy: 2026-08-24T12:28:58Z — kredi sonrası yeniden yayın
 
+# Eski köşe slug'ı (kârını → kazancını değişimi) 301 ile yeni sayfaya
+[[redirects]]
+  from = "/haber/yurt-disina-acilirken-k-rini-yiyen-uc-gorunmez-kalem.html"
+  to = "/haber/yurt-disina-acilirken-kazancini-yiyen-uc-gorunmez-kalem.html"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

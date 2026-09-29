@@ -149,7 +149,7 @@ function articlePage(a, lang, slug, langsAvail, cover){
   const ld = { "@context":"https://schema.org","@type":"NewsArticle",
     "headline": tr.t, "description": desc, "datePublished": pub, "dateModified": pub,
     "inLanguage": lang, "articleSection": cat,
-    "author":{"@type":"Organization","name":BRAND,"url":BASE},
+    "author":(a.kose&&a.author)?{"@type":"Person","name":a.author.n,"jobTitle":(a.author.role?a.author.role+" — ":"")+"Netvo AI köşe yazarı"}:{"@type":"Organization","name":BRAND,"url":BASE},
     "publisher":{"@type":"Organization","name":BRAND,"logo":{"@type":"ImageObject","url":`${BASE}/marka/netvo-mark.svg`}},
     "mainEntityOfPage":{"@type":"WebPage","@id":url} };
   if (cover) ld.image = [cover];
@@ -160,7 +160,7 @@ function articlePage(a, lang, slug, langsAvail, cover){
     + `<div class="crumb"><a href="${lang==="tr"?BASE+"/":BASE+"/"+lang+"/"}">${esc(t.crumbHome)}</a> / <a href="${lang==="tr"?BASE+"/haber/":BASE+"/"+lang+"/haber/"}">${esc(t.crumbNews)}</a></div>`
     + `<div class="cat">${esc(cat)}${a.tag?" · "+esc(a.tag):""}</div>`
     + `<h1>${esc(tr.t)}</h1>`
-    + `<div class="meta">${esc(a.dt||"")}</div>`
+    + `<div class="meta">${esc(a.dt||"")}${(a.kose&&a.author)?` · <b style="color:#1A1511;font-weight:700">${esc(a.author.n)}</b> — Netvo AI köşe yazarı${a.author.role?" · "+esc(a.author.role):""}`:""}</div>`
     + (a.img ? `<img class="hero" src="${BASE}${a.img}?v=${IMGV}" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : (cover ? `<img class="hero" src="${cover}" width="1200" height="630" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : ""))
     + (tr.d?`<p class="lede">${esc(tr.d)}</p>`:"")
     + `<div class="body">${paras}</div>`
