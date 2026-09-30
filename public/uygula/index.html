@@ -2850,7 +2850,8 @@ function artThumb(x){
  const it=(x&&typeof x==='object')?x:{c:x};
  // Konuyla-alakalı GERÇEK görsel (varsa) SVG kapağın üzerine biner; yüklenemezse
  // (this.remove) altındaki marka kapağı görünür → hiçbir zaman boş/patlak kalmaz.
- const imgOver=it.img?`<img src="${_esc(it.img)}?v=${IMGV}" loading="lazy" alt="" class="cov-photo" onerror="this.remove()">`:'';
+ const _covSrc=it.img?_esc(it.img):(it.t?('/haber/covers/'+slugify(it.t)+'.png'):'');
+ const imgOver=_covSrc?`<img src="${_covSrc}?v=${IMGV}" loading="lazy" alt="" class="cov-photo" onerror="this.remove()">`:'';
  const c=it.c||'global', col=CATCOLOR[c]||'#1F4E79';
  const tag=(it.tag||'').toString(), h=artHue(it.t||it.d||c);
  const ang=30+(h%80);                         // gradient açısı
