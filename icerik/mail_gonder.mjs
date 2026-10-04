@@ -29,7 +29,14 @@ const SB_URL    = process.env.SUPABASE_URL || "";
 const SB_KEY    = process.env.SUPABASE_SERVICE_KEY || "";
 
 const esc = s => String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-const CATTR = {pazar:"Pazaryeri",reg:"Regülasyon",global:"Global",reklam:"Reklam",lojistik:"Lojistik"};
+const CATTR  = {pazar:"Pazaryeri",reg:"Regülasyon",global:"Global",reklam:"Reklam",lojistik:"Lojistik",kose:"Köşe"};
+const CATCOL = {pazar:"#EA5B2A",reg:"#7C3AED",global:"#2563EB",reklam:"#DB2777",lojistik:"#0D9488",kose:"#1A1511"};
+const LOG = KOK + "mail_log.json";                 // daha önce gönderilen haberler (URL) — tekrarı önler
+function loadLog(){ try{ const a=JSON.parse(fs.readFileSync(LOG,"utf8")); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+function saveLog(a){ try{ fs.writeFileSync(LOG, JSON.stringify(a.slice(-800))); }catch(e){} }
+// item.url (…/haber/<slug>.html) → üretilen kapak görseli (…/haber/covers/<slug>.png)
+function coverOf(it){ if(it.img) return SITE+it.img; const m=/\/haber\/([^/]+)\.html$/.exec(it.url||""); return m?`${SITE}/haber/covers/${m[1]}.png`:""; }
+function pill(c,tag){ const col=CATCOL[c]||"#1F4E79"; const label=(c==="kose"?"KÖŞE":(CATTR[c]||c))+(tag&&c!=="kose"?" · "+tag:""); return `<span style="display:inline-block;background:${col};color:#fff;font:700 10px/1 Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;padding:5px 9px;border-radius:999px">${esc(label)}</span>`; }
 
 // Statik haber üreticisiyle BİREBİR aynı slug (seo/haber_uret.mjs) — mail linkleri
 // bizim /haber/<slug>.html sayfamıza gitsin, dış kaynağa DEĞİL.
@@ -46,33 +53,56 @@ function pickTR(x){
   const base = (x.i18n && x.i18n.tr && x.i18n.tr.t) || (x.i18n && x.i18n.en && x.i18n.en.t) || t.t;
   const slug = slugify(base);
   const url  = (x.i18n && slug) ? `${SITE}/haber/${slug}.html` : `${SITE}/gundem`;
-  return { c:x.c||"global", dt:x.dt||"", tag:x.tag||"", src:x.src||"", host:srcHost(x.src||""), url, t:t.t, d:t.d||"", body };
+  const c = x.kose ? "kose" : (x.c||"global");
+  return { c, dt:x.dt||"", tag:x.tag||"", src:x.src||"", host:srcHost(x.src||""), url, img:x.img||"", t:t.t, d:t.d||"", body };
 }
 
+function featureCard(a){
+  const cov=coverOf(a);
+  return `
+  <tr><td style="padding:0 0 10px">
+    ${cov?`<a href="${esc(a.url)}"><img src="${esc(cov)}" width="548" style="width:100%;max-width:548px;height:auto;display:block;border-radius:12px" alt=""></a>`:""}
+    <div style="margin:14px 0 0">${pill(a.c,a.tag)}</div>
+    <a href="${esc(a.url)}" style="font:700 23px/1.25 Georgia,serif;color:#0b0b12;text-decoration:none;display:block;margin:10px 0 6px;letter-spacing:-.01em">${esc(a.t)}</a>
+    <div style="font:400 15px/1.6 Arial,sans-serif;color:#42505f">${esc(a.d)}</div>
+    <div style="font:400 12px/1 Arial,sans-serif;color:#9aa6b6;margin-top:10px">${esc(a.dt)} · <a href="${esc(a.url)}" style="color:#EA5B2A;font-weight:700;text-decoration:none">Haberi oku →</a>${a.host?` · <span style="color:#b6bfca">kaynak: ${esc(a.host)}</span>`:""}</div>
+  </td></tr>
+  <tr><td style="padding:0 0 18px"><div style="border-top:1px solid #eef1f4"></div></td></tr>`;
+}
+function listRow(a){
+  const cov=coverOf(a);
+  return `
+  <tr><td style="padding:0 0 18px">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td width="112" valign="top" style="width:112px">
+        ${cov?`<a href="${esc(a.url)}"><img src="${esc(cov)}" width="100" height="64" style="width:100px;height:64px;object-fit:cover;border-radius:9px;display:block" alt=""></a>`:""}
+      </td>
+      <td valign="top" style="padding-left:14px">
+        <div style="margin-bottom:5px">${pill(a.c,a.tag)}</div>
+        <a href="${esc(a.url)}" style="font:600 16px/1.32 Georgia,serif;color:#0b0b12;text-decoration:none;display:block;margin-bottom:4px">${esc(a.t)}</a>
+        <div style="font:400 12px/1 Arial,sans-serif;color:#9aa6b6">${esc(a.dt)} · <a href="${esc(a.url)}" style="color:#EA5B2A;font-weight:700;text-decoration:none">oku →</a></div>
+      </td>
+    </tr></table>
+  </td></tr>`;
+}
 function buildHTML(items, dateStr){
-  const rows = items.map(a=>`
-    <tr><td style="padding:0 0 22px">
-      <div style="font:600 11px/1 Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#1F4E79">${esc(CATTR[a.c]||a.c)}${a.tag?" · "+esc(a.tag):""}</div>
-      <a href="${esc(a.url)}" style="font:600 18px/1.3 Georgia,serif;color:#0b0b12;text-decoration:none;display:block;margin:6px 0 4px">${esc(a.t)}</a>
-      <div style="font:400 14px/1.55 Arial,sans-serif;color:#42505f">${esc(a.d)}</div>
-      <div style="font:400 12px/1 Arial,sans-serif;color:#9aa6b6;margin-top:8px">${esc(a.dt)} · <a href="${esc(a.url)}" style="color:#1F4E79;font-weight:600">Haberi oku →</a>${a.host?` · <span style="color:#b6bfca">kaynak: ${esc(a.host)}</span>`:""}</div>
-    </td></tr>`).join("");
-  return `<!doctype html><html><body style="margin:0;background:#f4f6f8;padding:24px 0">
+  const body = (items.length?featureCard(items[0]):"") + items.slice(1).map(listRow).join("");
+  return `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"></head><body style="margin:0;background:#f4f6f8;padding:24px 0;-webkit-font-smoothing:antialiased">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">
-    <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:92%;background:#fff;border:1px solid #e6eaef;border-radius:14px;overflow:hidden">
-      <tr><td style="background:#0b0b12;padding:20px 26px">
-        <div style="font:700 18px/1 Arial,sans-serif;color:#fff;letter-spacing:.3px">● netvo</div>
-        <div style="font:400 13px/1.4 Arial,sans-serif;color:#b9c4d2;margin-top:6px">Günün e-ticaret haberleri · ${esc(dateStr)}</div>
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:92%;background:#fff;border:1px solid #e6eaef;border-radius:16px;overflow:hidden">
+      <tr><td style="background:#0b0b12;padding:22px 26px">
+        <div style="font:800 19px/1 Arial,sans-serif;color:#fff;letter-spacing:.2px">● netvo</div>
+        <div style="font:400 13px/1.4 Arial,sans-serif;color:#b9c4d2;margin-top:7px">E-ticarette bugün ne değişti? · ${esc(dateStr)}</div>
       </td></tr>
-      <tr><td style="padding:24px 26px 4px">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
+      <tr><td style="padding:24px 26px 6px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${body}</table>
       </td></tr>
-      <tr><td style="padding:8px 26px 24px">
-        <a href="${SITE}/gundem" style="display:inline-block;background:#0b0b12;color:#fff;font:600 14px/1 Arial,sans-serif;text-decoration:none;padding:12px 18px;border-radius:9px">Tüm haberler →</a>
+      <tr><td style="padding:4px 26px 26px">
+        <a href="${SITE}/gundem" style="display:inline-block;background:#EA5B2A;color:#fff;font:700 14px/1 Arial,sans-serif;text-decoration:none;padding:13px 20px;border-radius:10px">Tüm haberleri gör →</a>
       </td></tr>
-      <tr><td style="background:#f7f9fb;border-top:1px solid #eef1f4;padding:16px 26px;font:400 11px/1.5 Arial,sans-serif;color:#9aa6b6">
-        Netvo · Satıldı. Sana ne kaldı? — 136 pazaryeri, 37 ülke.<br>
-        Haber metinleri Netvo tarafından özgün olarak yazılır; her haberde kaynak bağlantısı verilir.
+      <tr><td style="background:#f7f9fb;border-top:1px solid #eef1f4;padding:16px 26px;font:400 11px/1.6 Arial,sans-serif;color:#9aa6b6">
+        <b style="color:#6b7685">Netvo</b> · Satıldı. Sana ne kaldı? — 136 pazaryeri, 37 ülke.<br>
+        Haber metinleri Netvo tarafından özgün yazılır; her haberde kaynak bağlantısı verilir.
       </td></tr>
     </table>
   </td></tr></table></body></html>`;
@@ -104,13 +134,25 @@ function tsOf(dt){var s=String(dt||"").trim();var m=/(\d{1,2})\s+(\S+)\s+(\d{4})
 
 async function main(){
   let list=[]; try{ list=JSON.parse(fs.readFileSync(OUT,"utf8")); }catch(e){}
-  // En yeni tarihli 5 haber (dosya sırasına değil, TARİHE göre)
-  const items = list.slice().sort((a,b)=>tsOf(b.dt)-tsOf(a.dt)).map(pickTR).filter(Boolean).slice(0, N);
-  if(!items.length){ console.log("Gönderilecek haber yok."); return; }
+  // Tüm haberleri TARİHE göre yeniden-eskiye sırala
+  const all = list.slice().sort((a,b)=>tsOf(b.dt)-tsOf(a.dt)).map(pickTR).filter(Boolean);
+  if(!all.length){ console.log("Gönderilecek haber yok."); return; }
+
+  // DAHA ÖNCE GÖNDERİLMEYENLER — her bülten taze olsun, aynı haber iki kez gitmesin
+  const log = loadLog();
+  const seen = new Set(log);
+  let items = all.filter(a=>!seen.has(a.url)).slice(0, N);
+
+  // Hiç yeni haber yoksa: gerçek gönderimde ATLA (tekrar yok). Kuru turda en yenileri göster.
+  if(!items.length){
+    if(DRY){ items = all.slice(0, N); }
+    else { console.log("Yeni haber yok → bülten gönderilmedi (tekrar önlendi)."); return; }
+  }
   if(!process.env.MAIL_FROM && API_KEY){ console.log("UYARI: MAIL_FROM tanımsız → Resend test göndericisi (onboarding@resend.dev) kullanılıyor; yalnız Resend hesabının kendi e-postasına ulaşır. Alan adını doğrulayıp MAIL_FROM ekle."); }
 
   const dateStr = new Date().toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"});
-  const subject = `Netvo · Günün e-ticaret haberleri (${items.length}) — ${dateStr}`;
+  const lead = items[0].t.length>58 ? items[0].t.slice(0,57).trim()+"…" : items[0].t;
+  const subject = items.length>1 ? `${lead} — ve ${items.length-1} haber daha` : lead;
   const html = buildHTML(items, dateStr);
 
   if(DRY || !API_KEY){
@@ -123,12 +165,14 @@ async function main(){
   }
 
   const recips = Array.from(new Set(MAIL_TO.concat(await subscribers())));
+  let ok=false;
   // Resend tek çağrıda 'to' dizisi kabul eder; büyük listelerde 50'lik gruplara böl
   for(let i=0;i<recips.length;i+=50){
     const chunk = recips.slice(i,i+50);
-    try{ await send(chunk, subject, html); console.log("Gönderildi →", chunk.length, "alıcı"); }
+    try{ await send(chunk, subject, html); console.log("Gönderildi →", chunk.length, "alıcı"); ok=true; }
     catch(e){ console.error("gönderim hatası:", e.message); }
   }
+  if(ok){ saveLog(log.concat(items.map(a=>a.url))); }   // sadece başarılı gönderimde logla
   console.log(`Bülten gönderildi: ${items.length} haber · ${recips.length} alıcı.`);
 }
 main();
