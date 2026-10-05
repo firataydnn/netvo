@@ -35,6 +35,12 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: node icerik/mail_gonder.mjs || echo "bülten atlandı (anahtar yok veya hata)"
+      - name: Sağlık kontrolü — motor bayatsa Fırat'a uyar
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+        run: node icerik/saglik_kontrol.mjs || echo "sağlık kontrolü atlandı"
       - name: Yayına kopyala (site kökü /data/)
         run: |
           mkdir -p seo/site/data
