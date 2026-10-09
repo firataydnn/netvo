@@ -57,8 +57,25 @@ footer{border-top:1px solid var(--ink);margin-top:40px;padding:24px 0;font-size:
     <div class="gap-r"><div class="gap-k" style="color:var(--red)">Toplam pazaryeri kesintisi</div><div class="gap-v mono" style="color:var(--red)">%14.9</div><div class="gap-n">KDV · sabit ücret · işlem</div></div>
   </section>
   <p class="muted sm">OTTO “%12.5 komisyon” der; KDV ve sabit ücretlerle satışta toplam pazaryeri kesintisi %14.9&#39;e çıkar. Kargo, reklam ve ürün maliyetiyle birlikte cebine kalan operasyonel kârı hesapla.</p>
-  <a class="cta" href="https://netvo.co/?lang=tr#/pazaryeri/otto">OTTO kârını hesapla →</a>
+  <h2 style="margin-top:24px">OTTO (Almanya) komisyon hesaplama aracı</h2><div class="calc">
+<div class="crow"><div><label>Satış fiyatı (€, KDV dahil)</label><input id="nvS" type="number" min="0" value="500"></div><div><label>Ürün maliyeti (€)</label><input id="nvC" type="number" min="0" value="0"></div></div>
+<div class="crow"><div><label>Kategori</label><select id="nvK"><option value="12">Genel — %12</option><option value="15">Moda — %15</option><option value="13">Ev — %13</option><option value="8">Elektronik — %8</option></select></div><div><label>Kargo (opsiyonel) (€)</label><input id="nvG" type="number" min="0" value="0"></div></div>
+<div class="out" id="nvO"></div></div>
+<script>(function(){var D={"vat":19,"comIncl":false,"cur":"€","loc":"tr-TR","pct":[],"fixed":[],"L":{"com":"Komisyon","comvat":"Komisyon KDV eki","svc":"Hizmet/işlem bedeli","fix":"Sabit ücret","prod":"Ürün maliyeti","ship":"Kargo","net":"Cebine kalan net","marj":"Marj","total":"Toplam pazaryeri kesintisi"}};function n(x){return parseFloat(x)||0}function f(x){return x.toLocaleString(D.loc,{minimumFractionDigits:2,maximumFractionDigits:2})+' '+D.cur}
+function run(){var S=n(document.getElementById('nvS').value),C=n(document.getElementById('nvC').value),G=n(document.getElementById('nvG').value),r=n(document.getElementById('nvK').value);
+var kom=S*r/100,komKDV=D.comIncl?0:kom*D.vat/100,ekP=0;D.pct.forEach(function(p){ekP+=S*p[1]/100});var ekF=0;D.fixed.forEach(function(x){ekF+=x[1]});
+var kes=kom+komKDV+ekP+ekF,net=S-kes-C-G,marj=S>0?net/S*100:0;
+var h='<div class="ln neg"><span>'+D.L.com+' (%'+r+')</span><span>-'+f(kom)+'</span></div>';
+if(komKDV>0)h+='<div class="ln neg"><span>'+D.L.comvat+'</span><span>-'+f(komKDV)+'</span></div>';
+if(ekP>0)h+='<div class="ln neg"><span>'+D.L.svc+'</span><span>-'+f(ekP)+'</span></div>';
+if(ekF>0)h+='<div class="ln neg"><span>'+D.L.fix+'</span><span>-'+f(ekF)+'</span></div>';
+if(C>0)h+='<div class="ln neg"><span>'+D.L.prod+'</span><span>-'+f(C)+'</span></div>';
+if(G>0)h+='<div class="ln neg"><span>'+D.L.ship+'</span><span>-'+f(G)+'</span></div>';
+h+='<div class="net"><span>'+D.L.net+'</span><b>'+f(net)+'</b></div><div class="marj">'+D.L.marj+': %'+marj.toFixed(1)+' &middot; '+D.L.total+': '+f(kes)+'</div>';
+document.getElementById('nvO').innerHTML=h;}
+['nvS','nvC','nvG','nvK'].forEach(function(id){var e=document.getElementById(id);if(e){e.addEventListener('input',run);e.addEventListener('change',run);}});run();})();</script>
   
+  <a class="cta" href="https://netvo.co/?lang=tr#/pazaryeri/otto">OTTO kârını hesapla →</a>
   <h2>Komisyon oranları (kategori kategori)</h2>
   <p class="muted sm">Komisyon %8–15, aylık ücret yok. Almanya KDV %19.</p>
   <table><thead><tr><th>Kategori</th><th class="r">Komisyon</th></tr></thead><tbody><tr><td>Genel</td><td class="r mono">%12</td></tr><tr><td>Moda</td><td class="r mono">%15</td></tr><tr><td>Ev</td><td class="r mono">%13</td></tr><tr><td>Elektronik</td><td class="r mono">%8</td></tr></tbody></table>

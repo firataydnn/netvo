@@ -355,6 +355,46 @@ footer{border-top:1px solid var(--ink);margin-top:40px;padding:24px 0;font-size:
 @media(max-width:560px){.gap{grid-template-columns:1fr}.gap-r{text-align:left}.facts{grid-template-columns:1fr}.calc .crow{grid-template-columns:1fr}}`;
 
 const HESAP_MK = new Set(['trendyol','hepsiburada','n11','amazontr','ciceksepeti']);
+
+// ---- sayfa-içi hesap makinesi (tüm pazaryerleri, 6 dil) ----
+const LOC={tr:'tr-TR',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT'};
+const CALCL={
+  tr:{calcH:'komisyon hesaplama aracı',price:'Satış fiyatı',cost:'Ürün maliyeti',cat:'Kategori',rate:'Komisyon oranı (%)',ship:'Kargo (opsiyonel)',vatIncl:'KDV dahil',com:'Komisyon',comvat:'Komisyon KDV eki',svc:'Hizmet/işlem bedeli',fix:'Sabit ücret',prod:'Ürün maliyeti',shipL:'Kargo',net:'Cebine kalan net',marj:'Marj',total:'Toplam pazaryeri kesintisi'},
+  en:{calcH:'commission calculator',price:'Sale price',cost:'Product cost',cat:'Category',rate:'Commission rate (%)',ship:'Shipping (optional)',vatIncl:'VAT incl.',com:'Commission',comvat:'VAT on commission',svc:'Service/transaction fee',fix:'Fixed fee',prod:'Product cost',shipL:'Shipping',net:'Net in your pocket',marj:'Margin',total:'Total marketplace cut'},
+  de:{calcH:'Provisionsrechner',price:'Verkaufspreis',cost:'Produktkosten',cat:'Kategorie',rate:'Provisionssatz (%)',ship:'Versand (optional)',vatIncl:'inkl. MwSt.',com:'Provision',comvat:'MwSt. auf Provision',svc:'Service-/Transaktionsgebühr',fix:'Fixgebühr',prod:'Produktkosten',shipL:'Versand',net:'Netto für dich',marj:'Marge',total:'Gesamter Marktplatzabzug'},
+  fr:{calcH:'calculateur de commission',price:'Prix de vente',cost:'Coût du produit',cat:'Catégorie',rate:'Taux de commission (%)',ship:'Livraison (option)',vatIncl:'TVA incluse',com:'Commission',comvat:'TVA sur la commission',svc:'Frais de service/transaction',fix:'Frais fixe',prod:'Coût du produit',shipL:'Livraison',net:'Net dans votre poche',marj:'Marge',total:'Prélèvement total de la place de marché'},
+  es:{calcH:'calculadora de comisiones',price:'Precio de venta',cost:'Coste del producto',cat:'Categoría',rate:'Tasa de comisión (%)',ship:'Envío (opcional)',vatIncl:'IVA incl.',com:'Comisión',comvat:'IVA sobre la comisión',svc:'Tarifa de servicio/transacción',fix:'Tarifa fija',prod:'Coste del producto',shipL:'Envío',net:'Neto en tu bolsillo',marj:'Margen',total:'Deducción total del marketplace'},
+  it:{calcH:'calcolatore di commissioni',price:'Prezzo di vendita',cost:'Costo prodotto',cat:'Categoria',rate:'Aliquota commissione (%)',ship:'Spedizione (opz.)',vatIncl:'IVA incl.',com:'Commissione',comvat:'IVA sulla commissione',svc:'Commissione servizio/transazione',fix:'Tariffa fissa',prod:'Costo prodotto',shipL:'Spedizione',net:'Netto in tasca',marj:'Margine',total:'Trattenuta totale del marketplace'},
+};
+function calcBlock(m, co, lang){
+  const L=CALCL[lang]||CALCL.tr, rMed=temsilciOran(m), hasCats=!!(m.cats&&m.cats.length);
+  if(rMed==null && m.fixedRate==null) return '';
+  const cur=(((co.cur||'₺')+'').trim())||'₺';
+  const D={vat:co.vat||0,comIncl:!!m.comVatIncl,cur,loc:(LOC[lang]||'en-US'),
+    pct:(m.pct||[]).map(p=>[String(p[0]),(p[1]!=null?p[1]:(parseFloat(p[0])||0))]),
+    fixed:(m.fixed||[]).map(f=>[String(f[0]),(f[1]!=null?f[1]:0)]),
+    L:{com:L.com,comvat:L.comvat,svc:L.svc,fix:L.fix,prod:L.prod,ship:L.shipL,net:L.net,marj:L.marj,total:L.total}};
+  const selOrInput = hasCats
+    ? `<div><label>${esc(L.cat)}</label><select id="nvK">${m.cats.map(c=>`<option value="${c[1]}"${c[1]===rMed?' selected':''}>${esc(catAd(c[0],lang))} — %${c[1]}</option>`).join("")}</select></div>`
+    : `<div><label>${esc(L.rate)}</label><input id="nvK" type="number" min="0" step="0.1" value="${rMed!=null?rMed:(m.fixedRate||0)}"></div>`;
+  return `<div class="calc">
+<div class="crow"><div><label>${esc(L.price)} (${cur}, ${esc(L.vatIncl)})</label><input id="nvS" type="number" min="0" value="500"></div><div><label>${esc(L.cost)} (${cur})</label><input id="nvC" type="number" min="0" value="0"></div></div>
+<div class="crow">${selOrInput}<div><label>${esc(L.ship)} (${cur})</label><input id="nvG" type="number" min="0" value="0"></div></div>
+<div class="out" id="nvO"></div></div>
+<script>(function(){var D=${JSON.stringify(D)};function n(x){return parseFloat(x)||0}function f(x){return x.toLocaleString(D.loc,{minimumFractionDigits:2,maximumFractionDigits:2})+' '+D.cur}
+function run(){var S=n(document.getElementById('nvS').value),C=n(document.getElementById('nvC').value),G=n(document.getElementById('nvG').value),r=n(document.getElementById('nvK').value);
+var kom=S*r/100,komKDV=D.comIncl?0:kom*D.vat/100,ekP=0;D.pct.forEach(function(p){ekP+=S*p[1]/100});var ekF=0;D.fixed.forEach(function(x){ekF+=x[1]});
+var kes=kom+komKDV+ekP+ekF,net=S-kes-C-G,marj=S>0?net/S*100:0;
+var h='<div class="ln neg"><span>'+D.L.com+' (%'+r+')</span><span>-'+f(kom)+'</span></div>';
+if(komKDV>0)h+='<div class="ln neg"><span>'+D.L.comvat+'</span><span>-'+f(komKDV)+'</span></div>';
+if(ekP>0)h+='<div class="ln neg"><span>'+D.L.svc+'</span><span>-'+f(ekP)+'</span></div>';
+if(ekF>0)h+='<div class="ln neg"><span>'+D.L.fix+'</span><span>-'+f(ekF)+'</span></div>';
+if(C>0)h+='<div class="ln neg"><span>'+D.L.prod+'</span><span>-'+f(C)+'</span></div>';
+if(G>0)h+='<div class="ln neg"><span>'+D.L.ship+'</span><span>-'+f(G)+'</span></div>';
+h+='<div class="net"><span>'+D.L.net+'</span><b>'+f(net)+'</b></div><div class="marj">'+D.L.marj+': %'+marj.toFixed(1)+' &middot; '+D.L.total+': '+f(kes)+'</div>';
+document.getElementById('nvO').innerHTML=h;}
+['nvS','nvC','nvG','nvK'].forEach(function(id){var e=document.getElementById(id);if(e){e.addEventListener('input',run);e.addEventListener('change',run);}});run();})();</script>`;
+}
 function sayfa(k, lang){
   const t = T[lang], m = MK[k], co = CO[m.co]||{}, I = INFO[k]||{}, p = provOf(k);
   const ad = yerelAd(m, lang), kisa = mkShort(ad), ulke = ulkeAd(m.co, lang), url = absPage(lang,k);
@@ -362,6 +402,8 @@ function sayfa(k, lang){
   const tahmin = (p.tier==="estimate"||p.tier==="expired");
   const cats = !!(m.cats&&m.cats.length);
   const durum = durumEtiket(p, lang);
+  const L = CALCL[lang]||CALCL.tr;
+  const calcHtml = calcBlock(m, co, lang);
   const title = t.title(ad), desc = t.desc(ad, ulke, cats, aralik, co.vat, tahmin);
   const baseText = m.base==="net" ? t.vBaseNet : t.vBaseGross;
   const tablo = cats
@@ -416,8 +458,9 @@ ${hreflangPage(k)}
   <p class="muted">${esc(co.fl||"")} ${esc(ulke)} · ${esc(TAX[lang])} %${co.vat} · ${esc((co.cur||"").trim())} · ${esc(durum)}</p>
   ${tahmin?`<div class="est">${esc(t.estWarn(ad))}</div>`:""}
   ${gapBlok}
+  ${calcHtml?`<h2 style="margin-top:24px">${esc(ad)} ${esc(L.calcH)}</h2>${calcHtml}`:''}
+  ${(lang==='tr'&&HESAP_MK.has(k))?`<p class="muted sm" style="margin:4px 0 18px">→ Daha derin: <a href="${BASE}/pazaryeri/${k}-komisyon-hesaplama.html"><b>${esc(ad)} komisyon hesaplama rehberi</b></a> (örnek, matrah farkı ve SSS).</p>`:''}
   <a class="cta" href="${APP}?lang=${(lang==="tr"||lang==="en")?lang:"en"}#/pazaryeri/${k}">${esc(t.cta(kisa))}</a>
-  ${(lang==='tr'&&HESAP_MK.has(k))?`<p class="muted sm" style="margin-top:-16px;margin-bottom:22px">⚡ <a href="${BASE}/pazaryeri/${k}-komisyon-hesaplama.html"><b>${esc(ad)} komisyon hesaplama</b></a> — fiyatını gir, sayfada anında net kârını gör.</p>`:''}
   <h2>${esc(t.hRates)}</h2>
   ${m.note?`<p class="muted sm">${esc(m.note)}</p>`:""}
   ${tablo}

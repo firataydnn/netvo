@@ -57,8 +57,25 @@ footer{border-top:1px solid var(--ink);margin-top:40px;padding:24px 0;font-size:
     <div class="gap-r"><div class="gap-k" style="color:var(--red)">Total marketplace deduction</div><div class="gap-v mono" style="color:var(--red)">%10</div><div class="gap-n">VAT · fixed fees · transaction</div></div>
   </section>
   <p class="muted sm">CDON says “8% commission”; with VAT and fixed fees the total marketplace deduction rises to 10%. Add shipping, ads and product cost to see your real operating profit.</p>
-  <a class="cta" href="https://netvo.co/?lang=en#/pazaryeri/cdon">Calculate CDON profit →</a>
+  <h2 style="margin-top:24px">CDON (İskandinav) commission calculator</h2><div class="calc">
+<div class="crow"><div><label>Sale price (kr, VAT incl.)</label><input id="nvS" type="number" min="0" value="500"></div><div><label>Product cost (kr)</label><input id="nvC" type="number" min="0" value="0"></div></div>
+<div class="crow"><div><label>Category</label><select id="nvK"><option value="12">Elektronik &amp; Giyim &amp; Sağlık — %12</option><option value="12">Bebek &amp; Ev &amp; Bahçe &amp; Ofis — %12</option><option value="10">Mobilya &amp; Oyuncak &amp; Evcil Hayvan — %10</option><option value="8" selected>Kamera &amp; Gıda &amp; Medya &amp; Yazılım — %8</option><option value="6.4">Saat &amp; Küçük Ev Aleti &amp; Kahve Makinesi — %6.4</option><option value="5.6">Bilgisayar Bileşen &amp; Yazıcı &amp; Ses — %5.6</option><option value="4">Cep Telefonu &amp; TV &amp; Bilgisayar &amp; Konsol &amp; Kamera — %4</option></select></div><div><label>Shipping (optional) (kr)</label><input id="nvG" type="number" min="0" value="0"></div></div>
+<div class="out" id="nvO"></div></div>
+<script>(function(){var D={"vat":25,"comIncl":false,"cur":"kr","loc":"en-US","pct":[],"fixed":[],"L":{"com":"Commission","comvat":"VAT on commission","svc":"Service/transaction fee","fix":"Fixed fee","prod":"Product cost","ship":"Shipping","net":"Net in your pocket","marj":"Margin","total":"Total marketplace cut"}};function n(x){return parseFloat(x)||0}function f(x){return x.toLocaleString(D.loc,{minimumFractionDigits:2,maximumFractionDigits:2})+' '+D.cur}
+function run(){var S=n(document.getElementById('nvS').value),C=n(document.getElementById('nvC').value),G=n(document.getElementById('nvG').value),r=n(document.getElementById('nvK').value);
+var kom=S*r/100,komKDV=D.comIncl?0:kom*D.vat/100,ekP=0;D.pct.forEach(function(p){ekP+=S*p[1]/100});var ekF=0;D.fixed.forEach(function(x){ekF+=x[1]});
+var kes=kom+komKDV+ekP+ekF,net=S-kes-C-G,marj=S>0?net/S*100:0;
+var h='<div class="ln neg"><span>'+D.L.com+' (%'+r+')</span><span>-'+f(kom)+'</span></div>';
+if(komKDV>0)h+='<div class="ln neg"><span>'+D.L.comvat+'</span><span>-'+f(komKDV)+'</span></div>';
+if(ekP>0)h+='<div class="ln neg"><span>'+D.L.svc+'</span><span>-'+f(ekP)+'</span></div>';
+if(ekF>0)h+='<div class="ln neg"><span>'+D.L.fix+'</span><span>-'+f(ekF)+'</span></div>';
+if(C>0)h+='<div class="ln neg"><span>'+D.L.prod+'</span><span>-'+f(C)+'</span></div>';
+if(G>0)h+='<div class="ln neg"><span>'+D.L.ship+'</span><span>-'+f(G)+'</span></div>';
+h+='<div class="net"><span>'+D.L.net+'</span><b>'+f(net)+'</b></div><div class="marj">'+D.L.marj+': %'+marj.toFixed(1)+' &middot; '+D.L.total+': '+f(kes)+'</div>';
+document.getElementById('nvO').innerHTML=h;}
+['nvS','nvC','nvG','nvK'].forEach(function(id){var e=document.getElementById(id);if(e){e.addEventListener('input',run);e.addEventListener('change',run);}});run();})();</script>
   
+  <a class="cta" href="https://netvo.co/?lang=en#/pazaryeri/cdon">Calculate CDON profit →</a>
   <h2>Commission rates (by category)</h2>
   <p class="muted sm">Oran KDV HARİÇ ama matrah KDV DAHİL brüt fiyat — bu ikisi ayrı. Google taksonomisi bazlı, 4 marketin (SE/NO/FI/DK) tümüne uygulanır. Aylık abonelik 449 SEK (~39€), satılan adet başına sabit hizmet bedeli (SE 20 SEK). Özel anlaşma standart oranı geçersiz kılar.</p>
   <table><thead><tr><th>Category</th><th class="r">Commission</th></tr></thead><tbody><tr><td>Elektronik &amp; Giyim &amp; Sağlık</td><td class="r mono">%12</td></tr><tr><td>Bebek &amp; Ev &amp; Bahçe &amp; Ofis</td><td class="r mono">%12</td></tr><tr><td>Mobilya &amp; Oyuncak &amp; Evcil Hayvan</td><td class="r mono">%10</td></tr><tr><td>Kamera &amp; Gıda &amp; Medya &amp; Yazılım</td><td class="r mono">%8</td></tr><tr><td>Saat &amp; Küçük Ev Aleti &amp; Kahve Makinesi</td><td class="r mono">%6.4</td></tr><tr><td>Bilgisayar Bileşen &amp; Yazıcı &amp; Ses</td><td class="r mono">%5.6</td></tr><tr><td>Cep Telefonu &amp; TV &amp; Bilgisayar &amp; Konsol &amp; Kamera</td><td class="r mono">%4</td></tr></tbody></table>

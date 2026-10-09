@@ -57,8 +57,25 @@ footer{border-top:1px solid var(--ink);margin-top:40px;padding:24px 0;font-size:
     <div class="gap-r"><div class="gap-k" style="color:var(--red)">Deducción total del marketplace</div><div class="gap-v mono" style="color:var(--red)">%9</div><div class="gap-n">IVA · tarifas fijas · transacción</div></div>
   </section>
   <p class="muted sm">StockX dice «9% de comisión»; con IVA y tarifas fijas la deducción total sube al 9%. Añade envío, publicidad y coste de producto para ver tu beneficio operativo real.</p>
-  <a class="cta" href="https://netvo.co/?lang=en#/pazaryeri/stockx">Calcular beneficio en StockX →</a>
+  <h2 style="margin-top:24px">StockX (Sneaker/Resale) calculadora de comisiones</h2><div class="calc">
+<div class="crow"><div><label>Precio de venta ($, IVA incl.)</label><input id="nvS" type="number" min="0" value="500"></div><div><label>Coste del producto ($)</label><input id="nvC" type="number" min="0" value="0"></div></div>
+<div class="crow"><div><label>Categoría</label><select id="nvK"><option value="9" selected>Tüm kategoriler — %9</option></select></div><div><label>Envío (opcional) ($)</label><input id="nvG" type="number" min="0" value="0"></div></div>
+<div class="out" id="nvO"></div></div>
+<script>(function(){var D={"vat":0,"comIncl":false,"cur":"$","loc":"es-ES","pct":[["Ödeme işlem (%3)",0.03]],"fixed":[],"L":{"com":"Comisión","comvat":"IVA sobre la comisión","svc":"Tarifa de servicio/transacción","fix":"Tarifa fija","prod":"Coste del producto","ship":"Envío","net":"Neto en tu bolsillo","marj":"Margen","total":"Deducción total del marketplace"}};function n(x){return parseFloat(x)||0}function f(x){return x.toLocaleString(D.loc,{minimumFractionDigits:2,maximumFractionDigits:2})+' '+D.cur}
+function run(){var S=n(document.getElementById('nvS').value),C=n(document.getElementById('nvC').value),G=n(document.getElementById('nvG').value),r=n(document.getElementById('nvK').value);
+var kom=S*r/100,komKDV=D.comIncl?0:kom*D.vat/100,ekP=0;D.pct.forEach(function(p){ekP+=S*p[1]/100});var ekF=0;D.fixed.forEach(function(x){ekF+=x[1]});
+var kes=kom+komKDV+ekP+ekF,net=S-kes-C-G,marj=S>0?net/S*100:0;
+var h='<div class="ln neg"><span>'+D.L.com+' (%'+r+')</span><span>-'+f(kom)+'</span></div>';
+if(komKDV>0)h+='<div class="ln neg"><span>'+D.L.comvat+'</span><span>-'+f(komKDV)+'</span></div>';
+if(ekP>0)h+='<div class="ln neg"><span>'+D.L.svc+'</span><span>-'+f(ekP)+'</span></div>';
+if(ekF>0)h+='<div class="ln neg"><span>'+D.L.fix+'</span><span>-'+f(ekF)+'</span></div>';
+if(C>0)h+='<div class="ln neg"><span>'+D.L.prod+'</span><span>-'+f(C)+'</span></div>';
+if(G>0)h+='<div class="ln neg"><span>'+D.L.ship+'</span><span>-'+f(G)+'</span></div>';
+h+='<div class="net"><span>'+D.L.net+'</span><b>'+f(net)+'</b></div><div class="marj">'+D.L.marj+': %'+marj.toFixed(1)+' &middot; '+D.L.total+': '+f(kes)+'</div>';
+document.getElementById('nvO').innerHTML=h;}
+['nvS','nvC','nvG','nvK'].forEach(function(id){var e=document.getElementById(id);if(e){e.addEventListener('input',run);e.addEventListener('change',run);}});run();})();</script>
   
+  <a class="cta" href="https://netvo.co/?lang=en#/pazaryeri/stockx">Calcular beneficio en StockX →</a>
   <h2>Comisiones (por categoría)</h2>
   <p class="muted sm">Sneaker/streetwear resale. İşlem ücreti satıcı seviyesine göre kademeli %7–9 + %3 ödeme işlem ücreti.</p>
   <table><thead><tr><th>Categoría</th><th class="r">Comisión</th></tr></thead><tbody><tr><td>Tüm kategoriler</td><td class="r mono">%9</td></tr></tbody></table>
