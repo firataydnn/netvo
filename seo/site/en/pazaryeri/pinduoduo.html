@@ -31,7 +31,19 @@ ul{padding-left:18px}li{margin:4px 0}
 .est{background:#FBF6EC;border:1px solid #e6c78c;border-radius:var(--r);padding:12px 14px;font-size:13.5px;color:#5c4415;margin:14px 0}
 .faq{border-bottom:1px solid var(--line);padding:6px 0}.src{font-size:13px;color:var(--muted);margin-top:8px}
 footer{border-top:1px solid var(--ink);margin-top:40px;padding:24px 0;font-size:13px;color:var(--muted)}
-@media(max-width:560px){.gap{grid-template-columns:1fr}.gap-r{text-align:left}.facts{grid-template-columns:1fr}}</style></head><body>
+.calc{border:1px solid var(--ink);border-radius:var(--r);padding:18px;margin:20px 0;background:#FAFAF8}
+.calc .crow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.calc label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.calc input,.calc select{width:100%;padding:11px;border:1px solid var(--line);border-radius:var(--r);font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
+.calc .out{border-top:1px solid var(--line);margin-top:4px;padding-top:12px}
+.calc .ln{display:flex;justify-content:space-between;padding:5px 0;font-size:14px}
+.calc .ln.neg span:last-child{color:var(--red)}
+.calc .net{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);margin-top:8px;padding-top:12px}
+.calc .net b{font-size:30px;font-family:'JetBrains Mono',monospace;line-height:1}
+.calc .marj{font-size:13px;color:var(--muted);margin-top:4px}
+.trust{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:10px 0 2px}.trust span{display:inline-flex;align-items:center;gap:5px}
+.xl{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.xl a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--ink)}.xl a:hover{border-color:var(--ink)}
+@media(max-width:560px){.gap{grid-template-columns:1fr}.gap-r{text-align:left}.facts{grid-template-columns:1fr}.calc .crow{grid-template-columns:1fr}}</style></head><body>
 <header><div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%"><a class="logo" href="https://netvo.co/en/">netvo</a><nav class="langs"><a href="/pazaryeri/pinduoduo.html" hreflang="tr">TR</a> <a href="/en/pazaryeri/pinduoduo.html" hreflang="en">EN</a> <a href="/de/pazaryeri/pinduoduo.html" hreflang="de">DE</a> <a href="/fr/pazaryeri/pinduoduo.html" hreflang="fr">FR</a> <a href="/es/pazaryeri/pinduoduo.html" hreflang="es">ES</a> <a href="/it/pazaryeri/pinduoduo.html" hreflang="it">IT</a></nav></div></header>
 <main class="wrap">
   <div class="crumb"><a href="https://netvo.co/en/">Home</a> / <a href="https://netvo.co/en/">Marketplaces</a> / Pinduoduo</div>
@@ -46,6 +58,7 @@ footer{border-top:1px solid var(--ink);margin-top:40px;padding:24px 0;font-size:
   </section>
   <p class="muted sm">Pinduoduo says “0.6% commission”; with VAT and fixed fees the total marketplace deduction rises to 0.7%. Add shipping, ads and product cost to see your real operating profit.</p>
   <a class="cta" href="https://netvo.co/?lang=en#/pazaryeri/pinduoduo">Calculate Pinduoduo profit →</a>
+  
   <h2>Commission rates (by category)</h2>
   <p class="muted sm">Temu&#39;nun ana şirketi; grup alışverişi modeliyle Çin&#39;in en çok kullanıcılı platformu. Komisyon çok düşük (~%0,6 ödeme komisyonu) — para reklamdan kazanılıyor. Fiyat baskısı çok sert.</p>
   <table><thead><tr><th>Category</th><th class="r">Commission</th></tr></thead><tbody><tr><td>General</td><td class="r mono">%0.6</td></tr></tbody></table>

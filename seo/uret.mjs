@@ -340,8 +340,21 @@ ul{padding-left:18px}li{margin:4px 0}
 .est{background:#FBF6EC;border:1px solid #e6c78c;border-radius:var(--r);padding:12px 14px;font-size:13.5px;color:#5c4415;margin:14px 0}
 .faq{border-bottom:1px solid var(--line);padding:6px 0}.src{font-size:13px;color:var(--muted);margin-top:8px}
 footer{border-top:1px solid var(--ink);margin-top:40px;padding:24px 0;font-size:13px;color:var(--muted)}
-@media(max-width:560px){.gap{grid-template-columns:1fr}.gap-r{text-align:left}.facts{grid-template-columns:1fr}}`;
+.calc{border:1px solid var(--ink);border-radius:var(--r);padding:18px;margin:20px 0;background:#FAFAF8}
+.calc .crow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.calc label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.calc input,.calc select{width:100%;padding:11px;border:1px solid var(--line);border-radius:var(--r);font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
+.calc .out{border-top:1px solid var(--line);margin-top:4px;padding-top:12px}
+.calc .ln{display:flex;justify-content:space-between;padding:5px 0;font-size:14px}
+.calc .ln.neg span:last-child{color:var(--red)}
+.calc .net{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);margin-top:8px;padding-top:12px}
+.calc .net b{font-size:30px;font-family:'JetBrains Mono',monospace;line-height:1}
+.calc .marj{font-size:13px;color:var(--muted);margin-top:4px}
+.trust{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:10px 0 2px}.trust span{display:inline-flex;align-items:center;gap:5px}
+.xl{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.xl a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--ink)}.xl a:hover{border-color:var(--ink)}
+@media(max-width:560px){.gap{grid-template-columns:1fr}.gap-r{text-align:left}.facts{grid-template-columns:1fr}.calc .crow{grid-template-columns:1fr}}`;
 
+const HESAP_MK = new Set(['trendyol','hepsiburada','n11','amazontr','ciceksepeti']);
 function sayfa(k, lang){
   const t = T[lang], m = MK[k], co = CO[m.co]||{}, I = INFO[k]||{}, p = provOf(k);
   const ad = yerelAd(m, lang), kisa = mkShort(ad), ulke = ulkeAd(m.co, lang), url = absPage(lang,k);
@@ -404,6 +417,7 @@ ${hreflangPage(k)}
   ${tahmin?`<div class="est">${esc(t.estWarn(ad))}</div>`:""}
   ${gapBlok}
   <a class="cta" href="${APP}?lang=${(lang==="tr"||lang==="en")?lang:"en"}#/pazaryeri/${k}">${esc(t.cta(kisa))}</a>
+  ${(lang==='tr'&&HESAP_MK.has(k))?`<p class="muted sm" style="margin-top:-16px;margin-bottom:22px">⚡ <a href="${BASE}/pazaryeri/${k}-komisyon-hesaplama.html"><b>${esc(ad)} komisyon hesaplama</b></a> — fiyatını gir, sayfada anında net kârını gör.</p>`:''}
   <h2>${esc(t.hRates)}</h2>
   ${m.note?`<p class="muted sm">${esc(m.note)}</p>`:""}
   ${tablo}
@@ -456,6 +470,8 @@ keys.forEach(k => LANGS.forEach(lang => entries.push({ loc: absPage(lang,k), alt
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${url}"><meta name="robots" content="index,follow">
 <meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}">
+<meta property="og:image" content="${BASE}/marka/og-hesaplama.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${BASE}/marka/og-hesaplama.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 ${jsonlds.map(j=>`<script type="application/ld+json">${JSON.stringify(j)}</script>`).join("")}
@@ -467,31 +483,87 @@ ${jsonlds.map(j=>`<script type="application/ld+json">${JSON.stringify(j)}</scrip
   const faqLD=a=>({"@context":"https://schema.org","@type":"FAQPage","inLanguage":"tr","mainEntity":a.map(f=>({"@type":"Question","name":f[0],"acceptedAnswer":{"@type":"Answer","text":f[1]}}))});
   const bcLD=(n,u)=>({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":BRAND,"item":absHub('tr')},{"@type":"ListItem","position":2,"name":n,"item":u}]});
   const made=[];
+  const HT_LD=(ad)=>({"@context":"https://schema.org","@type":"HowTo","name":`${ad} komisyon hesaplama`,"inLanguage":"tr","step":[
+    {"@type":"HowToStep","position":1,"name":"Satış fiyatını gir","text":"Ürünün KDV dahil satış fiyatını yaz."},
+    {"@type":"HowToStep","position":2,"name":"Kategori veya oran seç","text":"Ürün kategorini seç; araç o kategorinin komisyon oranını uygular."},
+    {"@type":"HowToStep","position":3,"name":"Maliyet ve kargoyu ekle","text":"Ürün maliyetini ve varsa kargo tutarını gir."},
+    {"@type":"HowToStep","position":4,"name":"Net kârı gör","text":"Komisyon, KDV, hizmet bedeli, kargo ve maliyet sonrası cebine kalan net anında hesaplanır."}]});
+  const AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+  const SIB=[['trendyol','Trendyol'],['hepsiburada','Hepsiburada'],['n11','N11'],['amazontr','Amazon TR'],['ciceksepeti','Çiçeksepeti']];
   function intent(k,kind){
     const m=MK[k]; if(!m) return;
     const ad=yerelAd(m,'tr'), kisa=mkShort(ad), co=CO[m.co]||{}, aralik=oranAraligi(m), gap=pazaryeriKesintisi(m,co);
     const kindT= kind==='kar'?'Kâr':(kind==='fba'?'FBA Ücret':'Komisyon');
     const slug=k+'-'+(kind==='kar'?'kar':(kind==='fba'?'fba-ucret':'komisyon'))+'-hesaplama';
     const url=BASE+'/pazaryeri/'+slug+'.html';
-    const title=`${ad} ${kindT} Hesaplama ${YEAR} — Net Kârını Anında Gör | ${BRAND}`;
-    const desc=`${ad} ${kindT.toLowerCase()} hesaplama: komisyon ${aralik}, KDV %${co.vat}, kargo ve hizmet bedeli sonrası net kârını saniyede hesapla.`;
-    const cta=`${APP}?lang=tr#/pazaryeri/${k}`;
-    const tablo=(m.cats&&m.cats.length)?`<table><thead><tr><th>Kategori</th><th class="r">Komisyon</th></tr></thead><tbody>${m.cats.map(c=>`<tr><td>${esc(catAd(c[0],'tr'))}</td><td class="r mono">%${c[1]}</td></tr>`).join("")}</tbody></table>`:`<p>Komisyon: <b class="mono">${aralik}</b></p>`;
+    const title=`${ad} ${kindT} Hesaplama ${YEAR} | ${BRAND}`;
+    const desc=`${ad} ${kindT.toLowerCase()} hesaplama aracı: fiyatını ve kategorini gir; komisyon ${aralik}, KDV %${co.vat}, hizmet bedeli ve kargo sonrası net kârını sayfada anında hesapla.`;
+    const cur=(((co.cur||'₺')+'').trim())||'₺';
+    const vat=co.vat||0, comIncl=!!m.comVatIncl, rMed=temsilciOran(m);
+    const hasCats=!!(m.cats&&m.cats.length);
+    const CD={vat,comIncl,cur,pct:(m.pct||[]).map(p=>[String(p[0]),(p[1]!=null?p[1]:(parseFloat(p[0])||0))]),fixed:(m.fixed||[]).map(f=>[String(f[0]),(f[1]!=null?f[1]:0)])};
+    // sunucu-tarafı örnek (500 KDV dahil, medyan oran)
+    const S=500, kom=+(S*(rMed||0)/100).toFixed(2), komKDV=comIncl?0:+(kom*vat/100).toFixed(2);
+    let ekP=0; CD.pct.forEach(p=>ekP+=S*p[1]/100); let ekF=0; CD.fixed.forEach(f=>ekF+=f[1]);
+    const kesinti=+(kom+komKDV+ekP+ekF).toFixed(2), netOrnek=+(S-kesinti).toFixed(2);
+    const tablo=hasCats?`<table><thead><tr><th>Kategori</th><th class="r">Komisyon</th></tr></thead><tbody>${m.cats.map(c=>`<tr><td>${esc(catAd(c[0],'tr'))}</td><td class="r mono">%${c[1]}</td></tr>`).join("")}</tbody></table>`:`<p>Komisyon: <b class="mono">${aralik}</b></p>`;
+    const selOrInput = hasCats
+      ? `<div><label>Kategori</label><select id="nvK">${m.cats.map(c=>`<option value="${c[1]}"${c[1]===rMed?' selected':''}>${esc(catAd(c[0],'tr'))} — %${c[1]}</option>`).join("")}</select></div>`
+      : `<div><label>Komisyon oranı (%)</label><input id="nvK" type="number" min="0" step="0.1" value="${rMed!=null?rMed:(m.fixedRate||0)}"></div>`;
+    const matrah = m.co==='TR' ? `<h2>Pazaryerleri neden farklı net bırakır?</h2>
+<p>Aynı komisyon oranı farklı net bırakır; çünkü matrah ve komisyona KDV kuralı pazaryerine göre değişir. Bu yüzden "en düşük oran" her zaman "en yüksek kâr" değildir.</p>
+<table><thead><tr><th>Pazaryeri</th><th>Komisyon matrahı</th><th>Komisyona KDV</th><th>Ek kalem</th></tr></thead><tbody>
+<tr><td>Trendyol</td><td>KDV hariç tutar</td><td>Hayır</td><td>Yok</td></tr>
+<tr><td>Hepsiburada</td><td>KDV dahil fiyat</td><td>Evet</td><td>Yok</td></tr>
+<tr><td>n11</td><td>KDV dahil fiyat</td><td>Evet</td><td>~%1,67 hizmet bedeli</td></tr>
+<tr><td>Amazon TR</td><td>Toplam satış fiyatı</td><td>Hayır</td><td>Aylık üyelik</td></tr>
+</tbody></table>` : '';
     const faq=[
-      [`${ad} komisyonu nasıl hesaplanır?`, `${kisa} komisyonu kategoriye göre ${aralik} arasında değişir. Net kâr için komisyona ek olarak %${co.vat} KDV, varsa hizmet/işlem bedeli ve kargo maliyeti düşülür; Netvo hepsini tek hesapta gösterir.`],
-      [`349 TL'lik satışta ${kisa} ne kadar kesinti alır?`, gap?`İlan edilen komisyon ~%${gap.ilanRate} görünse de KDV ve ek bedellerle toplam kesinti ~%${gap.toplamPct}'e çıkabilir. Kendi kategorin ve fiyatınla kesin sonucu hesap makinesinde gör.`:`Komisyon (${aralik}), KDV (%${co.vat}) ve varsa ek bedeller düşülür; kesin tutarı ürününle hesap makinesinde gör.`],
-      [`Kargo ve KDV dahil net kâr nasıl bulunur?`, `Satış fiyatından komisyon + KDV + hizmet bedeli + kargo + ürün maliyeti çıkarılır. Netvo bu farkı net gösterir.`],
+      [`${ad} komisyonu nasıl hesaplanır?`, `Formül: komisyon = satış fiyatı × kategori oranı. ${kisa} komisyonu kategoriye göre ${aralik} arasında değişir.${comIncl?'':` Komisyonun üzerine ayrıca %${vat} KDV eklenir.`} Net kâr için bunun üstüne hizmet bedeli, kargo ve ürün maliyeti de düşülür; yukarıdaki araç hepsini birden hesaplar.`],
+      [`500 ${cur} satışta ${kisa} ne kadar kesinti alır?`, `Medyan %${rMed} oranla komisyon ${kom} ${cur}${komKDV?`, komisyon KDV'si ${komKDV} ${cur}`:''}${(ekP+ekF)?`, ek bedel ${(ekP+ekF).toFixed(2)} ${cur}`:''} = toplam ~${kesinti} ${cur} kesinti; pazaryeri sonrası ${netOrnek} ${cur} kalır (ürün maliyeti ve kargo hariç). Kendi kategorin ve fiyatınla kesin sonucu yukarıda gör.`],
+      [`Komisyona KDV ekleniyor mu?`, comIncl?`${kisa}'da komisyon tutarına ayrıca KDV eklenmez; araç bunu otomatik uygular.`:`${kisa}'da komisyon tutarının üzerine %${vat} KDV eklenir; araç bu satırı ayrı gösterir.`],
+      [`Kargo ve iade dahil net kâr nasıl bulunur?`, `Satış fiyatından komisyon + KDV + hizmet bedeli + kargo + ürün maliyeti çıkarılır. Çoğu araç kargoyu dışarıda bırakır; Netvo'nun hesap makinesinde kargo alanını da doldurup cebine gerçekten kalanı görebilirsin.`],
+      [`${ad} komisyon oranları kaç?`, `Kategoriye göre ${aralik} arasında değişir. Tam liste aşağıdaki tabloda; kaynak ${kisa} resmî komisyon listesidir.`],
+      [`İlan edilen komisyon ile cebime kalan neden farklı?`, gap?`İlan edilen komisyon ~%${gap.ilanRate} görünse de KDV, hizmet bedeli ve sabit ücretlerle toplam pazaryeri kesintisi ~%${gap.toplamPct}'e çıkabilir. Üstüne kargo ve ürün maliyeti de eklenince cebine kalan belirgin düşer.`:`Komisyonun üstüne KDV, hizmet bedeli, kargo ve ürün maliyeti eklenir; bu yüzden ilan edilen oran gerçek kesintinin sadece bir parçasıdır.`],
+      [`Kâr hesaplama ile komisyon hesaplama aynı şey mi?`, `Hayır. Komisyon hesaplama yalnızca pazaryeri kesintisini verir; kâr hesaplama bunun üstüne kargo, ürün maliyeti ve iade payını da ekler. Yukarıdaki araç ikisini birden yapar.`],
+      [`Oranlar ne kadar güncel?`, `Oranlar pazaryerinin resmî komisyon belgelerinden alınır ve dönemsel revize edilir; önemli kararlarda kendi satıcı panelinden teyit et.`],
     ];
+    const calc=`<div class="calc">
+<div class="crow"><div><label>Satış fiyatı (${cur}, KDV dahil)</label><input id="nvS" type="number" min="0" value="500"></div><div><label>Ürün maliyeti (${cur})</label><input id="nvC" type="number" min="0" value="0"></div></div>
+<div class="crow">${selOrInput}<div><label>Kargo (${cur}, opsiyonel)</label><input id="nvG" type="number" min="0" value="0"></div></div>
+<div class="out" id="nvO"></div></div>
+<script>(function(){var D=${JSON.stringify(CD)};function n(x){return parseFloat(x)||0}function f(x){return x.toLocaleString('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2})+' '+D.cur}
+function run(){var S=n(document.getElementById('nvS').value),C=n(document.getElementById('nvC').value),G=n(document.getElementById('nvG').value),r=n(document.getElementById('nvK').value);
+var kom=S*r/100,komKDV=D.comIncl?0:kom*D.vat/100,ekP=0;D.pct.forEach(function(p){ekP+=S*p[1]/100});var ekF=0;D.fixed.forEach(function(x){ekF+=x[1]});
+var kes=kom+komKDV+ekP+ekF,net=S-kes-C-G,marj=S>0?net/S*100:0;
+var h='<div class="ln neg"><span>Komisyon (%'+r+')</span><span>-'+f(kom)+'</span></div>';
+if(komKDV>0)h+='<div class="ln neg"><span>Komisyon KDV eki</span><span>-'+f(komKDV)+'</span></div>';
+if(ekP>0)h+='<div class="ln neg"><span>Hizmet/işlem bedeli</span><span>-'+f(ekP)+'</span></div>';
+if(ekF>0)h+='<div class="ln neg"><span>Sabit ücret</span><span>-'+f(ekF)+'</span></div>';
+if(C>0)h+='<div class="ln neg"><span>Ürün maliyeti</span><span>-'+f(C)+'</span></div>';
+if(G>0)h+='<div class="ln neg"><span>Kargo</span><span>-'+f(G)+'</span></div>';
+h+='<div class="net"><span>Cebine kalan net</span><b>'+f(net)+'</b></div><div class="marj">Marj: %'+marj.toFixed(1)+' &middot; Toplam pazaryeri kesintisi: '+f(kes)+'</div>';
+document.getElementById('nvO').innerHTML=h;}
+['nvS','nvC','nvG','nvK'].forEach(function(id){var e=document.getElementById(id);if(e){e.addEventListener('input',run);e.addEventListener('change',run);}});run();})();</script>`;
+    const xlinks=SIB.filter(s=>s[0]!==k).map(s=>`<a href="${BASE}/pazaryeri/${s[0]}-komisyon-hesaplama.html">${esc(s[1])} komisyon</a>`).join("");
     const body=`<div class="crumb"><a href="${absHub('tr')}">Ana sayfa</a> / <a href="${absHub('tr')}">Pazaryerleri</a> / ${esc(ad)} ${esc(kindT)} Hesaplama</div>
 <h1>${esc(ad)} ${esc(kindT)} Hesaplama (${YEAR})</h1>
-<p class="muted">${esc(co.fl||'')} ${esc(ulkeAd(m.co,'tr'))} · KDV %${co.vat} · Komisyon ${esc(aralik)}</p>
-<p>${esc(kisa)}'da bir ürün sattığında cebine ne kaldığını merak ediyorsan doğru yerdesin. İlan edilen komisyon çoğu zaman gerçek kesintinin sadece bir parçası: KDV, hizmet/işlem bedeli ve kargo eklendiğinde net kâr belirgin şekilde düşer. Aşağıdaki hesap makinesine satış fiyatını ve maliyetini gir — ${esc(kisa)} için net kârını saniyede gösterir.</p>
+<p class="muted">${esc(co.fl||'')} ${esc(ulkeAd(m.co,'tr'))} · KDV %${vat} · Komisyon ${esc(aralik)}</p>
+<p>${esc(kisa)}'da bir ürün sattığında cebine ne kaldığını gör. İlan edilen komisyon gerçek kesintinin sadece bir parçası: KDV, hizmet/işlem bedeli ve kargo eklenince net kâr belirgin düşer. Satış fiyatını, kategorini ve maliyetini gir; ${esc(kisa)} için net kârını <b>bu sayfada anında</b> hesapla.</p>
+${calc}
+<div class="trust"><span>✓ Üyelik yok</span><span>✓ Reklam yok</span><span>✓ Kaynaklı oranlar</span><span>✓ Kargo dahil net</span></div>
 ${gap?`<section class="gap"><div class="gap-a"><div class="gap-k">İlan edilen</div><div class="gap-v mono">%${gap.ilanRate}</div></div><div class="gap-r"><div class="gap-k" style="color:var(--red)">Toplam kesinti</div><div class="gap-v mono" style="color:var(--red)">%${gap.toplamPct}</div></div></section>`:''}
-<a class="cta" href="${esc(cta)}">${esc(kisa)} kârını hesapla →</a>
-<h2>${esc(ad)} komisyon oranları</h2>${tablo}
+<h2>${esc(ad)} komisyonu nasıl hesaplanır?</h2>
+<p>Formül basit: <b>komisyon = satış fiyatı × kategori oranı</b>.${comIncl?'':` Komisyonun üzerine ayrıca %${vat} KDV eklenir.`} Net kâr için bunun üstüne hizmet bedeli, kargo ve ürün maliyetini de düşersin. Örnek: 500 ${cur} satış, medyan %${rMed} komisyon → komisyon ${kom} ${cur}${komKDV?` + KDV ${komKDV} ${cur}`:''}${(ekP+ekF)?` + ek bedel ${(ekP+ekF).toFixed(2)} ${cur}`:''} = toplam ${kesinti} ${cur} kesinti; pazaryeri sonrası <b>${netOrnek} ${cur}</b> kalır (ürün maliyeti ve kargo hariç).</p>
+<h2>${esc(ad)} komisyon oranları (kategori kategori)</h2>${tablo}
+${matrah}
+<h2>Kargo ve iade: net kârı asıl bunlar belirler</h2>
+<p>Çoğu "komisyon hesaplama" aracı yalnızca pazaryeri kesintisini gösterir; kargo ve iadeyi dışarıda bırakır. Oysa düşük marjlı bir üründe tek bir kargo ya da iade satırı kârı yarıya indirebilir. Yukarıdaki hesap makinesinde <b>kargo</b> alanını da doldurabilir, cebine gerçekten kalanı görebilirsin — ${esc(kisa)} için komisyon + KDV + kargo + maliyet sonrası net.</p>
 <h2>Sık sorulan sorular</h2>${faq.map(f=>`<div class="faq"><h3>${esc(f[0])}</h3><p>${esc(f[1])}</p></div>`).join("")}
-<p class="muted sm"><a href="${BASE}/pazaryeri/${k}.html">${esc(ad)} ücret detayları</a> · <a href="${APP}?lang=tr#/karsilastir">Pazaryeri karşılaştır</a></p>`;
-    fs.writeFileSync(OUT+'pazaryeri/'+slug+'.html', shell(title,desc,url,[bcLD(`${ad} ${kindT} Hesaplama`,url),faqLD(faq)],body));
+<h2>Diğer pazaryeri hesaplama araçları</h2>
+<div class="xl">${xlinks}<a href="${APP}?lang=tr#/karsilastir">Tümünü karşılaştır</a></div>
+<p class="muted sm"><a href="${BASE}/pazaryeri/${k}.html">${esc(ad)} ücret detayları</a> · Son güncelleme: ${AYLAR[new Date().getMonth()]} ${YEAR} · Kaynak: ${esc(kisa)} resmî komisyon listesi.</p>`;
+    fs.writeFileSync(OUT+'pazaryeri/'+slug+'.html', shell(title,desc,url,[bcLD(`${ad} ${kindT} Hesaplama`,url),faqLD(faq),HT_LD(ad)],body));
     made.push(url);
   }
   function compare(k1,k2){
@@ -518,7 +590,7 @@ ${gap?`<section class="gap"><div class="gap-a"><div class="gap-k">İlan edilen</
     fs.writeFileSync(OUT+'karsilastir/'+slug+'.html', shell(title,desc,url,[bcLD(`${ad1} vs ${ad2}`,url),faqLD(faq)],body));
     made.push(url);
   }
-  [['trendyol','komisyon'],['trendyol','kar'],['hepsiburada','komisyon'],['hepsiburada','kar'],['n11','komisyon'],['amazontr','komisyon'],['ciceksepeti','komisyon'],['amazontr','fba']].forEach(x=>intent(x[0],x[1]));
+  [['trendyol','komisyon'],['trendyol','kar'],['hepsiburada','komisyon'],['hepsiburada','kar'],['n11','komisyon'],['n11','kar'],['amazontr','komisyon'],['ciceksepeti','komisyon'],['ciceksepeti','kar'],['amazontr','fba']].forEach(x=>intent(x[0],x[1]));
   [['trendyol','hepsiburada'],['amazontr','trendyol']].forEach(x=>compare(x[0],x[1]));
   made.forEach(loc=>entries.push({ loc, alts:[['tr',loc]] }));
   console.log('TIER1 niyet/karşılaştırma sayfası :', made.length);
