@@ -5816,5 +5816,125 @@
   },
   "expanded": true,
   "img": "/marka/haber-gorsel/n24.jpg"
+ },
+ {
+  "c": "lojistik",
+  "dt": "9 Eki 2026",
+  "tag": "ABD",
+  "auto": false,
+  "img": "",
+  "src": "https://sell.amazon.com/pricing",
+  "i18n": {
+   "tr": {
+    "t": "Amazon'dan tatil zammı: 15 Ekim'den itibaren her üründe ek ücret",
+    "d": "ABD'de yoğun sezon FBA ücretleri 15 Ekim–14 Ocak arası devrede. Ürün başına ortalama 0,32 dolar ek maliyet, satıcının kârından çıkıyor.",
+    "body": "Amazon, ABD'de her yıl uyguladığı yoğun sezon (peak) gönderi ücretlerini 15 Ekim 2026 ile 14 Ocak 2027 arasında yeniden devreye alıyor. Standart boyutlu ürünlerde FBA başına ortalama 0,32 dolar ek ücret alınıyor; bu rakam, Nisan 2026'da kalıcılaşan yaklaşık %3,5'lik yakıt ve lojistik sürşarjının üzerine biniyor. Yani satıcı, yılın en çok sattığı dönemde ürün başına en yüksek lojistik maliyetiyle karşılaşıyor.\n\nİşin özü basit: ciro artarken cebine kalan pay daralıyor. 20 dolarlık bir ürünü düşünün — peak ücreti ve sürşarj birleştiğinde, hacmi yüksek ama marjı ince ürünlerde kâr tamamen eriyebilir. Bu dönemde fiyatı birkaç sent yukarı çekmeden, yavaş dönen stoğu depodan çıkarmadan ve kargo boyutunu küçültmeden girenler, Kasım-Aralık cirosunu rekora taşısa bile yılı zararla kapatabilir. Tatil sezonu kârı ciroyla değil, ürün başına net hesapla ölçülür."
+   },
+   "en": {
+    "t": "Amazon's holiday hike: a per-unit surcharge on every item from Oct 15",
+    "d": "US peak FBA fees run Oct 15–Jan 14. An average $0.32 per unit comes straight out of the seller's margin.",
+    "body": "Amazon is reinstating its US peak fulfillment fees for the period from 15 October 2026 to 14 January 2027. Standard-size items carry an average surcharge of about $0.32 per unit via FBA, stacking on top of the roughly 3.5% fuel-and-logistics surcharge that became permanent in April 2026. In other words, sellers face their highest logistics cost per unit during the very weeks they sell the most.\n\nThe logic is simple: as revenue climbs, the share left in your pocket shrinks. Take a $20 item — once the peak fee and surcharge combine, high-volume, thin-margin products can see their profit wiped out entirely. Anyone entering this window without nudging prices up a few cents, clearing slow-moving stock from the warehouse, and trimming package size can post record November–December revenue and still close the year at a loss. Holiday profit is measured not by top-line sales but by net-per-unit math."
+   },
+   "de": {
+    "t": "Amazons Feiertagsaufschlag: ab 15. Oktober Zusatzgebühr pro Artikel",
+    "d": "US-Peak-FBA-Gebühren gelten vom 15. Okt. bis 14. Jan. Im Schnitt 0,32 $ pro Einheit gehen direkt von der Marge ab.",
+    "body": "Amazon setzt seine US-Peak-Versandgebühren für den Zeitraum vom 15. Oktober 2026 bis 14. Januar 2027 wieder in Kraft. Für Standardartikel fällt über FBA ein durchschnittlicher Aufschlag von rund 0,32 $ pro Einheit an, der auf den seit April 2026 dauerhaften Treibstoff- und Logistikzuschlag von etwa 3,5 % aufschlägt. Händler haben also genau in den umsatzstärksten Wochen die höchsten Logistikkosten pro Einheit.\n\nDie Rechnung ist einfach: Mit steigendem Umsatz schrumpft der Anteil, der übrig bleibt. Bei einem 20-$-Artikel kann bei Produkten mit hohem Volumen und dünner Marge der Gewinn vollständig verschwinden, sobald Peak-Gebühr und Zuschlag zusammenkommen. Wer in dieses Fenster geht, ohne die Preise um ein paar Cent anzuheben, langsam drehende Ware aus dem Lager zu räumen und die Paketgröße zu verkleinern, kann einen Rekordumsatz im November und Dezember erzielen und das Jahr dennoch mit Verlust abschließen. Feiertagsgewinn misst man nicht am Umsatz, sondern an der Netto-Rechnung pro Einheit."
+   },
+   "fr": {
+    "t": "La hausse de fin d'année d'Amazon : un surcoût par article dès le 15 octobre",
+    "d": "Les frais FBA de pointe aux États-Unis s'appliquent du 15 oct. au 14 janv. En moyenne 0,32 $ par unité, pris sur la marge du vendeur.",
+    "body": "Amazon réactive ses frais de traitement de pointe aux États-Unis pour la période du 15 octobre 2026 au 14 janvier 2027. Les articles de taille standard subissent un surcoût moyen d'environ 0,32 $ par unité via FBA, qui vient s'ajouter à la surcharge carburant et logistique d'environ 3,5 % devenue permanente en avril 2026. Autrement dit, le vendeur affronte son coût logistique le plus élevé par unité au moment précis où il vend le plus.\n\nLe raisonnement est simple : à mesure que le chiffre d'affaires grimpe, la part qui reste dans votre poche se réduit. Prenez un article à 20 $ : une fois le frais de pointe et la surcharge combinés, les produits à fort volume et faible marge peuvent voir leur profit totalement effacé. Celui qui entre dans cette fenêtre sans relever ses prix de quelques centimes, sans écouler les stocks dormants et sans réduire la taille des colis peut afficher un chiffre d'affaires record en novembre-décembre et tout de même clôturer l'année en perte. Le profit des fêtes se mesure non au chiffre d'affaires, mais au net par unité."
+   },
+   "es": {
+    "t": "El recargo navideño de Amazon: un sobrecoste por artículo desde el 15 de octubre",
+    "d": "Las tarifas FBA de temporada alta en EE. UU. rigen del 15 oct. al 14 ene. Una media de 0,32 $ por unidad sale directo del margen del vendedor.",
+    "body": "Amazon reactiva sus tarifas de gestión logística de temporada alta en EE. UU. para el periodo del 15 de octubre de 2026 al 14 de enero de 2027. Los artículos de tamaño estándar soportan un recargo medio de unos 0,32 $ por unidad vía FBA, que se suma al recargo de combustible y logística de alrededor del 3,5 % que se hizo permanente en abril de 2026. Es decir, el vendedor afronta su mayor coste logístico por unidad justo en las semanas en que más vende.\n\nLa lógica es simple: a medida que sube la facturación, se encoge la parte que queda en tu bolsillo. Piensa en un artículo de 20 $: al combinarse la tarifa de temporada alta y el recargo, los productos de alto volumen y margen fino pueden ver su beneficio borrado por completo. Quien entre en esta ventana sin subir los precios unos céntimos, sin sacar del almacén el stock de baja rotación y sin reducir el tamaño del paquete puede registrar una facturación récord en noviembre-diciembre y aun así cerrar el año en pérdidas. El beneficio navideño no se mide por las ventas totales, sino por la cuenta neta por unidad."
+   },
+   "it": {
+    "t": "Il rincaro natalizio di Amazon: un sovrapprezzo per articolo dal 15 ottobre",
+    "d": "Le tariffe FBA di alta stagione negli USA valgono dal 15 ott. al 14 gen. In media 0,32 $ per unità escono dal margine del venditore.",
+    "body": "Amazon reintroduce le sue tariffe di logistica di alta stagione negli USA per il periodo dal 15 ottobre 2026 al 14 gennaio 2027. Gli articoli di dimensioni standard subiscono un sovrapprezzo medio di circa 0,32 $ per unità tramite FBA, che si somma al sovrapprezzo carburante e logistica di circa il 3,5% diventato permanente ad aprile 2026. In altre parole, il venditore affronta il suo costo logistico più alto per unità proprio nelle settimane in cui vende di più.\n\nLa logica è semplice: mentre il fatturato sale, la quota che resta in tasca si riduce. Prendi un articolo da 20 $: una volta combinati tariffa di picco e sovrapprezzo, i prodotti ad alto volume e margine sottile possono vedere il profitto azzerato del tutto. Chi entra in questa finestra senza ritoccare i prezzi di qualche centesimo, senza svuotare dal magazzino lo stock a bassa rotazione e senza ridurre le dimensioni del pacco può registrare un fatturato record a novembre-dicembre e chiudere comunque l'anno in perdita. Il profitto natalizio non si misura dal fatturato, ma dal netto per unità."
+   }
+  }
+ },
+ {
+  "c": "reg",
+  "dt": "9 Eki 2026",
+  "tag": "ABD",
+  "auto": false,
+  "img": "",
+  "src": "https://www.nbcnews.com/world/asia/shein-temu-find-temporary-reprieve-us-relaxes-tariffs-rcna206696",
+  "i18n": {
+   "tr": {
+    "t": "Ucuz paket devri kapandı: Temu ve Shein yerel satıcıya yöneliyor",
+    "d": "ABD'nin 'de minimis' gümrük muafiyetini kaldırmasının ardından Çin'den ucuz paket modeli zorlaştı. Platformlar yerel stok ve yerel satıcıya kayıyor — bağımsız satıcı için fırsat da var, risk de.",
+    "body": "ABD, düşük değerli paketleri gümrükten muaf tutan 'de minimis' uygulamasını kaldırdıktan sonra, Temu ve Shein'in ucuz ürünü doğrudan Çin'den uçakla gönderme modeli ekonomik olmaktan çıktı. İki platformun birlikte ABD'ye giren de minimis paketlerinin yaklaşık %30'unu oluşturduğu tahmin ediliyordu. Yanıt olarak her iki şirket de ABD içinde yerel depolama ve yerel satıcı kaydına yöneldi; artık ürünü önceden ABD'ye sokup oradan sevk ediyorlar.\n\nBağımsız satıcı için tablo iki yönlü. Bir yandan, aşırı ucuz sınır ötesi rakip pahalılaştığı için fiyat baskısı hafifliyor — kaliteli ürünle oynayan satıcının nefes alanı genişliyor. Öte yandan Temu ve Shein yerel satıcı ağını büyüttükçe, bu platformlarda yeni bir rekabet cephesi açılıyor. Kazanan, gümrük maliyetini doğru fiyatlayan ve 'ucuz' değil 'net kârlı' ürüne odaklananlar olacak. Küçük paketin altın çağı bitti; marj disiplini olanın çağı başlıyor."
+   },
+   "en": {
+    "t": "The cheap-parcel era is over: Temu and Shein pivot to local sellers",
+    "d": "After the US scrapped the 'de minimis' exemption, the ship-from-China model got hard. Platforms are moving to local stock and local sellers — opportunity and risk for independents.",
+    "body": "After the US removed the 'de minimis' exemption that let low-value parcels clear customs duty-free, the model of air-shipping cheap goods straight from China stopped making economic sense for Temu and Shein. The two platforms were estimated to account for roughly 30% of all de minimis parcels entering the US. In response, both have shifted toward local warehousing and onboarding US-based sellers, pre-positioning inventory inside the country before shipping.\n\nFor the independent seller the picture cuts both ways. On one side, as the ultra-cheap cross-border competitor gets more expensive, price pressure eases — the seller who competes on quality gets room to breathe. On the other, as Temu and Shein expand their local-seller networks, a new front of competition opens on those platforms. The winner will be whoever prices in the new duty cost correctly and focuses on 'net-profitable' rather than merely 'cheap' products. The golden age of the small parcel is over; the age of margin discipline is beginning."
+   },
+   "de": {
+    "t": "Das Zeitalter des billigen Pakets ist vorbei: Temu und Shein setzen auf lokale Händler",
+    "d": "Nach dem Aus der 'De-minimis'-Freigrenze in den USA wurde das Versandmodell aus China teuer. Die Plattformen wechseln zu lokalem Lager und lokalen Händlern — Chance und Risiko zugleich.",
+    "body": "Nachdem die USA die 'De-minimis'-Regelung abgeschafft haben, die geringwertige Pakete zollfrei durch den Zoll ließ, ergibt das Modell, billige Ware direkt aus China einzufliegen, für Temu und Shein wirtschaftlich keinen Sinn mehr. Schätzungen zufolge machten die beiden Plattformen zusammen rund 30 % aller De-minimis-Pakete in die USA aus. Als Reaktion setzen beide nun auf lokale Lagerhaltung und die Aufnahme US-ansässiger Händler und positionieren die Ware vorab im Land.\n\nFür den unabhängigen Händler schneidet das in beide Richtungen. Einerseits lässt der Preisdruck nach, da der ultrabillige grenzüberschreitende Wettbewerber teurer wird — wer über Qualität konkurriert, bekommt Luft. Andererseits öffnet sich eine neue Wettbewerbsfront, da Temu und Shein ihre Netze lokaler Händler ausbauen. Gewinnen wird, wer die neuen Zollkosten korrekt einpreist und auf 'netto profitable' statt bloß 'billige' Produkte setzt. Das goldene Zeitalter des kleinen Pakets ist vorbei; das Zeitalter der Margendisziplin beginnt."
+   },
+   "fr": {
+    "t": "L'ère du colis bon marché est finie : Temu et Shein se tournent vers les vendeurs locaux",
+    "d": "Après la suppression de l'exemption « de minimis » aux États-Unis, le modèle d'expédition depuis la Chine est devenu coûteux. Les plateformes passent au stock et aux vendeurs locaux — opportunité et risque.",
+    "body": "Après que les États-Unis ont supprimé l'exemption « de minimis » qui laissait passer les colis de faible valeur en franchise de droits, le modèle consistant à expédier par avion des produits bon marché directement depuis la Chine a cessé d'avoir un sens économique pour Temu et Shein. On estimait que les deux plateformes représentaient ensemble environ 30 % de tous les colis de minimis entrant aux États-Unis. En réponse, les deux se tournent vers l'entreposage local et l'intégration de vendeurs basés aux États-Unis, en pré-positionnant les stocks dans le pays.\n\nPour le vendeur indépendant, le tableau joue dans les deux sens. D'un côté, la pression sur les prix se relâche à mesure que le concurrent transfrontalier ultra-bon-marché devient plus cher — celui qui mise sur la qualité respire. De l'autre, un nouveau front de concurrence s'ouvre à mesure que Temu et Shein étendent leurs réseaux de vendeurs locaux. Le gagnant sera celui qui intègre correctement le nouveau coût douanier et vise des produits « nets rentables » plutôt que simplement « bon marché ». L'âge d'or du petit colis est révolu ; celui de la discipline de marge commence."
+   },
+   "es": {
+    "t": "Se acabó la era del paquete barato: Temu y Shein viran hacia el vendedor local",
+    "d": "Tras eliminar EE. UU. la exención 'de minimis', el modelo de envío desde China se encareció. Las plataformas pasan a stock y vendedores locales — oportunidad y riesgo.",
+    "body": "Después de que EE. UU. eliminara la exención 'de minimis' que dejaba pasar los paquetes de bajo valor sin aranceles, el modelo de enviar por avión productos baratos directamente desde China dejó de tener sentido económico para Temu y Shein. Se estimaba que ambas plataformas sumaban en torno al 30% de todos los paquetes de minimis que entraban en EE. UU. En respuesta, las dos han virado hacia el almacenamiento local y el alta de vendedores radicados en EE. UU., colocando el inventario dentro del país por adelantado.\n\nPara el vendedor independiente el cuadro corta por ambos lados. Por un lado, la presión de precios se alivia a medida que el competidor transfronterizo ultrabarato se encarece — quien compite por calidad gana aire. Por otro, se abre un nuevo frente de competencia a medida que Temu y Shein amplían sus redes de vendedores locales. Ganará quien calcule bien el nuevo coste arancelario y apunte a productos 'netos rentables' y no solo 'baratos'. La edad de oro del paquete pequeño terminó; empieza la de la disciplina de margen."
+   },
+   "it": {
+    "t": "L'era del pacco economico è finita: Temu e Shein virano verso i venditori locali",
+    "d": "Dopo che gli USA hanno eliminato l'esenzione 'de minimis', il modello di spedizione dalla Cina è diventato costoso. Le piattaforme passano a stock e venditori locali — opportunità e rischio.",
+    "body": "Dopo che gli USA hanno rimosso l'esenzione 'de minimis' che faceva passare i pacchi di basso valore senza dazi, il modello di spedire via aereo merce economica direttamente dalla Cina ha smesso di avere senso economico per Temu e Shein. Si stimava che le due piattaforme rappresentassero insieme circa il 30% di tutti i pacchi de minimis in entrata negli USA. In risposta, entrambe hanno virato verso il magazzino locale e l'inserimento di venditori con sede negli USA, posizionando la merce in anticipo nel Paese.\n\nPer il venditore indipendente il quadro taglia in due sensi. Da un lato, la pressione sui prezzi si allenta man mano che il concorrente transfrontaliero ultraeconomico diventa più caro — chi compete sulla qualità respira. Dall'altro, si apre un nuovo fronte di concorrenza mentre Temu e Shein ampliano le loro reti di venditori locali. Vincerà chi calcola correttamente il nuovo costo doganale e punta a prodotti 'netti redditizi' e non solo 'economici'. L'età dell'oro del piccolo pacco è finita; inizia quella della disciplina di margine."
+   }
+  }
+ },
+ {
+  "c": "global",
+  "dt": "9 Eki 2026",
+  "tag": "Analiz",
+  "auto": false,
+  "img": "",
+  "src": "https://netvo.co/haber/",
+  "i18n": {
+   "tr": {
+    "t": "Q4 2026'ya girerken satıcıyı bekleyen 3 görünmez maliyet",
+    "d": "Yüksek sezonda ciro patlar ama üç maliyet sessizce kârı yer: lojistik sürşarjı, reklam rekabeti ve iade dalgası. Her birini ürün başına hesapla.",
+    "body": "Yılın son çeyreği e-ticaretin en yüksek ciro dönemi; ama en çok kâr sızdıran dönem de bu. Birincisi lojistik: Amazon gibi platformların yoğun sezon ücretleri ve kalıcı yakıt sürşarjı, ürün başına maliyeti yılın en yükseğine taşır. İkincisi reklam: Kara Cuma ve Noel haftalarında tıklama başı maliyet (CPC) ikiye katlanabilir; aynı satışı yapmak için daha fazla reklam harcaman gerekir. Üçüncüsü iade: tatil hediyelerinin iade oranı yılın ortalamasının çok üstündedir ve iade, hem kargo hem yeniden işleme maliyetiyle çift vurur.\n\nÇözüm 'daha çok sat' değil, 'ürün başına net hesapla' girmek. Her SKU için şu dört kalemi topla: platform komisyonu + lojistik/sürşarj + tahmini reklam payı + tahmini iade maliyeti. Bu toplam satış fiyatının altında net kâr bırakmıyorsa, o ürünü yüksek sezonda itmek ciroyu şişirip yılı zararla kapatmaktan başka işe yaramaz. Q4 kazananı en çok satan değil, ürün başına cebine en çok kalanı bilen satıcıdır."
+   },
+   "en": {
+    "t": "Three invisible costs waiting for sellers as Q4 2026 begins",
+    "d": "Peak season explodes revenue, but three costs quietly eat the profit: logistics surcharges, ad competition, and the returns wave. Price each one per unit.",
+    "body": "The final quarter is e-commerce's highest-revenue stretch — and the one that leaks the most profit. First, logistics: platforms like Amazon layer peak-season fees on top of a permanent fuel surcharge, pushing per-unit cost to its yearly high. Second, advertising: through Black Friday and Christmas, cost-per-click can double, so you spend more ad money to make the same sale. Third, returns: the return rate on holiday gifts runs well above the yearly average, and a return hits twice — shipping plus reprocessing.\n\nThe fix isn't 'sell more,' it's 'enter with net-per-unit math.' For every SKU, add up four lines: platform commission + logistics/surcharge + estimated ad share + estimated return cost. If that total doesn't leave net profit under your selling price, pushing that product in peak season only inflates revenue while closing the year at a loss. The Q4 winner isn't the biggest seller — it's the one who knows exactly what's left in the pocket per unit."
+   },
+   "de": {
+    "t": "Drei unsichtbare Kosten, die auf Händler zu Beginn von Q4 2026 warten",
+    "d": "Die Hochsaison lässt den Umsatz explodieren, doch drei Kosten fressen still den Gewinn: Logistikzuschläge, Werbekonkurrenz und die Retourenwelle. Rechne jede pro Einheit.",
+    "body": "Das Schlussquartal ist die umsatzstärkste Phase des E-Commerce — und die mit dem größten Gewinnverlust. Erstens die Logistik: Plattformen wie Amazon legen Hochsaisongebühren auf einen dauerhaften Treibstoffzuschlag, was die Kosten pro Einheit auf den Jahreshöchststand treibt. Zweitens Werbung: Über Black Friday und Weihnachten kann sich der Klickpreis (CPC) verdoppeln, du gibst also mehr Werbegeld für denselben Verkauf aus. Drittens Retouren: Die Rücksendequote bei Geschenken liegt weit über dem Jahresschnitt, und eine Retoure trifft doppelt — Versand plus Wiederaufbereitung.\n\nDie Lösung heißt nicht 'mehr verkaufen', sondern 'mit Netto-pro-Einheit-Rechnung einsteigen'. Addiere für jede SKU vier Posten: Plattformprovision + Logistik/Zuschlag + geschätzter Werbeanteil + geschätzte Retourenkosten. Bleibt bei dieser Summe unter deinem Verkaufspreis kein Nettogewinn, bläht das Pushen dieses Produkts in der Hochsaison nur den Umsatz auf und beschert ein Verlustjahr. Der Q4-Gewinner ist nicht der größte Verkäufer, sondern wer genau weiß, was pro Einheit in der Tasche bleibt."
+   },
+   "fr": {
+    "t": "Trois coûts invisibles qui attendent les vendeurs à l'aube du Q4 2026",
+    "d": "La haute saison fait exploser le chiffre d'affaires, mais trois coûts grignotent le profit : surcharges logistiques, concurrence publicitaire et vague de retours. Chiffrez chacun par unité.",
+    "body": "Le dernier trimestre est la période au plus fort chiffre d'affaires de l'e-commerce — et celle qui fuit le plus de profit. D'abord la logistique : des plateformes comme Amazon empilent des frais de haute saison sur une surcharge carburant permanente, portant le coût par unité à son maximum annuel. Ensuite la publicité : pendant le Black Friday et Noël, le coût par clic (CPC) peut doubler ; il faut donc dépenser plus en pub pour réaliser la même vente. Enfin les retours : le taux de retour des cadeaux dépasse largement la moyenne annuelle, et un retour frappe deux fois — expédition plus retraitement.\n\nLa solution n'est pas « vendre plus », mais « entrer avec un calcul net par unité ». Pour chaque SKU, additionnez quatre lignes : commission de plateforme + logistique/surcharge + part publicitaire estimée + coût de retour estimé. Si ce total ne laisse pas de profit net sous votre prix de vente, pousser ce produit en haute saison ne fait que gonfler le chiffre d'affaires tout en clôturant l'année en perte. Le gagnant du Q4 n'est pas le plus gros vendeur, mais celui qui sait exactement ce qui reste dans sa poche par unité."
+   },
+   "es": {
+    "t": "Tres costes invisibles que esperan al vendedor al empezar el Q4 2026",
+    "d": "La temporada alta dispara la facturación, pero tres costes se comen el beneficio en silencio: recargos logísticos, competencia publicitaria y la ola de devoluciones. Calcula cada uno por unidad.",
+    "body": "El último trimestre es el tramo de mayor facturación del e-commerce — y el que más beneficio pierde. Primero, la logística: plataformas como Amazon suman tarifas de temporada alta sobre un recargo de combustible permanente, llevando el coste por unidad a su máximo anual. Segundo, la publicidad: durante el Black Friday y la Navidad, el coste por clic (CPC) puede duplicarse, así que gastas más en anuncios para lograr la misma venta. Tercero, las devoluciones: la tasa de devolución de regalos supera con creces la media anual, y una devolución golpea dos veces — envío más reprocesamiento.\n\nLa solución no es 'vender más', sino 'entrar con la cuenta neta por unidad'. Para cada SKU, suma cuatro líneas: comisión de plataforma + logística/recargo + parte publicitaria estimada + coste de devolución estimado. Si ese total no deja beneficio neto por debajo de tu precio de venta, empujar ese producto en temporada alta solo infla la facturación mientras cierras el año en pérdidas. El ganador del Q4 no es el que más vende, sino el que sabe exactamente qué le queda en el bolsillo por unidad."
+   },
+   "it": {
+    "t": "Tre costi invisibili che aspettano il venditore all'inizio del Q4 2026",
+    "d": "L'alta stagione fa esplodere il fatturato, ma tre costi divorano in silenzio il profitto: sovrapprezzi logistici, concorrenza pubblicitaria e ondata di resi. Calcola ciascuno per unità.",
+    "body": "L'ultimo trimestre è il periodo di maggior fatturato dell'e-commerce — e quello che perde più profitto. Primo, la logistica: piattaforme come Amazon sommano tariffe di alta stagione a un sovrapprezzo carburante permanente, portando il costo per unità al massimo annuale. Secondo, la pubblicità: durante Black Friday e Natale il costo per clic (CPC) può raddoppiare, quindi spendi di più in annunci per fare la stessa vendita. Terzo, i resi: il tasso di reso dei regali supera di molto la media annuale, e un reso colpisce due volte — spedizione più rilavorazione.\n\nLa soluzione non è 'vendere di più', ma 'entrare con il calcolo netto per unità'. Per ogni SKU somma quattro voci: commissione di piattaforma + logistica/sovrapprezzo + quota pubblicitaria stimata + costo di reso stimato. Se quel totale non lascia profitto netto sotto il tuo prezzo di vendita, spingere quel prodotto in alta stagione non fa che gonfiare il fatturato chiudendo l'anno in perdita. Il vincitore del Q4 non è chi vende di più, ma chi sa esattamente quanto resta in tasca per unità."
+   }
+  }
  }
 ]
