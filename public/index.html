@@ -229,6 +229,34 @@
   .news-card h3{font-size:15.5px;font-weight:600;line-height:1.28;margin:5px 0 7px;color:var(--navy)}
   .news-card p{font-size:13px;color:var(--muted);line-height:1.45;margin:0}
   .news-card .mt{font-size:11.5px;color:#6b7685;margin-top:auto;padding-top:9px}
+  /* === Gazete/dergi: ana sayfa haber bannerı + manşet düzeni === */
+  .news-banner{display:flex;align-items:center;gap:14px;background:linear-gradient(95deg,var(--navy),#2c4d78);color:#fff;border-radius:14px;padding:14px 18px;cursor:pointer;text-decoration:none;transition:.16s;border:1px solid rgba(255,255,255,.06)}
+  .news-banner:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(31,58,95,.20)}
+  .nb-tag{font-size:11px;font-weight:700;letter-spacing:.07em;background:var(--brand);color:#fff;padding:5px 11px;border-radius:999px;white-space:nowrap;flex:none}
+  .nb-head{flex:1;font-weight:600;font-size:15px;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;min-width:0}
+  .nb-go{font-size:13px;opacity:.82;white-space:nowrap;flex:none}
+  .mag-home{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;align-items:start}
+  .mag-lead{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:.16s;display:flex;flex-direction:column}
+  .mag-lead:hover{border-color:var(--blue);box-shadow:0 12px 30px rgba(31,58,95,.12);transform:translateY(-2px)}
+  .mag-lead:hover h2{color:var(--blue)}
+  .mag-lead .cov{position:relative;aspect-ratio:16/9;width:100%;overflow:hidden;background:var(--bg-hover)}
+  .mag-lead .cov svg{display:block;width:100%;height:100%}
+  .mag-lead .ld-bd{padding:16px 18px 18px}
+  .mag-lead h2{font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:600;line-height:1.18;letter-spacing:-.01em;margin:4px 0 8px;color:var(--navy)}
+  .mag-lead p{font-size:14px;color:var(--muted);line-height:1.5;margin:0}
+  .mag-lead .mt{font-size:12px;color:#6b7685;margin-top:10px}
+  .mag-side{display:flex;flex-direction:column}
+  .mag-side a{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;align-items:flex-start}
+  .mag-side a:first-child{padding-top:0}
+  .mag-side a:hover h4{color:var(--blue)}
+  .mag-side .thumb{width:92px;height:62px;border-radius:8px;overflow:hidden;flex:none;background:var(--bg-hover);position:relative}
+  .mag-side .thumb svg{display:block;width:100%;height:100%}
+  .mag-side .s-cat{font-size:10.5px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px}
+  .mag-side h4{font-size:14px;font-weight:600;line-height:1.3;margin:3px 0 4px;color:var(--navy)}
+  .mag-side .mt{font-size:11px;color:#6b7685}
+  .mag-more{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px}
+  @media(max-width:820px){.mag-home{grid-template-columns:1fr}.mag-lead h2{font-size:21px}.mag-more{grid-template-columns:1fr}}
+  @media(max-width:640px){.nb-go{display:none}}
   /* ── ONEDIO TARZI: görsel üstü renkli kategori etiketi + hover zoom ── */
   .catpill{position:absolute;top:10px;left:10px;z-index:3;display:inline-block;font-size:10px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:#fff;padding:4px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.22);line-height:1.35;white-space:nowrap;max-width:calc(100% - 20px);overflow:hidden;text-overflow:ellipsis}
   .cat-pazar{background:#EA5B2A}.cat-reg{background:#7C3AED}.cat-global{background:#2563EB}.cat-reklam{background:#DB2777}.cat-lojistik{background:#0D9488}.cat-kose{background:#1A1511;letter-spacing:.8px}
@@ -781,6 +809,9 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
      </div>
      <div style="max-width:560px;margin:14px auto 0;text-align:center"><a onclick="go('compare')" style="cursor:pointer;color:var(--brand);font-weight:600;font-size:14px" data-i18n="hero_b2">Pazaryerlerini karşılaştır →</a></div>
   </div></section>
+  <section class="blk" style="padding-top:18px;padding-bottom:0"><div class="container">
+    <a class="news-banner" id="newsBanner" onclick="go('magazine')" onkeydown="kbd(event,()=>go('magazine'))" role="button" tabindex="0" aria-label="Gündem — tüm haberler"></a>
+  </div></section>
   <section class="blk" style="padding-top:30px"><div class="container">
     <div class="sec-title" data-i18n="gapT">Komisyon oranı, satışın maliyeti değildir.</div>
     <div class="twocard" style="max-width:640px;margin:20px 0 0">
@@ -810,10 +841,10 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   </div></section>
   <section class="blk" style="padding-top:0"><div class="container">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div><div class="sec-title" style="margin-bottom:2px">Bugün ne değişti?</div><div class="sec-sub" style="margin-bottom:0">Hesap yaptın; bugün paranı etkileyebilecek gelişmeler de bunlar.</div></div>
+      <div><div class="sec-title" style="margin-bottom:2px">Gündem</div><div class="sec-sub" style="margin-bottom:0">E-ticaret dünyasından güncel gelişmeler — pazaryeri, ödeme, lojistik, regülasyon.</div></div>
       <a onclick="go('magazine')" class="btn ghost" data-i18n="mag_all">Tüm haberler →</a>
     </div>
-    <div class="grid3" id="magHomeTeaser"></div>
+    <div class="mag-home" id="magHomeTeaser"></div>
   </div></section>
   <section class="blk" style="padding-top:0"><div class="container">
     <div class="founder-note" style="max-width:660px">
@@ -2935,7 +2966,7 @@ function renderMagazine(){
   // Onedio kart: görsel üstü renkli etiket + hover zoom. İlk kart (Tümü'de) öne çıkan.
   const F=(a,feat)=>{const i=NEWS.indexOf(a);return `<div class="news-card${feat?' feature':''}" role="button" tabindex="0" onclick="openArticle(${i})" onkeydown="kbd(event,()=>openArticle(${i}))" aria-label="${_esc(a.t)}">
     <div class="cov" aria-hidden="true">${artThumb(a)}<span class="catpill ${a.kose?'cat-kose':'cat-'+a.c}">${a.kose?'KÖŞE':(CATMAP[a.c]||a.c)}</span></div>
-    <div class="bd"><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${(a.kose&&a.author)?('✍️ '+_esc(a.author.n)+' · '):''}${a.dt} · ${readMin(a)}</div><a class="impact-cta" onclick="event.stopPropagation();go('calc')" onkeydown="event.stopPropagation()">Hesabına etkisini gör →</a></div>
+    <div class="bd"><h3>${_esc(a.t)}</h3><p>${_esc(a.d||'')}</p><div class="mt">${(a.kose&&a.author)?('✍️ '+_esc(a.author.n)+' · '):''}${a.dt}</div><a class="impact-cta" onclick="event.stopPropagation();go('calc')" onkeydown="event.stopPropagation()">Hesabına etkisini gör →</a></div>
   </div>`;};
   const shown=(MAG_CAT==='all'?LIST:LIST.filter(a=>a.c===MAG_CAT));
   const g=document.getElementById('magGrid');
@@ -3414,10 +3445,19 @@ function renderHomeCompare(){
      +'</tr>';
   }).join('')+'</table>';
 }
-function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc).slice(0,3);
- // .news-grid sarmalı KALDIRILDI — kartlar doğrudan #magHomeTeaser (.grid3) 3 kolonuna otursun (masaüstü denge). Kart klavyeyle erişilebilir.
- el.innerHTML=L.map((x)=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${NEWS.indexOf(x)})" onkeydown="kbd(event,()=>openArticle(${NEWS.indexOf(x)}))"><div class="cov" aria-hidden="true">${artThumb(x)}<span class="catpill cat-${x.c}">${CATMAP[x.c]||x.c}</span></div><div class="bd"><h3>${x.t}</h3><div class="mt">${x.dt}${x.tag?" · "+x.tag:""} · ${readMin(x)}</div><a class="impact-cta" onclick="event.stopPropagation();go('calc')" onkeydown="event.stopPropagation()">Seni nasıl etkiliyor? →</a></div></div>`).join('');}
-renderHomeTeaser();
+function renderNewsBanner(){const el=document.getElementById('newsBanner');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc);if(!L.length){el.style.display='none';return;}const a=L[0];const i=NEWS.indexOf(a);el.style.display='';el.setAttribute('onclick','openArticle('+i+')');el.innerHTML=`<span class="nb-tag">GÜNDEM</span><span class="nb-head">${_esc(a.t)}</span><span class="nb-go">Tüm haberler →</span>`;}
+function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;
+ // Gazete/dergi düzeni: büyük manşet (lead) + yan liste (3) + alt kartlar (3). "dk" okuma süresi kaldırıldı.
+ const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc).slice(0,7);
+ if(!L.length){el.innerHTML='';return;}
+ const ix=a=>NEWS.indexOf(a), lead=L[0], side=L.slice(1,4), more=L.slice(4,7);
+ const catOf=a=>a.kose?'KÖŞE':(CATMAP[a.c]||a.c), pill=a=>`<span class="catpill ${a.kose?'cat-kose':'cat-'+a.c}">${catOf(a)}</span>`;
+ const leadH=`<article class="mag-lead" role="button" tabindex="0" onclick="openArticle(${ix(lead)})" onkeydown="kbd(event,()=>openArticle(${ix(lead)}))" aria-label="${_esc(lead.t)}"><div class="cov" aria-hidden="true">${artThumb(lead)}</div><div class="ld-bd">${pill(lead)}<h2>${_esc(lead.t)}</h2><p>${_esc(lead.d||'')}</p><div class="mt">${lead.dt}${lead.tag?" · "+_esc(lead.tag):""}</div></div></article>`;
+ const sideH=`<div class="mag-side">`+side.map(a=>`<a role="button" tabindex="0" onclick="openArticle(${ix(a)})" onkeydown="kbd(event,()=>openArticle(${ix(a)}))" aria-label="${_esc(a.t)}"><div class="thumb">${artThumb(a)}</div><div class="s-bd"><div class="s-cat">${_esc(catOf(a))}</div><h4>${_esc(a.t)}</h4><div class="mt">${a.dt}</div></div></a>`).join('')+`</div>`;
+ const moreH=more.length?`<div class="mag-more">`+more.map(a=>`<div class="news-card" role="button" tabindex="0" onclick="openArticle(${ix(a)})" onkeydown="kbd(event,()=>openArticle(${ix(a)}))"><div class="cov" aria-hidden="true">${artThumb(a)}<span class="catpill ${a.kose?'cat-kose':'cat-'+a.c}">${catOf(a)}</span></div><div class="bd"><h3>${_esc(a.t)}</h3><div class="mt">${a.dt}${a.tag?" · "+_esc(a.tag):""}</div></div></div>`).join('')+`</div>`:'';
+ el.innerHTML=leadH+sideH+moreH;
+ const lp=el.querySelector('.mag-lead .cov-photo'); if(lp){lp.loading='eager';lp.setAttribute('fetchpriority','high');}}
+renderNewsBanner();renderHomeTeaser();
 
 // ============ HESAP (Supabase Auth) + BULUT SENKRON ============
 var NETVO_SB=(typeof window!=='undefined'&&window.NETVO_SB)?window.NETVO_SB:null; // head'de kurulan istemci
