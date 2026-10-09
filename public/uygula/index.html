@@ -725,6 +725,10 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 </script>
 </head>
 <body>
+<!-- Netlify Forms: abone yakalama (backend gerektirmez, uykuya geçmez; her kayıtta e-posta bildirimi) -->
+<form name="abone" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+  <input type="email" name="email"><input name="bot-field">
+</form>
 <a href="#main" class="skip">İçeriğe atla</a>
 <div id="routeAnnouncer" aria-live="polite" aria-atomic="true" class="visually-hidden"></div>
 <header>
@@ -2946,27 +2950,26 @@ function renderMagazine(){
 }
 function magFilter(c){MAG_CAT=c;renderMagazine();try{const g=document.getElementById('magFilter');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){}}
 
+// Abone e-postasını DAYANIKLI topla: (1) Netlify Forms (backend yok, uykuya geçmez,
+// Fırat'a bildirim), (2) Supabase (ayaktaysa, bülten listesi), (3) yerel yedek.
+// Hiçbiri kullanıcıya hata göstermez; Netlify her zaman kaydı tutar.
+function netvoCapture(email, source){
+  source=source||'site';
+  try{ fetch('/',{method:'POST',headers:{'content-type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams({'form-name':'abone',email:email,source:source}).toString()}).catch(function(){}); }catch(e){}
+  try{ var sb=window.NETVO_SB; if(sb&&sb.from){ sb.from('email_leads')
+    .upsert({email:email,source:source,locale:(typeof LANG!=='undefined'?LANG:'tr')},{onConflict:'email'})
+    .then(function(){},function(){}); } }catch(e){}
+  try{ var L=JSON.parse(localStorage.getItem('netvo_leads')||'[]');
+    if(!L.some(function(x){return x.mail===email;})) L.push({mail:email,at:new Date().toISOString()});
+    localStorage.setItem('netvo_leads',JSON.stringify(L)); }catch(e){}
+}
 function subscribe(){
   const el=document.getElementById('nlMail'); const v=(el&&el.value||'').trim();
   if(!v||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){toast('Geçerli bir e-posta gir');return;}
-  try{
-    const L=JSON.parse(localStorage.getItem('netvo_leads')||'[]');
-    if(!L.some(x=>x.mail===v)) L.push({mail:v,at:new Date().toISOString(),mk:(typeof current!=='undefined'?current:null)});
-    localStorage.setItem('netvo_leads',JSON.stringify(L));
-  }catch(e){}
-  // Buluta yaz (Supabase email_leads) → abone günlük e-ticaret haber bültenine eklenir
-  var ok=false;
-  try{
-    var sb=window.NETVO_SB;
-    if(sb&&sb.from){
-      ok=true;
-      sb.from('email_leads').upsert({email:v,source:'site',locale:(typeof LANG!=='undefined'?LANG:'tr')},{onConflict:'email'})
-        .then(function(r){ if(r&&r.error){/* sessiz: yerelde zaten var */} });
-    }
-  }catch(e){}
+  netvoCapture(v,'site-mini');
   if(el)el.value='';
-  toast(ok ? 'Kaydoldun! Günün e-ticaret haberleri e-postana gelecek.'
-           : 'E-postan kaydedildi. Günlük haber bültenine eklendin.');
+  toast('Kaydoldun! Günün e-ticaret haberleri e-postana gelecek.');
 }
 
 function kbd(e,fn){if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}}
@@ -3312,16 +3315,8 @@ function netvoSubscribe(ev){
   var inp=document.getElementById('nlEmail'), msg=document.getElementById('nlMsg');
   var email=(inp.value||"").trim();
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ msg.textContent="Geçerli bir e-posta gir."; msg.style.color="#f2b8a2"; return false; }
-  var done=function(){ msg.textContent="Teşekkürler — listeye eklendin."; msg.style.color="#7ee0a6"; inp.value=""; };
-  try{
-    if(NETVO_EMAIL_ENDPOINT){
-      fetch(NETVO_EMAIL_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email,source:'netvo-footer'})}).then(done).catch(done);
-    }else{
-      var L=JSON.parse(localStorage.getItem('netvo_email_leads')||'[]');
-      if(!L.includes(email)){L.push(email);localStorage.setItem('netvo_email_leads',JSON.stringify(L));}
-      done();
-    }
-  }catch(e){ done(); }
+  netvoCapture(email,'netvo-footer');
+  msg.textContent="Teşekkürler — listeye eklendin."; msg.style.color="#7ee0a6"; inp.value="";
   return false;
 }
 
