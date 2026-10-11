@@ -12,6 +12,8 @@ const OUT = process.env.PUBLIC_DIR || "public";
 
 console.log("→ Hesap motoru regresyon testi");
 execSync("node test/calc.test.mjs", { stdio: "inherit" });
+// SEO çıktı dizinini üretimden ÖNCE temizle — yoksa eski slug'lı sayfalar (artık üretilmeyenler) kalır.
+fs.rmSync("seo/site", { recursive: true, force: true });
 console.log("→ SEO sayfaları üretiliyor:", SITE);
 execSync(`node seo/uret.mjs ${SITE}`, { stdio: "inherit" });
 console.log("→ Haber SEO sayfaları üretiliyor");

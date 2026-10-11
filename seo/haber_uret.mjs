@@ -34,9 +34,17 @@ if (!Array.isArray(RAW) || !RAW.length) { console.log("→ haber yok — atland�
 try { if (fs.existsSync(KOK + "icerik/kose.json")) { const K = JSON.parse(fs.readFileSync(KOK + "icerik/kose.json", "utf8")); if (Array.isArray(K)) RAW = [...K, ...RAW]; } } catch (e) { console.warn("→ kose.json atlandı:", e.message); }
 
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+// STABİL TR slug — SPA'nın (#/dergi/<slug>) slugify'ıyla BİREBİR aynı olmalı (slice 60, translit yok).
 function slugify(s){ return String(s).toLowerCase()
   .replace(/[ışğüöçİ]/g, c => ({ 'ı':'i','ş':'s','ğ':'g','ü':'u','ö':'o','ç':'c','İ':'i' }[c] || c))
   .replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,60); }
+// Lokalize (non-TR) slug — Latin aksan transliterasyonu + biraz daha uzun; standalone olduğu için SPA'yla eşleşmesi gerekmez.
+function slugifyL(s){ return String(s).toLowerCase()
+  .replace(/[ışğüöçİ]/g, c => ({ 'ı':'i','ş':'s','ğ':'g','ü':'u','ö':'o','ç':'c','İ':'i' }[c] || c))
+  .replace(/ß/g,'ss').replace(/æ/g,'ae').replace(/œ/g,'oe')
+  .replace(/[àâäáãåā]/g,'a').replace(/[èéêëē]/g,'e').replace(/[ìíîïī]/g,'i')
+  .replace(/[òóôöõōø]/g,'o').replace(/[ùúûüū]/g,'u').replace(/[ñ]/g,'n').replace(/[ýÿ]/g,'y')
+  .replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,70); }
 
 const CATTR    = { pazar:"Pazaryeri", reg:"Regülasyon", global:"Global", reklam:"Reklam", lojistik:"Lojistik" };
 const CATCOLOR = { pazar:'#0A7A43', reg:'#B4841E', global:'#1F4E79', reklam:'#B42318', lojistik:'#7C3AED' };
@@ -44,6 +52,41 @@ const AY = { "Oca":"01","Şub":"02","Mar":"03","Nis":"04","May":"05","Haz":"06",
 function iso(dt){ const m = /(\d{1,2})\s+(\S+)\s+(\d{4})/.exec(dt || ""); if(!m) return new Date().toISOString().slice(0,10);
   const mo = AY[m[2].slice(0,3)] || "01"; return `${m[3]}-${mo}-${String(m[1]).padStart(2,"0")}`; }
 function words(s){ return String(s||"").trim().split(/\s+/).filter(Boolean).length; }
+
+// --- Lokalize kategori etiketi (dil başına doğru SEO sinyali) ---
+const CATTR_L = {
+  tr:{ pazar:"Pazaryeri", reg:"Regülasyon", global:"Global", reklam:"Reklam", lojistik:"Lojistik" },
+  en:{ pazar:"Marketplace", reg:"Regulation", global:"Global", reklam:"Advertising", lojistik:"Logistics" },
+  de:{ pazar:"Marktplatz", reg:"Regulierung", global:"Global", reklam:"Werbung", lojistik:"Logistik" },
+  fr:{ pazar:"Place de marché", reg:"Réglementation", global:"Global", reklam:"Publicité", lojistik:"Logistique" },
+  es:{ pazar:"Marketplace", reg:"Regulación", global:"Global", reklam:"Publicidad", lojistik:"Logística" },
+  it:{ pazar:"Marketplace", reg:"Regolamentazione", global:"Global", reklam:"Pubblicità", lojistik:"Logistica" },
+};
+const AUTHOR_LBL = { tr:"Netvo AI köşe yazarı", en:"Netvo AI columnist", de:"Netvo-KI-Kolumnist", fr:"chroniqueur IA Netvo", es:"columnista de IA de Netvo", it:"editorialista IA di Netvo" };
+// --- Lokalize tarih (TR'de orijinal; diğer dillerde o dilin ay adı + yazım düzeni) ---
+const MONTHS = {
+  en:["January","February","March","April","May","June","July","August","September","October","November","December"],
+  de:["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
+  fr:["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],
+  es:["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],
+  it:["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"],
+};
+function fmtDate(dt, lang){
+  if (lang === "tr") return dt || "";                 // TR: orijinal ("9 Eki 2026")
+  const m = /(\d{1,2})\s+(\S+)\s+(\d{4})/.exec(dt || "");
+  if (!m) return dt || "";                            // tam gün-ay-yıl yoksa olduğu gibi
+  const mo = parseInt(AY[m[2].slice(0,3)] || "0", 10);
+  const names = MONTHS[lang];
+  if (!mo || !names) return dt || "";
+  const d = parseInt(m[1], 10), y = m[3], mn = names[mo-1];
+  if (lang === "en") return `${mn} ${d}, ${y}`;
+  if (lang === "de") return `${d}. ${mn} ${y}`;
+  if (lang === "es") return `${d} de ${mn} de ${y}`;
+  return `${d} ${mn} ${y}`;                           // fr, it
+}
+// --- URL yardımcıları: dil başına makale ve haber-endeks URL'i ---
+const urlFor    = (l, s) => l === "tr" ? `${BASE}/haber/${s}.html` : `${BASE}/${l}/haber/${s}.html`;
+const urlForIdx = (l)    => l === "tr" ? `${BASE}/haber/`          : `${BASE}/${l}/haber/`;
 
 // --- renk yardımcıları (resvg color-mix desteklemez → hex blend JS'te) ---
 function hx(h){ h=h.replace('#',''); if(h.length===3) h=h.split('').map(c=>c+c).join(''); return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]; }
@@ -130,26 +173,30 @@ function head(lang, title, desc, url, alts, opts){
 }
 function shell(lang){ const t = T[lang]; const home = lang==="tr"?`${BASE}/`:`${BASE}/${lang}/`;
   return { open:`<header><div class="wrap"><a class="logo" href="${home}"><span class="dot"></span><b>netvo</b></a></div></header><main><div class="wrap">`,
-    close:(langs,slug)=>{ const ll = langs.map(l=>`<a href="${l==="tr"?`${BASE}/haber/${slug}.html`:`${BASE}/${l}/haber/${slug}.html`}">${l.toUpperCase()}</a>`).join("");
+    // langHrefs: [[langKodu, href], ...] — her dil kendi (lokalize) URL'ine
+    close:(langHrefs)=>{ const ll = langHrefs.map(([l,h])=>`<a href="${h}">${l.toUpperCase()}</a>`).join("");
       return `</div></main><footer><div class="wrap">© ${new Date().getFullYear()} ${BRAND} · ${esc(t.tagline)} · <a href="${home}">${esc(t.crumbHome)}</a><div class="langs">${ll}</div></div></footer></body></html>`; } };
 }
 
-function articlePage(a, lang, slug, langsAvail, cover){
+function articlePage(a, lang, slugByLang, trSlug, langsAvail, cover){
   const t = T[lang], tr = a.i18n[lang];
+  const slug = slugByLang[lang];                      // bu dilin KENDİ (lokalize) slug'ı
   const title = `${tr.t} | ${BRAND}`;
   const desc  = tr.d || tr.t;
   const bodyRaw = String(tr.body || tr.d || "").split(/\nKaynak:|\nSource:|\nQuelle:|\nFonte:|\nFuente:/)[0].trim();
   const thin = words(bodyRaw) < THIN_WORDS; // KALİTE KAPISI
   const paras = bodyRaw.split(/\n+/).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("");
-  const url   = lang==="tr" ? `${BASE}/haber/${slug}.html` : `${BASE}/${lang}/haber/${slug}.html`;
-  const alts  = langsAvail.map(l => [l, l==="tr"?`${BASE}/haber/${slug}.html`:`${BASE}/${l}/haber/${slug}.html`]);
-  const appLink = `${BASE}/?lang=${lang}#/dergi/${slug}`;
+  const url   = urlFor(lang, slug);
+  const alts  = langsAvail.map(l => [l, urlFor(l, slugByLang[l])]);  // her dil kendi slug'ına
+  const appLink = `${BASE}/?lang=${lang}#/dergi/${trSlug}`;          // SPA stabil TR slug'la eşleşir
   const pub = iso(a.dt);
-  const cat = CATTR[a.c] || a.c || "";
+  const cat = (CATTR_L[lang] && CATTR_L[lang][a.c]) || CATTR[a.c] || a.c || "";
+  const dsp = fmtDate(a.dt, lang);                    // lokalize tarih
+  const authLbl = AUTHOR_LBL[lang] || AUTHOR_LBL.tr;
   const ld = { "@context":"https://schema.org","@type":"NewsArticle",
     "headline": tr.t, "description": desc, "datePublished": pub, "dateModified": pub,
     "inLanguage": lang, "articleSection": cat,
-    "author":(a.kose&&a.author)?{"@type":"Person","name":a.author.n,"jobTitle":(a.author.role?a.author.role+" — ":"")+"Netvo AI köşe yazarı"}:{"@type":"Organization","name":BRAND,"url":BASE},
+    "author":(a.kose&&a.author)?{"@type":"Person","name":a.author.n,"jobTitle":(a.author.role?a.author.role+" — ":"")+authLbl}:{"@type":"Organization","name":BRAND,"url":BASE},
     "publisher":{"@type":"Organization","name":BRAND,"logo":{"@type":"ImageObject","url":`${BASE}/marka/netvo-mark.svg`}},
     "mainEntityOfPage":{"@type":"WebPage","@id":url} };
   if (cover) ld.image = [cover];
@@ -157,63 +204,79 @@ function articlePage(a, lang, slug, langsAvail, cover){
   const jsonld = `<script type="application/ld+json">${JSON.stringify(ld)}</script>`;
   const sh = shell(lang);
   return head(lang, title, desc, url, alts, { img:cover, noindex:thin, jsonld }) + sh.open
-    + `<div class="crumb"><a href="${lang==="tr"?BASE+"/":BASE+"/"+lang+"/"}">${esc(t.crumbHome)}</a> / <a href="${lang==="tr"?BASE+"/haber/":BASE+"/"+lang+"/haber/"}">${esc(t.crumbNews)}</a></div>`
+    + `<div class="crumb"><a href="${lang==="tr"?BASE+"/":BASE+"/"+lang+"/"}">${esc(t.crumbHome)}</a> / <a href="${urlForIdx(lang)}">${esc(t.crumbNews)}</a></div>`
     + `<div class="cat">${esc(cat)}${a.tag?" · "+esc(a.tag):""}</div>`
     + `<h1>${esc(tr.t)}</h1>`
-    + `<div class="meta">${esc(a.dt||"")}${(a.kose&&a.author)?` · <b style="color:#1A1511;font-weight:700">${esc(a.author.n)}</b> — Netvo AI köşe yazarı${a.author.role?" · "+esc(a.author.role):""}`:""}</div>`
+    + `<div class="meta">${esc(dsp)}${(a.kose&&a.author)?` · <b style="color:#1A1511;font-weight:700">${esc(a.author.n)}</b> — ${esc(authLbl)}${a.author.role?" · "+esc(a.author.role):""}`:""}</div>`
     + (a.img ? `<img class="hero" src="${BASE}${a.img}?v=${IMGV}" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : (cover ? `<img class="hero" src="${cover}" width="1200" height="630" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : ""))
     + (tr.d?`<p class="lede">${esc(tr.d)}</p>`:"")
     + `<div class="body">${paras}</div>`
     + `<p><a class="cta" href="${appLink}">${esc(t.inApp)}</a></p>`
     + `<div class="src">${esc(t.srcNote)}${a.src?` · <a href="${esc(a.src)}" rel="nofollow noopener" target="_blank">${esc(t.source)} →</a>`:""}</div>`
-    + sh.close(langsAvail, slug);
+    + sh.close(alts);
 }
 
 function indexPage(lang, items){
   const t = T[lang];
-  const url  = lang==="tr" ? `${BASE}/haber/` : `${BASE}/${lang}/haber/`;
-  const alts = LANGS.map(l => [l, l==="tr"?`${BASE}/haber/`:`${BASE}/${l}/haber/`]);
+  const url  = urlForIdx(lang);
+  const alts = LANGS.map(l => [l, urlForIdx(l)]);
   const sh = shell(lang);
   const rows = items.map(it => {
-    const href = lang==="tr"?`${BASE}/haber/${it.slug}.html`:`${BASE}/${lang}/haber/${it.slug}.html`;
-    return `<li><span class="cat">${esc(CATTR[it.c]||it.c||"")}</span><a href="${href}">${esc(it.t)}</a><div class="meta">${esc(it.dt||"")}</div></li>`;
+    const href = urlFor(lang, it.slug);
+    const cat  = (CATTR_L[lang] && CATTR_L[lang][it.c]) || CATTR[it.c] || it.c || "";
+    return `<li><span class="cat">${esc(cat)}</span><a href="${href}">${esc(it.t)}</a><div class="meta">${esc(it.dsp||it.dt||"")}</div></li>`;
   }).join("");
   return head(lang, t.idxTitle, t.idxDesc, url, alts, {}) + sh.open
     + `<div class="crumb"><a href="${lang==="tr"?BASE+"/":BASE+"/"+lang+"/"}">${esc(t.crumbHome)}</a> / ${esc(t.crumbNews)}</div>`
     + `<h1>${esc(t.idxH1)}</h1>`
     + `<ul class="list">${rows}</ul>`
-    + sh.close(LANGS, items[0]?items[0].slug:"");
+    + sh.close(alts);
 }
 
 // --- üretim ---
 const sitemapEntries = [];
+const redirects = [];               // eski TR-slug URL'leri → yeni lokalize slug (301)
 const idxItems = {}; LANGS.forEach(l => idxItems[l] = []);
-let pageCount = 0, coverCount = 0, thinCount = 0;
+let pageCount = 0, coverCount = 0, thinCount = 0, localizedSlugs = 0;
 
 RAW.forEach(a => {
   if (!a || !a.i18n) return;
   const langsAvail = LANGS.filter(l => a.i18n[l] && a.i18n[l].t);
   if (!langsAvail.length) return;
   const base = (a.i18n.tr && a.i18n.tr.t) || (a.i18n.en && a.i18n.en.t) || a.i18n[langsAvail[0]].t;
-  const slug = slugify(base);
-  if (!slug) return;
-  const cover = makeCover(a, slug); if (cover) coverCount++;
+  const trSlug = slugify(base);     // STABİL slug (kapak dosyası + SPA #/dergi eşleşmesi)
+  if (!trSlug) return;
+  // Her dile KENDİ başlığından slug — Almanca sayfa Almanca URL alsın (SEO). Çakışırsa dil eki.
+  const slugByLang = {}; const usedSlug = {};
+  langsAvail.forEach(l => {
+    let s = l === "tr" ? trSlug : (slugifyL(a.i18n[l].t) || trSlug);
+    if (usedSlug[s] && s !== trSlug) s = s + "-" + l;   // nadir: iki dil aynı slug'a düşerse
+    usedSlug[s] = 1; slugByLang[l] = s;
+    if (l !== "tr" && s !== trSlug) localizedSlugs++;
+  });
+  const cover = makeCover(a, trSlug); if (cover) coverCount++;
   // ince mi? (TR/ilk dilin gövdesine bak)
   const chk = a.i18n.tr || a.i18n[langsAvail[0]];
   const chkBody = String(chk.body || chk.d || "").split(/\nKaynak:|\nSource:/)[0];
   const isThin = words(chkBody) < THIN_WORDS; if (isThin) thinCount++;
   langsAvail.forEach(lang => {
+    const slug = slugByLang[lang];
     const dir = lang==="tr" ? OUT+"haber/" : OUT+lang+"/haber/";
     fs.mkdirSync(dir, { recursive:true });
-    fs.writeFileSync(dir + slug + ".html", articlePage(a, lang, slug, langsAvail, cover));
+    fs.writeFileSync(dir + slug + ".html", articlePage(a, lang, slugByLang, trSlug, langsAvail, cover));
     pageCount++;
+    // eski TR-slug URL'si (önceki build) → yeni lokalize slug'a 301 (yalnız non-tr, değiştiyse)
+    if (lang !== "tr" && slug !== trSlug) {
+      redirects.push(`/${lang}/haber/${trSlug}.html /${lang}/haber/${slug}.html 301`);
+      redirects.push(`/${lang}/haber/${trSlug} /${lang}/haber/${slug}.html 301`);
+    }
     // sitemap: ince sayfaları EKLEME (noindex zaten; sitemap'e de koymayalım)
     if (!isThin) {
-      const loc = lang==="tr" ? `${BASE}/haber/${slug}.html` : `${BASE}/${lang}/haber/${slug}.html`;
-      const salts = langsAvail.map(l => [l, l==="tr"?`${BASE}/haber/${slug}.html`:`${BASE}/${l}/haber/${slug}.html`]);
+      const loc = urlFor(lang, slug);
+      const salts = langsAvail.map(l => [l, urlFor(l, slugByLang[l])]);
       sitemapEntries.push({ loc, alts:salts, lastmod: iso(a.dt) });
     }
-    idxItems[lang].push({ slug, t:a.i18n[lang].t, c:a.c, dt:a.dt });
+    idxItems[lang].push({ slug, t:a.i18n[lang].t, c:a.c, dt:a.dt, dsp:fmtDate(a.dt, lang) });
   });
 });
 
@@ -239,9 +302,27 @@ try {
   fs.writeFileSync(smPath, sm);
 } catch (e) { console.log("sitemap'e haber ekleme atlandı:", e.message); }
 
+// Cloudflare Pages _redirects: eski TR-slug haber URL'lerinden yeni lokalize slug'a 301.
+// (uret.mjs önceden _redirects yazmış olabilir → üstüne EKLE, silme.)
+try {
+  if (redirects.length) {
+    const rp = OUT + "_redirects";
+    let prev = ""; try { prev = fs.readFileSync(rp, "utf8"); } catch (e) {}
+    const prevLines = prev ? prev.split("\n").filter(Boolean).length : 0;
+    // Cloudflare Pages ~2000 kural sınırı — güvenli pay bırak (301'ler geçiş amaçlı; aşan kurallar sessizce yok sayılır).
+    const CAP = 1950 - prevLines;
+    const use = redirects.length > CAP ? redirects.slice(0, Math.max(0, CAP)) : redirects;
+    if (use.length < redirects.length) console.log(`uyarı: _redirects sınırı — ${redirects.length - use.length} 301 atlandı (Cloudflare 2000 kural limiti)`);
+    const block = "# haber: TR-slug → lokalize slug (301)\n" + use.join("\n") + "\n";
+    fs.writeFileSync(rp, prev + (prev && !prev.endsWith("\n") ? "\n" : "") + block);
+  }
+} catch (e) { console.log("_redirects yazılamadı:", e.message); }
+
 console.log("═══ HABER SEO SAYFALARI ÜRETİLDİ ═══");
 console.log("haber sayısı     :", RAW.length);
 console.log("üretilen sayfa   :", pageCount, "(+", LANGS.filter(l=>idxItems[l].length).length, "endeks)");
+console.log("lokalize slug    :", localizedSlugs, "(dil başına kendi URL'i)");
+console.log("301 redirect     :", redirects.length);
 console.log("kapak görseli    :", coverCount, Resvg ? "" : "(resvg yok — atlandı)");
 console.log("ince (noindex)   :", thinCount);
 console.log("sitemap'e eklenen:", sitemapEntries.length);
