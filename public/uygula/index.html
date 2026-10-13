@@ -1539,15 +1539,15 @@ const desiTable=[["0–1 Desi",44],["2 Desi",55],["3 Desi",66],["4 Desi",78],["5
 
 // ============ RENDER LISTS ============
 function byRegion(){const m={};REGIONS.forEach(r=>m[r]=[]);Object.keys(MK).forEach(k=>{if(!m[MK[k].r])m[MK[k].r]=[];m[MK[k].r].push(k)});return m;}
-function comRange(k){const m=MK[k];if(!m.cats||!m.cats.length)return (m.fixedRate!==undefined?("%"+m.fixedRate):"—");const rs=m.cats.map(c=>c[1]);const lo=Math.min(...rs),hi=Math.max(...rs);return lo===hi?("%"+lo):("%"+lo+"–"+hi);}
+function comRange(k){const m=MK[k];if(!m.cats||!m.cats.length)return (m.fixedRate!==undefined?pct(m.fixedRate):"—");const rs=m.cats.map(c=>c[1]);const lo=Math.min(...rs),hi=Math.max(...rs);return lo===hi?pct(lo):pct(lo+"–"+hi);}
 function toolCard(k){const m=MK[k],co=CO[m.co];
-  return `<div class="tool" role="button" tabindex="0" onclick="openMkPage('${k}')" onkeydown="kbd(event,()=>openMkPage('${k}'))" aria-label="${m.n} — ${co.n}, komisyon ${comRange(k)}">
+  return `<div class="tool" role="button" tabindex="0" onclick="openMkPage('${k}')" onkeydown="kbd(event,()=>openMkPage('${k}'))" aria-label="${m.n} — ${co.n}, ${t('mk_comLabel')} ${comRange(k)}">
     <div class="ic">${mkLogo(k,30)}</div>
     <h3>${m.n}</h3>
-    <p>${co.fl} ${co.n} · KDV %${co.vat} · ${co.cur.trim()}</p>
-    <div class="mk-rate">Komisyon <b>${comRange(k)}</b></div>
-    <span class="mk-badge ${m.status}">${m.status==='official'?'Resmî kaynak':m.status==='reference'?'Referans':'Manuel'}</span>
-    <div class="go">İncele →</div>
+    <p>${co.fl} ${co.n} · ${t('mk_vatShort')} ${pct(co.vat)} · ${co.cur.trim()}</p>
+    <div class="mk-rate">${t('mk_comLabel')} <b>${comRange(k)}</b></div>
+    <span class="mk-badge ${m.status}">${m.status==='official'?t('mk_official'):m.status==='reference'?t('mk_refShort'):t('mk_manShort')}</span>
+    <div class="go">${t('mk_inspect')}</div>
   </div>`;}
 function renderTools(id){const bm=byRegion();let h="";REGIONS.forEach(r=>{h+=`<div class="reg-h">${r}</div><div class="grid4">${bm[r].map(toolCard).join("")}</div>`;});document.getElementById(id).innerHTML=h;}
 // Ana sayfa: 136 kartın tamamını dökme. Seçili birkaçını göster, gerisini Atlas'a yolla.
@@ -1560,7 +1560,7 @@ function renderToolsHome(id){
    return `<div class="pop-card">
      <div class="pop-top">${mkLogo(k,26)}<span class="pop-name">${m.n}</span></div>
      <div class="pop-sub">${co.fl} ${co.n} · ${co.cur.trim()}</div>
-     <div class="pop-rate">Komisyon <b>${comRange(k)}</b></div>
+     <div class="pop-rate">${t('mk_comLabel')} <b>${comRange(k)}</b></div>
      <button class="btn wide" onclick="openMkPage('${k}')" aria-label="${m.n} ${t('nav_calcBtn')}">${t('nav_calcBtn')}</button>
    </div>`;};
  host.innerHTML=`<div class="pop-grid">${feat.map(card).join("")}</div>
@@ -1972,15 +1972,16 @@ function complyBox(coCode){
 }
 function complyLead(c){const co=CO[c];toast((co?co.n:c)+" için uyum ortağı yönlendirmesi — partner entegrasyonu bağlanacak.");}
 
-function mkFacts(k){const m=MK[k],co=CO[m.co];const fixed=(m.fixed&&m.fixed.length)?m.fixed.map(f=>f[0]+" "+co.cur.trim()+f[1]).join(" + "):"Yok";
- const pct=(m.pct&&m.pct.length)?m.pct.map(p=>p[0]).join(" + "):"Yok";
- return [["Ülke / Pazar",`<a onclick="openCoPage('${m.co}')" style="cursor:pointer">${co.fl} ${co.n} →</a>`],["Para birimi",co.cur.trim()],["KDV / Vergi","%"+co.vat],["Komisyon aralığı",comRange(k)],["Komisyon matrahı",m.base==="net"?"KDV hariç fiyat":"KDV dahil fiyat"],["Sabit ücretler",fixed],["Yüzdesel ek ücretler",pct],["FBA / fulfillment",m.fba?"Var":"—"],["Stopaj","Var (%1)".replace("Var (%1)",co.stopaj?"Var (%1, mahsup edilir)":"—")],["İlan edilen komisyon",m.comVatIncl?"KDV DAHİL oran":"KDV hariç oran (+KDV eklenir)"],["Veri durumu",provOf(k).label]];}
+function mkFacts(k){const m=MK[k],co=CO[m.co];const fixed=(m.fixed&&m.fixed.length)?m.fixed.map(f=>catL(f[0])+" "+co.cur.trim()+f[1]).join(" + "):t('mk_none');
+ const pctFees=(m.pct&&m.pct.length)?m.pct.map(p=>catL(p[0])).join(" + "):t('mk_none');
+ const prov=provOf(k);
+ return [[t('mk_fCountry'),`<a onclick="openCoPage('${m.co}')" style="cursor:pointer">${co.fl} ${co.n} →</a>`],[t('mk_fCur'),co.cur.trim()],[t('mk_fVat'),pct(co.vat)],[t('mk_fRange'),comRange(k)],[t('mk_fBase'),m.base==="net"?t('mk_baseNet'):t('mk_baseGross')],[t('mk_fFixed'),fixed],[t('mk_fPct'),pctFees],[t('mk_fFba'),m.fba?t('mk_yes'):"—"],[t('mk_fStopaj'),co.stopaj?t('mk_stopajYes'):"—"],[t('mk_fAnnounced'),m.comVatIncl?t('mk_annInc'):t('mk_annExc')],[t('mk_fData'),String(t(prov.labelKey)).replace('{d}',prov.age)]];}
 function renderMkPage(k){
  const m=MK[k],co=CO[m.co],I=INFO[k]||{};
- const badge=`<span class="mk-badge ${m.status}">${m.status==='official'?'Resmî kaynak':m.status==='reference'?'Referans veri':'Manuel giriş'}</span>`;
+ const badge=`<span class="mk-badge ${m.status}">${m.status==='official'?t('mk_official'):m.status==='reference'?t('mk_reference'):t('mk_manual')}</span>`;
  const facts=mkFacts(k).map(f=>`<div class="fact"><span>${f[0]}</span><b>${f[1]}</b></div>`).join("");
  const est=isEst(k);
- const estBanner=est?`<div class="estbanner"><span>⚠︎</span><div><b>Bu oranlar tahmin.</b> Bu pazaryerinin resmî komisyon belgesine ulaşılamadı (çoğu satıcı paneli arkasında). Aşağıdaki sayıları <b>kendi panelinden teyit et</b> — iş kurmadan önce.</div></div>`:"";
+ const estBanner=est?`<div class="estbanner"><span>⚠︎</span><div><b>${t('mk_estTitle')}</b> ${t('mk_estBody')}</div></div>`:"";
  const cats=(m.cats&&m.cats.length)?`${estBanner}<table class="ex${est?' est-tbl est-dim':''}"><thead><tr><th>${t('ca_thCat')}</th><th style="text-align:right">${t('ca_thCom')}</th></tr></thead><tbody>${m.cats.map(c=>`<tr><td>${catL(c[0])}</td><td style="text-align:right"><b>${pct(c[1])}</b></td></tr>`).join("")}</tbody></table>`:"";
  const list=(t,a,cls)=>(a&&a.length)?`<div class="side-card ${cls||''}"><h4>${t}</h4><ul class="mk-ul">${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:"";
  // Kurul kararı: INFO'su olmayan 106 sayfada sahte "hakkında" metni üretme.
@@ -1992,18 +1993,18 @@ function renderMkPage(k){
     <div class="mk-flag">${mkLogo(k,52)}</div>
     <div style="flex:1;min-width:180px">
       <h1 class="mk-title">${m.n} ${isEst(k)?estChip():''}</h1>
-      <p class="mk-sub">${mkShort(m.n)}${trLoc(m.n)} satışın gerçek maliyeti · ${co.n} · KDV %${co.vat} ${badge}</p>
+      <p class="mk-sub">${mkShort(m.n)}${trLoc(m.n)} ${t('mk_subReal')} · ${co.n} · ${t('mk_vatShort')} ${pct(co.vat)} ${badge}</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:8px">
-      <button class="btn" onclick="openMk('${k}')">${m.n} kârını hesapla</button>
-      <button class="btn ghost" onclick="watchEkle('${k}','${m.cats&&m.cats.length?(NORM.find(x=>pickCat(m,x.k).exact)||{k:'genel'}).k:'genel'}')" title="Bu pazaryerinin oranı değişince Takibim'de haber al">＋ Takibe al</button>
+      <button class="btn" onclick="openMk('${k}')">${t('mk_calcBtn').replace('{n}',m.n)}</button>
+      <button class="btn ghost" onclick="watchEkle('${k}','${m.cats&&m.cats.length?(NORM.find(x=>pickCat(m,x.k).exact)||{k:'genel'}).k:'genel'}')" title="${t('mk_watchTitle')}">${t('mk_watchBtn')}</button>
     </div>
   </div>
-  <p class="mk-p" style="margin:-6px 0 16px;max-width:760px">Komisyon oranı, satıcının toplam maliyetini tek başına göstermez. Hizmet bedeli, kargo, vergi, reklam ve iade etkisini birlikte hesapla.</p>
+  <p class="mk-p" style="margin:-6px 0 16px;max-width:760px">${t('mk_intro')}</p>
   <div class="verdict" id="vBox">
     <div class="vin">
-      <div><label>Satış fiyatı</label><input id="vPrice" type="number" min="0" inputmode="decimal"/></div>
-      <div><label>Ürün maliyeti</label><input id="vCost" type="number" min="0" inputmode="decimal"/></div>
+      <div><label>${t('mk_price')}</label><input id="vPrice" type="number" min="0" inputmode="decimal"/></div>
+      <div><label>${t('mk_cost')}</label><input id="vCost" type="number" min="0" inputmode="decimal"/></div>
       <div><label>${t('ca_thCat')}</label><select id="vCat">${(m.cats||[["Genel",m.fixedRate||0]]).map((c,i)=>`<option value="${i}">${catL(c[0])} — ${pct(c[1])}</option>`).join("")}</select></div>
     </div>
     <div id="vOut" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -2011,24 +2012,24 @@ function renderMkPage(k){
   ${complyBox(m.co)}
   <div class="mk-grid">
     <div>
-      ${about?`<h2 class="sec">Bu pazaryeri nedir?</h2><p class="mk-p">${about}</p>`:""}
-      ${I.who?`<h2 class="sec">Kimin için?</h2><p class="mk-p">${I.who}</p>`:""}
-      <h2 class="sec">Ücret yapısı</h2>
+      ${about?`<h2 class="sec">${t('mk_hWhat')}</h2><p class="mk-p">${about}</p>`:""}
+      ${I.who?`<h2 class="sec">${t('mk_hWho')}</h2><p class="mk-p">${I.who}</p>`:""}
+      <h2 class="sec">${t('mk_hFee')}</h2>
       <p class="mk-p">${m.note||""}</p>
       ${cats}
-      ${I.payout?`<h2 class="sec">Ödeme / hakediş</h2><p class="mk-p">${I.payout}</p>`:""}
+      ${I.payout?`<h2 class="sec">${t('mk_hPayout')}</h2><p class="mk-p">${I.payout}</p>`:""}
       ${provStrip(k)}
     </div>
     <div>
-      <div class="side-card"><h4>Künye</h4>${facts}</div>
-      ${list("Nasıl başlanır?",I.start)}
-      ${list("Gereklilikler",I.reqs)}
-      ${list("Artıları",I.pros,"pos")}
-      ${list("Dikkat edilmesi gerekenler",I.cons,"neg")}
-      <div class="side-card" style="background:var(--blue-l);border-color:#cfe0f2"><h4>Gerçek kârını gör</h4><p class="sm muted" style="margin-bottom:10px">Komisyon, KDV, kargo ve reklam dahil bu pazaryerinde elinde ne kalıyor?</p><button class="btn wide" onclick="openMk('${k}')">Hesapla →</button></div>
+      <div class="side-card"><h4>${t('mk_cKunye')}</h4>${facts}</div>
+      ${list(t('mk_cStart'),I.start)}
+      ${list(t('mk_cReqs'),I.reqs)}
+      ${list(t('mk_cPros'),I.pros,"pos")}
+      ${list(t('mk_cCons'),I.cons,"neg")}
+      <div class="side-card" style="background:var(--blue-l);border-color:#cfe0f2"><h4>${t('mk_cGercek')}</h4><p class="sm muted" style="margin-bottom:10px">${t('mk_cGercekP')}</p><button class="btn wide" onclick="openMk('${k}')">${t('mk_calcShort')}</button></div>
     </div>
   </div>
-  <h2 class="sec" style="margin-top:26px">Aynı bölgeden diğer pazaryerleri</h2>
+  <h2 class="sec" style="margin-top:26px">${t('mk_hOther')}</h2>
   <div class="grid4">${Object.keys(MK).filter(x=>MK[x].r===m.r&&x!==k).slice(0,4).map(toolCard).join("")||"<p class='sm muted'>—</p>"}</div>`;
 }
 // NORTHLINE: "cevap üründür" — sayfa açılır açılmaz sayı görünür, buton arkasında saklanmaz.
@@ -3366,7 +3367,7 @@ const NAV_X={
 };
 try{Object.keys(NAV_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),NAV_X[l]));}catch(e){}
 // Yüzde yerleşimi: TR "%20", diğer diller "20%".
-function pct(n){return (typeof LANG!=='undefined'&&LANG==='tr')?('%'+n):(n+'%');}
+function pct(n){try{return (LANG==='tr')?('%'+n):(n+'%');}catch(e){return '%'+n;}}
 let LANG='tr';
 const LANG_ORDER=['tr','en','de','fr','es','it'];
 // ---- Kategori adı çevirisi (dropdown + tablolar). Sıra: [en,de,fr,es,it]. Yoksa TR literal'e düşer. ----
@@ -3581,6 +3582,25 @@ const FOOT_X={
  it:{ft_nlTitle:"Netvo Quotidiano",ft_nlDesc:"Cosa è cambiato oggi nell'e-commerce? Le novità che toccano i tuoi soldi, ogni mattina nella tua casella. Niente spam, disiscrizione in un clic.",ft_nlPh:"il tuo indirizzo email",ft_nlBtn:"Iscriviti gratis",ft_tag:"Fai l'e-commerce nel modo giusto",ft_blurb:"La vera matematica del vendere. Calcola quanto resta dopo commissioni, tasse e costi operativi — su 136 marketplace in 37 paesi.",ft_hDisc:"Esplora",ft_mk:"Marketplace",ft_co:"Paesi",ft_cmp:"Confronta",ft_news:"Attualità",ft_hLearn:"Impara",ft_learnc:"Centro di apprendimento",ft_gloss:"Glossario",ft_radar:"Radar delle commissioni",ft_hTools:"Strumenti",ft_calc:"Calcolatore di profitto",ft_watch:"Monitoraggio",ft_hTrust:"Fiducia",ft_method:"Metodologia",ft_sources:"Fonti dei dati",ft_bot:"© 2026 Netvo · <b>Fai l'e-commerce nel modo giusto.</b><br>I calcoli sono solo a scopo informativo; ogni tasso mostra la sua fonte."}
 };
 try{Object.keys(FOOT_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),FOOT_X[l]));}catch(e){}
+// ---- Pazaryeri detay sayfası arayüz metinleri (veri değil; chrome). ----
+const MKUI_X={
+ tr:{mk_official:"Resmî kaynak",mk_reference:"Referans veri",mk_manual:"Manuel giriş",mk_estTitle:"Bu oranlar tahmin.",mk_estBody:"Bu pazaryerinin resmî komisyon belgesine ulaşılamadı (çoğu satıcı paneli arkasında). Aşağıdaki sayıları <b>kendi panelinden teyit et</b> — iş kurmadan önce.",mk_fCountry:"Ülke / Pazar",mk_fCur:"Para birimi",mk_fVat:"KDV / Vergi",mk_fRange:"Komisyon aralığı",mk_fBase:"Komisyon matrahı",mk_baseNet:"KDV hariç fiyat",mk_baseGross:"KDV dahil fiyat",mk_fFixed:"Sabit ücretler",mk_fPct:"Yüzdesel ek ücretler",mk_fFba:"FBA / fulfillment",mk_yes:"Var",mk_none:"Yok",mk_fStopaj:"Stopaj",mk_stopajYes:"Var (%1, mahsup edilir)",mk_fAnnounced:"İlan edilen komisyon",mk_annInc:"KDV DAHİL oran",mk_annExc:"KDV hariç oran (+KDV eklenir)",mk_fData:"Veri durumu",mk_subReal:"satışın gerçek maliyeti",mk_vatShort:"KDV",mk_calcBtn:"{n} kârını hesapla",mk_watchBtn:"＋ Takibe al",mk_watchTitle:"Bu pazaryerinin oranı değişince Takibim'de haber al",mk_intro:"Komisyon oranı, satıcının toplam maliyetini tek başına göstermez. Hizmet bedeli, kargo, vergi, reklam ve iade etkisini birlikte hesapla.",mk_price:"Satış fiyatı",mk_cost:"Ürün maliyeti",mk_hWhat:"Bu pazaryeri nedir?",mk_hWho:"Kimin için?",mk_hFee:"Ücret yapısı",mk_hPayout:"Ödeme / hakediş",mk_cKunye:"Künye",mk_cStart:"Nasıl başlanır?",mk_cReqs:"Gereklilikler",mk_cPros:"Artıları",mk_cCons:"Dikkat edilmesi gerekenler",mk_cGercek:"Gerçek kârını gör",mk_cGercekP:"Komisyon, KDV, kargo ve reklam dahil bu pazaryerinde elinde ne kalıyor?",mk_calcShort:"Hesapla →",mk_hOther:"Aynı bölgeden diğer pazaryerleri"},
+ en:{mk_official:"Official source",mk_reference:"Reference data",mk_manual:"Manual entry",mk_estTitle:"These rates are estimates.",mk_estBody:"This marketplace's official commission document couldn't be reached (most are behind the seller panel). <b>Verify the numbers below in your own panel</b> — before building a business on them.",mk_fCountry:"Country / Market",mk_fCur:"Currency",mk_fVat:"VAT / Tax",mk_fRange:"Commission range",mk_fBase:"Commission base",mk_baseNet:"Price excl. VAT",mk_baseGross:"Price incl. VAT",mk_fFixed:"Fixed fees",mk_fPct:"Percentage add-on fees",mk_fFba:"FBA / fulfillment",mk_yes:"Yes",mk_none:"None",mk_fStopaj:"Withholding",mk_stopajYes:"Yes (1%, offsettable)",mk_fAnnounced:"Advertised commission",mk_annInc:"Rate incl. VAT",mk_annExc:"Rate excl. VAT (+VAT added)",mk_fData:"Data status",mk_subReal:"the real cost of selling",mk_vatShort:"VAT",mk_calcBtn:"Calculate {n} profit",mk_watchBtn:"＋ Track",mk_watchTitle:"Get notified in Tracking when this marketplace's rate changes",mk_intro:"The commission rate alone doesn't show a seller's total cost. Calculate the service fee, shipping, tax, advertising and returns together.",mk_price:"Sale price",mk_cost:"Product cost",mk_hWhat:"What is this marketplace?",mk_hWho:"Who is it for?",mk_hFee:"Fee structure",mk_hPayout:"Payout / settlement",mk_cKunye:"At a glance",mk_cStart:"How to start",mk_cReqs:"Requirements",mk_cPros:"Pros",mk_cCons:"Things to watch",mk_cGercek:"See your real profit",mk_cGercekP:"After commission, VAT, shipping and advertising, what's left on this marketplace?",mk_calcShort:"Calculate →",mk_hOther:"Other marketplaces in the same region"},
+ de:{mk_official:"Offizielle Quelle",mk_reference:"Referenzdaten",mk_manual:"Manuelle Eingabe",mk_estTitle:"Diese Sätze sind Schätzungen.",mk_estBody:"Das offizielle Provisionsdokument dieses Marktplatzes war nicht erreichbar (meist hinter dem Verkäuferkonto). <b>Prüfe die Zahlen unten in deinem eigenen Konto</b> — bevor du darauf ein Geschäft aufbaust.",mk_fCountry:"Land / Markt",mk_fCur:"Währung",mk_fVat:"MwSt / Steuer",mk_fRange:"Provisionsspanne",mk_fBase:"Provisionsbasis",mk_baseNet:"Preis ohne MwSt",mk_baseGross:"Preis inkl. MwSt",mk_fFixed:"Feste Gebühren",mk_fPct:"Prozentuale Zusatzgebühren",mk_fFba:"FBA / Fulfillment",mk_yes:"Ja",mk_none:"Keine",mk_fStopaj:"Quellensteuer",mk_stopajYes:"Ja (1%, anrechenbar)",mk_fAnnounced:"Ausgewiesene Provision",mk_annInc:"Satz inkl. MwSt",mk_annExc:"Satz ohne MwSt (+MwSt)",mk_fData:"Datenstatus",mk_subReal:"die echten Verkaufskosten",mk_vatShort:"MwSt",mk_calcBtn:"{n}-Gewinn berechnen",mk_watchBtn:"＋ Verfolgen",mk_watchTitle:"Werde unter „Verfolgt“ benachrichtigt, wenn sich der Satz dieses Marktplatzes ändert",mk_intro:"Der Provisionssatz allein zeigt nicht die Gesamtkosten des Verkäufers. Berechne Servicegebühr, Versand, Steuern, Werbung und Retouren zusammen.",mk_price:"Verkaufspreis",mk_cost:"Produktkosten",mk_hWhat:"Was ist dieser Marktplatz?",mk_hWho:"Für wen ist er?",mk_hFee:"Gebührenstruktur",mk_hPayout:"Auszahlung / Abrechnung",mk_cKunye:"Steckbrief",mk_cStart:"Wie fängt man an?",mk_cReqs:"Voraussetzungen",mk_cPros:"Vorteile",mk_cCons:"Zu beachten",mk_cGercek:"Sieh deinen echten Gewinn",mk_cGercekP:"Was bleibt dir nach Provision, MwSt, Versand und Werbung auf diesem Marktplatz?",mk_calcShort:"Berechnen →",mk_hOther:"Weitere Marktplätze derselben Region"},
+ fr:{mk_official:"Source officielle",mk_reference:"Données de référence",mk_manual:"Saisie manuelle",mk_estTitle:"Ces taux sont des estimations.",mk_estBody:"Le document officiel des commissions de cette place de marché n'a pu être consulté (souvent derrière l'espace vendeur). <b>Vérifiez les chiffres ci-dessous dans votre propre espace</b> — avant d'en faire une activité.",mk_fCountry:"Pays / Marché",mk_fCur:"Devise",mk_fVat:"TVA / Taxe",mk_fRange:"Fourchette de commission",mk_fBase:"Base de commission",mk_baseNet:"Prix HT",mk_baseGross:"Prix TTC",mk_fFixed:"Frais fixes",mk_fPct:"Frais additionnels en pourcentage",mk_fFba:"FBA / fulfillment",mk_yes:"Oui",mk_none:"Aucun",mk_fStopaj:"Retenue à la source",mk_stopajYes:"Oui (1%, imputable)",mk_fAnnounced:"Commission affichée",mk_annInc:"Taux TTC",mk_annExc:"Taux HT (+TVA)",mk_fData:"État des données",mk_subReal:"le coût réel de la vente",mk_vatShort:"TVA",mk_calcBtn:"Calculer le profit {n}",mk_watchBtn:"＋ Suivre",mk_watchTitle:"Soyez notifié dans Suivi quand le taux de cette place de marché change",mk_intro:"Le taux de commission seul ne montre pas le coût total du vendeur. Calculez ensemble les frais de service, l'expédition, les taxes, la publicité et les retours.",mk_price:"Prix de vente",mk_cost:"Coût du produit",mk_hWhat:"Qu'est-ce que cette place de marché ?",mk_hWho:"Pour qui ?",mk_hFee:"Structure des frais",mk_hPayout:"Paiement / règlement",mk_cKunye:"Fiche",mk_cStart:"Comment commencer",mk_cReqs:"Conditions requises",mk_cPros:"Avantages",mk_cCons:"Points de vigilance",mk_cGercek:"Voyez votre profit réel",mk_cGercekP:"Après commission, TVA, expédition et publicité, que reste-t-il sur cette place de marché ?",mk_calcShort:"Calculer →",mk_hOther:"Autres places de marché de la même région"},
+ es:{mk_official:"Fuente oficial",mk_reference:"Datos de referencia",mk_manual:"Entrada manual",mk_estTitle:"Estas tasas son estimaciones.",mk_estBody:"No se pudo acceder al documento oficial de comisiones de este marketplace (suele estar tras el panel del vendedor). <b>Verifica las cifras siguientes en tu propio panel</b> — antes de montar un negocio sobre ellas.",mk_fCountry:"País / Mercado",mk_fCur:"Moneda",mk_fVat:"IVA / Impuesto",mk_fRange:"Rango de comisión",mk_fBase:"Base de comisión",mk_baseNet:"Precio sin IVA",mk_baseGross:"Precio con IVA",mk_fFixed:"Tarifas fijas",mk_fPct:"Tarifas adicionales porcentuales",mk_fFba:"FBA / fulfillment",mk_yes:"Sí",mk_none:"Ninguna",mk_fStopaj:"Retención",mk_stopajYes:"Sí (1%, deducible)",mk_fAnnounced:"Comisión anunciada",mk_annInc:"Tasa con IVA",mk_annExc:"Tasa sin IVA (+IVA)",mk_fData:"Estado de los datos",mk_subReal:"el coste real de vender",mk_vatShort:"IVA",mk_calcBtn:"Calcular el beneficio en {n}",mk_watchBtn:"＋ Seguir",mk_watchTitle:"Recibe aviso en Seguimiento cuando cambie la tasa de este marketplace",mk_intro:"La tasa de comisión por sí sola no muestra el coste total del vendedor. Calcula juntos la tarifa de servicio, el envío, los impuestos, la publicidad y las devoluciones.",mk_price:"Precio de venta",mk_cost:"Coste del producto",mk_hWhat:"¿Qué es este marketplace?",mk_hWho:"¿Para quién es?",mk_hFee:"Estructura de tarifas",mk_hPayout:"Pago / liquidación",mk_cKunye:"Ficha",mk_cStart:"Cómo empezar",mk_cReqs:"Requisitos",mk_cPros:"Ventajas",mk_cCons:"A tener en cuenta",mk_cGercek:"Mira tu beneficio real",mk_cGercekP:"Tras comisión, IVA, envío y publicidad, ¿qué te queda en este marketplace?",mk_calcShort:"Calcular →",mk_hOther:"Otros marketplaces de la misma región"},
+ it:{mk_official:"Fonte ufficiale",mk_reference:"Dati di riferimento",mk_manual:"Inserimento manuale",mk_estTitle:"Questi tassi sono stime.",mk_estBody:"Non è stato possibile raggiungere il documento ufficiale delle commissioni di questo marketplace (di solito dietro il pannello venditore). <b>Verifica i numeri qui sotto nel tuo pannello</b> — prima di costruirci un'attività.",mk_fCountry:"Paese / Mercato",mk_fCur:"Valuta",mk_fVat:"IVA / Imposta",mk_fRange:"Intervallo di commissione",mk_fBase:"Base della commissione",mk_baseNet:"Prezzo IVA esclusa",mk_baseGross:"Prezzo IVA inclusa",mk_fFixed:"Commissioni fisse",mk_fPct:"Commissioni aggiuntive percentuali",mk_fFba:"FBA / fulfillment",mk_yes:"Sì",mk_none:"Nessuna",mk_fStopaj:"Ritenuta",mk_stopajYes:"Sì (1%, compensabile)",mk_fAnnounced:"Commissione dichiarata",mk_annInc:"Tasso IVA inclusa",mk_annExc:"Tasso IVA esclusa (+IVA)",mk_fData:"Stato dei dati",mk_subReal:"il costo reale di vendere",mk_vatShort:"IVA",mk_calcBtn:"Calcola il profitto su {n}",mk_watchBtn:"＋ Monitora",mk_watchTitle:"Ricevi avviso in Monitoraggio quando il tasso di questo marketplace cambia",mk_intro:"Il tasso di commissione da solo non mostra il costo totale del venditore. Calcola insieme commissione di servizio, spedizione, tasse, pubblicità e resi.",mk_price:"Prezzo di vendita",mk_cost:"Costo del prodotto",mk_hWhat:"Cos'è questo marketplace?",mk_hWho:"Per chi è?",mk_hFee:"Struttura delle commissioni",mk_hPayout:"Pagamento / liquidazione",mk_cKunye:"Scheda",mk_cStart:"Come iniziare",mk_cReqs:"Requisiti",mk_cPros:"Vantaggi",mk_cCons:"Punti di attenzione",mk_cGercek:"Vedi il tuo profitto reale",mk_cGercekP:"Dopo commissione, IVA, spedizione e pubblicità, cosa ti resta su questo marketplace?",mk_calcShort:"Calcola →",mk_hOther:"Altri marketplace della stessa regione"}
+};
+try{Object.keys(MKUI_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),MKUI_X[l]));}catch(e){}
+const CARD_X={
+ tr:{mk_comLabel:"Komisyon",mk_inspect:"İncele →",mk_refShort:"Referans",mk_manShort:"Manuel"},
+ en:{mk_comLabel:"Commission",mk_inspect:"View →",mk_refShort:"Reference",mk_manShort:"Manual"},
+ de:{mk_comLabel:"Provision",mk_inspect:"Ansehen →",mk_refShort:"Referenz",mk_manShort:"Manuell"},
+ fr:{mk_comLabel:"Commission",mk_inspect:"Voir →",mk_refShort:"Référence",mk_manShort:"Manuel"},
+ es:{mk_comLabel:"Comisión",mk_inspect:"Ver →",mk_refShort:"Referencia",mk_manShort:"Manual"},
+ it:{mk_comLabel:"Commissione",mk_inspect:"Vedi →",mk_refShort:"Riferimento",mk_manShort:"Manuale"}
+};
+try{Object.keys(CARD_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),CARD_X[l]));}catch(e){}
 // Dil → o bölgenin varsayılan pazaryeri. Kullanıcı elle seçmediyse dil değişince hesap makinesi buraya geçer.
 const LANG2MK={tr:'trendyol',en:'amazonus',de:'amazonde',fr:'amazonfr',es:'amazones',it:'amazonit'};
 function applyLangMk(l){
@@ -3597,7 +3617,7 @@ function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll(
  try{if(typeof selectMk==='function'&&typeof current!=='undefined'&&MK[current])selectMk(current);}catch(e){} // aktif pazaryeri etiketlerini yeni dilde yeniden bas
  applyLangMk(l);}
 // t(): aktif dile göre I18N'den metin çeker (JS-render bileşenleri için). Anahtar yoksa TR'ye düşer.
-function t(k){var d=I18N[LANG]||I18N.tr;return (d&&d[k]!=null)?d[k]:(I18N.tr[k]!=null?I18N.tr[k]:k);}
+function t(k){var L;try{L=LANG;}catch(e){L='tr';}var d=I18N[L]||I18N.tr;return (d&&d[k]!=null)?d[k]:(I18N.tr[k]!=null?I18N.tr[k]:k);}
 // ---- Dil seçici (tıklayınca açılır menü; başka dile otomatik geçmez) ----
 const LANG_NAMES={tr:'Türkçe',en:'English',de:'Deutsch',fr:'Français',es:'Español',it:'Italiano'};
 function buildLangMenu(){const m=document.getElementById('langMenu');if(!m)return;
