@@ -208,7 +208,7 @@ function articlePage(a, lang, slugByLang, trSlug, langsAvail, cover){
     + `<div class="cat">${esc(cat)}${a.tag?" · "+esc(a.tag):""}</div>`
     + `<h1>${esc(tr.t)}</h1>`
     + `<div class="meta">${esc(dsp)}${(a.kose&&a.author)?` · <b style="color:#1A1511;font-weight:700">${esc(a.author.n)}</b> — ${esc(authLbl)}${a.author.role?" · "+esc(a.author.role):""}`:""}</div>`
-    + (a.img ? `<img class="hero" src="${BASE}${a.img}?v=${IMGV}" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : (cover ? `<img class="hero" src="${cover}" width="1200" height="630" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager">` : ""))
+    + (a.img ? `<img class="hero" src="${BASE}${a.img}?v=${IMGV}" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager" onerror="this.onerror=null;${cover?`this.src='${cover}'`:`this.style.display='none'`}">` : (cover ? `<img class="hero" src="${cover}" width="1200" height="630" alt="${esc(cat)}${a.tag?" · "+esc(a.tag):""}" loading="eager" onerror="this.style.display='none'">` : ""))
     + (tr.d?`<p class="lede">${esc(tr.d)}</p>`:"")
     + `<div class="body">${paras}</div>`
     + `<p><a class="cta" href="${appLink}">${esc(t.inApp)}</a></p>`
