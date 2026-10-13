@@ -3587,7 +3587,10 @@ function mkField(k,f){
 function loadMkI18n(lang){
   if(lang==='tr'||MK_I18N_LOADED[lang])return;
   MK_I18N_LOADED[lang]='loading';
-  fetch('/i18n/mk-'+lang+'.json',{cache:'force-cache'}).then(function(r){return r.ok?r.json():null;})
+  fetch('/i18n/mk-'+lang+'.json',{cache:'force-cache'}).then(function(r){
+      var ct=(r.headers&&r.headers.get&&r.headers.get('content-type'))||'';
+      return (r.ok&&/json/i.test(ct))?r.json():null;   // HTML fallback (dosya yoksa) → null → TR
+    })
     .then(function(j){ if(j){MK_I18N[lang]=j;MK_I18N_LOADED[lang]=true;
         // o an bir pazaryeri sayfası açıksa yeni dille yeniden bas
         try{ if(typeof CUR_MK!=='undefined'&&CUR_MK&&document.getElementById('mkPageBody')&&typeof renderMkPage==='function'){renderMkPage(CUR_MK);} }catch(e){}
