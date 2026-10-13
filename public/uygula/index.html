@@ -1140,21 +1140,21 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 </main>
 <footer><div class="container">
   <div class="nl">
-    <div class="nl-t"><h4>Netvo Günlük</h4><p>E-ticarette bugün ne değişti? Paranı etkileyen gelişmeler her sabah e-postanda. Spam yok, tek tıkla çık.</p></div>
+    <div class="nl-t"><h4 data-i18n="ft_nlTitle">Netvo Günlük</h4><p data-i18n="ft_nlDesc">E-ticarette bugün ne değişti? Paranı etkileyen gelişmeler her sabah e-postanda. Spam yok, tek tıkla çık.</p></div>
     <form class="nl-f" onsubmit="return netvoSubscribe(event)">
-      <input type="email" id="nlEmail" required placeholder="e-posta adresin" aria-label="e-posta">
-      <button type="submit">Ücretsiz al</button>
+      <input type="email" id="nlEmail" required placeholder="e-posta adresin" data-i18n-ph="ft_nlPh" aria-label="e-posta">
+      <button type="submit" data-i18n="ft_nlBtn">Ücretsiz al</button>
       <span id="nlMsg" class="nl-ok" role="status"></span>
     </form>
   </div>
   <div class="cols">
-    <div><div class="logo" style="color:#fff;display:flex;align-items:center;gap:8px"><svg width="22" height="22" viewBox="0 0 48 48" style="flex:none"><circle cx="24" cy="24" r="24" fill="#1c1c1c"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.28" stroke-width="5"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/></svg>netvo</div><div style="font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px">E-ticareti doğru yap</div><p style="margin-top:10px;font-size:13px;max-width:280px">Satışın gerçek matematiği. Komisyon, vergi ve operasyon maliyetlerinden sonra kalan tutarı hesapla — 37 ülkede 136 pazaryerinde.</p></div>
-    <div><h4>Keşfet</h4><a href="/pazaryeri/" onclick="go('tools');return false;">Pazaryerleri</a><a onclick="go('countries')">Ülkeler</a><a onclick="go('compare')">Karşılaştır</a><a href="/haber/" onclick="go('magazine');return false;">Gündem</a></div>
-    <div><h4>Öğren</h4><a onclick="go('learn')">Öğren merkezi</a><a onclick="go('sozluk')">Sözlük</a><a onclick="go('radar')">Ücret Radarı</a></div>
-    <div><h4>Araçlar</h4><a onclick="go('calc')">Kâr hesapla</a><a onclick="go('watch')">Takibim</a></div>
-    <div><h4>Güven</h4><a onclick="go('calc')">Metodoloji</a><a href="/pazaryeri/" onclick="go('tools');return false;">Veri kaynakları</a></div>
+    <div><div class="logo" style="color:#fff;display:flex;align-items:center;gap:8px"><svg width="22" height="22" viewBox="0 0 48 48" style="flex:none"><circle cx="24" cy="24" r="24" fill="#1c1c1c"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.28" stroke-width="5"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/></svg>netvo</div><div style="font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px" data-i18n="ft_tag">E-ticareti doğru yap</div><p style="margin-top:10px;font-size:13px;max-width:280px" data-i18n="ft_blurb">Satışın gerçek matematiği. Komisyon, vergi ve operasyon maliyetlerinden sonra kalan tutarı hesapla — 37 ülkede 136 pazaryerinde.</p></div>
+    <div><h4 data-i18n="ft_hDisc">Keşfet</h4><a href="/pazaryeri/" onclick="go('tools');return false;" data-i18n="ft_mk">Pazaryerleri</a><a onclick="go('countries')" data-i18n="ft_co">Ülkeler</a><a onclick="go('compare')" data-i18n="ft_cmp">Karşılaştır</a><a href="/haber/" onclick="go('magazine');return false;" data-i18n="ft_news">Gündem</a></div>
+    <div><h4 data-i18n="ft_hLearn">Öğren</h4><a onclick="go('learn')" data-i18n="ft_learnc">Öğren merkezi</a><a onclick="go('sozluk')" data-i18n="ft_gloss">Sözlük</a><a onclick="go('radar')" data-i18n="ft_radar">Ücret Radarı</a></div>
+    <div><h4 data-i18n="ft_hTools">Araçlar</h4><a onclick="go('calc')" data-i18n="ft_calc">Kâr hesapla</a><a onclick="go('watch')" data-i18n="ft_watch">Takibim</a></div>
+    <div><h4 data-i18n="ft_hTrust">Güven</h4><a onclick="go('calc')" data-i18n="ft_method">Metodoloji</a><a href="/pazaryeri/" onclick="go('tools');return false;" data-i18n="ft_sources">Veri kaynakları</a></div>
   </div>
-  <div class="bot">© 2026 Netvo · <b>E-ticareti doğru yap.</b><br>Hesaplamalar bilgilendirme amaçlıdır; her oranın yanında kaynağı gösterilir.</div>
+  <div class="bot" data-i18n="ft_bot">© 2026 Netvo · <b>E-ticareti doğru yap.</b><br>Hesaplamalar bilgilendirme amaçlıdır; her oranın yanında kaynağı gösterilir.</div>
 </div></footer>
 
 <script>
@@ -1879,22 +1879,22 @@ function pickCat(m,key){
   //    "Kitap" %15, "Kırtasiye %17"yi geçer.
   const kesinler=adaylar.filter(c=>def.core.test(c[0]))
     .sort((a,b)=>(a[0].match(def.core).index-b[0].match(def.core).index)||(a[0].length-b[0].length));
-  if(kesinler.length)return {name:kesinler[0][0],rate:kesinler[0][1],exact:true};
+  if(kesinler.length)return {name:(typeof catL==='function'?catL(kesinler[0][0]):kesinler[0][0]),rate:kesinler[0][1],exact:true};
   // 2) Kovaya ait ama sadece yan-kelimeyle (ör. n11 "Oyuncak" kitap kovasında ama
   //    kitap/book çekirdeği yok) → GÖSTERİLİR ama rozet ALMAZ (exact:false, dürüst).
-  if(adaylar.length)return {name:adaylar[0][0],rate:adaylar[0][1],exact:false,yanKelime:true};
+  if(adaylar.length)return {name:(typeof catL==='function'?catL(adaylar[0][0]):adaylar[0][0]),rate:adaylar[0][1],exact:false,yanKelime:true};
  }
  // İlan edilmiş "genel / tüm kategoriler" oranı: pazaryerinin istisna dışındaki her şey
  // için YAYINLADIĞI resmi cevap. Tam eşleşme kadar geçerlidir — exact:true.
  // (Aşağıdaki ortalama fallback'i ise gerçek bir tahmindir, exact:false kalır.)
  const gen=cats.find(c=>/genel|general|tüm kategoriler|standard/i.test(c[0]));
- if(gen)return {name:gen[0],rate:gen[1],exact:true,viaCatchAll:true};
+ if(gen)return {name:(typeof catL==='function'?catL(gen[0]):gen[0]),rate:gen[1],exact:true,viaCatchAll:true};
  // Karşılığı yok ve "Genel" oranı da yok: ortalamayı temsili al.
  // DİKKAT: adı da dürüst olmalı. Eskiden burada name:cats[0][0] vardı —
  // ortalamayı (%15,9) ilk kategorinin adıyla ("Kozmetik") etiketliyordu.
  // Trendyol'un kozmetiği %22'dir; ekranda "Kozmetik %15,9" yazmak uydurma bir eşleşmedir.
  const avg=cats.reduce((a,c)=>a+c[1],0)/cats.length;
- return {name:cats.length>1?(cats.length+" kategori ortalaması"):cats[0][0],rate:+avg.toFixed(1),exact:false};
+ return {name:cats.length>1?((typeof t==='function'?t('ca_catAvg'):"{n} kategori ortalaması").replace('{n}',cats.length)):(typeof catL==='function'?catL(cats[0][0]):cats[0][0]),rate:+avg.toFixed(1),exact:false};
 }
 // Tek pazaryeri için senaryoyu hesapla
 function advise1(k,inp){
@@ -1981,7 +1981,7 @@ function renderMkPage(k){
  const facts=mkFacts(k).map(f=>`<div class="fact"><span>${f[0]}</span><b>${f[1]}</b></div>`).join("");
  const est=isEst(k);
  const estBanner=est?`<div class="estbanner"><span>⚠︎</span><div><b>Bu oranlar tahmin.</b> Bu pazaryerinin resmî komisyon belgesine ulaşılamadı (çoğu satıcı paneli arkasında). Aşağıdaki sayıları <b>kendi panelinden teyit et</b> — iş kurmadan önce.</div></div>`:"";
- const cats=(m.cats&&m.cats.length)?`${estBanner}<table class="ex${est?' est-tbl est-dim':''}"><thead><tr><th>Kategori</th><th style="text-align:right">Komisyon</th></tr></thead><tbody>${m.cats.map(c=>`<tr><td>${c[0]}</td><td style="text-align:right"><b>%${c[1]}</b></td></tr>`).join("")}</tbody></table>`:"";
+ const cats=(m.cats&&m.cats.length)?`${estBanner}<table class="ex${est?' est-tbl est-dim':''}"><thead><tr><th>${t('ca_thCat')}</th><th style="text-align:right">${t('ca_thCom')}</th></tr></thead><tbody>${m.cats.map(c=>`<tr><td>${catL(c[0])}</td><td style="text-align:right"><b>${pct(c[1])}</b></td></tr>`).join("")}</tbody></table>`:"";
  const list=(t,a,cls)=>(a&&a.length)?`<div class="side-card ${cls||''}"><h4>${t}</h4><ul class="mk-ul">${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:"";
  // Kurul kararı: INFO'su olmayan 106 sayfada sahte "hakkında" metni üretme.
  // m.note zaten "Ücret yapısı" başlığında görünüyor — aynı cümleyi iki kez basmak dolgudur.
@@ -2004,7 +2004,7 @@ function renderMkPage(k){
     <div class="vin">
       <div><label>Satış fiyatı</label><input id="vPrice" type="number" min="0" inputmode="decimal"/></div>
       <div><label>Ürün maliyeti</label><input id="vCost" type="number" min="0" inputmode="decimal"/></div>
-      <div><label>Kategori</label><select id="vCat">${(m.cats||[["Genel",m.fixedRate||0]]).map((c,i)=>`<option value="${i}">${c[0]} — %${c[1]}</option>`).join("")}</select></div>
+      <div><label>${t('ca_thCat')}</label><select id="vCat">${(m.cats||[["Genel",m.fixedRate||0]]).map((c,i)=>`<option value="${i}">${catL(c[0])} — ${pct(c[1])}</option>`).join("")}</select></div>
     </div>
     <div id="vOut" role="status" aria-live="polite" aria-atomic="true"></div>
   </div>
@@ -2460,7 +2460,7 @@ function selectMk(k){
  document.getElementById('invat').value=co.co==="TR"?20:co.vat;
  // categories
  const catRow=document.getElementById('rowCat'),catSel=document.getElementById('cat'),comLabel=document.getElementById('comLabel');
- if(m.cats){catRow.classList.remove('hide');catSel.innerHTML='';m.cats.forEach((c,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${c[0]} (~%${c[1]})`;catSel.appendChild(o);});document.getElementById('com').value=m.cats[0][1];comLabel.textContent=m.perOrder!==undefined?t('ca_comFvf'):t('ca_comPct');}
+ if(m.cats){catRow.classList.remove('hide');catSel.innerHTML='';m.cats.forEach((c,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${catL(c[0])} (~${pct(c[1])})`;catSel.appendChild(o);});document.getElementById('com').value=m.cats[0][1];comLabel.textContent=m.perOrder!==undefined?t('ca_comFvf'):t('ca_comPct');}
  else{catRow.classList.add('hide');document.getElementById('com').value=m.fixedRate||0;comLabel.textContent=t('ca_comTxn');}
  // country-based rows
  const vatOn=co.vat>0;
@@ -3369,6 +3369,218 @@ try{Object.keys(NAV_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),NAV_X[l]))
 function pct(n){return (typeof LANG!=='undefined'&&LANG==='tr')?('%'+n):(n+'%');}
 let LANG='tr';
 const LANG_ORDER=['tr','en','de','fr','es','it'];
+// ---- Kategori adı çevirisi (dropdown + tablolar). Sıra: [en,de,fr,es,it]. Yoksa TR literal'e düşer. ----
+const CATL_ORDER=['en','de','fr','es','it'];
+const CATNAMES={
+"Aksesuar":["Accessories","Accessoires","Accessoires","Accesorios","Accessori"],
+"Aksesuar (Takı, Saat, Gözlük)":["Accessories (Jewelry, Watches, Eyewear)","Accessoires (Schmuck, Uhren, Brillen)","Accessoires (Bijoux, Montres, Lunettes)","Accesorios (Joyería, Relojes, Gafas)","Accessori (Gioielli, Orologi, Occhiali)"],
+"Aksesuar (gaming, konsol, müzik)":["Accessories (gaming, console, music)","Accessoires (Gaming, Konsole, Musik)","Accessoires (gaming, console, musique)","Accesorios (gaming, consola, música)","Accessori (gaming, console, musica)"],
+"Akıllı Telefon":["Smartphone","Smartphone","Smartphone","Smartphone","Smartphone"],
+"Alet":["Tools","Werkzeug","Outils","Herramientas","Utensili"],
+"Altın (Yatırım)":["Gold (Investment)","Gold (Anlage)","Or (Investissement)","Oro (Inversión)","Oro (Investimento)"],
+"Ankastre & Fırın":["Built-in & Ovens","Einbaugeräte & Backöfen","Encastrable & Fours","Empotrables y Hornos","Da incasso e Forni"],
+"Anne & Bebek":["Mother & Baby","Mutter & Baby","Maman & Bébé","Madre y Bebé","Mamma e Bambino"],
+"Ayakkabı":["Shoes","Schuhe","Chaussures","Zapatos","Scarpe"],
+"Ayakkabı & Çanta":["Shoes & Bags","Schuhe & Taschen","Chaussures & Sacs","Zapatos y Bolsos","Scarpe e Borse"],
+"Ayakkabı 150$ üzeri":["Shoes over $150","Schuhe über 150$","Chaussures +150$","Zapatos +150$","Scarpe oltre 150$"],
+"Ayakkabı, Çanta & Aksesuar":["Shoes, Bags & Accessories","Schuhe, Taschen & Accessoires","Chaussures, Sacs & Accessoires","Zapatos, Bolsos y Accesorios","Scarpe, Borse e Accessori"],
+"Aydınlatma":["Lighting","Beleuchtung","Éclairage","Iluminación","Illuminazione"],
+"Ağır İş Makinesi":["Heavy Machinery","Schwermaschinen","Engins lourds","Maquinaria pesada","Macchinari pesanti"],
+"Bahçe":["Garden","Garten","Jardin","Jardín","Giardino"],
+"Bahçe & Yapı Market":["Garden & DIY","Garten & Baumarkt","Jardin & Bricolage","Jardín y Bricolaje","Giardino e Fai-da-te"],
+"Batı Giyim <₹500":["Western Wear <₹500","Westliche Kleidung <₹500","Vêtements occidentaux <₹500","Ropa occidental <₹500","Abbigliamento occidentale <₹500"],
+"Bavul & Seyahat":["Luggage & Travel","Gepäck & Reise","Bagages & Voyage","Equipaje y Viaje","Valigeria e Viaggio"],
+"Beauty":["Beauty","Beauty","Beauté","Belleza","Bellezza"],
+"Bebek":["Baby","Baby","Bébé","Bebé","Bambino"],
+"Bebek & Ev & Bahçe & Ofis":["Baby, Home, Garden & Office","Baby, Haus, Garten & Büro","Bébé, Maison, Jardin & Bureau","Bebé, Hogar, Jardín y Oficina","Bambino, Casa, Giardino e Ufficio"],
+"Bebek Bezi & Giyim":["Diapers & Clothing","Windeln & Kleidung","Couches & Vêtements","Pañales y Ropa","Pannolini e Abbigliamento"],
+"Bebek Ürünleri":["Baby Products","Babyprodukte","Produits bébé","Productos para bebé","Prodotti per bambini"],
+"Bebek, Çocuk & Oyuncak":["Baby, Kids & Toys","Baby, Kinder & Spielzeug","Bébé, Enfant & Jouets","Bebé, Niños y Juguetes","Bambino, Bimbi e Giocattoli"],
+"Beyaz Eşya":["Home Appliances","Haushaltsgeräte","Électroménager","Electrodomésticos","Elettrodomestici"],
+"Beyaz Eşya (MDA)":["Home Appliances (MDA)","Großgeräte (MDA)","Gros électroménager (MDA)","Electrodomésticos (MDA)","Grandi elettrodomestici (MDA)"],
+"Bilgisayar":["Computers","Computer","Ordinateurs","Ordenadores","Computer"],
+"Bilgisayar & Aksesuar":["Computers & Accessories","Computer & Zubehör","Ordinateurs & Accessoires","Ordenadores y Accesorios","Computer e Accessori"],
+"Bilgisayar Aksesuar":["Computer Accessories","Computerzubehör","Accessoires informatiques","Accesorios de ordenador","Accessori per computer"],
+"Bilgisayar Bileşen & Yazıcı & Ses":["Computer Components, Printers & Audio","Computerkomponenten, Drucker & Audio","Composants PC, Imprimantes & Audio","Componentes PC, Impresoras y Audio","Componenti PC, Stampanti e Audio"],
+"Bilgisayar Bileşenleri":["Computer Components","Computerkomponenten","Composants informatiques","Componentes de ordenador","Componenti per computer"],
+"Bilgisayar Donanımı":["Computer Hardware","Computer-Hardware","Matériel informatique","Hardware de ordenador","Hardware per computer"],
+"Büyük Beyaz Eşya":["Large Appliances","Großgeräte","Gros électroménager","Grandes electrodomésticos","Grandi elettrodomestici"],
+"Büyük Mobilya":["Large Furniture","Große Möbel","Grands meubles","Muebles grandes","Mobili grandi"],
+"Cep Telefonu":["Mobile Phones","Mobiltelefone","Téléphones mobiles","Teléfonos móviles","Telefoni cellulari"],
+"Cep Telefonu & TV & Bilgisayar & Konsol & Kamera":["Mobile, TV, Computer, Console & Camera","Handy, TV, Computer, Konsole & Kamera","Mobile, TV, Ordinateur, Console & Appareil photo","Móvil, TV, Ordenador, Consola y Cámara","Cellulari, TV, Computer, Console e Fotocamere"],
+"Cep Telefonu Aksesuar":["Mobile Accessories","Handyzubehör","Accessoires mobiles","Accesorios móviles","Accessori per cellulari"],
+"Cep Telefonu Aksesuarları":["Mobile Accessories","Handyzubehör","Accessoires mobiles","Accesorios móviles","Accessori per cellulari"],
+"Cilt bakımı":["Skincare","Hautpflege","Soins de la peau","Cuidado de la piel","Cura della pelle"],
+"Dijital Kod & Ürünler":["Digital Codes & Products","Digitale Codes & Produkte","Codes & Produits numériques","Códigos y Productos digitales","Codici e Prodotti digitali"],
+"Dizüstü & Masaüstü Bilgisayar":["Laptop & Desktop","Laptop & Desktop","Portable & Bureau","Portátil y Sobremesa","Portatili e Desktop"],
+"Dizüstü & Tablet":["Laptop & Tablet","Laptop & Tablet","Portable & Tablette","Portátil y Tablet","Portatili e Tablet"],
+"Diğer":["Other","Sonstiges","Autre","Otros","Altro"],
+"Diğer (AB dışı)":["Other (non-EU)","Sonstiges (Nicht-EU)","Autre (hors UE)","Otros (fuera UE)","Altro (extra-UE)"],
+"Diğer kategoriler":["Other categories","Andere Kategorien","Autres catégories","Otras categorías","Altre categorie"],
+"Düşük fiyat sabit ücreti":["Low-price fixed fee","Niedrigpreis-Pauschale","Frais fixe bas prix","Tarifa fija precio bajo","Tariffa fissa prezzo basso"],
+"E-Bilet, Voucher, Seyahat, Konaklama":["E-Ticket, Voucher, Travel, Accommodation","E-Ticket, Gutschein, Reise, Unterkunft","E-Billet, Bon, Voyage, Hébergement","E-Ticket, Vale, Viaje, Alojamiento","E-Biglietto, Voucher, Viaggio, Alloggio"],
+"Elektronik":["Electronics","Elektronik","Électronique","Electrónica","Elettronica"],
+"Elektronik & Aksesuar":["Electronics & Accessories","Elektronik & Zubehör","Électronique & Accessoires","Electrónica y Accesorios","Elettronica e Accessori"],
+"Elektronik & Giyim & Sağlık":["Electronics, Clothing & Health","Elektronik, Kleidung & Gesundheit","Électronique, Vêtements & Santé","Electrónica, Ropa y Salud","Elettronica, Abbigliamento e Salute"],
+"Elektronik & Kamera & Cep Telefonu & Konsol":["Electronics, Camera, Mobile & Console","Elektronik, Kamera, Handy & Konsole","Électronique, Appareil photo, Mobile & Console","Electrónica, Cámara, Móvil y Consola","Elettronica, Fotocamere, Cellulari e Console"],
+"Elektronik (AB dışı)":["Electronics (non-EU)","Elektronik (Nicht-EU)","Électronique (hors UE)","Electrónica (fuera UE)","Elettronica (extra-UE)"],
+"Elektronik Aksesuar":["Electronics Accessories","Elektronikzubehör","Accessoires électroniques","Accesorios electrónicos","Accessori elettronici"],
+"Erkek & Kadın Moda":["Men's & Women's Fashion","Herren- & Damenmode","Mode homme & femme","Moda hombre y mujer","Moda uomo e donna"],
+"Erkek moda":["Men's Fashion","Herrenmode","Mode homme","Moda hombre","Moda uomo"],
+"Ev":["Home","Haus & Wohnen","Maison","Hogar","Casa"],
+"Ev & Bahçe":["Home & Garden","Haus & Garten","Maison & Jardin","Hogar y Jardín","Casa e Giardino"],
+"Ev & Mutfak":["Home & Kitchen","Haus & Küche","Maison & Cuisine","Hogar y Cocina","Casa e Cucina"],
+"Ev & Yaşam":["Home & Living","Haus & Wohnen","Maison & Déco","Hogar y Vida","Casa e Living"],
+"Ev Aletleri & Mutfak":["Appliances & Kitchen","Haushaltsgeräte & Küche","Électroménager & Cuisine","Electrodomésticos y Cocina","Elettrodomestici e Cucina"],
+"Ev Bakım & Temizlik":["Home Care & Cleaning","Haushaltspflege & Reinigung","Entretien & Nettoyage","Cuidado del hogar y Limpieza","Cura casa e Pulizia"],
+"Ev Eğlence Sistemleri":["Home Entertainment","Home-Entertainment","Home cinéma","Entretenimiento en casa","Home entertainment"],
+"Ev Eşyası":["Household Goods","Haushaltswaren","Articles ménagers","Artículos para el hogar","Casalinghi"],
+"Ev Tekstili":["Home Textiles","Heimtextilien","Linge de maison","Textil hogar","Tessili per la casa"],
+"Ev dekor":["Home Decor","Wohndeko","Décoration","Decoración","Decorazioni casa"],
+"Evcil Hayvan":["Pet Supplies","Haustierbedarf","Animalerie","Mascotas","Animali domestici"],
+"FMCG":["FMCG","FMCG","PGC","Gran consumo","Largo consumo"],
+"Film":["Movies","Filme","Films","Películas","Film"],
+"Foto-Kamera":["Photo-Camera","Foto-Kamera","Photo-Appareil","Foto-Cámara","Foto-Fotocamere"],
+"Fotoğraf & Kamera":["Photo & Camera","Foto & Kamera","Photo & Appareil","Foto y Cámara","Foto e Fotocamere"],
+"Fotoğraf Makinesi":["Camera","Kamera","Appareil photo","Cámara","Fotocamera"],
+"Fotoğraf Makinesi & Lens":["Camera & Lens","Kamera & Objektiv","Appareil photo & Objectif","Cámara y Objetivo","Fotocamera e Obiettivo"],
+"Genel":["General","Allgemein","Général","General","Generale"],
+"Genel (çoğu kategori)":["General (most categories)","Allgemein (meiste Kategorien)","Général (la plupart)","General (mayoría)","Generale (maggior parte)"],
+"Genel Moda":["General Fashion","Allgemeine Mode","Mode générale","Moda general","Moda generale"],
+"Gitar & Bas":["Guitar & Bass","Gitarre & Bass","Guitare & Basse","Guitarra y Bajo","Chitarra e Basso"],
+"Giyilebilir Teknoloji":["Wearables","Wearables","Objets connectés","Wearables","Dispositivi indossabili"],
+"Giyim":["Clothing","Bekleidung","Vêtements","Ropa","Abbigliamento"],
+"Giyim & Ayakkabı":["Clothing & Shoes","Bekleidung & Schuhe","Vêtements & Chaussures","Ropa y Zapatos","Abbigliamento e Scarpe"],
+"Giyim & Bebek":["Clothing & Baby","Bekleidung & Baby","Vêtements & Bébé","Ropa y Bebé","Abbigliamento e Bambino"],
+"Giyim (AB dışı)":["Clothing (non-EU)","Bekleidung (Nicht-EU)","Vêtements (hors UE)","Ropa (fuera UE)","Abbigliamento (extra-UE)"],
+"Gözlük, Gümüş, Mücevher & Takı":["Eyewear, Silver, Fine Jewelry & Jewelry","Brillen, Silber, Schmuck & Juwelen","Lunettes, Argent, Joaillerie & Bijoux","Gafas, Plata, Alta joyería y Joyas","Occhiali, Argento, Alta gioielleria e Gioielli"],
+"Güvenli ödeme (%1,99)":["Secure payment (1.99%)","Sichere Zahlung (1,99%)","Paiement sécurisé (1,99%)","Pago seguro (1,99%)","Pagamento sicuro (1,99%)"],
+"Güzellik & Kişisel Bakım":["Beauty & Personal Care","Beauty & Körperpflege","Beauté & Soins personnels","Belleza y Cuidado personal","Bellezza e Cura della persona"],
+"Hizmet bedeli":["Service fee","Servicegebühr","Frais de service","Tarifa de servicio","Commissione di servizio"],
+"Hobi & Eğlence":["Hobby & Entertainment","Hobby & Unterhaltung","Loisirs & Divertissement","Hobby y Entretenimiento","Hobby e Intrattenimento"],
+"Kadın & Erkek Giyim":["Women's & Men's Clothing","Damen- & Herrenbekleidung","Vêtements femme & homme","Ropa mujer y hombre","Abbigliamento donna e uomo"],
+"Kadın & Erkek Moda":["Women's & Men's Fashion","Damen- & Herrenmode","Mode femme & homme","Moda mujer y hombre","Moda donna e uomo"],
+"Kadın Çanta":["Women's Bags","Damentaschen","Sacs femme","Bolsos de mujer","Borse da donna"],
+"Kamera & Gıda & Medya & Yazılım":["Camera, Food, Media & Software","Kamera, Lebensmittel, Medien & Software","Appareil photo, Alimentation, Médias & Logiciels","Cámara, Alimentación, Medios y Software","Fotocamere, Alimentari, Media e Software"],
+"Kitap":["Books","Bücher","Livres","Libros","Libri"],
+"Kitap & Medya":["Books & Media","Bücher & Medien","Livres & Médias","Libros y Medios","Libri e Media"],
+"Kitap, Film & Müzik":["Books, Movies & Music","Bücher, Filme & Musik","Livres, Films & Musique","Libros, Películas y Música","Libri, Film e Musica"],
+"Kitap, Spor, Market, Otomotiv, Takı":["Books, Sports, Grocery, Auto, Jewelry","Bücher, Sport, Lebensmittel, Auto, Schmuck","Livres, Sport, Épicerie, Auto, Bijoux","Libros, Deportes, Supermercado, Auto, Joyería","Libri, Sport, Alimentari, Auto, Gioielli"],
+"Kitaplar":["Books","Bücher","Livres","Libros","Libri"],
+"Kişisel Bakım & Kozmetik":["Personal Care & Cosmetics","Körperpflege & Kosmetik","Soins personnels & Cosmétiques","Cuidado personal y Cosmética","Cura della persona e Cosmetici"],
+"Kişisel Bakım Cihazları":["Personal Care Devices","Körperpflegegeräte","Appareils de soins","Dispositivos de cuidado personal","Dispositivi per la cura personale"],
+"Kol Saatleri":["Watches","Armbanduhren","Montres","Relojes","Orologi"],
+"Kozmetik":["Cosmetics","Kosmetik","Cosmétiques","Cosmética","Cosmetici"],
+"Kozmetik & Kişisel Bakım":["Cosmetics & Personal Care","Kosmetik & Körperpflege","Cosmétiques & Soins personnels","Cosmética y Cuidado personal","Cosmetici e Cura della persona"],
+"Kozmetik & Süpermarket":["Cosmetics & Supermarket","Kosmetik & Supermarkt","Cosmétiques & Supermarché","Cosmética y Supermercado","Cosmetici e Supermercato"],
+"Külçe (Bullion)":["Bullion","Edelmetallbarren","Lingots","Lingotes","Lingotti"],
+"Küçük Ev Aleti":["Small Appliances","Kleingeräte","Petit électroménager","Pequeños electrodomésticos","Piccoli elettrodomestici"],
+"Küçük Ev Aletleri":["Small Appliances","Kleingeräte","Petit électroménager","Pequeños electrodomésticos","Piccoli elettrodomestici"],
+"Küçük Mobilya":["Small Furniture","Kleinmöbel","Petits meubles","Muebles pequeños","Mobili piccoli"],
+"Kırtasiye & Ofis":["Stationery & Office","Schreibwaren & Büro","Papeterie & Bureau","Papelería y Oficina","Cancelleria e Ufficio"],
+"Listeleme":["Listing","Einstellen","Mise en vente","Publicación","Inserzione"],
+"Listeleme bedeli":["Listing fee","Einstellgebühr","Frais de mise en vente","Tarifa de publicación","Commissione di inserzione"],
+"Lüks":["Luxury","Luxus","Luxe","Lujo","Lusso"],
+"Lüks & Tasarım":["Luxury & Design","Luxus & Design","Luxe & Design","Lujo y Diseño","Lusso e Design"],
+"Lüks moda":["Luxury Fashion","Luxusmode","Mode de luxe","Moda de lujo","Moda di lusso"],
+"Lüks saat":["Luxury Watches","Luxusuhren","Montres de luxe","Relojes de lujo","Orologi di lusso"],
+"Mall":["Mall","Mall","Mall","Mall","Mall"],
+"Market":["Grocery","Lebensmittel","Épicerie","Supermercado","Alimentari"],
+"Marketplace":["Marketplace","Marktplatz","Place de marché","Marketplace","Marketplace"],
+"Mobilya":["Furniture","Möbel","Meubles","Muebles","Mobili"],
+"Mobilya & Oyuncak & Evcil Hayvan":["Furniture, Toys & Pets","Möbel, Spielzeug & Haustier","Meubles, Jouets & Animalerie","Muebles, Juguetes y Mascotas","Mobili, Giocattoli e Animali"],
+"Moda":["Fashion","Mode","Mode","Moda","Moda"],
+"Moda (üst)":["Fashion (top)","Mode (oben)","Mode (haut)","Moda (superior)","Moda (top)"],
+"Mutfak Eşyaları & Dekorasyon":["Kitchenware & Decor","Küchenartikel & Deko","Ustensiles & Déco","Menaje y Decoración","Articoli da cucina e Decorazioni"],
+"Mutfak Gereçleri":["Kitchenware","Küchenbedarf","Ustensiles de cuisine","Utensilios de cocina","Utensili da cucina"],
+"Müzik":["Music","Musik","Musique","Música","Musica"],
+"Müzik ekipmanı":["Music Equipment","Musikausrüstung","Équipement musical","Equipo musical","Attrezzatura musicale"],
+"NFT":["NFT","NFT","NFT","NFT","NFT"],
+"NonTV (TV/Elektronik Aks.)":["NonTV (TV/Electronics Acc.)","NonTV (TV/Elektronik-Zub.)","NonTV (TV/Access. électro.)","NonTV (TV/Acc. electrónicos)","NonTV (TV/Access. elettronici)"],
+"Ofis & Gaming":["Office & Gaming","Büro & Gaming","Bureau & Gaming","Oficina y Gaming","Ufficio e Gaming"],
+"Ofis Ürünleri":["Office Products","Bürobedarf","Produits de bureau","Productos de oficina","Prodotti per ufficio"],
+"Otomobil & Motosiklet":["Car & Motorcycle","Auto & Motorrad","Auto & Moto","Coche y Moto","Auto e Moto"],
+"Otomotiv & Motosiklet":["Automotive & Motorcycle","Automobil & Motorrad","Automobile & Moto","Automoción y Moto","Automotive e Moto"],
+"Oyun Konsol":["Game Console","Spielkonsole","Console de jeu","Consola de juegos","Console di gioco"],
+"Oyun, Oyuncak, Sağlık":["Games, Toys, Health","Spiele, Spielzeug, Gesundheit","Jeux, Jouets, Santé","Juegos, Juguetes, Salud","Giochi, Giocattoli, Salute"],
+"Oyuncak":["Toys","Spielzeug","Jouets","Juguetes","Giocattoli"],
+"Oyuncak & Oyunlar":["Toys & Games","Spielzeug & Spiele","Jouets & Jeux","Juguetes y Juegos","Giocattoli e Giochi"],
+"Pazarlama (%1+KDV)":["Marketing (1%+VAT)","Marketing (1%+MwSt)","Marketing (1%+TVA)","Marketing (1%+IVA)","Marketing (1%+IVA)"],
+"Pazaryeri (%0,67+KDV)":["Marketplace (0.67%+VAT)","Marktplatz (0,67%+MwSt)","Place de marché (0,67%+TVA)","Marketplace (0,67%+IVA)","Marketplace (0,67%+IVA)"],
+"Petshop":["Pet Shop","Tierbedarf","Animalerie","Tienda de mascotas","Negozio animali"],
+"Ping ödeme (%2,19)":["Ping payment (2.19%)","Ping-Zahlung (2,19%)","Paiement Ping (2,19%)","Pago Ping (2,19%)","Pagamento Ping (2,19%)"],
+"SDA (Küçük Ev Aleti)":["SDA (Small Appliances)","SDA (Kleingeräte)","PEM (Petit électroménager)","PAE (Pequeños electrodomésticos)","PED (Piccoli elettrodomestici)"],
+"Saat":["Watches","Uhren","Montres","Relojes","Orologi"],
+"Saat & Küçük Ev Aleti & Kahve Makinesi":["Watches, Small Appliances & Coffee Machines","Uhren, Kleingeräte & Kaffeemaschinen","Montres, Petit électroménager & Machines à café","Relojes, Pequeños electrodomésticos y Cafeteras","Orologi, Piccoli elettrodomestici e Macchine da caffè"],
+"Sabit başarı ücreti":["Fixed success fee","Feste Erfolgsgebühr","Frais de succès fixe","Tarifa de éxito fija","Commissione di successo fissa"],
+"Sabit işlem":["Fixed transaction","Feste Transaktion","Transaction fixe","Transacción fija","Transazione fissa"],
+"Sağlık & Güzellik":["Health & Beauty","Gesundheit & Beauty","Santé & Beauté","Salud y Belleza","Salute e Bellezza"],
+"Sağlık & Kişisel Bakım":["Health & Personal Care","Gesundheit & Körperpflege","Santé & Soins personnels","Salud y Cuidado personal","Salute e Cura della persona"],
+"Semi-managed":["Semi-managed","Semi-verwaltet","Semi-géré","Semigestionado","Semi-gestito"],
+"Ses & DJ Ekipmanı":["Audio & DJ Equipment","Audio & DJ-Equipment","Audio & Matériel DJ","Audio y Equipo DJ","Audio e Attrezzatura DJ"],
+"Sneaker":["Sneakers","Sneaker","Sneakers","Zapatillas","Sneaker"],
+"Sneaker & Streetwear":["Sneakers & Streetwear","Sneaker & Streetwear","Sneakers & Streetwear","Zapatillas y Streetwear","Sneaker e Streetwear"],
+"Spor":["Sports","Sport","Sport","Deportes","Sport"],
+"Spor & Outdoor":["Sports & Outdoor","Sport & Outdoor","Sport & Plein air","Deportes y Outdoor","Sport e Outdoor"],
+"Spor & Oyuncak":["Sports & Toys","Sport & Spielzeug","Sport & Jouets","Deportes y Juguetes","Sport e Giocattoli"],
+"Spor Branşları":["Sports Disciplines","Sportarten","Disciplines sportives","Disciplinas deportivas","Discipline sportive"],
+"Standart":["Standard","Standard","Standard","Estándar","Standard"],
+"Standart satıcı (S$200 altı)":["Standard seller (under S$200)","Standardverkäufer (unter S$200)","Vendeur standard (moins de S$200)","Vendedor estándar (menos de S$200)","Venditore standard (sotto S$200)"],
+"Standart satıcı (S$200-500)":["Standard seller (S$200-500)","Standardverkäufer (S$200-500)","Vendeur standard (S$200-500)","Vendedor estándar (S$200-500)","Venditore standard (S$200-500)"],
+"Standart satıcı (S$500 üzeri)":["Standard seller (over S$500)","Standardverkäufer (über S$500)","Vendeur standard (plus de S$500)","Vendedor estándar (más de S$500)","Venditore standard (oltre S$500)"],
+"Süpermarket":["Supermarket","Supermarkt","Supermarché","Supermercado","Supermercato"],
+"TV & Projeksiyon":["TV & Projection","TV & Projektion","TV & Projection","TV y Proyección","TV e Proiezione"],
+"Takı":["Jewelry","Schmuck","Bijoux","Joyería","Gioielli"],
+"Takı & Aksesuar":["Jewelry & Accessories","Schmuck & Accessoires","Bijoux & Accessoires","Joyería y Accesorios","Gioielli e Accessori"],
+"Takı & Saat":["Jewelry & Watches","Schmuck & Uhren","Bijoux & Montres","Joyería y Relojes","Gioielli e Orologi"],
+"Teknik destek (%5)":["Technical support (5%)","Technischer Support (5%)","Support technique (5%)","Soporte técnico (5%)","Supporto tecnico (5%)"],
+"Teknik Ürün (varsayılan)":["Tech Products (default)","Technikprodukte (Standard)","Produits tech (défaut)","Productos técnicos (predet.)","Prodotti tech (predefinito)"],
+"Televizyon":["Television","Fernseher","Télévision","Televisión","Televisione"],
+"Televizyon & Ses Sistemleri":["Television & Audio Systems","Fernseher & Audiosysteme","Télévision & Systèmes audio","Televisión y Sistemas de audio","Televisione e Sistemi audio"],
+"Televizyon (LCD/LED/Smart)":["Television (LCD/LED/Smart)","Fernseher (LCD/LED/Smart)","Télévision (LCD/LED/Smart)","Televisión (LCD/LED/Smart)","Televisione (LCD/LED/Smart)"],
+"Temel Tüketim & Gıda":["Essentials & Food","Grundbedarf & Lebensmittel","Essentiels & Alimentation","Básicos y Alimentación","Beni essenziali e Alimentari"],
+"Ticaret Kartları":["Trading Cards","Sammelkarten","Cartes à collectionner","Cartas coleccionables","Carte collezionabili"],
+"Tmall Genel":["Tmall General","Tmall Allgemein","Tmall Général","Tmall General","Tmall Generale"],
+"Tüm kategoriler":["All categories","Alle Kategorien","Toutes catégories","Todas las categorías","Tutte le categorie"],
+"Video Oyunları":["Video Games","Videospiele","Jeux vidéo","Videojuegos","Videogiochi"],
+"Video Oyunu Konsolu":["Video Game Console","Videospielkonsole","Console de jeux vidéo","Consola de videojuegos","Console per videogiochi"],
+"Yapı & Bahçe":["DIY & Garden","Bau & Garten","Bricolage & Jardin","Bricolaje y Jardín","Fai-da-te e Giardino"],
+"Yapı & Tadilat":["DIY & Renovation","Bau & Renovierung","Bricolage & Rénovation","Bricolaje y Reforma","Fai-da-te e Ristrutturazione"],
+"Yapı Market":["DIY Store","Baumarkt","Magasin de bricolage","Tienda de bricolaje","Fai-da-te"],
+"Yapı Market & Bahçe":["DIY & Garden","Baumarkt & Garten","Bricolage & Jardin","Bricolaje y Jardín","Fai-da-te e Giardino"],
+"Yaşam Tarzı":["Lifestyle","Lifestyle","Style de vie","Estilo de vida","Lifestyle"],
+"Ziynet & Külçe Altın":["Jewelry & Gold Bullion","Schmuck & Goldbarren","Bijoux & Lingots d'or","Joyería y Oro en lingotes","Gioielli e Oro in lingotti"],
+"Züccaciye":["Glassware & Housewares","Glas- & Haushaltswaren","Verrerie & Articles ménagers","Cristalería y Menaje","Casalinghi e Vetreria"],
+"Çanta":["Bags","Taschen","Sacs","Bolsos","Borse"],
+"Çiçek & Hediyelik":["Flowers & Gifts","Blumen & Geschenke","Fleurs & Cadeaux","Flores y Regalos","Fiori e Regali"],
+"Çocuk":["Kids","Kinder","Enfant","Niños","Bambini"],
+"Çocuk & Bebek":["Kids & Baby","Kinder & Baby","Enfant & Bébé","Niños y Bebé","Bambini e Neonati"],
+"Ödeme işlem (%2,7)":["Payment processing (2.7%)","Zahlungsabwicklung (2,7%)","Traitement paiement (2,7%)","Procesamiento de pago (2,7%)","Elaborazione pagamento (2,7%)"],
+"Ödeme işlem (%3)":["Payment processing (3%)","Zahlungsabwicklung (3%)","Traitement paiement (3%)","Procesamiento de pago (3%)","Elaborazione pagamento (3%)"],
+"Ödeme sabit":["Payment fixed fee","Zahlungspauschale","Frais de paiement fixe","Tarifa de pago fija","Commissione di pagamento fissa"],
+"Üyelik modeli":["Membership model","Mitgliedschaftsmodell","Modèle d'abonnement","Modelo de membresía","Modello di abbonamento"],
+"İçecek & Market":["Beverages & Grocery","Getränke & Lebensmittel","Boissons & Épicerie","Bebidas y Supermercado","Bevande e Alimentari"],
+"İşlem bedeli":["Transaction fee","Transaktionsgebühr","Frais de transaction","Tarifa de transacción","Commissione di transazione"]
+};
+function catL(s){try{if(typeof LANG==='undefined'||LANG==='tr')return s;var r=CATNAMES[s];if(!r)return s;var i=CATL_ORDER.indexOf(LANG);return (i>=0&&r[i])?r[i]:s;}catch(e){return s;}}
+const CATUI_X={
+ tr:{ca_catAvg:"{n} kategori ortalaması",ca_thCat:"Kategori",ca_thCom:"Komisyon"},
+ en:{ca_catAvg:"average of {n} categories",ca_thCat:"Category",ca_thCom:"Commission"},
+ de:{ca_catAvg:"Durchschnitt aus {n} Kategorien",ca_thCat:"Kategorie",ca_thCom:"Provision"},
+ fr:{ca_catAvg:"moyenne de {n} catégories",ca_thCat:"Catégorie",ca_thCom:"Commission"},
+ es:{ca_catAvg:"promedio de {n} categorías",ca_thCat:"Categoría",ca_thCom:"Comisión"},
+ it:{ca_catAvg:"media di {n} categorie",ca_thCat:"Categoria",ca_thCom:"Commissione"}
+};
+try{Object.keys(CATUI_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),CATUI_X[l]));}catch(e){}
+const FOOT_X={
+ tr:{ft_nlTitle:"Netvo Günlük",ft_nlDesc:"E-ticarette bugün ne değişti? Paranı etkileyen gelişmeler her sabah e-postanda. Spam yok, tek tıkla çık.",ft_nlPh:"e-posta adresin",ft_nlBtn:"Ücretsiz al",ft_tag:"E-ticareti doğru yap",ft_blurb:"Satışın gerçek matematiği. Komisyon, vergi ve operasyon maliyetlerinden sonra kalan tutarı hesapla — 37 ülkede 136 pazaryerinde.",ft_hDisc:"Keşfet",ft_mk:"Pazaryerleri",ft_co:"Ülkeler",ft_cmp:"Karşılaştır",ft_news:"Gündem",ft_hLearn:"Öğren",ft_learnc:"Öğren merkezi",ft_gloss:"Sözlük",ft_radar:"Ücret Radarı",ft_hTools:"Araçlar",ft_calc:"Kâr hesapla",ft_watch:"Takibim",ft_hTrust:"Güven",ft_method:"Metodoloji",ft_sources:"Veri kaynakları",ft_bot:"© 2026 Netvo · <b>E-ticareti doğru yap.</b><br>Hesaplamalar bilgilendirme amaçlıdır; her oranın yanında kaynağı gösterilir."},
+ en:{ft_nlTitle:"Netvo Daily",ft_nlDesc:"What changed in e-commerce today? The moves that affect your money, in your inbox every morning. No spam, unsubscribe in one click.",ft_nlPh:"your email address",ft_nlBtn:"Subscribe free",ft_tag:"Get e-commerce right",ft_blurb:"The real math of selling. Calculate what's left after commission, tax and operating costs — across 136 marketplaces in 37 countries.",ft_hDisc:"Discover",ft_mk:"Marketplaces",ft_co:"Countries",ft_cmp:"Compare",ft_news:"News",ft_hLearn:"Learn",ft_learnc:"Learning center",ft_gloss:"Glossary",ft_radar:"Fee Radar",ft_hTools:"Tools",ft_calc:"Profit calculator",ft_watch:"Tracking",ft_hTrust:"Trust",ft_method:"Methodology",ft_sources:"Data sources",ft_bot:"© 2026 Netvo · <b>Get e-commerce right.</b><br>Calculations are for information only; every rate shows its source."},
+ de:{ft_nlTitle:"Netvo Täglich",ft_nlDesc:"Was hat sich heute im E-Commerce geändert? Die Entwicklungen, die dein Geld betreffen, jeden Morgen in deinem Postfach. Kein Spam, Abmeldung mit einem Klick.",ft_nlPh:"deine E-Mail-Adresse",ft_nlBtn:"Kostenlos abonnieren",ft_tag:"E-Commerce richtig machen",ft_blurb:"Die echte Rechnung des Verkaufens. Berechne, was nach Provision, Steuern und Betriebskosten bleibt — auf 136 Marktplätzen in 37 Ländern.",ft_hDisc:"Entdecken",ft_mk:"Marktplätze",ft_co:"Länder",ft_cmp:"Vergleichen",ft_news:"News",ft_hLearn:"Lernen",ft_learnc:"Lernzentrum",ft_gloss:"Glossar",ft_radar:"Gebühren-Radar",ft_hTools:"Tools",ft_calc:"Gewinnrechner",ft_watch:"Verfolgt",ft_hTrust:"Vertrauen",ft_method:"Methodik",ft_sources:"Datenquellen",ft_bot:"© 2026 Netvo · <b>E-Commerce richtig machen.</b><br>Berechnungen dienen nur zur Information; jeder Satz zeigt seine Quelle."},
+ fr:{ft_nlTitle:"Netvo Quotidien",ft_nlDesc:"Qu'est-ce qui a changé aujourd'hui dans l'e-commerce ? Les évolutions qui touchent votre argent, chaque matin dans votre boîte. Pas de spam, désabonnement en un clic.",ft_nlPh:"votre adresse e-mail",ft_nlBtn:"S'abonner gratuitement",ft_tag:"Réussir l'e-commerce",ft_blurb:"Les vrais calculs de la vente. Calculez ce qui reste après commission, taxes et coûts d'exploitation — sur 136 places de marché dans 37 pays.",ft_hDisc:"Découvrir",ft_mk:"Places de marché",ft_co:"Pays",ft_cmp:"Comparer",ft_news:"Actualités",ft_hLearn:"Apprendre",ft_learnc:"Centre d'apprentissage",ft_gloss:"Glossaire",ft_radar:"Radar des frais",ft_hTools:"Outils",ft_calc:"Calculateur de profit",ft_watch:"Suivi",ft_hTrust:"Confiance",ft_method:"Méthodologie",ft_sources:"Sources de données",ft_bot:"© 2026 Netvo · <b>Réussir l'e-commerce.</b><br>Les calculs sont à titre informatif ; chaque taux indique sa source."},
+ es:{ft_nlTitle:"Netvo Diario",ft_nlDesc:"¿Qué ha cambiado hoy en el e-commerce? Las novedades que afectan a tu dinero, cada mañana en tu correo. Sin spam, cancela en un clic.",ft_nlPh:"tu dirección de correo",ft_nlBtn:"Suscríbete gratis",ft_tag:"Haz bien el e-commerce",ft_blurb:"Las matemáticas reales de vender. Calcula lo que queda tras comisión, impuestos y costes operativos — en 136 marketplaces de 37 países.",ft_hDisc:"Descubrir",ft_mk:"Marketplaces",ft_co:"Países",ft_cmp:"Comparar",ft_news:"Novedades",ft_hLearn:"Aprender",ft_learnc:"Centro de aprendizaje",ft_gloss:"Glosario",ft_radar:"Radar de tarifas",ft_hTools:"Herramientas",ft_calc:"Calculadora de beneficio",ft_watch:"Seguimiento",ft_hTrust:"Confianza",ft_method:"Metodología",ft_sources:"Fuentes de datos",ft_bot:"© 2026 Netvo · <b>Haz bien el e-commerce.</b><br>Los cálculos son solo informativos; cada tasa muestra su fuente."},
+ it:{ft_nlTitle:"Netvo Quotidiano",ft_nlDesc:"Cosa è cambiato oggi nell'e-commerce? Le novità che toccano i tuoi soldi, ogni mattina nella tua casella. Niente spam, disiscrizione in un clic.",ft_nlPh:"il tuo indirizzo email",ft_nlBtn:"Iscriviti gratis",ft_tag:"Fai l'e-commerce nel modo giusto",ft_blurb:"La vera matematica del vendere. Calcola quanto resta dopo commissioni, tasse e costi operativi — su 136 marketplace in 37 paesi.",ft_hDisc:"Esplora",ft_mk:"Marketplace",ft_co:"Paesi",ft_cmp:"Confronta",ft_news:"Attualità",ft_hLearn:"Impara",ft_learnc:"Centro di apprendimento",ft_gloss:"Glossario",ft_radar:"Radar delle commissioni",ft_hTools:"Strumenti",ft_calc:"Calcolatore di profitto",ft_watch:"Monitoraggio",ft_hTrust:"Fiducia",ft_method:"Metodologia",ft_sources:"Fonti dei dati",ft_bot:"© 2026 Netvo · <b>Fai l'e-commerce nel modo giusto.</b><br>I calcoli sono solo a scopo informativo; ogni tasso mostra la sua fonte."}
+};
+try{Object.keys(FOOT_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),FOOT_X[l]));}catch(e){}
 // Dil → o bölgenin varsayılan pazaryeri. Kullanıcı elle seçmediyse dil değişince hesap makinesi buraya geçer.
 const LANG2MK={tr:'trendyol',en:'amazonus',de:'amazonde',fr:'amazonfr',es:'amazones',it:'amazonit'};
 function applyLangMk(l){
