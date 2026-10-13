@@ -935,7 +935,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 
   <div class="mkbar">
     <span class="lbl">Pazaryeri</span>
-    <select class="inp" id="mkSel" onchange="selectMk(this.value)"></select>
+    <select class="inp" id="mkSel" onchange="userSelectMk(this.value)"></select>
     <span class="flagchip" id="coChip">🇹🇷 TR · KDV %20 · ₺</span>
   </div>
   <div id="mobResult" class="mob-result" aria-hidden="true"></div>
@@ -2359,7 +2359,9 @@ function bigMoney(n,co){
      ${gap}
      <div class="hc-prov">${provStrip(sel.value)}</div>`;
  }
- sel.onchange=fill; P.oninput=run; C.oninput=run; fill();
+ sel.onchange=function(){userPickedMk=true;fill();}; P.oninput=run; C.oninput=run; fill();
+ // Dil/geo otomatiğinin hero pazaryerini değiştirebilmesi için dışa aç.
+ window.heroSetMk=function(k){ if(MK[k]){ sel.value=k; fill(); } };
  // güven: kaç oran resmî kaynağa bağlı
  const so=document.getElementById('stOfficial');
  if(so)so.textContent=Object.keys(MK).filter(k=>MK[k].source).length+"";
@@ -2431,6 +2433,9 @@ const desiSel=document.getElementById('desi');desiTable.forEach((d,i)=>{const o=
 // ============ STATE + ENGINE ============
 let current="trendyol";
 let LAST={net:0,marj:0};
+// Kullanıcı pazaryerini ELLE seçtiyse, dil/geo otomatiği artık ona dokunmaz.
+let userPickedMk=false;
+function userSelectMk(v){userPickedMk=true;selectMk(v);}
 function selectMk(k){
  current=k;const m=MK[k],co=CO[m.co];mkSel.value=k;
  // Pazaryeri değişti: eski para biriminin sonucu ekranda kalmasın
@@ -3316,9 +3321,19 @@ const I18N={
 };
 let LANG='tr';
 const LANG_ORDER=['tr','en','de','fr','es','it'];
+// Dil → o bölgenin varsayılan pazaryeri. Kullanıcı elle seçmediyse dil değişince hesap makinesi buraya geçer.
+const LANG2MK={tr:'trendyol',en:'amazonus',de:'amazonde',fr:'amazonfr',es:'amazones',it:'amazonit'};
+function applyLangMk(l){
+  try{ if(userPickedMk)return; var k=LANG2MK[l]; if(!k||!MK[k])return;
+    if(typeof selectMk==='function')selectMk(k);
+    if(typeof window.heroSetMk==='function')window.heroSetMk(k);
+    var cc=document.getElementById('cmpCur'); if(cc){cc.value=CO[MK[k].co].cur; if(typeof cmpCurChange==='function')cmpCurChange();}
+  }catch(e){}
+}
 function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null){if(/</.test(v))e.innerHTML=v;else e.textContent=v;}});const lb=document.getElementById('langBtn');if(lb)lb.textContent=l.toUpperCase()+' ▾';document.documentElement.lang=l;try{markLangActive();}catch(e){}try{if(typeof AUTO_RAW!=='undefined'&&AUTO_RAW.length&&typeof mergeAutoNews==='function')mergeAutoNews();}catch(e){}
  try{if(typeof renderHomeCompare==='function')renderHomeCompare();}catch(e){}
- try{if(typeof renderToolsHome==='function'&&document.getElementById('toolGridHome'))renderToolsHome('toolGridHome');}catch(e){}}
+ try{if(typeof renderToolsHome==='function'&&document.getElementById('toolGridHome'))renderToolsHome('toolGridHome');}catch(e){}
+ applyLangMk(l);}
 // t(): aktif dile göre I18N'den metin çeker (JS-render bileşenleri için). Anahtar yoksa TR'ye düşer.
 function t(k){var d=I18N[LANG]||I18N.tr;return (d&&d[k]!=null)?d[k]:(I18N.tr[k]!=null?I18N.tr[k]:k);}
 // ---- Dil seçici (tıklayınca açılır menü; başka dile otomatik geçmez) ----
@@ -3344,24 +3359,33 @@ function netvoSubscribe(ev){
 }
 
 // ============ GEO: IP → ülke pazaryeri önceliği + dil önerisi ============
-const GEO2MK={TR:'trendyol',DE:'amazonde',GB:'amazonuk',US:'amazonus',PL:'allegro',NL:'bol',BE:'bol',FR:'cdiscount',IT:'amazonde',ES:'amazonde',AE:'noon',SA:'noon',BR:'mercadolibre',MX:'amazonus',IN:'flipkart',JP:'rakuten',KR:'coupang',AU:'amazonau',ZA:'takealot',NG:'jumia',SG:'shopee',MY:'shopee',TH:'shopee',VN:'shopee',ID:'shopee'};
+const GEO2MK={TR:'trendyol',DE:'amazonde',AT:'amazonde',CH:'amazonde',GB:'amazonuk',IE:'amazonuk',US:'amazonus',CA:'amazonca',PL:'allegro',NL:'bol',BE:'bol',FR:'amazonfr',IT:'amazonit',ES:'amazones',AE:'noon',SA:'noon',BR:'mercadolibre',MX:'amazonmx',AR:'mercadolibre',CL:'mercadolibre',CO:'mercadolibre',IN:'flipkart',JP:'rakuten',KR:'coupang',AU:'amazonau',ZA:'takealot',SG:'shopee',MY:'shopee',TH:'shopee',VN:'shopee',ID:'shopee'};
 // Ülke → dil (IP'ye göre varsayılan dil). Kullanıcı elle seçtiyse dokunulmaz.
 const GEO2LANG={TR:'tr',DE:'de',AT:'de',CH:'de',FR:'fr',BE:'fr',ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es',VE:'es',EC:'es',IT:'it',US:'en',GB:'en',AU:'en',CA:'en',IE:'en',NZ:'en',NL:'en'};
+// Ülke koduna göre dil + pazaryeri uygula. Dil zaten applyLang içinde pazaryerini de taşır;
+// burada IP'ye özgü (dilden daha spesifik) pazaryeri varsa onu öne alırız — ama kullanıcının
+// gördüğü dile ters düşmeyecek şekilde (ör. Almanca görüntüleyeni Türk IP yüzünden Trendyol'a atma).
+function geoApply(cc){
+  if(!cc)return; cc=String(cc).toUpperCase();
+  let hasExplicitLang=false;
+  try{ const saved=localStorage.getItem('netvo_lang'); const q=new URLSearchParams(location.search).get('lang');
+    hasExplicitLang=!!((saved&&I18N[saved])||(q&&I18N[q]));
+    if(!hasExplicitLang){ const gl=GEO2LANG[cc]; if(gl&&I18N[gl]&&gl!==LANG) applyLang(gl); }
+  }catch(e){}
+  if(userPickedMk)return;
+  const mk=GEO2MK[cc], langMatches=(GEO2LANG[cc]===LANG);
+  if(mk&&MK[mk]&&(langMatches||!hasExplicitLang)){
+    selectMk(mk); if(typeof window.heroSetMk==='function')window.heroSetMk(mk);
+    const cs=document.getElementById('cmpCur'); if(cs){cs.value=CO[MK[mk].co].cur; if(typeof cmpCurChange==='function')cmpCurChange();}
+  }
+}
 function geoInit(){
- fetch('https://ipapi.co/json/').then(r=>r.json()).then(j=>{
-   const cc=(j&&j.country_code)||'', mk=GEO2MK[cc], b=document.getElementById('geoBanner');
-   // IP'ye göre dil — yalnız kullanıcı elle seçmediyse ve ?lang yoksa
-   try{ const saved=localStorage.getItem('netvo_lang'); const q=new URLSearchParams(location.search).get('lang');
-     if(!(saved&&I18N[saved])&&!(q&&I18N[q])){ const gl=GEO2LANG[cc]; if(gl&&I18N[gl]&&gl!==LANG) applyLang(gl); } }catch(e){}
-   let html='';
-   if(mk&&MK[mk]){
-     const nm=MK[mk].n, fl=CO[MK[mk].co].fl, cur=CO[MK[mk].co].cur;
-     html=`${fl} Konum: <b>${(j.country_name||cc)}</b> — senin için <b>${nm}</b> öne alındı.`;
-     selectMk(mk);
-     const cs=document.getElementById('cmpCur'); if(cs){cs.value=cur;cmpCurChange();}
-   }
-   if(html){ html+=` &nbsp; <a style="cursor:pointer;color:var(--muted)" onclick="this.closest('#geoBanner').style.display='none'">kapat ✕</a>`; b.innerHTML=html; b.style.display='block'; }
- }).catch(()=>{/* file:// veya engel: sessizce geç */});
+ // Önce Cloudflare /cdn-cgi/trace (kendi domainimiz, limitsiz, güvenilir) → loc=XX; olmazsa ipapi.co yedeği.
+ fetch('/cdn-cgi/trace').then(r=>r.ok?r.text():'').then(txt=>{
+   const m=/(?:^|\n)loc=([A-Z]{2})/.exec(txt||'');
+   if(m){ geoApply(m[1]); return; }
+   return fetch('https://ipapi.co/json/').then(r=>r.json()).then(j=>geoApply(j&&j.country_code));
+ }).catch(()=>{ try{ fetch('https://ipapi.co/json/').then(r=>r.json()).then(j=>geoApply(j&&j.country_code)).catch(()=>{}); }catch(e){} });
 }
 
 try{ohLoad();}catch(e){}
