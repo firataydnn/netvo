@@ -1414,7 +1414,8 @@ function estChip(){return `<span class="estchip">⚠︎ TAHMİN</span>`;}
 function provStrip(k){
   const m=MK[k], p=provOf(k);
   const dot={verified:"●",unverified:"◐",stale:"◐",estimate:"○",expired:"○"}[p.tier];
-  const src=m.source?`<a href="${m.source}" target="_blank" rel="noopener">${m.sourceLabel||t('ca_src')} ↗</a>`:(m.sourceLabel||t('ca_noSrc'));
+  const _sl=(typeof mkField==='function'?mkField(k,'src'):'')||m.sourceLabel;
+  const src=m.source?`<a href="${m.source}" target="_blank" rel="noopener">${_sl||t('ca_src')} ↗</a>`:(_sl||t('ca_noSrc'));
   const lbl=(p.labelKey==='pv_expired')?t('pv_expired').replace('{d}',p.age):(p.labelKey?t(p.labelKey):p.label);
   return `<div class="prov ${p.cls}"><span class="pd">${dot}</span> ${lbl} · ${src}${p.tier==="estimate"?(' <b>'+t('ca_verifyOwn')+'</b>'):""}</div>`;
 }
@@ -1977,6 +1978,7 @@ function mkFacts(k){const m=MK[k],co=CO[m.co];const fixed=(m.fixed&&m.fixed.leng
  const prov=provOf(k);
  return [[t('mk_fCountry'),`<a onclick="openCoPage('${m.co}')" style="cursor:pointer">${co.fl} ${co.n} →</a>`],[t('mk_fCur'),co.cur.trim()],[t('mk_fVat'),pct(co.vat)],[t('mk_fRange'),comRange(k)],[t('mk_fBase'),m.base==="net"?t('mk_baseNet'):t('mk_baseGross')],[t('mk_fFixed'),fixed],[t('mk_fPct'),pctFees],[t('mk_fFba'),m.fba?t('mk_yes'):"—"],[t('mk_fStopaj'),co.stopaj?t('mk_stopajYes'):"—"],[t('mk_fAnnounced'),m.comVatIncl?t('mk_annInc'):t('mk_annExc')],[t('mk_fData'),String(t(prov.labelKey)).replace('{d}',prov.age)]];}
 function renderMkPage(k){
+ CUR_MK=k;
  const m=MK[k],co=CO[m.co],I=INFO[k]||{};
  const badge=`<span class="mk-badge ${m.status}">${m.status==='official'?t('mk_official'):m.status==='reference'?t('mk_reference'):t('mk_manual')}</span>`;
  const facts=mkFacts(k).map(f=>`<div class="fact"><span>${f[0]}</span><b>${f[1]}</b></div>`).join("");
@@ -1986,7 +1988,9 @@ function renderMkPage(k){
  const list=(t,a,cls)=>(a&&a.length)?`<div class="side-card ${cls||''}"><h4>${t}</h4><ul class="mk-ul">${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:"";
  // Kurul kararı: INFO'su olmayan 106 sayfada sahte "hakkında" metni üretme.
  // m.note zaten "Ücret yapısı" başlığında görünüyor — aynı cümleyi iki kez basmak dolgudur.
- const about=I.about||null;
+ const about=mkField(k,'about')||null;
+ const who=mkField(k,'who'), payout=mkField(k,'payout');
+ const fStart=mkField(k,'start'), fReqs=mkField(k,'reqs'), fPros=mkField(k,'pros'), fCons=mkField(k,'cons');
  document.getElementById('crumbMkPage').textContent=m.n;
  document.getElementById('mkPageBody').innerHTML=`
   <div class="mk-hero">
@@ -2013,19 +2017,19 @@ function renderMkPage(k){
   <div class="mk-grid">
     <div>
       ${about?`<h2 class="sec">${t('mk_hWhat')}</h2><p class="mk-p">${about}</p>`:""}
-      ${I.who?`<h2 class="sec">${t('mk_hWho')}</h2><p class="mk-p">${I.who}</p>`:""}
+      ${who?`<h2 class="sec">${t('mk_hWho')}</h2><p class="mk-p">${who}</p>`:""}
       <h2 class="sec">${t('mk_hFee')}</h2>
-      <p class="mk-p">${m.note||""}</p>
+      <p class="mk-p">${mkField(k,'note')||""}</p>
       ${cats}
-      ${I.payout?`<h2 class="sec">${t('mk_hPayout')}</h2><p class="mk-p">${I.payout}</p>`:""}
+      ${payout?`<h2 class="sec">${t('mk_hPayout')}</h2><p class="mk-p">${payout}</p>`:""}
       ${provStrip(k)}
     </div>
     <div>
       <div class="side-card"><h4>${t('mk_cKunye')}</h4>${facts}</div>
-      ${list(t('mk_cStart'),I.start)}
-      ${list(t('mk_cReqs'),I.reqs)}
-      ${list(t('mk_cPros'),I.pros,"pos")}
-      ${list(t('mk_cCons'),I.cons,"neg")}
+      ${list(t('mk_cStart'),fStart)}
+      ${list(t('mk_cReqs'),fReqs)}
+      ${list(t('mk_cPros'),fPros,"pos")}
+      ${list(t('mk_cCons'),fCons,"neg")}
       <div class="side-card" style="background:var(--blue-l);border-color:#cfe0f2"><h4>${t('mk_cGercek')}</h4><p class="sm muted" style="margin-bottom:10px">${t('mk_cGercekP')}</p><button class="btn wide" onclick="openMk('${k}')">${t('mk_calcShort')}</button></div>
     </div>
   </div>
@@ -3564,6 +3568,32 @@ const CATNAMES={
 "İşlem bedeli":["Transaction fee","Transaktionsgebühr","Frais de transaction","Tarifa de transacción","Commissione di transazione"]
 };
 function catL(s){try{if(typeof LANG==='undefined'||LANG==='tr')return s;var r=CATNAMES[s];if(!r)return s;var i=CATL_ORDER.indexOf(LANG);return (i>=0&&r[i])?r[i]:s;}catch(e){return s;}}
+// ---- Pazaryeri editöryal içeriği (note/about/who/payout/start/reqs/pros/cons/src):
+//      TR satır içi (varsayılan). Diğer diller lazy-load: /i18n/mk-<lang>.json çekilir,
+//      yoksa TR'ye düşer. Böylece ana paket şişmez, çeviriler build-time tazelenir. ----
+const MK_I18N={};            // {lang:{mkId:{note,about,who,payout,start[],reqs[],pros[],cons[],src}}}
+const MK_I18N_LOADED={};     // {lang:true|'loading'|'fail'}
+var CUR_MK=null;             // o an açık pazaryeri detay sayfası (dil değişince yeniden basmak için)
+function mkField(k,f){
+  try{
+    if(LANG!=='tr'){ var pack=MK_I18N[LANG]; var e=pack&&pack[k];
+      if(e&&e[f]!=null){ var v=e[f]; if(Array.isArray(v)?v.length:String(v).trim().length) return v; } }
+  }catch(e){}
+  // TR / fallback
+  if(f==='note') return (MK[k]&&MK[k].note)||'';
+  if(f==='src')  return (MK[k]&&MK[k].sourceLabel)||'';
+  var I=(typeof INFO!=='undefined'&&INFO[k])||{}; return I[f];
+}
+function loadMkI18n(lang){
+  if(lang==='tr'||MK_I18N_LOADED[lang])return;
+  MK_I18N_LOADED[lang]='loading';
+  fetch('/i18n/mk-'+lang+'.json',{cache:'force-cache'}).then(function(r){return r.ok?r.json():null;})
+    .then(function(j){ if(j){MK_I18N[lang]=j;MK_I18N_LOADED[lang]=true;
+        // o an bir pazaryeri sayfası açıksa yeni dille yeniden bas
+        try{ if(typeof CUR_MK!=='undefined'&&CUR_MK&&document.getElementById('mkPageBody')&&typeof renderMkPage==='function'){renderMkPage(CUR_MK);} }catch(e){}
+      } else { MK_I18N_LOADED[lang]='fail'; } })
+    .catch(function(){ MK_I18N_LOADED[lang]='fail'; });
+}
 const CATUI_X={
  tr:{ca_catAvg:"{n} kategori ortalaması",ca_thCat:"Kategori",ca_thCom:"Komisyon"},
  en:{ca_catAvg:"average of {n} categories",ca_thCat:"Category",ca_thCom:"Commission"},
@@ -3615,6 +3645,7 @@ function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll(
  try{if(typeof renderToolsHome==='function'&&document.getElementById('toolGridHome'))renderToolsHome('toolGridHome');}catch(e){}
  try{document.querySelectorAll('[data-i18n-ph]').forEach(e=>{const k=e.getAttribute('data-i18n-ph');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null)e.setAttribute('placeholder',v);});}catch(e){}
  try{if(typeof selectMk==='function'&&typeof current!=='undefined'&&MK[current])selectMk(current);}catch(e){} // aktif pazaryeri etiketlerini yeni dilde yeniden bas
+ try{if(l!=='tr'&&typeof loadMkI18n==='function')loadMkI18n(l);}catch(e){} // pazaryeri editöryal çevirilerini getir (lazy)
  applyLangMk(l);}
 // t(): aktif dile göre I18N'den metin çeker (JS-render bileşenleri için). Anahtar yoksa TR'ye düşer.
 function t(k){var L;try{L=LANG;}catch(e){L='tr';}var d=I18N[L]||I18N.tr;return (d&&d[k]!=null)?d[k]:(I18N.tr[k]!=null?I18N.tr[k]:k);}

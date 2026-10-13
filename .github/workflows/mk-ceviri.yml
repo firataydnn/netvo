@@ -1,0 +1,39 @@
+# NETVO — pazaryeri içeriği çevirici (manuel)
+# Commera_Site.html'deki MK/INFO Türkçe editöryal içeriğini EN/DE/FR/ES/IT'ye
+# çevirir → i18n/mk-<lang>.json yazar, commit eder. SPA bunları lazy-load eder.
+#
+# ELLE tetiklenir (workflow_dispatch) — kredi harcamasını sen kontrol edersin.
+# Hash-cache: yalnız DEĞİŞEN/YENİ pazaryeri yeniden çevrilir (ucuz & taze).
+# Gerekli secret: ANTHROPIC_API_KEY.  İstersen 'langs' girdisiyle alt küme seç.
+
+name: Pazaryeri Çeviri
+on:
+  workflow_dispatch:
+    inputs:
+      langs:
+        description: "Diller (virgülle). Boş = en,de,fr,es,it"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  ceviri:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Çevirileri üret
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NETVO_MK_LANGS: ${{ github.event.inputs.langs }}
+        run: node icerik/mk_ceviri.mjs
+      - name: Commit
+        run: |
+          git config user.name "netvo-bot"
+          git config user.email "bot@netvo"
+          git add i18n 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "i18n: pazaryeri içeriği çevirileri güncellendi"
+          git push || echo "değişiklik yok"

@@ -54,6 +54,12 @@ if (fs.existsSync("icerik/haberler.json")) {
   if (_k.length) console.log("→ Köşe yazısı verisi eklendi:", _k.length);
 }
 
+// 4b) Pazaryeri içeriği çevirileri → public/i18n/ (lazy-load; dil başına JSON)
+if (fs.existsSync("i18n")) {
+  fs.cpSync("i18n", `${OUT}/i18n`, { recursive: true });
+  console.log("→ i18n/ çevirileri kopyalandı:", say("i18n"));
+}
+
 // 5) Marka varlıkları → public/marka/
 if (fs.existsSync("marka")) {
   fs.mkdirSync(`${OUT}/marka`, { recursive: true });
