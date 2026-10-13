@@ -759,18 +759,18 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
       <a onclick="go('compare')" data-i18n="nav_compare">Karşılaştır</a>
       <a onclick="go('magazine')" data-i18n="nav_mag">Gündem</a>
       <div class="navdrop">
-        <a class="navdrop-btn" onclick="toggleDiscover(event)" aria-haspopup="true" aria-expanded="false" id="discoverBtn">Keşfet ▾</a>
+        <a class="navdrop-btn" onclick="toggleDiscover(event)" aria-haspopup="true" aria-expanded="false" id="discoverBtn"><span data-i18n="nav_disc">Keşfet</span> ▾</a>
         <div class="navdrop-menu" id="discoverMenu" role="menu">
-          <a onclick="go('tools')" role="menuitem">Pazaryerleri</a>
-          <a onclick="go('countries')" role="menuitem">Ülkeler</a>
-          <a onclick="go('radar')" role="menuitem">Ücret Radarı</a>
-          <a onclick="go('sozluk')" role="menuitem">Sözlük</a>
+          <a onclick="go('tools')" role="menuitem" data-i18n="lc1t">Pazaryerleri</a>
+          <a onclick="go('countries')" role="menuitem" data-i18n="lc2t">Ülkeler</a>
+          <a onclick="go('radar')" role="menuitem" data-i18n="lc3t">Ücret Radarı</a>
+          <a onclick="go('sozluk')" role="menuitem" data-i18n="lc4t">Sözlük</a>
         </div>
       </div>
-      <a onclick="go('watch')">Takibim</a>
-      <a class="mob-only" onclick="netvoAuthOpen()" id="authBtnMob">Giriş / Kayıt</a>
+      <a onclick="go('watch')" data-i18n="nav_watch">Takibim</a>
+      <a class="mob-only" onclick="netvoAuthOpen()" id="authBtnMob" data-i18n="nav_signup">Giriş / Kayıt</a>
     </div>
-    <div class="cta"><div class="langsel"><button onclick="toggleLangMenu(event)" id="langBtn" class="btn ghost" aria-haspopup="true" aria-label="Dil seç" style="padding:8px 11px">TR ▾</button><div id="langMenu" class="langmenu" role="menu"></div></div><a id="authBtn" onclick="netvoAuthOpen()" class="nav-login">Giriş</a><a onclick="go('calc')" class="btn">Hesapla</a></div>
+    <div class="cta"><div class="langsel"><button onclick="toggleLangMenu(event)" id="langBtn" class="btn ghost" aria-haspopup="true" aria-label="Dil seç" style="padding:8px 11px">TR ▾</button><div id="langMenu" class="langmenu" role="menu"></div></div><a id="authBtn" onclick="netvoAuthOpen()" class="nav-login" data-i18n="nav_login">Giriş</a><a onclick="go('calc')" class="btn" data-i18n="nav_calcBtn">Hesapla</a></div>
     <button class="navtog" aria-label="Menüyü aç/kapat" aria-expanded="false" onclick="navToggle()">☰</button>
   </nav>
 </header>
@@ -929,12 +929,12 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 </div></section></div>
 
 <div class="page" id="calc"><section class="blk"><div class="container">
-  <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / <a onclick="go('tools')">Araçlar</a> / <span id="crumbMk">Trendyol</span></div>
+  <div class="crumb"><a onclick="go('home')" data-i18n="ca_home">Ana Sayfa</a> / <a onclick="go('tools')" data-i18n="ca_tools">Araçlar</a> / <span id="crumbMk">Trendyol</span></div>
   <div class="sec-title" id="calcTitle">Trendyol komisyon ve kâr hesaplama</div>
-  <div class="sec-sub">Satış fiyatını ve maliyetlerini gir. Komisyon, vergi ve operasyon giderlerinden sonra kalan tutarı gör.</div>
+  <div class="sec-sub" data-i18n="ca_sub">Satış fiyatını ve maliyetlerini gir. Komisyon, vergi ve operasyon giderlerinden sonra kalan tutarı gör.</div>
 
   <div class="mkbar">
-    <span class="lbl">Pazaryeri</span>
+    <span class="lbl" data-i18n="ca_mp">Pazaryeri</span>
     <select class="inp" id="mkSel" onchange="userSelectMk(this.value)"></select>
     <span class="flagchip" id="coChip">🇹🇷 TR · KDV %20 · ₺</span>
   </div>
@@ -945,90 +945,90 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <div class="panel">
       <h2 id="panelName">Bilgileri gir</h2>
       <p class="muted sm" id="panelNote"></p>
-      <div class="field" id="rowCat"><label for="vCat">Kategori <span class="hint">— komisyonu otomatik doldurur</span></label><select class="inp" id="cat" onchange="catChange()"></select></div>
+      <div class="field" id="rowCat"><label for="vCat"><span data-i18n="ca_cat">Kategori</span> <span class="hint" data-i18n="ca_catHint">— komisyonu otomatik doldurur</span></label><select class="inp" id="cat" onchange="catChange()"></select></div>
       <div class="two">
-        <div class="field"><label>Satış fiyatı <span class="hint" id="priceHint">(KDV dahil)</span></label><div class="inp-money"><span class="cur" id="cur1">₺</span><input class="inp" id="price" type="number" min="0" value="349" oninput="calc()"></div></div>
-        <div class="field"><label>Ürün maliyeti <span class="hint" id="costHint">(KDV dahil)</span></label><div class="inp-money"><span class="cur" id="cur2">₺</span><input class="inp" id="cost" type="number" min="0" value="142" oninput="calc()"></div></div>
+        <div class="field"><label><span data-i18n="ca_salePrice">Satış fiyatı</span> <span class="hint" id="priceHint">(KDV dahil)</span></label><div class="inp-money"><span class="cur" id="cur1">₺</span><input class="inp" id="price" type="number" min="0" value="349" oninput="calc()"></div></div>
+        <div class="field"><label><span data-i18n="hc_cost">Ürün maliyeti</span> <span class="hint" id="costHint">(KDV dahil)</span></label><div class="inp-money"><span class="cur" id="cur2">₺</span><input class="inp" id="cost" type="number" min="0" value="142" oninput="calc()"></div></div>
       </div>
-      <div class="field"><label id="kargoLabel">Kargo / gönderim <span class="hint">(vergi dahil · tahmini)</span></label><div class="inp-money"><span class="cur" id="cur3">₺</span><input class="inp" id="kargo" type="number" min="0" value="55" oninput="calc()"></div></div>
+      <div class="field"><label id="kargoLabel"><span data-i18n="ca_ship">Kargo / gönderim</span> <span class="hint" data-i18n="ca_shipHint">(vergi dahil · tahmini)</span></label><div class="inp-money"><span class="cur" id="cur3">₺</span><input class="inp" id="kargo" type="number" min="0" value="55" oninput="calc()"></div></div>
       <details class="adv">
-        <summary><span>Gelişmiş maliyetler <span class="hint" style="font-weight:400">— reklam, iade, vergi, ek giderler</span></span><span class="autos" id="advAuto"></span><span class="chev">▾</span></summary>
+        <summary><span><span data-i18n="ca_adv">Gelişmiş maliyetler</span> <span class="hint" style="font-weight:400" data-i18n="ca_advHint">— reklam, iade, vergi, ek giderler</span></span><span class="autos" id="advAuto"></span><span class="chev">▾</span></summary>
         <div class="advbody">
       <div class="two">
         <div class="field"><label id="comLabel">Komisyon oranı (%)</label><input class="inp" id="com" type="number" min="0" step="0.1" value="22" oninput="calc()"></div>
-        <div class="field" id="rowVat"><label>Ülke vergisi (KDV/VAT/GST)</label><input class="inp" id="vat" type="number" min="0" max="30" step="0.1" value="20" oninput="calc()"></div>
+        <div class="field" id="rowVat"><label data-i18n="ca_vat">Ülke vergisi (KDV/VAT/GST)</label><input class="inp" id="vat" type="number" min="0" max="30" step="0.1" value="20" oninput="calc()"></div>
       </div>
-      <div class="field" id="rowDesi"><label>Kargo (Desi) <span class="hint">— kargo tutarını tahmini doldurur</span></label><select class="inp" id="desi" onchange="desiChange()"></select></div>
+      <div class="field" id="rowDesi"><label><span data-i18n="ca_desi">Kargo (Desi)</span> <span class="hint" data-i18n="ca_desiHint">— kargo tutarını tahmini doldurur</span></label><select class="inp" id="desi" onchange="desiChange()"></select></div>
       <div class="two">
-        <div class="field" id="rowFba"><label id="fbaLabel">FBA / gönderim <span class="hint">(/sipariş)</span></label><div class="inp-money"><span class="cur" id="cur4">₺</span><input class="inp" id="fba" type="number" min="0" step="0.01" value="0" oninput="calc()"></div></div>
-        <div class="field"><label>Ek maliyet <span class="hint">(paketleme vb.)</span></label><div class="inp-money"><span class="cur" id="cur5">₺</span><input class="inp" id="diger" type="number" min="0" value="0" oninput="calc()"></div></div>
+        <div class="field" id="rowFba"><label id="fbaLabel"><span data-i18n="ca_fba">FBA / gönderim</span> <span class="hint" data-i18n="ca_fbaHint">(/sipariş)</span></label><div class="inp-money"><span class="cur" id="cur4">₺</span><input class="inp" id="fba" type="number" min="0" step="0.01" value="0" oninput="calc()"></div></div>
+        <div class="field"><label><span data-i18n="ca_extra">Ek maliyet</span> <span class="hint" data-i18n="ca_extraHint">(paketleme vb.)</span></label><div class="inp-money"><span class="cur" id="cur5">₺</span><input class="inp" id="diger" type="number" min="0" value="0" oninput="calc()"></div></div>
       </div>
       <div class="two">
-        <div class="field"><label>Sipariş reklam maliyeti <span class="hint">(reklam/PPC ÷ sipariş)</span></label><div class="inp-money"><span class="cur" id="cur6">₺</span><input class="inp" id="ads" type="number" min="0" value="0" oninput="calc()"></div></div>
-        <div class="field"><label>İade / hasar karşılığı <span class="hint">(sipariş başı beklenen)</span></label><div class="inp-money"><span class="cur" id="cur7">₺</span><input class="inp" id="returns" type="number" min="0" value="0" oninput="calc()"></div></div>
+        <div class="field"><label><span data-i18n="ca_ads">Sipariş reklam maliyeti</span> <span class="hint" data-i18n="ca_adsHint">(reklam/PPC ÷ sipariş)</span></label><div class="inp-money"><span class="cur" id="cur6">₺</span><input class="inp" id="ads" type="number" min="0" value="0" oninput="calc()"></div></div>
+        <div class="field"><label><span data-i18n="ca_ret">İade / hasar karşılığı</span> <span class="hint" data-i18n="ca_retHint">(sipariş başı beklenen)</span></label><div class="inp-money"><span class="cur" id="cur7">₺</span><input class="inp" id="returns" type="number" min="0" value="0" oninput="calc()"></div></div>
       </div>
-      <div class="field" id="rowInVat"><label>Kargo &amp; Gider KDV % <span class="hint">— ürün alış, kargo ve paketlemenin KDV'si (satıcının faturalandığı ülke). TR'den kendin gönderiyorsan %20; FBA/yurt dışı depo kullanıyorsan hedef ülke oranı.</span></label><input class="inp" id="invat" type="number" min="0" step="0.1" value="20" oninput="calc()"></div>
-      <label class="toggle" id="rowStopaj"><input type="checkbox" id="stopaj" checked onchange="calc()"> %1 Stopaj (Türkiye)</label>
-      <label class="toggle" id="rowOffset"><input type="checkbox" id="kdvOffset" checked onchange="calc()"> Vergi mahsubunu uygula (vergi mükellefi)</label>
-      <label class="toggle hide" id="rowOffsite"><input type="checkbox" id="offsite" onchange="calc()"> Reklam/Offsite Ads (%15) dahil et</label>
+      <div class="field" id="rowInVat"><label><span data-i18n="ca_inVat">Kargo &amp; Gider KDV %</span> <span class="hint" data-i18n="ca_inVatHint">— ürün alış, kargo ve paketlemenin KDV'si (satıcının faturalandığı ülke). TR'den kendin gönderiyorsan %20; FBA/yurt dışı depo kullanıyorsan hedef ülke oranı.</span></label><input class="inp" id="invat" type="number" min="0" step="0.1" value="20" oninput="calc()"></div>
+      <label class="toggle" id="rowStopaj"><input type="checkbox" id="stopaj" checked onchange="calc()"> <span data-i18n="ca_stopaj">%1 Stopaj (Türkiye)</span></label>
+      <label class="toggle" id="rowOffset"><input type="checkbox" id="kdvOffset" checked onchange="calc()"> <span data-i18n="ca_offset">Vergi mahsubunu uygula (vergi mükellefi)</span></label>
+      <label class="toggle hide" id="rowOffsite"><input type="checkbox" id="offsite" onchange="calc()"> <span data-i18n="ca_offsite">Reklam/Offsite Ads (%15) dahil et</span></label>
       <div class="note" id="mkNote"></div>
         </div>
       </details>
-      <details class="incl"><summary>ⓘ Netvo neleri hesaplıyor?</summary><div class="incl-b">Bu araç <b>operasyonel kârı</b> hesaplar: komisyon, hizmet bedeli, vergi, kargo, reklam, iade ve ürün maliyeti. <b>Dahil değildir:</b> yıl sonu gelir/kurumlar vergisi (şahıs/Ltd., %15–40 dilim, genç girişimci muafiyeti) ve sınır ötesi işlem/gümrük ücretleri. Kargo/gider KDV'sini satıcının faturalandığı ülkeye göre ayarla. <b>Not:</b> Hesap, KDV mükellefi satıcıyı varsayar (girdi KDV'sini indirdiğini kabul eder). KDV mükellefi değilsen sana kalan bundan düşüktür.</div></details>
+      <details class="incl"><summary data-i18n="ca_inclT">ⓘ Netvo neleri hesaplıyor?</summary><div class="incl-b" data-i18n="ca_inclB">Bu araç <b>operasyonel kârı</b> hesaplar: komisyon, hizmet bedeli, vergi, kargo, reklam, iade ve ürün maliyeti. <b>Dahil değildir:</b> yıl sonu gelir/kurumlar vergisi (şahıs/Ltd., %15–40 dilim, genç girişimci muafiyeti) ve sınır ötesi işlem/gümrük ücretleri. Kargo/gider KDV'sini satıcının faturalandığı ülkeye göre ayarla. <b>Not:</b> Hesap, KDV mükellefi satıcıyı varsayar (girdi KDV'sini indirdiğini kabul eder). KDV mükellefi değilsen sana kalan bundan düşüktür.</div></details>
       <details class="adv" id="ohBox" style="margin-top:10px">
-        <summary><span>Gerçek işletme giderlerini de ekle</span><span class="autos" id="ohAuto"></span><span class="chev">▾</span></summary>
+        <summary><span data-i18n="ca_ohT">Gerçek işletme giderlerini de ekle</span><span class="autos" id="ohAuto"></span><span class="chev">▾</span></summary>
         <div class="advbody">
-          <p class="sm muted" style="margin:0 0 10px">Aylık toplam sabit giderini ve sipariş adedini gir; Netvo sipariş başına gider payını hesaplayıp <b>gerçek kâr</b>ı gösterir. Veriler yalnızca bu tarayıcıda saklanır.</p>
-          <div class="field"><label>Aylık sipariş adedi</label><input class="inp" id="ohOrders" type="number" min="1" value="2500" oninput="ohSave();calc()"></div>
+          <p class="sm muted" style="margin:0 0 10px" data-i18n="ca_ohP">Aylık toplam sabit giderini ve sipariş adedini gir; Netvo sipariş başına gider payını hesaplayıp <b>gerçek kâr</b>ı gösterir. Veriler yalnızca bu tarayıcıda saklanır.</p>
+          <div class="field"><label data-i18n="ca_ohOrders">Aylık sipariş adedi</label><input class="inp" id="ohOrders" type="number" min="1" value="2500" oninput="ohSave();calc()"></div>
           <div class="two">
-            <div class="field"><label>Personel</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohStaff" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
-            <div class="field"><label>Kira / depo</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohRent" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+            <div class="field"><label data-i18n="ca_staff">Personel</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohStaff" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+            <div class="field"><label data-i18n="ca_rent">Kira / depo</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohRent" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
           </div>
           <div class="two">
-            <div class="field"><label>Muhasebe / mali müşavir</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohAcc" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
-            <div class="field"><label>Yazılım / abonelikler</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohSoft" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+            <div class="field"><label data-i18n="ca_acc">Muhasebe / mali müşavir</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohAcc" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+            <div class="field"><label data-i18n="ca_soft">Yazılım / abonelikler</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohSoft" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
           </div>
-          <div class="field"><label>Diğer sabit gider</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohOther" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
+          <div class="field"><label data-i18n="ca_other">Diğer sabit gider</label><div class="inp-money"><span class="cur ohc">₺</span><input class="inp" id="ohOther" type="number" min="0" value="0" oninput="ohSave();calc()"></div></div>
         </div>
       </details>
     </div>
 
     <div class="result">
       <div class="rtop">
-        <div class="l">Satıştan kalan</div>
+        <div class="l" data-i18n="hc_left">Satıştan kalan</div>
         <div class="big" id="rNet" role="status" aria-live="polite">0</div>
         <div class="band" id="rBand">—</div>
-        <div class="subm"><div><span>Kâr marjı</span><b id="rMarj">%0</b></div><div><span>Maliyet getirisi</span><b id="rRoi">%0</b></div></div>
+        <div class="subm"><div><span data-i18n="ca_marj">Kâr marjı</span><b id="rMarj">%0</b></div><div><span data-i18n="ca_roi">Maliyet getirisi</span><b id="rRoi">%0</b></div></div>
       </div>
 
       <div class="rescard" style="margin-top:16px">
-        <div class="rescard-h">Kaça satmalısın?</div>
+        <div class="rescard-h" data-i18n="ca_target">Kaça satmalısın?</div>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-          <span class="sm muted">Hedef marj</span>
+          <span class="sm muted" data-i18n="ca_tgtMarj">Hedef marj</span>
           <input id="tgt" class="inp" type="number" min="0" value="25" style="width:70px;padding:8px 10px">
           <span class="sm">%</span>
-          <button class="btn" onclick="solve('marj')">Hedef fiyatı hesapla</button>
-          <button class="btn ghost" onclick="solve('be')">Başabaşı göster</button>
+          <button class="btn" onclick="solve('marj')" data-i18n="ca_calcTgt">Hedef fiyatı hesapla</button>
+          <button class="btn ghost" onclick="solve('be')" data-i18n="ca_showBe">Başabaşı göster</button>
         </div>
         <div id="solveOut" class="sm" style="margin-top:10px;color:var(--ink);line-height:1.6"></div>
       </div>
 
       <div class="rescard" style="margin-top:16px">
-        <div class="rescard-h">Para akışı</div>
+        <div class="rescard-h" data-i18n="ca_flow">Para akışı</div>
         <div class="flow">
-          <div class="frow"><span>Satış fiyatı</span><b id="gSale">—</b></div>
-          <div class="frow"><span>Pazaryeri ve vergiler</span><b id="gMarket" class="neg">—</b></div>
-          <div class="frow"><span>Ürün ve operasyon</span><b id="gCogs" class="neg">—</b></div>
-          <div class="frow ftot"><span>Satıştan kalan</span><b id="gProfit">—</b></div>
+          <div class="frow"><span data-i18n="ca_salePrice">Satış fiyatı</span><b id="gSale">—</b></div>
+          <div class="frow"><span data-i18n="ca_mpTax">Pazaryeri ve vergiler</span><b id="gMarket" class="neg">—</b></div>
+          <div class="frow"><span data-i18n="ca_prodOps">Ürün ve operasyon</span><b id="gCogs" class="neg">—</b></div>
+          <div class="frow ftot"><span data-i18n="hc_left">Satıştan kalan</span><b id="gProfit">—</b></div>
         </div>
         <details class="flowdet">
-          <summary>Vergi ve tahsilat detaylarını gör</summary>
+          <summary data-i18n="ca_taxDet">Vergi ve tahsilat detaylarını gör</summary>
           <div class="flow" style="margin-top:10px">
-            <div class="frow"><span>Pazaryerinden tahsilat</span><b id="rPayout">—</b></div>
-            <div class="frow"><span>Tevkifat (vergi alacağı)</span><b id="rWithholding">—</b></div>
-            <div class="frow"><span>Hesaplanan satış KDV'si</span><b id="rVatCalc">—</b></div>
-            <div class="frow"><span>Tahmini ödenecek KDV</span><b id="rVatPayable">—</b></div>
-            <div class="frow"><span>KDV hariç net satış</span><b id="rNetSales">—</b></div>
+            <div class="frow"><span data-i18n="ca_payout">Pazaryerinden tahsilat</span><b id="rPayout">—</b></div>
+            <div class="frow"><span data-i18n="ca_withh">Tevkifat (vergi alacağı)</span><b id="rWithholding">—</b></div>
+            <div class="frow"><span data-i18n="ca_vatCalc">Hesaplanan satış KDV'si</span><b id="rVatCalc">—</b></div>
+            <div class="frow"><span data-i18n="ca_vatPay">Tahmini ödenecek KDV</span><b id="rVatPayable">—</b></div>
+            <div class="frow"><span data-i18n="ca_netSales">KDV hariç net satış</span><b id="rNetSales">—</b></div>
           </div>
           <div class="rlist" id="rList" style="margin-top:10px"></div>
         </details>
@@ -1039,14 +1039,14 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
       <div id="calcComply"></div>
 
       <div class="allocbar" id="alloc" style="margin-top:16px"></div>
-      <div style="font-size:11px;color:var(--muted);text-align:center" id="allocCap">Satışın dağılımı</div>
+      <div style="font-size:11px;color:var(--muted);text-align:center" id="allocCap" data-i18n="ca_alloc">Satışın dağılımı</div>
 
       <div style="margin-top:16px">
-        <button class="btn wide lg" onclick="toggleSave()">Bu ürünü kaydet</button>
+        <button class="btn wide lg" onclick="toggleSave()" data-i18n="ca_save">Bu ürünü kaydet</button>
         <div id="saveForm" class="hide" style="margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px">
-          <input id="saveName" class="inp" placeholder="Ürün adı / SKU / kod — ne istersen" style="margin-bottom:8px">
-          <input id="saveNote" class="inp" placeholder="Not (opsiyonel)" style="margin-bottom:10px">
-          <div style="display:flex;gap:8px"><button class="btn" style="flex:1" onclick="saveCurrent()">Kaydet</button><button class="btn ghost" onclick="toggleSave()">Vazgeç</button></div>
+          <input id="saveName" class="inp" placeholder="Ürün adı / SKU / kod — ne istersen" data-i18n-ph="ca_savePh" style="margin-bottom:8px">
+          <input id="saveNote" class="inp" placeholder="Not (opsiyonel)" data-i18n-ph="ca_notePh" style="margin-bottom:10px">
+          <div style="display:flex;gap:8px"><button class="btn" style="flex:1" onclick="saveCurrent()" data-i18n="ca_saveBtn">Kaydet</button><button class="btn ghost" onclick="toggleSave()" data-i18n="ca_cancel">Vazgeç</button></div>
         </div>
       </div>
     </div>
@@ -1055,10 +1055,10 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 
 <!-- SAVED -->
 <div class="page" id="saved"><section class="blk"><div class="container">
-  <div class="crumb"><a onclick="go('home')">Ana Sayfa</a> / Ürünlerim</div>
+  <div class="crumb"><a onclick="go('home')" data-i18n="ca_home">Ana Sayfa</a> / <span data-i18n="ca_myprod">Ürünlerim</span></div>
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-    <div><div class="sec-title" style="margin-bottom:2px">Ürünlerim</div><div class="sec-sub" style="margin-bottom:0">Kaydettiğin ürünler: her birinde sana ne kaldığı ve marjı. Tekrar hesapla ya da karşılaştır.</div></div>
-    <div style="display:flex;gap:8px"><button class="btn ghost" onclick="exportCSV()">CSV indir</button><button class="btn ghost" onclick="clearSaved()">Tümünü sil</button></div>
+    <div><div class="sec-title" style="margin-bottom:2px" data-i18n="ca_myprod">Ürünlerim</div><div class="sec-sub" style="margin-bottom:0" data-i18n="ca_mysub">Kaydettiğin ürünler: her birinde sana ne kaldığı ve marjı. Tekrar hesapla ya da karşılaştır.</div></div>
+    <div style="display:flex;gap:8px"><button class="btn ghost" onclick="exportCSV()" data-i18n="ca_csv">CSV indir</button><button class="btn ghost" onclick="clearSaved()" data-i18n="ca_delall">Tümünü sil</button></div>
   </div>
   <div style="height:14px"></div>
   <div id="savedWrap"></div>
@@ -1398,11 +1398,11 @@ const FRESH_DAYS=90, STALE_DAYS=180;
 function ageDays(iso){ if(!iso)return null; const d=(Date.now()-new Date(iso).getTime())/86400000; return isFinite(d)?Math.max(0,Math.floor(d)):null; }
 function provOf(k){
   const m=MK[k], age=ageDays(m.verified);
-  if(!m.source) return {tier:"estimate", age, label:"Kaynak yok — tahmin", cls:"manual"};
-  if(age===null) return {tier:"unverified", age:null, label:"Kaynak var, doğrulama tarihi yok", cls:"reference"};
-  if(age<=FRESH_DAYS) return {tier:"verified", age, label:"kaynaklı", cls:"official"};
-  if(age<=STALE_DAYS) return {tier:"stale", age, label:"kaynak eskimiş olabilir", cls:"reference"};
-  return {tier:"expired", age, label:age+" gün geçti — güncelliğini yitirdi", cls:"manual"};
+  if(!m.source) return {tier:"estimate", age, label:"Kaynak yok — tahmin", labelKey:"pv_est", cls:"manual"};
+  if(age===null) return {tier:"unverified", age:null, label:"Kaynak var, doğrulama tarihi yok", labelKey:"pv_unver", cls:"reference"};
+  if(age<=FRESH_DAYS) return {tier:"verified", age, label:"kaynaklı", labelKey:"pv_fresh", cls:"official"};
+  if(age<=STALE_DAYS) return {tier:"stale", age, label:"kaynak eskimiş olabilir", labelKey:"pv_stale", cls:"reference"};
+  return {tier:"expired", age, label:age+" gün geçti — güncelliğini yitirdi", labelKey:"pv_expired", cls:"manual"};
 }
 // Eski `status` alanını provenance'tan türet (geriye dönük uyum)
 Object.keys(MK).forEach(k=>{ MK[k].status=provOf(k).cls; });
@@ -1414,8 +1414,9 @@ function estChip(){return `<span class="estchip">⚠︎ TAHMİN</span>`;}
 function provStrip(k){
   const m=MK[k], p=provOf(k);
   const dot={verified:"●",unverified:"◐",stale:"◐",estimate:"○",expired:"○"}[p.tier];
-  const src=m.source?`<a href="${m.source}" target="_blank" rel="noopener">${m.sourceLabel||"Kaynak"} ↗</a>`:(m.sourceLabel||"Kaynak yok");
-  return `<div class="prov ${p.cls}"><span class="pd">${dot}</span> ${p.label} · ${src}${p.tier==="estimate"?' <b>— bu oranı kendi panelinden doğrula</b>':""}</div>`;
+  const src=m.source?`<a href="${m.source}" target="_blank" rel="noopener">${m.sourceLabel||t('ca_src')} ↗</a>`:(m.sourceLabel||t('ca_noSrc'));
+  const lbl=(p.labelKey==='pv_expired')?t('pv_expired').replace('{d}',p.age):(p.labelKey?t(p.labelKey):p.label);
+  return `<div class="prov ${p.cls}"><span class="pd">${dot}</span> ${lbl} · ${src}${p.tier==="estimate"?(' <b>'+t('ca_verifyOwn')+'</b>'):""}</div>`;
 }
 Object.assign(MK.trendyol,{status:"reference",sourceLabel:"Trendyol Satıcı Paneli — kategori/satıcı sözleşmesi esas",source:"https://partner.trendyol.com"});
 Object.assign(MK.hepsiburada,{status:"reference",sourceLabel:"Hepsiburada Satıcı Paneli — hizmet+işlem bedeli baremli",source:"https://merchant.hepsiburada.com"});
@@ -2444,12 +2445,12 @@ function selectMk(k){
  current=k;const m=MK[k],co=CO[m.co];mkSel.value=k;
  // Pazaryeri değişti: eski para biriminin sonucu ekranda kalmasın
  const _so=document.getElementById('solveOut'); if(_so)_so.innerHTML='';
- document.getElementById('calcTitle').textContent=m.n+" komisyon ve kâr hesaplama";
+ document.getElementById('calcTitle').textContent=m.n+" "+t('ca_titleSuf');
  document.getElementById('crumbMk').textContent=m.n;
- document.getElementById('panelName').textContent=m.n+" — Bilgileri Gir";
- document.getElementById('panelNote').textContent="Tutarları vergi dahil gir. Oranlar temsilidir, düzenleyebilirsin.";
+ document.getElementById('panelName').textContent=m.n+" — "+t('ca_panelSuf');
+ document.getElementById('panelNote').textContent=t('ca_panelNote');
  document.getElementById('mkNote').textContent=m.note;
- document.getElementById('coChip').textContent=`${co.fl} ${co.n} · Vergi %${co.vat} · ${co.cur.trim()}`;
+ document.getElementById('coChip').textContent=`${co.fl} ${co.n} · ${t('ca_coVat')} ${pct(co.vat)} · ${co.cur.trim()}`;
  // veri güvenilirliği kutusu
  const cls=m.status==='official'?'official':(m.status==='reference'?'reference':'manual');
  const stxt=m.status==='official'?'Resmî kaynak doğrulandı':(m.status==='reference'?'Referans oran — sözleşmeni kontrol et':'Manuel oran gerekli');
@@ -2459,8 +2460,8 @@ function selectMk(k){
  document.getElementById('invat').value=co.co==="TR"?20:co.vat;
  // categories
  const catRow=document.getElementById('rowCat'),catSel=document.getElementById('cat'),comLabel=document.getElementById('comLabel');
- if(m.cats){catRow.classList.remove('hide');catSel.innerHTML='';m.cats.forEach((c,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${c[0]} (~%${c[1]})`;catSel.appendChild(o);});document.getElementById('com').value=m.cats[0][1];comLabel.textContent=m.perOrder!==undefined?"Komisyon / FVF (%)":"Komisyon oranı (%)";}
- else{catRow.classList.add('hide');document.getElementById('com').value=m.fixedRate||0;comLabel.textContent="İşlem Komisyonu (%)";}
+ if(m.cats){catRow.classList.remove('hide');catSel.innerHTML='';m.cats.forEach((c,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${c[0]} (~%${c[1]})`;catSel.appendChild(o);});document.getElementById('com').value=m.cats[0][1];comLabel.textContent=m.perOrder!==undefined?t('ca_comFvf'):t('ca_comPct');}
+ else{catRow.classList.add('hide');document.getElementById('com').value=m.fixedRate||0;comLabel.textContent=t('ca_comTxn');}
  // country-based rows
  const vatOn=co.vat>0;
  document.getElementById('rowVat').classList.toggle('hide',!vatOn);
@@ -2469,8 +2470,8 @@ function selectMk(k){
  document.getElementById('rowDesi').classList.toggle('hide',!co.desi);
  document.getElementById('rowFba').classList.toggle('hide',!m.fba);
  document.getElementById('rowOffsite').classList.toggle('hide',!m.offsite);
- document.getElementById('priceHint').textContent=vatOn?"(vergi dahil)":"(vergisiz)";
- document.getElementById('costHint').textContent=vatOn?"(vergi dahil)":"(vergisiz)";
+ document.getElementById('priceHint').textContent=vatOn?t('ca_vatIncl'):t('ca_noVat');
+ document.getElementById('costHint').textContent=vatOn?t('ca_vatIncl'):t('ca_noVat');
  // defaults
  const d=DEF[sym]||[29.99,12];document.getElementById('price').value=d[0];document.getElementById('cost').value=d[1];
  document.getElementById('fba').value=0;document.getElementById('diger').value=0;document.getElementById('ads').value=0;document.getElementById('returns').value=0;
@@ -2574,19 +2575,17 @@ function calc(){
  const dec=co.dec0?0:2;
  const f2=n=>sym+n.toLocaleString(co.loc,{minimumFractionDigits:dec,maximumFractionDigits:dec});
  const rNet=document.getElementById('rNet');rNet.textContent=f0(net);rNet.style.color=net<0?'var(--red)':'var(--ink)';
- document.getElementById('rMarj').textContent='%'+marj.toFixed(1);
- document.getElementById('rRoi').textContent='%'+roi.toFixed(0);
+ document.getElementById('rMarj').textContent=pct(marj.toFixed(1));
+ document.getElementById('rRoi').textContent=pct(roi.toFixed(0));
  // Mobil sabit sonuç barı — aşağı inince sonucu kaybetme
  const _mb=document.getElementById('mobResult');
- if(_mb){_mb.innerHTML=`<span>Kalan <b>${f0(net)}</b></span><span class="dot">·</span><span>%${marj.toFixed(0)} marj</span>`;_mb.classList.add('show');_mb.style.background=net<0?'var(--red)':'';}
- let band,bc;if(net<0){band='Zarar';bc='rgba(176,42,42,.55)';}else if(marj<8){band='Riskli — düşük marj';bc='rgba(194,86,14,.6)';}else if(marj<18){band='İzlenmeli';bc='rgba(184,134,11,.6)';}else{band='Sağlıklı kâr';bc='rgba(30,123,79,.65)';}
+ if(_mb){_mb.innerHTML=`<span>${t('ca_mobLeft')} <b>${f0(net)}</b></span><span class="dot">·</span><span>${pct(marj.toFixed(0))} ${t('ca_mobMarj')}</span>`;_mb.classList.add('show');_mb.style.background=net<0?'var(--red)':'';}
+ let band,bc;if(net<0){band=t('ca_bLoss');bc='rgba(176,42,42,.55)';}else if(marj<8){band=t('ca_bRisk');bc='rgba(194,86,14,.6)';}else if(marj<18){band=t('ca_bWatch');bc='rgba(184,134,11,.6)';}else{band=t('ca_bHealthy');bc='rgba(30,123,79,.65)';}
  const be=document.getElementById('rBand');be.textContent=band;be.style.background=bc;
  // İnsan-dili yorum: satıcı rakamı değil, kararı okusun.
- try{ const _m=marj.toFixed(0);
-   const verdict = net<0 ? `Bu üründe yaklaşık ${f0(-net)} zarardasın — fiyat, maliyet ya da pazaryeri seçimini gözden geçir.`
-     : marj<8 ? `Eline ${f0(net)} kalıyor ama marj çok ince (%${_m}); kargo ve iade bu kârı kolayca yiyebilir.`
-     : marj<18 ? `Eline ${f0(net)} kalıyor (%${_m} marj) — iş görür; reklam ve iade payını da ekleyip izlemekte fayda var.`
-     : `Eline ${f0(net)} kalıyor (%${_m} marj) — bu üründe kârın sağlıklı görünüyor.`;
+ try{ const _m=pct(marj.toFixed(0));
+   const _vk = net<0 ? 'ca_vLoss' : marj<8 ? 'ca_vRisk' : marj<18 ? 'ca_vWatch' : 'ca_vHealthy';
+   const verdict = t(_vk).replace('{x}', net<0?f0(-net):f0(net)).replace('{m}', _m);
    let vEl=document.getElementById('rVerdict');
    if(!vEl && be){ vEl=document.createElement('div'); vEl.id='rVerdict'; vEl.style.cssText='font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5'; be.parentNode.insertBefore(vEl, be.nextSibling); }
    if(vEl) vEl.textContent=verdict;
@@ -2635,7 +2634,7 @@ function calc(){
 function advSummary(){
  const el=document.getElementById('advAuto'); if(!el)return;
  const com=document.getElementById('com').value, vat=document.getElementById('vat').value;
- el.textContent=`komisyon %${com} · KDV %${vat} · otomatik`;
+ el.textContent=`${t('ca_comShort')} ${pct(com)} · ${t('ca_coVat')} ${pct(vat)} · ${t('ca_auto')}`;
 }
 // ============ ORTAK SAF HESAP (çözücü + karşılaştırma için) ============
 function netFor(m,co,S,M,rate,kargoG,fbaG,diger,vat,stopajOn,offset,offsiteOn,inVat,ads,returns){
@@ -3338,6 +3337,36 @@ const HC_PARTS={tr:["Pazaryeri","KDV","Ürün","Satıştan kalan"],en:["Marketpl
 // gapBlock delta etiketleri (puan / ek kesinti) — dil başına.
 const HC_X={tr:{hc_pts:"puan",hc_extra:"ek kesinti"},en:{hc_pts:"pts",hc_extra:"extra deduction"},de:{hc_pts:"Pkt.",hc_extra:"Zusatzabzug"},fr:{hc_pts:"pts",hc_extra:"prélèvement supp."},es:{hc_pts:"pts",hc_extra:"deducción extra"},it:{hc_pts:"pti",hc_extra:"trattenuta extra"}};
 try{Object.keys(HC_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),HC_X[l]));}catch(e){}
+// ===== /calc (tam hesap makinesi sayfası) — 6 dil =====
+const CALC_I18N={
+ tr:{ca_sub:"Satış fiyatını ve maliyetlerini gir. Komisyon, vergi ve operasyon giderlerinden sonra kalan tutarı gör.",ca_mp:"Pazaryeri",ca_cat:"Kategori",ca_catHint:"— komisyonu otomatik doldurur",ca_vatIncl:"(KDV dahil)",ca_ship:"Kargo / gönderim",ca_shipHint:"(vergi dahil · tahmini)",ca_adv:"Gelişmiş maliyetler",ca_advHint:"— reklam, iade, vergi, ek giderler",ca_vat:"Ülke vergisi (KDV/VAT/GST)",ca_desi:"Kargo (Desi)",ca_desiHint:"— kargo tutarını tahmini doldurur",ca_fba:"FBA / gönderim",ca_fbaHint:"(/sipariş)",ca_extra:"Ek maliyet",ca_extraHint:"(paketleme vb.)",ca_ads:"Sipariş reklam maliyeti",ca_adsHint:"(reklam/PPC ÷ sipariş)",ca_ret:"İade / hasar karşılığı",ca_retHint:"(sipariş başı beklenen)",ca_inVat:"Kargo & Gider KDV %",ca_inVatHint:"— ürün alış, kargo ve paketlemenin KDV'si (satıcının faturalandığı ülke). TR'den kendin gönderiyorsan %20; FBA/yurt dışı depo kullanıyorsan hedef ülke oranı.",ca_stopaj:"%1 Stopaj (Türkiye)",ca_offset:"Vergi mahsubunu uygula (vergi mükellefi)",ca_offsite:"Reklam/Offsite Ads (%15) dahil et",ca_inclT:"ⓘ Netvo neleri hesaplıyor?",ca_inclB:"Bu araç <b>operasyonel kârı</b> hesaplar: komisyon, hizmet bedeli, vergi, kargo, reklam, iade ve ürün maliyeti. <b>Dahil değildir:</b> yıl sonu gelir/kurumlar vergisi ve sınır ötesi işlem/gümrük ücretleri. Kargo/gider KDV'sini satıcının faturalandığı ülkeye göre ayarla. <b>Not:</b> Hesap, KDV mükellefi satıcıyı varsayar (girdi KDV'sini indirdiğini kabul eder). KDV mükellefi değilsen sana kalan bundan düşüktür.",ca_ohT:"Gerçek işletme giderlerini de ekle",ca_ohP:"Aylık toplam sabit giderini ve sipariş adedini gir; Netvo sipariş başına gider payını hesaplayıp <b>gerçek kâr</b>ı gösterir. Veriler yalnızca bu tarayıcıda saklanır.",ca_ohOrders:"Aylık sipariş adedi",ca_staff:"Personel",ca_rent:"Kira / depo",ca_acc:"Muhasebe / mali müşavir",ca_soft:"Yazılım / abonelikler",ca_other:"Diğer sabit gider",ca_marj:"Kâr marjı",ca_roi:"Maliyet getirisi",ca_target:"Kaça satmalısın?",ca_tgtMarj:"Hedef marj",ca_calcTgt:"Hedef fiyatı hesapla",ca_showBe:"Başabaşı göster",ca_flow:"Para akışı",ca_salePrice:"Satış fiyatı",ca_mpTax:"Pazaryeri ve vergiler",ca_prodOps:"Ürün ve operasyon",ca_taxDet:"Vergi ve tahsilat detaylarını gör",ca_payout:"Pazaryerinden tahsilat",ca_withh:"Tevkifat (vergi alacağı)",ca_vatCalc:"Hesaplanan satış KDV'si",ca_vatPay:"Tahmini ödenecek KDV",ca_netSales:"KDV hariç net satış",ca_alloc:"Satışın dağılımı",ca_save:"Bu ürünü kaydet",ca_saveBtn:"Kaydet",ca_cancel:"Vazgeç",ca_savePh:"Ürün adı / SKU / kod — ne istersen",ca_notePh:"Not (opsiyonel)",ca_titleSuf:"komisyon ve kâr hesaplama",ca_panelSuf:"Bilgileri Gir",ca_panelNote:"Tutarları vergi dahil gir. Oranlar temsilidir, düzenleyebilirsin.",ca_coVat:"Vergi",ca_comPct:"Komisyon oranı (%)",ca_comFvf:"Komisyon / FVF (%)",ca_comTxn:"İşlem Komisyonu (%)",ca_bLoss:"Zarar",ca_bRisk:"Riskli — düşük marj",ca_bWatch:"İzlenmeli",ca_bHealthy:"Sağlıklı kâr",ca_vLoss:"Bu üründe yaklaşık {x} zarardasın — fiyat, maliyet ya da pazaryeri seçimini gözden geçir.",ca_vRisk:"Eline {x} kalıyor ama marj çok ince ({m}); kargo ve iade bu kârı kolayca yiyebilir.",ca_vWatch:"Eline {x} kalıyor ({m} marj) — iş görür; reklam ve iade payını da ekleyip izlemekte fayda var.",ca_vHealthy:"Eline {x} kalıyor ({m} marj) — bu üründe kârın sağlıklı görünüyor.",ca_mobLeft:"Kalan",ca_mobMarj:"marj",ca_myprod:"Ürünlerim",ca_mysub:"Kaydettiğin ürünler: her birinde sana ne kaldığı ve marjı. Tekrar hesapla ya da karşılaştır.",ca_csv:"CSV indir",ca_delall:"Tümünü sil"},
+ en:{ca_sub:"Enter your sale price and costs. See what's left after commission, tax and operating costs.",ca_mp:"Marketplace",ca_cat:"Category",ca_catHint:"— auto-fills the commission",ca_vatIncl:"(VAT incl.)",ca_ship:"Shipping / delivery",ca_shipHint:"(tax incl. · estimated)",ca_adv:"Advanced costs",ca_advHint:"— ads, returns, tax, extra costs",ca_vat:"Country tax (VAT/GST)",ca_desi:"Shipping (volumetric)",ca_desiHint:"— estimates the shipping amount",ca_fba:"FBA / fulfilment",ca_fbaHint:"(/order)",ca_extra:"Extra cost",ca_extraHint:"(packaging etc.)",ca_ads:"Ad cost per order",ca_adsHint:"(ads/PPC ÷ orders)",ca_ret:"Returns / damage allowance",ca_retHint:"(expected per order)",ca_inVat:"Shipping & cost VAT %",ca_inVatHint:"— VAT on product purchase, shipping and packaging (seller's billing country). Shipping yourself from your country: your local rate; using FBA/overseas warehouse: the destination rate.",ca_stopaj:"1% withholding (Türkiye)",ca_offset:"Apply input-tax credit (VAT-registered)",ca_offsite:"Include Offsite Ads (15%)",ca_inclT:"ⓘ What does Netvo calculate?",ca_inclB:"This tool calculates <b>operating profit</b>: commission, service fees, tax, shipping, ads, returns and product cost. <b>Not included:</b> year-end income/corporate tax and cross-border transaction/customs fees. Set the shipping/cost VAT to the seller's billing country. <b>Note:</b> the calc assumes a VAT-registered seller (that you deduct input VAT). If you're not VAT-registered, what's left is lower.",ca_ohT:"Add your real business overheads too",ca_ohP:"Enter your total monthly fixed costs and order count; Netvo computes the per-order overhead share and shows your <b>real profit</b>. Data is stored only in this browser.",ca_ohOrders:"Monthly order count",ca_staff:"Staff",ca_rent:"Rent / warehouse",ca_acc:"Accounting",ca_soft:"Software / subscriptions",ca_other:"Other fixed costs",ca_marj:"Profit margin",ca_roi:"Return on cost",ca_target:"What should you charge?",ca_tgtMarj:"Target margin",ca_calcTgt:"Calculate target price",ca_showBe:"Show break-even",ca_flow:"Cash flow",ca_salePrice:"Sale price",ca_mpTax:"Marketplace and taxes",ca_prodOps:"Product and operations",ca_taxDet:"See tax and payout details",ca_payout:"Marketplace payout",ca_withh:"Withholding (tax credit)",ca_vatCalc:"Calculated sales VAT",ca_vatPay:"Estimated VAT payable",ca_netSales:"Net sales excl. VAT",ca_alloc:"Sale breakdown",ca_save:"Save this product",ca_saveBtn:"Save",ca_cancel:"Cancel",ca_savePh:"Product name / SKU / code — whatever you like",ca_notePh:"Note (optional)",ca_titleSuf:"commission & profit calculator",ca_panelSuf:"Enter details",ca_panelNote:"Enter amounts tax-inclusive. Rates are indicative — you can edit them.",ca_coVat:"Tax",ca_comPct:"Commission rate (%)",ca_comFvf:"Commission / FVF (%)",ca_comTxn:"Transaction fee (%)",ca_bLoss:"Loss",ca_bRisk:"Risky — thin margin",ca_bWatch:"Watch",ca_bHealthy:"Healthy profit",ca_vLoss:"You're down about {x} on this product — review the price, costs or marketplace choice.",ca_vRisk:"You keep {x} but the margin is very thin ({m}); shipping and returns can easily eat this profit.",ca_vWatch:"You keep {x} ({m} margin) — workable; worth adding ad and return allowances and keeping an eye on it.",ca_vHealthy:"You keep {x} ({m} margin) — profit looks healthy on this product.",ca_mobLeft:"Left",ca_mobMarj:"margin",ca_myprod:"My products",ca_mysub:"Products you saved: what's left on each and the margin. Recalculate or compare.",ca_csv:"Download CSV",ca_delall:"Delete all"},
+ de:{ca_sub:"Gib Verkaufspreis und Kosten ein. Sieh, was nach Provision, Steuer und Betriebskosten übrig bleibt.",ca_mp:"Marktplatz",ca_cat:"Kategorie",ca_catHint:"— füllt die Provision automatisch",ca_vatIncl:"(inkl. MwSt.)",ca_ship:"Versand / Lieferung",ca_shipHint:"(inkl. Steuer · geschätzt)",ca_adv:"Erweiterte Kosten",ca_advHint:"— Werbung, Retouren, Steuer, Zusatzkosten",ca_vat:"Landessteuer (MwSt./USt.)",ca_desi:"Versand (Volumen)",ca_desiHint:"— schätzt den Versandbetrag",ca_fba:"FBA / Fulfillment",ca_fbaHint:"(/Bestellung)",ca_extra:"Zusatzkosten",ca_extraHint:"(Verpackung usw.)",ca_ads:"Werbekosten pro Bestellung",ca_adsHint:"(Werbung/PPC ÷ Bestellungen)",ca_ret:"Retouren / Schadensrückstellung",ca_retHint:"(erwartet pro Bestellung)",ca_inVat:"Versand- & Kosten-MwSt. %",ca_inVatHint:"— MwSt. auf Wareneinkauf, Versand und Verpackung (Rechnungsland des Verkäufers). Eigenversand aus deinem Land: dein lokaler Satz; FBA/Auslandslager: Zielland-Satz.",ca_stopaj:"1% Quellensteuer (Türkei)",ca_offset:"Vorsteuerabzug anwenden (umsatzsteuerpflichtig)",ca_offsite:"Offsite Ads (15%) einbeziehen",ca_inclT:"ⓘ Was berechnet Netvo?",ca_inclB:"Dieses Tool berechnet den <b>operativen Gewinn</b>: Provision, Servicegebühren, Steuer, Versand, Werbung, Retouren und Produktkosten. <b>Nicht enthalten:</b> Einkommen-/Körperschaftsteuer am Jahresende und grenzüberschreitende Transaktions-/Zollgebühren. Stelle die Versand-/Kosten-MwSt. auf das Rechnungsland des Verkäufers ein. <b>Hinweis:</b> Die Rechnung setzt einen umsatzsteuerpflichtigen Verkäufer voraus (Vorsteuerabzug). Bist du es nicht, bleibt weniger übrig.",ca_ohT:"Füge auch deine echten Betriebskosten hinzu",ca_ohP:"Gib deine gesamten monatlichen Fixkosten und die Bestellzahl ein; Netvo berechnet den Fixkostenanteil pro Bestellung und zeigt deinen <b>echten Gewinn</b>. Daten werden nur in diesem Browser gespeichert.",ca_ohOrders:"Monatliche Bestellzahl",ca_staff:"Personal",ca_rent:"Miete / Lager",ca_acc:"Buchhaltung",ca_soft:"Software / Abos",ca_other:"Sonstige Fixkosten",ca_marj:"Gewinnmarge",ca_roi:"Kostenrendite",ca_target:"Zu welchem Preis verkaufen?",ca_tgtMarj:"Zielmarge",ca_calcTgt:"Zielpreis berechnen",ca_showBe:"Break-even anzeigen",ca_flow:"Geldfluss",ca_salePrice:"Verkaufspreis",ca_mpTax:"Marktplatz und Steuern",ca_prodOps:"Produkt und Betrieb",ca_taxDet:"Steuer- und Auszahlungsdetails ansehen",ca_payout:"Marktplatz-Auszahlung",ca_withh:"Quellensteuer (Steuerguthaben)",ca_vatCalc:"Berechnete Verkaufs-MwSt.",ca_vatPay:"Geschätzte zu zahlende MwSt.",ca_netSales:"Nettoumsatz ohne MwSt.",ca_alloc:"Verkaufsaufteilung",ca_save:"Dieses Produkt speichern",ca_saveBtn:"Speichern",ca_cancel:"Abbrechen",ca_savePh:"Produktname / SKU / Code — ganz wie du willst",ca_notePh:"Notiz (optional)",ca_titleSuf:"Provisions- & Gewinnrechner",ca_panelSuf:"Daten eingeben",ca_panelNote:"Beträge inkl. Steuer eingeben. Sätze sind Richtwerte — du kannst sie anpassen.",ca_coVat:"Steuer",ca_comPct:"Provisionssatz (%)",ca_comFvf:"Provision / FVF (%)",ca_comTxn:"Transaktionsgebühr (%)",ca_bLoss:"Verlust",ca_bRisk:"Riskant — dünne Marge",ca_bWatch:"Beobachten",ca_bHealthy:"Gesunder Gewinn",ca_vLoss:"Bei diesem Produkt machst du etwa {x} Verlust — prüfe Preis, Kosten oder Marktplatzwahl.",ca_vRisk:"Dir bleiben {x}, aber die Marge ist sehr dünn ({m}); Versand und Retouren können diesen Gewinn leicht auffressen.",ca_vWatch:"Dir bleiben {x} ({m} Marge) — brauchbar; Werbe- und Retourenanteil ergänzen und im Blick behalten.",ca_vHealthy:"Dir bleiben {x} ({m} Marge) — der Gewinn sieht bei diesem Produkt gesund aus.",ca_mobLeft:"Übrig",ca_mobMarj:"Marge",ca_myprod:"Meine Produkte",ca_mysub:"Gespeicherte Produkte: was bei jedem übrig bleibt und die Marge. Neu berechnen oder vergleichen.",ca_csv:"CSV herunterladen",ca_delall:"Alle löschen"},
+ fr:{ca_sub:"Saisis ton prix de vente et tes coûts. Vois ce qui reste après commission, taxe et coûts opérationnels.",ca_mp:"Place de marché",ca_cat:"Catégorie",ca_catHint:"— remplit la commission automatiquement",ca_vatIncl:"(TVA incl.)",ca_ship:"Expédition / livraison",ca_shipHint:"(taxe incl. · estimé)",ca_adv:"Coûts avancés",ca_advHint:"— pub, retours, taxe, coûts supplémentaires",ca_vat:"Taxe du pays (TVA/GST)",ca_desi:"Expédition (volumétrique)",ca_desiHint:"— estime le montant d'expédition",ca_fba:"FBA / traitement",ca_fbaHint:"(/commande)",ca_extra:"Coût supplémentaire",ca_extraHint:"(emballage, etc.)",ca_ads:"Coût pub par commande",ca_adsHint:"(pub/PPC ÷ commandes)",ca_ret:"Retours / provision dommages",ca_retHint:"(attendu par commande)",ca_inVat:"TVA expédition & coûts %",ca_inVatHint:"— TVA sur l'achat produit, l'expédition et l'emballage (pays de facturation du vendeur). Envoi toi-même depuis ton pays : ton taux local ; FBA/entrepôt étranger : taux du pays de destination.",ca_stopaj:"1% retenue à la source (Türkiye)",ca_offset:"Appliquer le crédit de TVA (assujetti)",ca_offsite:"Inclure Offsite Ads (15%)",ca_inclT:"ⓘ Que calcule Netvo ?",ca_inclB:"Cet outil calcule le <b>bénéfice opérationnel</b> : commission, frais de service, taxe, expédition, pub, retours et coût produit. <b>Non inclus :</b> impôt sur le revenu/sociétés de fin d'année et frais de transaction/douane transfrontaliers. Règle la TVA expédition/coûts selon le pays de facturation du vendeur. <b>Note :</b> le calcul suppose un vendeur assujetti à la TVA (déduction de la TVA d'amont). Sinon, ce qui reste est plus bas.",ca_ohT:"Ajoute aussi tes vrais frais généraux",ca_ohP:"Saisis tes coûts fixes mensuels totaux et le nombre de commandes ; Netvo calcule la part de frais par commande et montre ton <b>vrai bénéfice</b>. Les données restent uniquement dans ce navigateur.",ca_ohOrders:"Commandes par mois",ca_staff:"Personnel",ca_rent:"Loyer / entrepôt",ca_acc:"Comptabilité",ca_soft:"Logiciels / abonnements",ca_other:"Autres coûts fixes",ca_marj:"Marge bénéficiaire",ca_roi:"Rendement sur coût",ca_target:"À quel prix vendre ?",ca_tgtMarj:"Marge cible",ca_calcTgt:"Calculer le prix cible",ca_showBe:"Afficher le seuil",ca_flow:"Flux de trésorerie",ca_salePrice:"Prix de vente",ca_mpTax:"Place de marché et taxes",ca_prodOps:"Produit et opérations",ca_taxDet:"Voir le détail taxe et versement",ca_payout:"Versement de la place de marché",ca_withh:"Retenue (crédit d'impôt)",ca_vatCalc:"TVA de vente calculée",ca_vatPay:"TVA estimée à payer",ca_netSales:"Ventes nettes hors TVA",ca_alloc:"Répartition de la vente",ca_save:"Enregistrer ce produit",ca_saveBtn:"Enregistrer",ca_cancel:"Annuler",ca_savePh:"Nom produit / SKU / code — comme tu veux",ca_notePh:"Note (facultatif)",ca_titleSuf:"calculateur de commission et bénéfice",ca_panelSuf:"Saisir les détails",ca_panelNote:"Saisis les montants TTC. Les taux sont indicatifs — tu peux les modifier.",ca_coVat:"Taxe",ca_comPct:"Taux de commission (%)",ca_comFvf:"Commission / FVF (%)",ca_comTxn:"Frais de transaction (%)",ca_bLoss:"Perte",ca_bRisk:"Risqué — marge fine",ca_bWatch:"À surveiller",ca_bHealthy:"Bénéfice sain",ca_vLoss:"Tu perds environ {x} sur ce produit — revois le prix, les coûts ou le choix de place de marché.",ca_vRisk:"Il te reste {x} mais la marge est très fine ({m}) ; l'expédition et les retours peuvent facilement manger ce bénéfice.",ca_vWatch:"Il te reste {x} ({m} de marge) — exploitable ; ajoute les provisions pub et retours et garde un œil dessus.",ca_vHealthy:"Il te reste {x} ({m} de marge) — le bénéfice semble sain sur ce produit.",ca_mobLeft:"Reste",ca_mobMarj:"marge",ca_myprod:"Mes produits",ca_mysub:"Produits enregistrés : ce qui reste sur chacun et la marge. Recalcule ou compare.",ca_csv:"Télécharger le CSV",ca_delall:"Tout supprimer"},
+ es:{ca_sub:"Introduce tu precio de venta y tus costes. Mira lo que queda tras comisión, impuesto y costes operativos.",ca_mp:"Marketplace",ca_cat:"Categoría",ca_catHint:"— rellena la comisión automáticamente",ca_vatIncl:"(IVA incl.)",ca_ship:"Envío / entrega",ca_shipHint:"(impuesto incl. · estimado)",ca_adv:"Costes avanzados",ca_advHint:"— publicidad, devoluciones, impuesto, costes extra",ca_vat:"Impuesto del país (IVA/GST)",ca_desi:"Envío (volumétrico)",ca_desiHint:"— estima el importe de envío",ca_fba:"FBA / fulfillment",ca_fbaHint:"(/pedido)",ca_extra:"Coste extra",ca_extraHint:"(embalaje, etc.)",ca_ads:"Coste de publicidad por pedido",ca_adsHint:"(publicidad/PPC ÷ pedidos)",ca_ret:"Devoluciones / provisión de daños",ca_retHint:"(esperado por pedido)",ca_inVat:"IVA de envío y costes %",ca_inVatHint:"— IVA sobre la compra del producto, el envío y el embalaje (país de facturación del vendedor). Si envías tú desde tu país: tu tipo local; con FBA/almacén en el extranjero: tipo del país de destino.",ca_stopaj:"1% retención (Türkiye)",ca_offset:"Aplicar deducción de IVA (sujeto a IVA)",ca_offsite:"Incluir Offsite Ads (15%)",ca_inclT:"ⓘ ¿Qué calcula Netvo?",ca_inclB:"Esta herramienta calcula el <b>beneficio operativo</b>: comisión, tarifas de servicio, impuesto, envío, publicidad, devoluciones y coste del producto. <b>No incluye:</b> impuesto de renta/sociedades de fin de año ni tarifas de transacción/aduana transfronterizas. Ajusta el IVA de envío/costes al país de facturación del vendedor. <b>Nota:</b> el cálculo asume un vendedor sujeto a IVA (que deduces el IVA soportado). Si no lo eres, lo que queda es menor.",ca_ohT:"Añade también tus gastos reales de negocio",ca_ohP:"Introduce tus costes fijos mensuales totales y el número de pedidos; Netvo calcula la parte de gastos por pedido y muestra tu <b>beneficio real</b>. Los datos se guardan solo en este navegador.",ca_ohOrders:"Pedidos al mes",ca_staff:"Personal",ca_rent:"Alquiler / almacén",ca_acc:"Contabilidad",ca_soft:"Software / suscripciones",ca_other:"Otros costes fijos",ca_marj:"Margen de beneficio",ca_roi:"Rendimiento sobre coste",ca_target:"¿A cuánto deberías vender?",ca_tgtMarj:"Margen objetivo",ca_calcTgt:"Calcular precio objetivo",ca_showBe:"Mostrar punto de equilibrio",ca_flow:"Flujo de caja",ca_salePrice:"Precio de venta",ca_mpTax:"Marketplace e impuestos",ca_prodOps:"Producto y operación",ca_taxDet:"Ver detalle de impuesto y liquidación",ca_payout:"Liquidación del marketplace",ca_withh:"Retención (crédito fiscal)",ca_vatCalc:"IVA de venta calculado",ca_vatPay:"IVA estimado a pagar",ca_netSales:"Ventas netas sin IVA",ca_alloc:"Desglose de la venta",ca_save:"Guardar este producto",ca_saveBtn:"Guardar",ca_cancel:"Cancelar",ca_savePh:"Nombre de producto / SKU / código — lo que quieras",ca_notePh:"Nota (opcional)",ca_titleSuf:"calculadora de comisión y beneficio",ca_panelSuf:"Introduce los datos",ca_panelNote:"Introduce importes con impuesto incluido. Las tasas son orientativas — puedes editarlas.",ca_coVat:"Impuesto",ca_comPct:"Tasa de comisión (%)",ca_comFvf:"Comisión / FVF (%)",ca_comTxn:"Comisión de transacción (%)",ca_bLoss:"Pérdida",ca_bRisk:"Arriesgado — margen fino",ca_bWatch:"A vigilar",ca_bHealthy:"Beneficio sano",ca_vLoss:"Pierdes unos {x} en este producto — revisa el precio, los costes o la elección de marketplace.",ca_vRisk:"Te quedan {x} pero el margen es muy fino ({m}); el envío y las devoluciones pueden comerse fácilmente este beneficio.",ca_vWatch:"Te quedan {x} ({m} de margen) — aceptable; añade las provisiones de publicidad y devoluciones y vigílalo.",ca_vHealthy:"Te quedan {x} ({m} de margen) — el beneficio se ve sano en este producto.",ca_mobLeft:"Queda",ca_mobMarj:"margen",ca_myprod:"Mis productos",ca_mysub:"Productos guardados: lo que queda en cada uno y el margen. Recalcula o compara.",ca_csv:"Descargar CSV",ca_delall:"Eliminar todo"},
+ it:{ca_sub:"Inserisci il prezzo di vendita e i costi. Vedi cosa resta dopo commissione, imposta e costi operativi.",ca_mp:"Marketplace",ca_cat:"Categoria",ca_catHint:"— compila la commissione automaticamente",ca_vatIncl:"(IVA incl.)",ca_ship:"Spedizione / consegna",ca_shipHint:"(imposta incl. · stimato)",ca_adv:"Costi avanzati",ca_advHint:"— pubblicità, resi, imposta, costi extra",ca_vat:"Imposta del paese (IVA/GST)",ca_desi:"Spedizione (volumetrica)",ca_desiHint:"— stima l'importo di spedizione",ca_fba:"FBA / evasione",ca_fbaHint:"(/ordine)",ca_extra:"Costo extra",ca_extraHint:"(imballaggio, ecc.)",ca_ads:"Costo pubblicità per ordine",ca_adsHint:"(pubblicità/PPC ÷ ordini)",ca_ret:"Resi / accantonamento danni",ca_retHint:"(atteso per ordine)",ca_inVat:"IVA spedizione e costi %",ca_inVatHint:"— IVA su acquisto prodotto, spedizione e imballaggio (paese di fatturazione del venditore). Se spedisci tu dal tuo paese: la tua aliquota locale; con FBA/magazzino estero: aliquota del paese di destinazione.",ca_stopaj:"1% ritenuta (Türkiye)",ca_offset:"Applica detrazione IVA (soggetto IVA)",ca_offsite:"Includi Offsite Ads (15%)",ca_inclT:"ⓘ Cosa calcola Netvo?",ca_inclB:"Questo strumento calcola l'<b>utile operativo</b>: commissione, costi di servizio, imposta, spedizione, pubblicità, resi e costo del prodotto. <b>Non incluso:</b> imposta sul reddito/società di fine anno e costi di transazione/dogana transfrontalieri. Imposta l'IVA spedizione/costi sul paese di fatturazione del venditore. <b>Nota:</b> il calcolo presuppone un venditore soggetto IVA (che detrae l'IVA a credito). Se non lo sei, ciò che resta è inferiore.",ca_ohT:"Aggiungi anche i tuoi costi aziendali reali",ca_ohP:"Inserisci i costi fissi mensili totali e il numero di ordini; Netvo calcola la quota di costi per ordine e mostra il tuo <b>utile reale</b>. I dati sono salvati solo in questo browser.",ca_ohOrders:"Ordini al mese",ca_staff:"Personale",ca_rent:"Affitto / magazzino",ca_acc:"Contabilità",ca_soft:"Software / abbonamenti",ca_other:"Altri costi fissi",ca_marj:"Margine di profitto",ca_roi:"Rendimento sul costo",ca_target:"A quanto dovresti vendere?",ca_tgtMarj:"Margine obiettivo",ca_calcTgt:"Calcola il prezzo obiettivo",ca_showBe:"Mostra il pareggio",ca_flow:"Flusso di cassa",ca_salePrice:"Prezzo di vendita",ca_mpTax:"Marketplace e imposte",ca_prodOps:"Prodotto e operazioni",ca_taxDet:"Vedi dettaglio imposta e liquidazione",ca_payout:"Liquidazione del marketplace",ca_withh:"Ritenuta (credito d'imposta)",ca_vatCalc:"IVA di vendita calcolata",ca_vatPay:"IVA stimata da pagare",ca_netSales:"Vendite nette IVA escl.",ca_alloc:"Ripartizione della vendita",ca_save:"Salva questo prodotto",ca_saveBtn:"Salva",ca_cancel:"Annulla",ca_savePh:"Nome prodotto / SKU / codice — come preferisci",ca_notePh:"Nota (facoltativo)",ca_titleSuf:"calcolatore di commissione e profitto",ca_panelSuf:"Inserisci i dati",ca_panelNote:"Inserisci gli importi IVA inclusa. Le aliquote sono indicative — puoi modificarle.",ca_coVat:"Imposta",ca_comPct:"Tasso di commissione (%)",ca_comFvf:"Commissione / FVF (%)",ca_comTxn:"Commissione di transazione (%)",ca_bLoss:"Perdita",ca_bRisk:"Rischioso — margine sottile",ca_bWatch:"Da monitorare",ca_bHealthy:"Profitto sano",ca_vLoss:"Su questo prodotto sei in perdita di circa {x} — rivedi prezzo, costi o scelta del marketplace.",ca_vRisk:"Ti restano {x} ma il margine è molto sottile ({m}); spedizione e resi possono facilmente mangiare questo profitto.",ca_vWatch:"Ti restano {x} ({m} di margine) — accettabile; aggiungi gli accantonamenti pubblicità e resi e tienilo d'occhio.",ca_vHealthy:"Ti restano {x} ({m} di margine) — il profitto sembra sano su questo prodotto.",ca_mobLeft:"Resta",ca_mobMarj:"margine",ca_myprod:"I miei prodotti",ca_mysub:"Prodotti salvati: cosa resta su ciascuno e il margine. Ricalcola o confronta.",ca_csv:"Scarica CSV",ca_delall:"Elimina tutto"}
+};
+try{Object.keys(CALC_I18N).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),CALC_I18N[l]));}catch(e){}
+const CALC_X={
+ tr:{ca_noVat:"(vergisiz)",ca_home:"Ana Sayfa",ca_tools:"Araçlar",ca_src:"Kaynak",ca_noSrc:"Kaynak yok",ca_verifyOwn:"— bu oranı kendi panelinden doğrula",pv_est:"Kaynak yok — tahmin",pv_unver:"Kaynak var, doğrulama tarihi yok",pv_fresh:"kaynaklı",pv_stale:"kaynak eskimiş olabilir",pv_expired:"{d} gün geçti — güncelliğini yitirdi"},
+ en:{ca_noVat:"(no tax)",ca_home:"Home",ca_tools:"Tools",ca_src:"Source",ca_noSrc:"No source",ca_verifyOwn:"— verify this rate in your own dashboard",pv_est:"No source — estimate",pv_unver:"Sourced, no verification date",pv_fresh:"sourced",pv_stale:"source may be outdated",pv_expired:"{d} days old — out of date"},
+ de:{ca_noVat:"(ohne Steuer)",ca_home:"Startseite",ca_tools:"Tools",ca_src:"Quelle",ca_noSrc:"Keine Quelle",ca_verifyOwn:"— prüfe diese Rate in deinem eigenen Dashboard",pv_est:"Keine Quelle — Schätzung",pv_unver:"Mit Quelle, ohne Prüfdatum",pv_fresh:"mit Quelle",pv_stale:"Quelle evtl. veraltet",pv_expired:"{d} Tage alt — veraltet"},
+ fr:{ca_noVat:"(hors taxe)",ca_home:"Accueil",ca_tools:"Outils",ca_src:"Source",ca_noSrc:"Aucune source",ca_verifyOwn:"— vérifie ce taux dans ton propre tableau de bord",pv_est:"Aucune source — estimation",pv_unver:"Sourcé, sans date de vérification",pv_fresh:"sourcé",pv_stale:"source peut-être obsolète",pv_expired:"{d} jours — obsolète"},
+ es:{ca_noVat:"(sin impuesto)",ca_home:"Inicio",ca_tools:"Herramientas",ca_src:"Fuente",ca_noSrc:"Sin fuente",ca_verifyOwn:"— verifica esta tasa en tu propio panel",pv_est:"Sin fuente — estimación",pv_unver:"Con fuente, sin fecha de verificación",pv_fresh:"con fuente",pv_stale:"la fuente puede estar desactualizada",pv_expired:"{d} días — desactualizado"},
+ it:{ca_noVat:"(senza imposta)",ca_home:"Home",ca_tools:"Strumenti",ca_src:"Fonte",ca_noSrc:"Nessuna fonte",ca_verifyOwn:"— verifica questa aliquota nel tuo pannello",pv_est:"Nessuna fonte — stima",pv_unver:"Con fonte, senza data di verifica",pv_fresh:"con fonte",pv_stale:"la fonte potrebbe essere obsoleta",pv_expired:"{d} giorni — non aggiornato"}
+};
+try{Object.keys(CALC_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),CALC_X[l]));}catch(e){}
+const NAV_X={
+ tr:{nav_disc:"Keşfet",nav_watch:"Takibim",nav_login:"Giriş",nav_signup:"Giriş / Kayıt",ca_comShort:"komisyon",ca_auto:"otomatik"},
+ en:{nav_disc:"Discover",nav_watch:"Tracking",nav_login:"Log in",nav_signup:"Log in / Sign up",ca_comShort:"commission",ca_auto:"auto"},
+ de:{nav_disc:"Entdecken",nav_watch:"Verfolgt",nav_login:"Anmelden",nav_signup:"Anmelden / Registrieren",ca_comShort:"Provision",ca_auto:"automatisch"},
+ fr:{nav_disc:"Découvrir",nav_watch:"Suivi",nav_login:"Connexion",nav_signup:"Connexion / Inscription",ca_comShort:"commission",ca_auto:"auto"},
+ es:{nav_disc:"Descubrir",nav_watch:"Seguimiento",nav_login:"Iniciar sesión",nav_signup:"Iniciar sesión / Registro",ca_comShort:"comisión",ca_auto:"automático"},
+ it:{nav_disc:"Esplora",nav_watch:"Monitoraggio",nav_login:"Accedi",nav_signup:"Accedi / Registrati",ca_comShort:"commissione",ca_auto:"automatico"}
+};
+try{Object.keys(NAV_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),NAV_X[l]));}catch(e){}
+// Yüzde yerleşimi: TR "%20", diğer diller "20%".
+function pct(n){return (typeof LANG!=='undefined'&&LANG==='tr')?('%'+n):(n+'%');}
 let LANG='tr';
 const LANG_ORDER=['tr','en','de','fr','es','it'];
 // Dil → o bölgenin varsayılan pazaryeri. Kullanıcı elle seçmediyse dil değişince hesap makinesi buraya geçer.
@@ -3352,6 +3381,8 @@ function applyLangMk(l){
 function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null){if(/</.test(v))e.innerHTML=v;else e.textContent=v;}});const lb=document.getElementById('langBtn');if(lb)lb.textContent=l.toUpperCase()+' ▾';document.documentElement.lang=l;try{markLangActive();}catch(e){}try{if(typeof AUTO_RAW!=='undefined'&&AUTO_RAW.length&&typeof mergeAutoNews==='function')mergeAutoNews();}catch(e){}
  try{if(typeof renderHomeCompare==='function')renderHomeCompare();}catch(e){}
  try{if(typeof renderToolsHome==='function'&&document.getElementById('toolGridHome'))renderToolsHome('toolGridHome');}catch(e){}
+ try{document.querySelectorAll('[data-i18n-ph]').forEach(e=>{const k=e.getAttribute('data-i18n-ph');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null)e.setAttribute('placeholder',v);});}catch(e){}
+ try{if(typeof selectMk==='function'&&typeof current!=='undefined'&&MK[current])selectMk(current);}catch(e){} // aktif pazaryeri etiketlerini yeni dilde yeniden bas
  applyLangMk(l);}
 // t(): aktif dile göre I18N'den metin çeker (JS-render bileşenleri için). Anahtar yoksa TR'ye düşer.
 function t(k){var d=I18N[LANG]||I18N.tr;return (d&&d[k]!=null)?d[k]:(I18N.tr[k]!=null?I18N.tr[k]:k);}
@@ -3558,8 +3589,8 @@ async function netvoAuthSubmit(){
 async function netvoSignOut(){ try{ if(NETVO_SB)await NETVO_SB.auth.signOut(); }catch(e){} NETVO_USER=null; netvoUpdateUI(); toast('Çıkış yapıldı'); try{renderSaved();}catch(e){} }
 function netvoUpdateUI(){
  var b=document.getElementById('authBtn'), mb=document.getElementById('authBtnMob');
- if(NETVO_USER){ var nm=(NETVO_USER.email||'').split('@')[0]; if(b){b.textContent='👤 '+nm; b.setAttribute('onclick',"go('saved')"); b.title=NETVO_USER.email;} if(mb){mb.textContent='👤 '+nm+' — Ürünlerim'; mb.setAttribute('onclick',"go('saved')");} }
- else { if(b){b.textContent='Giriş'; b.setAttribute('onclick','netvoAuthOpen()');} if(mb){mb.textContent='Giriş / Kayıt'; mb.setAttribute('onclick','netvoAuthOpen()');} }
+ if(NETVO_USER){ var nm=(NETVO_USER.email||'').split('@')[0]; if(b){b.textContent='👤 '+nm; b.setAttribute('onclick',"go('saved')"); b.title=NETVO_USER.email;} if(mb){mb.textContent='👤 '+nm+' — '+t('ca_myprod'); mb.setAttribute('onclick',"go('saved')");} }
+ else { if(b){b.textContent=t('nav_login'); b.setAttribute('onclick','netvoAuthOpen()');} if(mb){mb.textContent=t('nav_signup'); mb.setAttribute('onclick','netvoAuthOpen()');} }
 }
 async function cloudUpsertSave(rec){ if(!NETVO_SB||!NETVO_USER||!rec)return; try{
  await NETVO_SB.from('saves').upsert({user_id:NETVO_USER.id,local_id:rec.id,name:rec.name,mk:rec.mk,country:(MK[rec.mk]&&MK[rec.mk].co)||null,cat:String(rec.catIdx==null?'':rec.catIdx),cur:rec.cur,price:rec.price,cost:rec.cost,net:rec.net,marj:rec.marj,meta:rec,updated_at:new Date().toISOString()},{onConflict:'user_id,local_id'});
