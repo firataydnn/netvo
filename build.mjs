@@ -57,7 +57,7 @@ if (fs.existsSync("icerik/haberler.json")) {
 // 4b) Pazaryeri içeriği çevirileri → public/i18n/ (lazy-load; dil başına JSON)
 if (fs.existsSync("i18n")) {
   fs.cpSync("i18n", `${OUT}/i18n`, { recursive: true });
-  console.log("→ i18n/ çevirileri kopyalandı:", say("i18n"));
+  console.log("→ i18n/ çevirileri kopyalandı:", fs.readdirSync("i18n").length, "dosya");
 }
 
 // 5) Marka varlıkları → public/marka/
