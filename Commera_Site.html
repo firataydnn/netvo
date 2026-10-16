@@ -3796,11 +3796,29 @@ var NETVO_SB=(typeof window!=='undefined'&&window.NETVO_SB)?window.NETVO_SB:null
 var _nvMode='signin';
 function _nvv(id){var e=document.getElementById(id);return e?e.value:'';}
 function nvErr(m){m=(m||'').toLowerCase();
+ if(m.includes('failed to fetch')||m.includes('load failed')||m.includes('networkerror')||m.includes('fetch'))return 'Giriş sunucusuna ulaşılamıyor — birazdan tekrar dene.';
  if(m.includes('invalid login'))return 'E-posta veya şifre hatalı.';
+ if(m.includes('email not confirmed')||m.includes('not confirmed'))return 'E-postanı onayla — gelen kutunu (ve spam) kontrol et.';
  if(m.includes('already registered')||m.includes('already been'))return 'Bu e-posta zaten kayıtlı. Giriş yap.';
  if(m.includes('password'))return 'Şifre en az 6 karakter olmalı.';
  if(m.includes('email'))return 'Geçerli bir e-posta gir.';
  return 'Bir sorun oluştu, tekrar dene.';}
+// Giriş backend'i ayakta mı? (Supabase ücretsiz proje duraklamış olabilir) — modal açılınca kontrol.
+function nvHealthCheck(){
+ var warn=document.getElementById('nvHealthWarn'), go=document.getElementById('nvGo');
+ if(!warn)return;
+ var cfg=(window.NETVO_CFG||{}); if(!cfg.url){return;}
+ var done=false, ctrl=('AbortController'in window)?new AbortController():null;
+ var t=setTimeout(function(){if(!done){done=true;if(ctrl)try{ctrl.abort()}catch(e){};nvHealthDown(true);}},5000);
+ fetch(cfg.url+'/auth/v1/health',{headers:{apikey:cfg.key},signal:ctrl?ctrl.signal:undefined})
+  .then(function(r){done=true;clearTimeout(t);nvHealthDown(!r.ok);})
+  .catch(function(){done=true;clearTimeout(t);nvHealthDown(true);});
+}
+function nvHealthDown(down){
+ var warn=document.getElementById('nvHealthWarn'), go=document.getElementById('nvGo');
+ if(warn)warn.style.display=down?'block':'none';
+ if(go){go.disabled=!!down;go.style.opacity=down?.5:1;go.style.cursor=down?'not-allowed':'pointer';}
+}
 function netvoAuthBuild(){
  if(document.getElementById('nvAuth'))return;
  var d=document.createElement('div'); d.id='nvAuth';
@@ -3810,6 +3828,7 @@ function netvoAuthBuild(){
   +'<div style="display:flex;align-items:center;gap:9px;margin-bottom:4px"><svg width="26" height="26" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#0A0A0A"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#FAF9F7" stroke-opacity="0.24" stroke-width="5"/><circle cx="24" cy="24" r="14.5" fill="none" stroke="#34C27A" stroke-width="5" stroke-linecap="round" stroke-dasharray="29 62.1" transform="rotate(33 24 24)"/></svg><b style="font-family:var(--font-serif,serif);font-size:20px">netvo</b></div>'
   +'<div id="nvTitle" style="font-weight:600;font-size:17px;margin:6px 0 2px">Hesabına gir</div>'
   +'<div id="nvSub" class="sm muted" style="margin-bottom:14px">Ürünlerin her cihazda seninle. Ücretsiz.</div>'
+  +'<div id="nvHealthWarn" style="display:none;background:#FEF2F2;border:1px solid #FDD;border-radius:10px;padding:10px 12px;margin-bottom:12px;font-size:12.5px;color:#9B1C1C;line-height:1.5">Giriş sistemi şu an geçici olarak kapalı. Hesapsız da hesap makinesini kullanabilir, ürünlerini bu cihazda kaydedebilirsin.</div>'
   +'<div style="display:flex;gap:6px;margin-bottom:14px;background:#F1F1F0;border-radius:10px;padding:4px">'
   +'<button id="nvTabIn" onclick="netvoAuthMode(\'signin\')" style="flex:1;border:0;border-radius:8px;padding:8px;font-weight:600;font-size:13px;cursor:pointer;background:#fff">Giriş</button>'
   +'<button id="nvTabUp" onclick="netvoAuthMode(\'signup\')" style="flex:1;border:0;border-radius:8px;padding:8px;font-weight:600;font-size:13px;cursor:pointer;background:transparent;color:#6b6b6b">Kayıt ol</button></div>'
@@ -3835,7 +3854,7 @@ function netvoAuthMode(m){_nvMode=m;
  el('nvGo').textContent=isUp?'Hesabı oluştur':'Giriş yap';
 }
 function _nvEsc(e){ if(e.key==='Escape')netvoAuthClose(); }
-function netvoAuthOpen(m){ netvoAuthBuild(); netvoAuthMode(m||'signin'); document.getElementById('nvAuth').style.display='flex'; document.addEventListener('keydown',_nvEsc); setTimeout(function(){var e=document.getElementById('nvEmail');if(e)e.focus();},60); }
+function netvoAuthOpen(m){ netvoAuthBuild(); netvoAuthMode(m||'signin'); document.getElementById('nvAuth').style.display='flex'; document.addEventListener('keydown',_nvEsc); try{nvHealthDown(false);nvHealthCheck();}catch(e){} setTimeout(function(){var e=document.getElementById('nvEmail');if(e)e.focus();},60); }
 function netvoAuthClose(){ var d=document.getElementById('nvAuth'); if(d)d.style.display='none'; document.removeEventListener('keydown',_nvEsc); }
 async function netvoAuthSubmit(){
  if(!NETVO_SB){toast('Bağlantı kurulamadı, birazdan tekrar dene.');return;}
@@ -3848,8 +3867,9 @@ async function netvoAuthSubmit(){
    if(_nvMode==='signup') res=await NETVO_SB.auth.signUp({email:email,password:pass,options:{data:{full_name:name}}});
    else res=await NETVO_SB.auth.signInWithPassword({email:email,password:pass});
    if(res.error){ toast(nvErr(res.error.message)); }
+   else if(_nvMode==='signup' && res.data && res.data.user && !res.data.session){ toast('Hesap açıldı — e-postana gelen onay bağlantısına tıkla, sonra giriş yap.'); netvoAuthMode('signin'); }
    else { netvoAuthClose(); }
- }catch(e){ toast('Hata: '+((e&&e.message)||e)); }
+ }catch(e){ toast(nvErr((e&&e.message)||String(e))); }
  if(go){go.disabled=false;go.style.opacity=1;go.textContent=lbl;}
 }
 async function netvoSignOut(){ try{ if(NETVO_SB)await NETVO_SB.auth.signOut(); }catch(e){} NETVO_USER=null; netvoUpdateUI(); toast('Çıkış yapıldı'); try{renderSaved();}catch(e){} }

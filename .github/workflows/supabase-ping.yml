@@ -1,0 +1,27 @@
+# NETVO — Supabase canlı tutucu (keep-alive)
+# Ücretsiz Supabase projesi ~7 gün hareketsizlikte otomatik DURAKLATILIR; bu da
+# giriş/kayıt'ı bozar. Bu iş her gün projeye küçük bir istek atarak projeyi aktif
+# tutar. (Anahtar public "publishable" anahtardır — zaten sitenin HTML'inde açık.)
+#
+# NOT: Proje zaten DURAKLADIYSA bu ping onu geri açmaz — bir kez panelden
+# (supabase.com → proje → Restore) geri açman gerekir; sonrası bu iş canlı tutar.
+
+name: Supabase Keep-Alive
+on:
+  schedule:
+    - cron: "0 7 * * *"      # her gün 07:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Projeye ping at (duraklamayı önle)
+        run: |
+          URL="https://eyndmgdykdnvgknpitph.supabase.co"
+          KEY="sb_publishable_5XTpSWQqeIWlvmY79JAZ0g_iUyxGDxb"
+          echo "auth/health:"
+          curl -fsS -m 30 "$URL/auth/v1/health" -H "apikey: $KEY" -o /dev/null -w "  HTTP %{http_code}\n" \
+            || echo "  ULAŞILAMADI — proje duraklamış/silinmiş olabilir (panelden Restore et)."
+          echo "rest (saves):"
+          curl -sS -m 30 "$URL/rest/v1/saves?select=id&limit=1" -H "apikey: $KEY" -H "Authorization: Bearer $KEY" -o /dev/null -w "  HTTP %{http_code}\n" || true
