@@ -2429,7 +2429,7 @@ function pickerRun(){
       <div class="pk-act"><a class="btn sm ghost" onclick="openMkPage('${c.k}')">Detay</a><a class="btn sm" onclick="selectMk('${c.k}');go('calc')">Kârını hesapla →</a></div></div>`;
   }).join("")+`</div><p class="sm muted" style="margin-top:12px">Öneriler gerçek komisyon verisine dayanır; her pazaryerinin kaynağı ve tarihi detay sayfasında. Nihai kararı kendi ürün ve operasyonuna göre ver.</p>`;
 }
-/* renderToolsHome('toolGridHome') → applyLang() içinde çağrılıyor (I18N/LANG hazır olduktan sonra; TDZ'yi önler) */renderAtlas();renderCountries();renderAdvisor();pickerInit();
+/* renderToolsHome, renderAtlas, renderCountries, renderAdvisor → applyLang() içinde çağrılıyor (I18N/LANG hazır olduktan sonra; TDZ'yi önler) */pickerInit();
 document.getElementById('stMk').textContent=Object.keys(MK).length+"";
 
 // marketplace select (grouped)
@@ -3646,12 +3646,13 @@ function applyLangMk(l){
 function applyLang(l){LANG=l;const d=I18N[l]||I18N.tr;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null){if(/</.test(v))e.innerHTML=v;else e.textContent=v;}});const lb=document.getElementById('langBtn');if(lb)lb.textContent=l.toUpperCase()+' ▾';document.documentElement.lang=l;try{markLangActive();}catch(e){}try{if(typeof AUTO_RAW!=='undefined'&&AUTO_RAW.length&&typeof mergeAutoNews==='function')mergeAutoNews();}catch(e){}
  try{if(typeof renderHomeCompare==='function')renderHomeCompare();}catch(e){}
  try{if(typeof renderToolsHome==='function'&&document.getElementById('toolGridHome'))renderToolsHome('toolGridHome');}catch(e){}
+ try{if(typeof renderAtlas==='function')renderAtlas();}catch(e){} try{if(typeof renderCountries==='function')renderCountries();}catch(e){} try{if(typeof renderAdvisor==='function')renderAdvisor();}catch(e){}
  try{document.querySelectorAll('[data-i18n-ph]').forEach(e=>{const k=e.getAttribute('data-i18n-ph');const v=(d[k]!=null?d[k]:(I18N.tr[k]));if(v!=null)e.setAttribute('placeholder',v);});}catch(e){}
  try{if(typeof selectMk==='function'&&typeof current!=='undefined'&&MK[current])selectMk(current);}catch(e){} // aktif pazaryeri etiketlerini yeni dilde yeniden bas
  try{if(l!=='tr'&&typeof loadMkI18n==='function')loadMkI18n(l);}catch(e){} // pazaryeri editöryal çevirilerini getir (lazy)
  applyLangMk(l);}
 // t(): aktif dile göre I18N'den metin çeker (JS-render bileşenleri için). Anahtar yoksa TR'ye düşer.
-function t(k){var L;try{L=LANG;}catch(e){L='tr';}var d=I18N[L]||I18N.tr;return (d&&d[k]!=null)?d[k]:(I18N.tr[k]!=null?I18N.tr[k]:k);}
+function t(k){var L,J;try{L=LANG;}catch(e){L='tr';}try{J=I18N;}catch(e){return k;}if(!J)return k;var d=J[L]||J.tr;return (d&&d[k]!=null)?d[k]:(J.tr[k]!=null?J.tr[k]:k);}
 // ---- Dil seçici (tıklayınca açılır menü; başka dile otomatik geçmez) ----
 const LANG_NAMES={tr:'Türkçe',en:'English',de:'Deutsch',fr:'Français',es:'Español',it:'Italiano'};
 function buildLangMenu(){const m=document.getElementById('langMenu');if(!m)return;
