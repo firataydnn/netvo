@@ -802,16 +802,29 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
 <!-- HOME -->
 <main id="main" tabindex="-1">
 <div class="page on" id="home">
-  <div class="hero"><div class="container">
-    <div style="max-width:760px;margin:0 auto;text-align:center;padding:32px 0 4px">
-      <h1 data-i18n="hero_h1">Satıldı. Sana ne kaldı?</h1>
-      <p data-i18n="hero_p" style="max-width:600px;margin:14px auto 0">Pazaryerinin söylediği komisyon başka. Senin cebine giren başka.</p>
-      <div class="muted" style="margin-top:16px;font-size:13px"><b id="stMk" style="color:var(--ink)">136</b> pazaryeri · <b style="color:var(--ink)">37</b> ülke</div>
+  <!-- HABER-ÖNCE ANASAYFA: gazete masthead + Gündem en üstte, araçlar altta -->
+  <section class="blk" style="padding-top:22px;padding-bottom:0"><div class="container">
+    <div class="mag-masthead">
+      <div class="mm-top"><span class="mm-date" id="homeDate"></span><span class="mm-edition" data-i18n="mag_edition">E-TİCARET İSTİHBARATI</span></div>
+      <div class="mm-title"><span class="mm-brand">netvo</span></div>
+      <div class="mm-sub" data-i18n="home_mast_sub">Pazaryeri, komisyon ve kârın — e-ticaret gündemi her gün güncel, 136 pazaryeri ve 37 ülke için.</div>
     </div>
-  </div></div>
-  <!-- Hesap makinesi hero'nun devamı: ilk ekranın çoğu iş yapsın -->
-  <section class="blk" style="padding-top:8px"><div class="container">
-     <div class="hcalc" style="max-width:560px;margin:0 auto">
+  </div></section>
+  <section class="blk" style="padding-top:4px"><div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+      <div><div class="sec-title" style="margin-bottom:2px" data-i18n="mag_title">Gündem</div><div class="sec-sub" style="margin-bottom:0" data-i18n="mag_sub">E-ticaret dünyasından güncel gelişmeler — pazaryeri, ödeme, lojistik, regülasyon.</div></div>
+      <a onclick="go('magazine')" class="btn ghost" data-i18n="mag_all">Tüm haberler →</a>
+    </div>
+    <div class="mag-home" id="magHomeTeaser"></div>
+  </div></section>
+  <!-- ARAÇLAR: haber akışının altında -->
+  <section class="blk" style="padding-top:38px;border-top:3px double var(--ink);margin-top:36px"><div class="container">
+    <div style="max-width:760px;margin:0 auto;text-align:center">
+      <h1 class="sec-title" data-i18n="hero_h1" style="margin-bottom:6px">Satıldı. Sana ne kaldı?</h1>
+      <p class="sec-sub" data-i18n="hero_p" style="max-width:600px;margin:0 auto">Pazaryerinin söylediği komisyon başka. Senin cebine giren başka.</p>
+      <div class="muted" style="margin-top:10px;font-size:13px"><b id="stMk" style="color:var(--ink)">136</b> pazaryeri · <b style="color:var(--ink)">37</b> ülke</div>
+    </div>
+     <div class="hcalc" style="max-width:560px;margin:20px auto 0">
        <div class="hc-t" data-i18n="hc_title">Bu satıştan sana ne kalır?</div>
        <div class="hc-hint" data-i18n="hc_hint">↓ Örnek değerlerle dolu — kendi rakamlarını gir, sonuç anında değişir</div>
        <div class="hc-f"><label for="hcMk" data-i18n="hc_where">Nerede satıyorsun?</label><select id="hcMk" class="inp"></select></div>
@@ -823,9 +836,6 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
        <div id="hcOut" role="status" aria-live="polite" aria-atomic="true"></div>
      </div>
      <div style="max-width:560px;margin:14px auto 0;text-align:center"><a onclick="go('compare')" style="cursor:pointer;color:var(--brand);font-weight:600;font-size:14px" data-i18n="hero_b2">Pazaryerlerini karşılaştır →</a></div>
-  </div></section>
-  <section class="blk" style="padding-top:18px;padding-bottom:0"><div class="container">
-    <a class="news-banner" id="newsBanner" onclick="go('magazine')" onkeydown="kbd(event,()=>go('magazine'))" role="button" tabindex="0" aria-label="Gündem — tüm haberler"></a>
   </div></section>
   <section class="blk" style="padding-top:30px"><div class="container">
     <div class="sec-title" data-i18n="gapT">Komisyon oranı, satışın maliyeti değildir.</div>
@@ -853,13 +863,6 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
     <div class="sec-title">En çok kullanılan pazaryerleri</div>
     <div class="sec-sub">Buradan hızlı başla — ya da 136 pazaryerinin tamamını Atlas'ta ara. Kayıt gerekmez.</div>
     <div id="toolGridHome"></div>
-  </div></section>
-  <section class="blk" style="padding-top:0"><div class="container">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div><div class="sec-title" style="margin-bottom:2px">Gündem</div><div class="sec-sub" style="margin-bottom:0">E-ticaret dünyasından güncel gelişmeler — pazaryeri, ödeme, lojistik, regülasyon.</div></div>
-      <a onclick="go('magazine')" class="btn ghost" data-i18n="mag_all">Tüm haberler →</a>
-    </div>
-    <div class="mag-home" id="magHomeTeaser"></div>
   </div></section>
   <section class="blk" style="padding-top:0"><div class="container">
     <div class="founder-note" style="max-width:660px">
@@ -3670,12 +3673,12 @@ const CARD_X={
 };
 try{Object.keys(CARD_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),CARD_X[l]));}catch(e){}
 const MAG_X={
- tr:{mag_edition:"E-TİCARET İSTİHBARATI",mag_tools_kicker:"NETVO ARAÇLARI",mag_tools_title:"Haberi okudun — şimdi kârına etkisini gör",mag_tool_open:"Aç →",mag_tool_calc_d:"136 pazaryerinde komisyon ve net kârını saniyede hesapla.",mag_tool_cmp_d:"Aynı ürün hangi pazaryerinde daha çok kâr bırakıyor?",mag_tool_radar:"Ücret Radarı",mag_tool_radar_d:"Komisyon değişikliklerini marj etkisiyle birlikte izle.",mag_tool_country:"Ülke Rehberi",mag_tool_country_d:"37 ülke, KDV/GST oranları ve pazaryeri haritası."},
- en:{mag_edition:"E-COMMERCE INTELLIGENCE",mag_tools_kicker:"NETVO TOOLS",mag_tools_title:"You've read the news — now see the impact on your profit",mag_tool_open:"Open →",mag_tool_calc_d:"Calculate commission and net profit across 136 marketplaces in seconds.",mag_tool_cmp_d:"Which marketplace leaves you more profit on the same product?",mag_tool_radar:"Fee Radar",mag_tool_radar_d:"Track commission changes with their margin impact.",mag_tool_country:"Country Guide",mag_tool_country_d:"37 countries, VAT/GST rates and a marketplace map."},
- de:{mag_edition:"E-COMMERCE-INTELLIGENZ",mag_tools_kicker:"NETVO-TOOLS",mag_tools_title:"News gelesen — jetzt die Auswirkung auf deinen Gewinn sehen",mag_tool_open:"Öffnen →",mag_tool_calc_d:"Provision und Nettogewinn in 136 Marktplätzen in Sekunden berechnen.",mag_tool_cmp_d:"Welcher Marktplatz lässt dir beim selben Produkt mehr Gewinn?",mag_tool_radar:"Gebühren-Radar",mag_tool_radar_d:"Provisionsänderungen samt Margenwirkung verfolgen.",mag_tool_country:"Länder-Guide",mag_tool_country_d:"37 Länder, MwSt./GST-Sätze und Marktplatzkarte."},
- fr:{mag_edition:"INTELLIGENCE E-COMMERCE",mag_tools_kicker:"OUTILS NETVO",mag_tools_title:"Vous avez lu l'actu — voyez l'impact sur votre marge",mag_tool_open:"Ouvrir →",mag_tool_calc_d:"Calculez commission et marge nette sur 136 marketplaces en quelques secondes.",mag_tool_cmp_d:"Quelle marketplace laisse le plus de marge sur le même produit ?",mag_tool_radar:"Radar des frais",mag_tool_radar_d:"Suivez les changements de commission et leur impact sur la marge.",mag_tool_country:"Guide pays",mag_tool_country_d:"37 pays, taux de TVA/GST et carte des marketplaces."},
- es:{mag_edition:"INTELIGENCIA E-COMMERCE",mag_tools_kicker:"HERRAMIENTAS NETVO",mag_tools_title:"Ya leíste la noticia — ahora mira el impacto en tu ganancia",mag_tool_open:"Abrir →",mag_tool_calc_d:"Calcula comisión y ganancia neta en 136 marketplaces en segundos.",mag_tool_cmp_d:"¿Qué marketplace deja más ganancia con el mismo producto?",mag_tool_radar:"Radar de tarifas",mag_tool_radar_d:"Sigue los cambios de comisión con su impacto en el margen.",mag_tool_country:"Guía de países",mag_tool_country_d:"37 países, tasas de IVA/GST y mapa de marketplaces."},
- it:{mag_edition:"INTELLIGENCE E-COMMERCE",mag_tools_kicker:"STRUMENTI NETVO",mag_tools_title:"Hai letto la notizia — ora vedi l'impatto sul tuo profitto",mag_tool_open:"Apri →",mag_tool_calc_d:"Calcola commissione e profitto netto su 136 marketplace in pochi secondi.",mag_tool_cmp_d:"Quale marketplace lascia più profitto sullo stesso prodotto?",mag_tool_radar:"Radar commissioni",mag_tool_radar_d:"Monitora le variazioni di commissione con l'impatto sul margine.",mag_tool_country:"Guida ai paesi",mag_tool_country_d:"37 paesi, aliquote IVA/GST e mappa dei marketplace."}
+ tr:{home_mast_sub:"Pazaryeri, komisyon ve kârın — e-ticaret gündemi her gün güncel, 136 pazaryeri ve 37 ülke için.",mag_edition:"E-TİCARET İSTİHBARATI",mag_tools_kicker:"NETVO ARAÇLARI",mag_tools_title:"Haberi okudun — şimdi kârına etkisini gör",mag_tool_open:"Aç →",mag_tool_calc_d:"136 pazaryerinde komisyon ve net kârını saniyede hesapla.",mag_tool_cmp_d:"Aynı ürün hangi pazaryerinde daha çok kâr bırakıyor?",mag_tool_radar:"Ücret Radarı",mag_tool_radar_d:"Komisyon değişikliklerini marj etkisiyle birlikte izle.",mag_tool_country:"Ülke Rehberi",mag_tool_country_d:"37 ülke, KDV/GST oranları ve pazaryeri haritası."},
+ en:{home_mast_sub:"Marketplaces, commission and your profit — e-commerce news updated daily, across 136 marketplaces and 37 countries.",mag_edition:"E-COMMERCE INTELLIGENCE",mag_tools_kicker:"NETVO TOOLS",mag_tools_title:"You've read the news — now see the impact on your profit",mag_tool_open:"Open →",mag_tool_calc_d:"Calculate commission and net profit across 136 marketplaces in seconds.",mag_tool_cmp_d:"Which marketplace leaves you more profit on the same product?",mag_tool_radar:"Fee Radar",mag_tool_radar_d:"Track commission changes with their margin impact.",mag_tool_country:"Country Guide",mag_tool_country_d:"37 countries, VAT/GST rates and a marketplace map."},
+ de:{home_mast_sub:"Marktplätze, Provision und dein Gewinn — E-Commerce-News täglich aktuell, für 136 Marktplätze und 37 Länder.",mag_edition:"E-COMMERCE-INTELLIGENZ",mag_tools_kicker:"NETVO-TOOLS",mag_tools_title:"News gelesen — jetzt die Auswirkung auf deinen Gewinn sehen",mag_tool_open:"Öffnen →",mag_tool_calc_d:"Provision und Nettogewinn in 136 Marktplätzen in Sekunden berechnen.",mag_tool_cmp_d:"Welcher Marktplatz lässt dir beim selben Produkt mehr Gewinn?",mag_tool_radar:"Gebühren-Radar",mag_tool_radar_d:"Provisionsänderungen samt Margenwirkung verfolgen.",mag_tool_country:"Länder-Guide",mag_tool_country_d:"37 Länder, MwSt./GST-Sätze und Marktplatzkarte."},
+ fr:{home_mast_sub:"Marketplaces, commission et votre marge — l'actu e-commerce mise à jour chaque jour, sur 136 marketplaces et 37 pays.",mag_edition:"INTELLIGENCE E-COMMERCE",mag_tools_kicker:"OUTILS NETVO",mag_tools_title:"Vous avez lu l'actu — voyez l'impact sur votre marge",mag_tool_open:"Ouvrir →",mag_tool_calc_d:"Calculez commission et marge nette sur 136 marketplaces en quelques secondes.",mag_tool_cmp_d:"Quelle marketplace laisse le plus de marge sur le même produit ?",mag_tool_radar:"Radar des frais",mag_tool_radar_d:"Suivez les changements de commission et leur impact sur la marge.",mag_tool_country:"Guide pays",mag_tool_country_d:"37 pays, taux de TVA/GST et carte des marketplaces."},
+ es:{home_mast_sub:"Marketplaces, comisión y tu ganancia — noticias de e-commerce al día, en 136 marketplaces y 37 países.",mag_edition:"INTELIGENCIA E-COMMERCE",mag_tools_kicker:"HERRAMIENTAS NETVO",mag_tools_title:"Ya leíste la noticia — ahora mira el impacto en tu ganancia",mag_tool_open:"Abrir →",mag_tool_calc_d:"Calcula comisión y ganancia neta en 136 marketplaces en segundos.",mag_tool_cmp_d:"¿Qué marketplace deja más ganancia con el mismo producto?",mag_tool_radar:"Radar de tarifas",mag_tool_radar_d:"Sigue los cambios de comisión con su impacto en el margen.",mag_tool_country:"Guía de países",mag_tool_country_d:"37 países, tasas de IVA/GST y mapa de marketplaces."},
+ it:{home_mast_sub:"Marketplace, commissione e il tuo profitto — news e-commerce aggiornate ogni giorno, su 136 marketplace e 37 paesi.",mag_edition:"INTELLIGENCE E-COMMERCE",mag_tools_kicker:"STRUMENTI NETVO",mag_tools_title:"Hai letto la notizia — ora vedi l'impatto sul tuo profitto",mag_tool_open:"Apri →",mag_tool_calc_d:"Calcola commissione e profitto netto su 136 marketplace in pochi secondi.",mag_tool_cmp_d:"Quale marketplace lascia più profitto sullo stesso prodotto?",mag_tool_radar:"Radar commissioni",mag_tool_radar_d:"Monitora le variazioni di commissione con l'impatto sul margine.",mag_tool_country:"Guida ai paesi",mag_tool_country_d:"37 paesi, aliquote IVA/GST e mappa dei marketplace."}
 };
 try{Object.keys(MAG_X).forEach(l=>Object.assign(I18N[l]||(I18N[l]={}),MAG_X[l]));}catch(e){}
 // Dil → o bölgenin varsayılan pazaryeri. Kullanıcı elle seçmediyse dil değişince hesap makinesi buraya geçer.
@@ -3823,11 +3826,14 @@ function renderHomeCompare(){
   }).join('')+'</table>';
 }
 function renderNewsBanner(){const el=document.getElementById('newsBanner');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc);if(!L.length){el.style.display='none';return;}const a=L[0];const i=NEWS.indexOf(a);el.style.display='';el.setAttribute('onclick','openArticle('+i+')');el.innerHTML=`<span class="nb-tag">GÜNDEM</span><span class="nb-head">${_esc(a.t)}</span><span class="nb-go">Tüm haberler →</span>`;}
-function renderHomeTeaser(){const el=document.getElementById('magHomeTeaser');if(!el)return;
- // Gazete/dergi düzeni: büyük manşet (lead) + yan liste (3) + alt kartlar (3). "dk" okuma süresi kaldırıldı.
- const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc).slice(0,7);
+function renderHomeTeaser(){
+ // Masthead tarihi (anasayfa haber-önce başlığı)
+ try{var _hd=document.getElementById('homeDate');if(_hd){var _l=({tr:'tr-TR',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT'}[LANG])||'tr-TR';_hd.textContent=new Date().toLocaleDateString(_l,{weekday:'long',day:'numeric',month:'long',year:'numeric'});}}catch(e){}
+ const el=document.getElementById('magHomeTeaser');if(!el)return;
+ // Gazete/dergi düzeni: büyük manşet (lead) + yan liste (3) + alt kartlar (5) = 9 haber.
+ const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc).slice(0,9);
  if(!L.length){el.innerHTML='';return;}
- const ix=a=>NEWS.indexOf(a), lead=L[0], side=L.slice(1,4), more=L.slice(4,7);
+ const ix=a=>NEWS.indexOf(a), lead=L[0], side=L.slice(1,4), more=L.slice(4,9);
  const catOf=a=>a.kose?'KÖŞE':(CATMAP[a.c]||a.c), pill=a=>`<span class="catpill ${a.kose?'cat-kose':'cat-'+a.c}">${catOf(a)}</span>`;
  const leadH=`<article class="mag-lead" role="button" tabindex="0" onclick="openArticle(${ix(lead)})" onkeydown="kbd(event,()=>openArticle(${ix(lead)}))" aria-label="${_esc(lead.t)}"><div class="cov" aria-hidden="true">${artThumb(lead)}</div><div class="ld-bd">${pill(lead)}<h2>${_esc(lead.t)}</h2><p>${_esc(lead.d||'')}</p><div class="mt">${lead.tag?_esc(lead.tag):catOf(lead)}</div></div></article>`;
  const sideH=`<div class="mag-side">`+side.map(a=>`<a role="button" tabindex="0" onclick="openArticle(${ix(a)})" onkeydown="kbd(event,()=>openArticle(${ix(a)}))" aria-label="${_esc(a.t)}"><div class="thumb">${artThumb(a)}</div><div class="s-bd"><div class="s-cat">${_esc(catOf(a))}</div><h4>${_esc(a.t)}</h4>${a.tag?`<div class="mt">${_esc(a.tag)}</div>`:''}</div></a>`).join('')+`</div>`;
