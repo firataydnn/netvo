@@ -39,9 +39,9 @@ function siteyiOku() {
     createElementNS:()=>El(), body:El(), head:El(), documentElement:El(), addEventListener(){}, title:"" };
   const win = { addEventListener(){}, location:{hash:""}, matchMedia:()=>({matches:false,addEventListener(){}}), scrollTo(){} };
   const ls = { getItem:()=>null, setItem(){}, removeItem(){} };
-  const fn = new Function("document","window","localStorage","location","navigator","matchMedia","setTimeout","addEventListener","URL","Blob","FileReader","requestAnimationFrame","alert","toast","console",
+  const fn = new Function("document","window","localStorage","location","navigator","matchMedia","setTimeout","setInterval","clearInterval","clearTimeout","addEventListener","URL","Blob","FileReader","requestAnimationFrame","alert","toast","console",
     code + "\nreturn {MK, CO, INFO:(typeof INFO!=='undefined'?INFO:{}), provOf, mkShort:(typeof mkShort!=='undefined'?mkShort:(x=>x))};");
-  return fn(doc, win, ls, win.location, {language:"tr"}, win.matchMedia, f=>{try{f()}catch(e){}}, ()=>{},
+  return fn(doc, win, ls, win.location, {language:"tr"}, win.matchMedia, f=>{try{f()}catch(e){}}, ()=>{}, ()=>{}, ()=>{}, ()=>{},
     {createObjectURL:()=>"x",revokeObjectURL(){}}, function(){}, function(){}, f=>f&&f(), ()=>{}, ()=>{}, console);
 }
 const { MK, CO, INFO, provOf, mkShort } = siteyiOku();
