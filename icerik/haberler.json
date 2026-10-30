@@ -1,5 +1,128 @@
 [
   {
+    "c": "reg",
+    "dt": "30 Eki 2026",
+    "tag": "İngiltere",
+    "auto": false,
+    "pop": true,
+    "img": "/marka/haber-gorsel/ingiltere-pazaryeri-kdv-tahsilati-2027.jpg",
+    "src": "https://globalbankingandfinance.com/uks-healey-make-online-marketplaces-collect-tax-sellers",
+    "i18n": {
+      "tr": {
+        "t": "İngiltere: KDV'yi artık pazaryeri toplayacak — Ekim 2027'den itibaren",
+        "d": "Maliye Bakanı Healey, Amazon, eBay, Temu, Shein ve Alibaba gibi pazaryerlerinin satıcılar adına KDV tahsil etmesini bütçe konuşmasında duyurdu.",
+        "body": "İngiltere Maliye Bakanı John Healey, 28 Ekim 2026 tarihli bütçe konuşmasında online pazaryerlerinin satıcıların borçlu olduğu KDV'yi tahsil etmekle yükümlü olacağını açıkladı. Reuters'ın aktardığına göre düzenleme Amazon, eBay, Temu, Shein ve Alibaba gibi platformları kapsıyor ve Ekim 2027'den itibaren yürürlüğe girecek. Haberde, bir pazaryerinde 90.000 sterlini aşan satışı olan ya da KDV'ye kayıtlı İngiliz işletmelerinin etkileneceği belirtiliyor; iki ifade arasında küçük fark var, bu yüzden eşiğin ayrıntısı resmi metinle teyit edilmeli. Hazine, amacın KDV kaçağını azaltmak ve vergisini ödeyen işletmeleri haksız rekabetten korumak olduğunu, elde edilecek gelirin fiziksel mağazalar için işletme vergisi (business rates) indirimlerine gideceğini söyledi.\n\nSatıcı için anlamı: İngiltere pazarında satış yapıyorsanız KDV kaydınızın ve fatura düzeninizin pazaryeri sistemleriyle uyumlu olması gerekecek. Tahsilatın platformda yapılması nakit akışı ve fiyatlama (KDV dahil/hariç) hesabını değiştirebilir. Kendi mağazanızdan yaptığınız satışlar bu düzenlemenin dışında kalıyor."
+      },
+      "en": {
+        "t": "UK: marketplaces will collect VAT from sellers, from October 2027",
+        "d": "Chancellor Healey announced in the budget that platforms such as Amazon, eBay, Temu, Shein and Alibaba must collect VAT on sellers' behalf.",
+        "body": "UK Chancellor John Healey said in his 28 October 2026 budget speech that online marketplaces will be responsible for collecting the VAT their sellers owe. According to Reuters, the rule covers platforms such as Amazon, eBay, Temu, Shein and Alibaba and takes effect from October 2027. The report says UK businesses that are VAT-registered or exceed £90,000 in sales on a single marketplace would be affected; the two descriptions differ slightly, so the exact threshold should be confirmed against the official text. The Treasury says the aim is to curb VAT evasion and stop compliant businesses being undercut, with the revenue helping fund business rate cuts for physical shops.\n\nWhat it means for sellers: if you sell into the UK, your VAT registration and invoicing will need to work with marketplace systems. Collection at platform level can change cash flow and VAT-inclusive pricing. Sales through your own web store fall outside this change."
+      },
+      "de": {
+        "t": "Großbritannien: Marktplätze sollen ab Oktober 2027 die Mehrwertsteuer einziehen",
+        "d": "Finanzminister Healey kündigte im Haushalt an, dass Plattformen wie Amazon, eBay, Temu, Shein und Alibaba die MwSt. für Verkäufer einziehen müssen.",
+        "body": "Der britische Finanzminister John Healey hat in seiner Haushaltsrede am 28. Oktober 2026 angekündigt, dass Online-Marktplätze künftig die von Verkäufern geschuldete Mehrwertsteuer einziehen müssen. Laut Reuters betrifft die Regel Plattformen wie Amazon, eBay, Temu, Shein und Alibaba und gilt ab Oktober 2027. Betroffen sein sollen britische Unternehmen, die umsatzsteuerlich registriert sind oder auf einem einzelnen Marktplatz mehr als 90.000 Pfund umsetzen; beide Beschreibungen weichen leicht ab, die genaue Schwelle sollte daher am amtlichen Text geprüft werden. Das Finanzministerium nennt als Ziel, Steuerhinterziehung zu bekämpfen und ehrliche Händler nicht zu benachteiligen; die Einnahmen sollen Senkungen der Gewerbesteuer für stationäre Läden finanzieren.\n\nFür Händler heißt das: Wer nach Großbritannien verkauft, muss MwSt.-Registrierung und Rechnungsstellung mit den Marktplatzsystemen abstimmen. Der Einzug auf Plattformebene kann Liquidität und Brutto-/Netto-Preisgestaltung verändern. Verkäufe über den eigenen Webshop sind nicht betroffen."
+      },
+      "fr": {
+        "t": "Royaume-Uni : les places de marché collecteront la TVA dès octobre 2027",
+        "d": "Le chancelier Healey a annoncé dans le budget que des plateformes comme Amazon, eBay, Temu, Shein et Alibaba devront percevoir la TVA pour les vendeurs.",
+        "body": "Le chancelier britannique John Healey a déclaré dans son discours budgétaire du 28 octobre 2026 que les places de marché en ligne seront chargées de collecter la TVA due par leurs vendeurs. D'après Reuters, la mesure vise des plateformes comme Amazon, eBay, Temu, Shein et Alibaba et s'appliquera à partir d'octobre 2027. Seraient concernées les entreprises britanniques assujetties à la TVA ou dépassant 90 000 £ de ventes sur une même place de marché ; les deux formulations diffèrent légèrement, le seuil exact doit donc être vérifié dans le texte officiel. Le Trésor affirme vouloir réduire la fraude à la TVA et éviter que les entreprises en règle soient concurrencées de manière déloyale, les recettes servant à financer des baisses de taxes professionnelles pour les magasins physiques.\n\nPour les vendeurs : si vous vendez au Royaume-Uni, votre immatriculation TVA et votre facturation devront être compatibles avec les systèmes des plateformes. La collecte à la source peut modifier la trésorerie et l'affichage des prix TTC. Les ventes via votre propre boutique en ligne ne sont pas concernées."
+      },
+      "es": {
+        "t": "Reino Unido: los marketplaces recaudarán el IVA a partir de octubre de 2027",
+        "d": "El canciller Healey anunció en el presupuesto que plataformas como Amazon, eBay, Temu, Shein y Alibaba deberán recaudar el IVA de sus vendedores.",
+        "body": "El canciller británico John Healey anunció en su discurso presupuestario del 28 de octubre de 2026 que los marketplaces online serán responsables de recaudar el IVA que deben sus vendedores. Según Reuters, la medida alcanza a plataformas como Amazon, eBay, Temu, Shein y Alibaba y entrará en vigor en octubre de 2027. Se verían afectadas las empresas británicas registradas a efectos de IVA o con más de 90.000 libras en ventas en un mismo marketplace; las dos descripciones difieren ligeramente, por lo que el umbral exacto debe confirmarse en el texto oficial. El Tesoro dice que busca reducir el fraude de IVA y evitar que las empresas que cumplen sufran competencia desleal; lo recaudado ayudará a financiar rebajas de impuestos locales para tiendas físicas.\n\nPara los vendedores: si vende en el Reino Unido, su alta de IVA y su facturación deberán encajar con los sistemas de los marketplaces. La recaudación en la plataforma puede cambiar el flujo de caja y los precios con IVA incluido. Las ventas desde su propia tienda online quedan fuera."
+      },
+      "it": {
+        "t": "Regno Unito: dal 2027 i marketplace riscuoteranno l'IVA per i venditori",
+        "d": "Il cancelliere Healey ha annunciato in manovra che piattaforme come Amazon, eBay, Temu, Shein e Alibaba dovranno riscuotere l'IVA per conto dei venditori.",
+        "body": "Il cancelliere britannico John Healey ha dichiarato nel discorso sul bilancio del 28 ottobre 2026 che i marketplace online saranno responsabili della riscossione dell'IVA dovuta dai venditori. Secondo Reuters, la misura riguarda piattaforme come Amazon, eBay, Temu, Shein e Alibaba e scatterà da ottobre 2027. Sarebbero coinvolte le imprese britanniche registrate ai fini IVA o con oltre 90.000 sterline di vendite su un singolo marketplace; le due descrizioni differiscono leggermente, quindi la soglia esatta va verificata nel testo ufficiale. Il Tesoro spiega che l'obiettivo è ridurre l'evasione e non penalizzare chi paga le tasse; il gettito aiuterà a finanziare tagli alle imposte locali per i negozi fisici.\n\nPer i venditori: se vendete nel Regno Unito, registrazione IVA e fatturazione dovranno essere compatibili con i sistemi dei marketplace. La riscossione alla fonte può cambiare flusso di cassa e prezzi IVA inclusa. Le vendite dal proprio sito restano fuori."
+      }
+    }
+  },
+  {
+    "c": "pazar",
+    "dt": "30 Eki 2026",
+    "tag": "SEA",
+    "auto": false,
+    "pop": true,
+    "img": "/marka/haber-gorsel/tayland-pazaryeri-komisyon-indirimi.jpg",
+    "src": "https://nationthailand.com/business/economy/40072839",
+    "i18n": {
+      "tr": {
+        "t": "Tayland'da Shopee, TikTok Shop ve Lazada satış komisyonunu %43'e varan oranda indiriyor",
+        "d": "Ticaret Bakanlığı ile varılan anlaşmayla komisyonlar 1 Aralık 2026 – 31 Mayıs 2027 arasında düşecek; yaklaşık 1,2 milyon satıcı kapsamda.",
+        "body": "Shopee, TikTok Shop ve Lazada, Tayland Ticaret Bakanlığı'nın planı kapsamında zorunlu satış ücretlerini (GP) yılbaşındaki seviyelere çekmeyi kabul etti. Nation Thailand'a göre indirimler 1 Aralık 2026 – 31 Mayıs 2027 arasında geçerli olacak. Mevcut azami oranlar Shopee'de %19,26, TikTok Shop'ta %21,94 ve Lazada'da %17,50; yeni aralıklar sırasıyla %8,03–13,91, %11,24–17,66 ve %7,50–11,60. En yüksek indirim Lazada'da %42,9, TikTok Shop'ta %35 ve Shopee'de %33,3. Yıllık geliri 1,8 milyon baht'a kadar olan yaklaşık 1,02 milyon bireysel satıcı ile 3,5 milyon baht'a kadar geliri olan yaklaşık 180.000 tüzel kişi yararlanabilecek; e-ticaret kaydının tamamlanmış olması şart. Toplam tasarruf yaklaşık 1,93 milyar baht olarak hesaplanıyor.\n\nArka plan: platformlar 2026'da üç kez ücret artırmış ve satıcılardan çok şikayet almıştı; bakanlık düzenlemeyi kısa vadeli bir önlem olarak tanımlıyor. Güneydoğu Asya'da satan markalar için ders: komisyon oranları regülatörün gündemine girebiliyor ve geçici indirimler marj planına dahil edilmemeli."
+      },
+      "en": {
+        "t": "Thailand: Shopee, TikTok Shop and Lazada to cut seller fees by up to 43%",
+        "d": "Under a deal with the Commerce Ministry, fees fall from 1 December 2026 to 31 May 2027, covering about 1.2 million traders.",
+        "body": "Shopee, TikTok Shop and Lazada have agreed to a Thai Commerce Ministry scheme to cut mandatory sales fees to the levels in force on 1 January, Nation Thailand reports. The cuts run from 1 December 2026 to 31 May 2027. Current maximum rates are 19.26% at Shopee, 21.94% at TikTok Shop and 17.50% at Lazada; the new ranges are 8.03–13.91%, 11.24–17.66% and 7.50–11.60% respectively. The biggest cuts are 42.9% at Lazada, 35% at TikTok Shop and 33.3% at Shopee. About 1.02 million individual operators with annual revenue up to THB1.8 million and roughly 180,000 legal entities up to THB3.5 million can benefit, provided they have completed e-commerce registration. Combined savings are estimated at about THB1.93 billion.\n\nBackground: the platforms raised fees three times earlier in 2026, drawing many complaints, and the ministry calls the cut a short-term measure. Lesson for Southeast Asia sellers: commission rates can become a regulatory issue, and temporary cuts should not be baked into margin plans."
+      },
+      "de": {
+        "t": "Thailand: Shopee, TikTok Shop und Lazada senken Verkäufergebühren um bis zu 43 %",
+        "d": "Nach einer Einigung mit dem Handelsministerium sinken die Gebühren vom 1. Dezember 2026 bis 31. Mai 2027; rund 1,2 Millionen Händler profitieren.",
+        "body": "Shopee, TikTok Shop und Lazada haben einem Plan des thailändischen Handelsministeriums zugestimmt, die verpflichtenden Verkaufsgebühren auf das Niveau vom 1. Januar zu senken, berichtet Nation Thailand. Die Senkung gilt vom 1. Dezember 2026 bis 31. Mai 2027. Die bisherigen Höchstsätze liegen bei 19,26 % (Shopee), 21,94 % (TikTok Shop) und 17,50 % (Lazada); die neuen Spannen betragen 8,03–13,91 %, 11,24–17,66 % und 7,50–11,60 %. Die größten Senkungen: Lazada 42,9 %, TikTok Shop 35 %, Shopee 33,3 %. Profitieren können rund 1,02 Millionen Einzelunternehmer mit bis zu 1,8 Mio. Baht Jahresumsatz und etwa 180.000 juristische Personen mit bis zu 3,5 Mio. Baht, sofern sie die E-Commerce-Registrierung abgeschlossen haben. Die Gesamtersparnis wird auf rund 1,93 Mrd. Baht geschätzt.\n\nHintergrund: Die Plattformen hatten 2026 dreimal die Gebühren erhöht, was viele Beschwerden auslöste; das Ministerium nennt die Senkung eine kurzfristige Maßnahme. Für Händler in Südostasien gilt: Provisionen können zum Regulierungsthema werden, befristete Senkungen gehören nicht in die Margenplanung."
+      },
+      "fr": {
+        "t": "Thaïlande : Shopee, TikTok Shop et Lazada baissent les commissions jusqu'à 43 %",
+        "d": "Selon un accord avec le ministère du Commerce, les frais baissent du 1er décembre 2026 au 31 mai 2027 pour environ 1,2 million de vendeurs.",
+        "body": "Shopee, TikTok Shop et Lazada ont accepté un plan du ministère thaïlandais du Commerce visant à ramener les frais de vente obligatoires aux niveaux du 1er janvier, selon Nation Thailand. Les baisses s'appliquent du 1er décembre 2026 au 31 mai 2027. Les taux maximums actuels sont de 19,26 % chez Shopee, 21,94 % chez TikTok Shop et 17,50 % chez Lazada ; les nouvelles fourchettes sont de 8,03–13,91 %, 11,24–17,66 % et 7,50–11,60 %. Les plus fortes baisses : 42,9 % chez Lazada, 35 % chez TikTok Shop, 33,3 % chez Shopee. Environ 1,02 million d'exploitants individuels (jusqu'à 1,8 M THB de chiffre d'affaires) et 180 000 personnes morales (jusqu'à 3,5 M THB) peuvent en bénéficier, à condition d'être enregistrés en e-commerce. Les économies totales sont estimées à environ 1,93 Md THB.\n\nContexte : les plateformes avaient relevé leurs frais trois fois en 2026, suscitant de nombreuses plaintes ; le ministère parle d'une mesure à court terme. Pour les vendeurs d'Asie du Sud-Est : les commissions peuvent devenir un sujet réglementaire, et des baisses temporaires ne doivent pas entrer dans les plans de marge."
+      },
+      "es": {
+        "t": "Tailandia: Shopee, TikTok Shop y Lazada bajan las comisiones hasta un 43 %",
+        "d": "Por un acuerdo con el Ministerio de Comercio, las tarifas bajan del 1 de diciembre de 2026 al 31 de mayo de 2027 para unos 1,2 millones de vendedores.",
+        "body": "Shopee, TikTok Shop y Lazada han aceptado un plan del Ministerio de Comercio de Tailandia para rebajar las tarifas de venta obligatorias a los niveles del 1 de enero, según Nation Thailand. Las rebajas rigen del 1 de diciembre de 2026 al 31 de mayo de 2027. Los máximos actuales son 19,26 % en Shopee, 21,94 % en TikTok Shop y 17,50 % en Lazada; los nuevos rangos son 8,03–13,91 %, 11,24–17,66 % y 7,50–11,60 %. Los mayores recortes: 42,9 % en Lazada, 35 % en TikTok Shop y 33,3 % en Shopee. Pueden beneficiarse unos 1,02 millones de operadores individuales con ingresos anuales de hasta 1,8 millones de THB y unas 180.000 personas jurídicas de hasta 3,5 millones de THB, si completaron el registro de comercio electrónico. El ahorro total se estima en unos 1.930 millones de THB.\n\nContexto: las plataformas subieron tarifas tres veces en 2026, con muchas quejas, y el ministerio habla de una medida a corto plazo. Para vendedores del sudeste asiático: las comisiones pueden convertirse en asunto regulatorio, y las rebajas temporales no deben incluirse en los planes de margen."
+      },
+      "it": {
+        "t": "Thailandia: Shopee, TikTok Shop e Lazada tagliano le commissioni fino al 43%",
+        "d": "Con un accordo con il Ministero del Commercio, le tariffe calano dal 1° dicembre 2026 al 31 maggio 2027 per circa 1,2 milioni di venditori.",
+        "body": "Shopee, TikTok Shop e Lazada hanno accettato un piano del Ministero del Commercio thailandese per riportare le commissioni di vendita obbligatorie ai livelli del 1° gennaio, riferisce Nation Thailand. I tagli valgono dal 1° dicembre 2026 al 31 maggio 2027. I massimi attuali sono 19,26% per Shopee, 21,94% per TikTok Shop e 17,50% per Lazada; i nuovi intervalli sono 8,03–13,91%, 11,24–17,66% e 7,50–11,60%. I tagli maggiori: 42,9% Lazada, 35% TikTok Shop, 33,3% Shopee. Possono beneficiarne circa 1,02 milioni di operatori individuali con ricavi annui fino a 1,8 milioni di THB e circa 180.000 persone giuridiche fino a 3,5 milioni di THB, se hanno completato la registrazione e-commerce. Il risparmio complessivo è stimato in circa 1,93 miliardi di THB.\n\nContesto: le piattaforme avevano alzato le tariffe tre volte nel 2026, tra molte lamentele; il ministero parla di misura a breve termine. Per i venditori del Sud-Est asiatico: le commissioni possono diventare un tema regolatorio e i tagli temporanei non vanno inseriti nei piani di margine."
+      }
+    }
+  },
+  {
+    "c": "reg",
+    "dt": "30 Eki 2026",
+    "tag": "ABD",
+    "auto": false,
+    "pop": false,
+    "img": "/marka/haber-gorsel/ftc-kisisellestirilmis-fiyatlandirma-incelemesi.jpg",
+    "src": "https://ecommerceparadise.com/paradise-report-2026-10-29",
+    "i18n": {
+      "tr": {
+        "t": "FTC, Walmart ve Target dahil 9 şirketten kişisel veriyle fiyat belirlemeyi açıklamalarını istedi",
+        "d": "28 Ekim'de verilen emirler dava değil, 45 günlük bir inceleme başlatıyor; kişiselleştirilmiş fiyatlandırma ABD'de mercek altında.",
+        "body": "Sektör bülteni Paradise Report'a göre ABD Federal Ticaret Komisyonu (FTC) 28 Ekim'de, aralarında Walmart ve Target'ın bulunduğu dokuz şirkete, kişisel verileri fiyat belirlemede nasıl kullandıklarını açıklamaları için emir gönderdi. Emirler bir davanın değil, 45 günlük bir incelemenin başlangıcı. Haber ikincil bir kaynaktan aktarıldığı için ayrıntıların FTC'nin açıklamasıyla teyit edilmesi önerilir.\n\nSatıcı için anlamı: Müşteri bazlı ya da davranışa göre dinamik fiyatlama kullanıyorsanız, hangi verinin fiyatı etkilediğini belgelemeniz ve müşteriye şeffaf anlatabilmeniz gerekecek. Tatil sezonunda fiyat testlerini yaparken kişisel veri kullanan kuralları gözden geçirmek makul bir önlem."
+      },
+      "en": {
+        "t": "FTC orders nine companies including Walmart and Target to explain personal-data pricing",
+        "d": "The 28 October orders open a 45-day study rather than a lawsuit, putting personalized pricing under scrutiny in the US.",
+        "body": "According to the Paradise Report newsletter, the US Federal Trade Commission on 28 October ordered nine companies, including Walmart and Target, to explain how they use personal data to set prices. The orders start a 45-day study rather than a lawsuit. Because this is relayed through a secondary source, the details should be confirmed against the FTC's own announcement.\n\nWhat it means for sellers: if you use customer-level or behavior-based dynamic pricing, you should be able to document which data influences prices and explain it transparently. Before running holiday price tests, it is prudent to review any rules that rely on personal data."
+      },
+      "de": {
+        "t": "FTC fordert von neun Unternehmen, darunter Walmart und Target, Auskunft zur Preisgestaltung mit Personendaten",
+        "d": "Die Anordnungen vom 28. Oktober eröffnen eine 45-tägige Untersuchung, keine Klage; personalisierte Preise stehen in den USA unter Beobachtung.",
+        "body": "Laut dem Newsletter Paradise Report hat die US-Handelsbehörde FTC am 28. Oktober neun Unternehmen, darunter Walmart und Target, angewiesen zu erklären, wie sie personenbezogene Daten zur Preisfestlegung nutzen. Die Anordnungen leiten eine 45-tägige Studie ein, keine Klage. Da die Meldung aus zweiter Hand stammt, sollten die Details anhand der FTC-Mitteilung geprüft werden.\n\nFür Händler: Wer kunden- oder verhaltensbasierte dynamische Preise nutzt, sollte dokumentieren können, welche Daten den Preis beeinflussen, und das transparent erklären. Vor Preistests in der Weihnachtssaison lohnt es sich, Regeln auf Basis personenbezogener Daten zu überprüfen."
+      },
+      "fr": {
+        "t": "La FTC demande à neuf entreprises dont Walmart et Target d'expliquer leurs prix fondés sur des données personnelles",
+        "d": "Les injonctions du 28 octobre ouvrent une étude de 45 jours, pas un procès ; la tarification personnalisée est sous surveillance aux États-Unis.",
+        "body": "Selon la newsletter Paradise Report, la Federal Trade Commission américaine a ordonné le 28 octobre à neuf entreprises, dont Walmart et Target, d'expliquer comment elles utilisent des données personnelles pour fixer leurs prix. Les injonctions lancent une étude de 45 jours et non une action en justice. L'information provenant d'une source secondaire, il convient de vérifier les détails auprès de la FTC.\n\nPour les vendeurs : si vous pratiquez une tarification dynamique par client ou selon le comportement, vous devez pouvoir documenter quelles données influencent le prix et l'expliquer clairement. Avant les tests de prix des fêtes, revoyez les règles reposant sur des données personnelles."
+      },
+      "es": {
+        "t": "La FTC exige a nueve empresas, incluidas Walmart y Target, explicar cómo fijan precios con datos personales",
+        "d": "Las órdenes del 28 de octubre abren un estudio de 45 días, no una demanda; la fijación personalizada de precios está bajo la lupa en EE. UU.",
+        "body": "Según el boletín Paradise Report, la Comisión Federal de Comercio de EE. UU. (FTC) ordenó el 28 de octubre a nueve empresas, entre ellas Walmart y Target, que expliquen cómo usan datos personales para fijar precios. Las órdenes inician un estudio de 45 días, no una demanda. Al tratarse de una fuente secundaria, conviene confirmar los detalles con el comunicado de la FTC.\n\nPara los vendedores: si usa precios dinámicos por cliente o por comportamiento, debe poder documentar qué datos influyen en el precio y explicarlo con transparencia. Antes de probar precios en la temporada navideña, conviene revisar las reglas basadas en datos personales."
+      },
+      "it": {
+        "t": "La FTC chiede a nove aziende, tra cui Walmart e Target, di spiegare i prezzi basati su dati personali",
+        "d": "Gli ordini del 28 ottobre avviano uno studio di 45 giorni, non una causa; i prezzi personalizzati sono sotto esame negli USA.",
+        "body": "Secondo la newsletter Paradise Report, la Federal Trade Commission statunitense il 28 ottobre ha ordinato a nove aziende, tra cui Walmart e Target, di spiegare come usano i dati personali per fissare i prezzi. Gli ordini avviano uno studio di 45 giorni, non una causa. Trattandosi di fonte secondaria, i dettagli vanno confermati con il comunicato della FTC.\n\nPer i venditori: se usate prezzi dinamici per cliente o basati sul comportamento, dovete poter documentare quali dati influenzano il prezzo e spiegarlo con trasparenza. Prima dei test di prezzo natalizi conviene rivedere le regole basate su dati personali."
+      }
+    }
+  },
+  {
     "c": "global",
     "dt": "27 Eki 2026",
     "tag": "Analiz",
