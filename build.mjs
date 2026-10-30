@@ -35,6 +35,8 @@ if (fs.existsSync(`${OUT}/index.html`)) {
 fs.copyFileSync("Commera_Site.html", `${OUT}/index.html`);          // kök = uygulama
 fs.mkdirSync(`${OUT}/uygula`, { recursive: true });
 fs.copyFileSync("Commera_Site.html", `${OUT}/uygula/index.html`);   // eski linkler için alias
+// Google Search Console doğrulama dosyaları (kök) — dogrulama/ klasöründen kopyalanır
+if (fs.existsSync("dogrulama")) for (const f of fs.readdirSync("dogrulama")) fs.copyFileSync(`dogrulama/${f}`, `${OUT}/${f}`);
 
 // 3) Widget → public/widget/ (yalnız gerekli statikler)
 fs.mkdirSync(`${OUT}/widget`, { recursive: true });
