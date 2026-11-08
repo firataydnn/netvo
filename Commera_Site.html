@@ -3851,9 +3851,14 @@ function nsShow(i){const el=document.getElementById('newsSlider');if(!el)return;
 function nsAuto(){if(NS_T)clearInterval(NS_T);NS_T=setInterval(()=>nsShow(NS_I+1),5500);}
 function nsStep(d){nsShow(NS_I+d);nsAuto();}
 function nsGo(k){nsShow(k);nsAuto();}
+// Anasayfa haber dagilimi: slider SADECE gercek fotografi (img) olan ilk 5 haberi alir
+// (haftalik ozet gibi fotosuz haberler banner'da duz kapak gostermesin); grid kalan 9'u alir.
+function _homeNewsAll(){return NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc);}
+function _homeSlider(){var all=_homeNewsAll();var wi=all.filter(a=>a.img);return (wi.length>=5?wi:wi.concat(all.filter(a=>!a.img))).slice(0,5);}
+function _homeTeaserList(){var all=_homeNewsAll();var sl=_homeSlider();return all.filter(a=>sl.indexOf(a)<0).slice(0,9);}
 function renderNewsSlider(){
  const el=document.getElementById('newsSlider');if(!el)return;
- const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc).slice(0,5);
+ const L=_homeSlider();
  if(!L.length){el.style.display='none';return;}
  el.style.display='';
  const ix=a=>NEWS.indexOf(a), catOf=a=>a.kose?'KÖŞE':(CATMAP[a.c]||a.c);
@@ -3871,7 +3876,7 @@ function renderHomeTeaser(){
  try{var _hd=document.getElementById('homeDate');if(_hd){var _l=({tr:'tr-TR',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT'}[LANG])||'tr-TR';_hd.textContent=new Date().toLocaleDateString(_l,{weekday:'long',day:'numeric',month:'long',year:'numeric'});}}catch(e){}
  const el=document.getElementById('magHomeTeaser');if(!el)return;
  // Slider ilk 5 haberi gösterir; grid bunlardan SONRAKİ 9 haberi gösterir (tekrar yok) = toplam 14.
- const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc).slice(5,14);
+ const L=_homeTeaserList();
  if(!L.length){el.innerHTML='';return;}
  const ix=a=>NEWS.indexOf(a), lead=L[0], side=L.slice(1,4), more=L.slice(4,9);
  const catOf=a=>a.kose?'KÖŞE':(CATMAP[a.c]||a.c), pill=a=>`<span class="catpill ${a.kose?'cat-kose':'cat-'+a.c}">${catOf(a)}</span>`;
