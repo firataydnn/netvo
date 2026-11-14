@@ -3334,7 +3334,10 @@ function go(p,o){ o=o||{};
   const t=h?(h.textContent||'').trim():p;
   const ann=document.getElementById('routeAnnouncer');
   if(ann)ann.textContent=t+' sayfası yüklendi';
-  document.title=(t?t+' — ':'')+'Netvo';
+  // Ana sayfa başlığı: haber-önce düzende ilk başlık "Gündem" olduğu için go() onu
+  // başlığa yazıyordu → ana sayfa marka/SEO başlığını kaybediyordu. Home özel-durum.
+  if(p==='home'){ document.title=({tr:'Netvo — Pazaryeri komisyonu ve kâr hesaplama · e-ticaret gündemi',en:'Netvo — Marketplace fee & profit calculator · e-commerce news',de:'Netvo — Marktplatz-Gebühren- & Gewinnrechner · E-Commerce-News',fr:'Netvo — Calculateur de frais et de profit · actus e-commerce',es:'Netvo — Calculadora de comisiones y beneficio · noticias e-commerce',it:'Netvo — Calcolatore commissioni e profitto · news e-commerce'}[LANG])||'Netvo — Pazaryeri komisyonu ve kâr hesaplama'; }
+  else { document.title=(t?t+' — ':'')+'Netvo'; }
   try{kbdUpgrade(el);}catch(e){}
   // URL: üst-düzey sayfa kendi temiz path'ini gösterir (/karsilastir, /ogren, /gundem…). Detay
   // sayfaları (mkpage/copage/dergiArt) URL'ini kendi açıcı fonksiyonu kurar → burada dokunulmaz.
