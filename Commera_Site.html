@@ -299,6 +299,16 @@
   .news-slider .ns-dot.on{background:#fff;width:22px}
   @media(max-width:720px){.news-slider{aspect-ratio:3/2}.news-slider .ns-bd{padding:16px 16px 22px}.news-slider .ns-bd h2{font-size:18px}.news-slider .ns-dek{display:none}.news-slider .ns-arrow{width:32px;height:32px;font-size:16px}.news-slider .ns-prev{left:8px}.news-slider .ns-next{right:8px}}
   /* ── GAZETE MANŞETİ (masthead) — "haber sitesi" kimliği ── */
+  /* ── Ana sayfa konu şeridi: canlı sayılı kategori çipleri ── */
+  .home-cats{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:2px 0 0}
+  .home-cats .hc-kick{flex-basis:100%;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .hc-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg,#fff);border-radius:999px;padding:8px 14px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--ink);transition:border-color .15s,transform .1s;line-height:1}
+  .hc-chip:hover{border-color:var(--ink);transform:translateY(-1px)}
+  .hc-chip .hc-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .hc-chip .hc-n{font-size:11.5px;font-weight:700;color:var(--muted);background:var(--bg-hover,#f3efe7);border-radius:999px;padding:1px 7px;min-width:18px;text-align:center}
+  .hc-chip.hc-all{border-color:var(--ink);background:var(--ink);color:#fff}
+  .hc-chip.hc-all .hc-n{color:#fff;background:rgba(255,255,255,.18)}
+  @media(max-width:720px){.home-cats{gap:7px}.hc-chip{padding:7px 11px;font-size:12.5px}}
   .mag-masthead{text-align:center;margin:6px 0 24px;border-bottom:3px double var(--ink);padding-bottom:16px}
   .mag-masthead .mm-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line-2);padding-bottom:9px;margin-bottom:13px}
   .mag-masthead .mm-edition{color:var(--brand);font-weight:700}
@@ -830,6 +840,7 @@ try{ window.NETVO_SB=(window.supabase&&window.supabase.createClient)?window.supa
   </div></section>
   <section class="blk" style="padding-top:12px;padding-bottom:0"><div class="container">
     <div class="news-slider" id="newsSlider" aria-roledescription="carousel" aria-label="Öne çıkan haberler"></div>
+    <div class="home-cats" id="homeCats" role="navigation" aria-label="Konu kategorileri"></div>
   </div></section>
   <section class="blk" style="padding-top:22px"><div class="container">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px">
@@ -3871,9 +3882,26 @@ function renderNewsSlider(){
  el.onmouseleave=nsAuto;
 }
 function renderNewsBanner(){const el=document.getElementById('newsBanner');if(!el)return;const L=NEWS.filter(a=>a.auto||LANG==='tr').slice().sort(byDateDesc);if(!L.length){el.style.display='none';return;}const a=L[0];const i=NEWS.indexOf(a);el.style.display='';el.setAttribute('onclick','openArticle('+i+')');el.innerHTML=`<span class="nb-tag">GÜNDEM</span><span class="nb-head">${_esc(a.t)}</span><span class="nb-go">Tüm haberler →</span>`;}
+// Ana sayfa konu şeridi: var olan kategori sistemini (CATMAP/CATIC/CATCOLOR) canlı
+// sayılarla ana sayfaya taşır. Çipe tıklayınca o kategorinin Gündem'ine gider.
+// Motor/haber üretimi değişmez — yalnızca var olanı ziyaretçiye görünür kılar.
+function renderHomeCats(){
+ var el=document.getElementById('homeCats');if(!el)return;
+ var LIST=NEWS.filter(function(a){return a.auto||LANG==='tr';});
+ var cnt={};LIST.forEach(function(a){if(a.kose)return;var c=a.c||'global';cnt[c]=(cnt[c]||0)+1;});
+ var KICK=({tr:'KONUNA GÖRE GÜNDEM',en:'BROWSE BY TOPIC',de:'NACH THEMA',fr:'PAR THÈME',es:'POR TEMA',it:'PER TEMA'}[LANG])||'KONUNA GÖRE GÜNDEM';
+ var ALLW=({tr:'Tümü',en:'All',de:'Alle',fr:'Tout',es:'Todo',it:'Tutto'}[LANG])||'Tümü';
+ var h='<div class="hc-kick">'+KICK+'</div>';
+ h+='<button class="hc-chip hc-all" onclick="homeCatGo(\'all\')" aria-label="'+ALLW+'"><span>'+ALLW+'</span><span class="hc-n">'+LIST.length+'</span></button>';
+ Object.keys(CATMAP).forEach(function(c){ if(!cnt[c])return;
+   h+='<button class="hc-chip" onclick="homeCatGo(\''+c+'\')" aria-label="'+_esc(CATMAP[c]||c)+'"><span class="hc-dot" style="background:'+(CATCOLOR[c]||'#888')+'"></span><span>'+(CATIC[c]||'')+' '+_esc(CATMAP[c]||c)+'</span><span class="hc-n">'+cnt[c]+'</span></button>'; });
+ el.innerHTML=h;
+}
+function homeCatGo(c){ try{MAG_CAT=c;}catch(e){} try{renderMagazine();}catch(e){} try{go('magazine');}catch(e){} }
 function renderHomeTeaser(){
  // Masthead tarihi (anasayfa haber-önce başlığı)
  try{var _hd=document.getElementById('homeDate');if(_hd){var _l=({tr:'tr-TR',en:'en-US',de:'de-DE',fr:'fr-FR',es:'es-ES',it:'it-IT'}[LANG])||'tr-TR';_hd.textContent=new Date().toLocaleDateString(_l,{weekday:'long',day:'numeric',month:'long',year:'numeric'});}}catch(e){}
+ try{renderHomeCats();}catch(e){}
  const el=document.getElementById('magHomeTeaser');if(!el)return;
  // Slider ilk 5 haberi gösterir; grid bunlardan SONRAKİ 9 haberi gösterir (tekrar yok) = toplam 14.
  const L=_homeTeaserList();
